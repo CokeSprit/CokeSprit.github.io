@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>CokeSprit</title>
+  <title>可乐精</title>
   <icon>https://www.gravatar.com/avatar/b765c05225fbf501f68a98a1395ba44b</icon>
-  <subtitle>爱生活，爱代码</subtitle>
+  <subtitle>爱生活,爱代码</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tomotoes.com/"/>
@@ -10,7 +10,7 @@
   <id>http://tomotoes.com/</id>
   
   <author>
-    <name>CokeSprit</name>
+    <name>可乐精</name>
     <email>2665281140@qq.com</email>
   </author>
   
