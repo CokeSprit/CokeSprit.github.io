@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cokesprit.top/"/>
-  <updated>2020-07-18T05:18:21.948Z</updated>
+  <updated>2020-07-18T05:22:43.353Z</updated>
   <id>http://cokesprit.top/</id>
   
   <author>
@@ -17,17 +17,17 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hexo博客 发布踩坑</title>
+    <title>hexo博客发布踩坑</title>
     <link href="http://cokesprit.top/posts/ffafe98e/"/>
     <id>http://cokesprit.top/posts/ffafe98e/</id>
     <published>2020-07-18T02:29:37.000Z</published>
-    <updated>2020-07-18T05:18:21.948Z</updated>
+    <updated>2020-07-18T05:22:43.353Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="hexo博客-Username-for-‘https-github-com-验证问题"><a href="#hexo博客-Username-for-‘https-github-com-验证问题" class="headerlink" title="hexo博客 Username for ‘https://github.com 验证问题"></a>hexo博客 <strong>Username for ‘<a href="https://github.com" target="_blank" rel="noopener">https://github.com</a></strong> 验证问题</h3><p>这时候 输入你的github邮箱账号 <span style="color:red;">（不是你的github名！！！）</span> 之后会弹出一个提示框 然后输入邮箱登录密码即可。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    <content type="html"><![CDATA[<p>hexo博客 <strong>Username for ‘<a href="https://github.com" target="_blank" rel="noopener">https://github.com</a></strong> 验证问题<br>这时候 输入你的github邮箱账号 <span style="color:red;">（不是你的github名！！！）</span> 之后会弹出一个提示框 然后输入邮箱登录密码即可。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
     <summary type="html">
     
-      hexo博客踩坑笔记
+      hexo博客 **Username for &#39;https://github.com** 验证问题
     
     </summary>
     
