@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cokesprit.top/"/>
-  <updated>2020-07-19T06:50:20.797Z</updated>
+  <updated>2020-07-19T08:32:48.754Z</updated>
   <id>http://cokesprit.top/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js实参求乘积</title>
+    <link href="http://cokesprit.top/posts/js-shican-qiu-chengji/"/>
+    <id>http://cokesprit.top/posts/js-shican-qiu-chengji/</id>
+    <published>2020-07-19T07:25:53.000Z</published>
+    <updated>2020-07-19T08:32:48.754Z</updated>
+    
+    <content type="html"><![CDATA[<p> 在解题之前我们先搞懂什么是js中的形参和实参？  </p><blockquote></blockquote><h5 id="js中的形参和实参"><a href="#js中的形参和实参" class="headerlink" title="js中的形参和实参"></a>js中的形参和实参</h5><pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 形式参数 形参</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">形参<span class="number">1</span>,形参<span class="number">2</span></span>)</span>{ <span class="comment">// 里面的就是形参</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length); <span class="comment">// 形参长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 实参长度</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//   实际参数 实参</span></span><br><span class="line">test(实参<span class="number">1</span>,实参<span class="number">2</span>,实参<span class="number">3</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><blockquote></blockquote><h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>形参和实参数量可以不相等。<br><span style="color:#f5871f;">arguments</span> 是一个对应于传递给函数的参数的<span style="color:#f5871f;">类数组对象</span>里面包含所有的实参!!!  </p><blockquote></blockquote><h5 id="js实参求乘积"><a href="#js实参求乘积" class="headerlink" title="js实参求乘积"></a>js实参求乘积</h5><p>了解了什么实参和形参接下来就可以愉快的码代码了  </p><pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>{</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length;i++){</span><br><span class="line">    a *= <span class="built_in">arguments</span>[i];</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; 在解题之前我们先搞懂什么是js中的形参和实参？  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;js中的形参和实参&quot;&gt;&lt;a href=&quot;#js中的形参和实参&quot; class=&quot;headerlink&quot; title=&quot;js中的形参和实参&quot;&gt;&lt;/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js面试题" scheme="http://cokesprit.top/tags/js%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>ASCII码 和 UNICODE码</title>
