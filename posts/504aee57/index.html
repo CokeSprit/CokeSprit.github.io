@@ -41,14 +41,14 @@
 
 
     
-    <meta name="description" content="ASCII码0-127占一个byte大小，UNICODE码涵盖ASCII码 255 以后就占两个 byte大小。   练习 写一个函数，接收任意一个字符串，算出字符串的总字节数。 12345678910111213function strbyte(str){       let sum &#x3D; 0 ;       for(let i &#x3D; 0; i &lt; str.length; i++){">
+    <meta name="description" content="ASCII码0-127占一个byte大小，UNICODE码涵盖ASCII码 255 以后就占两个 byte大小。   练习 写一个函数，接收任意一个字符串，算出字符串的总字节数。 12345678910111213function strByte(str){       let sum &#x3D; 0 ;       for(let i &#x3D; 0; i &lt; str.length; i++){">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ASCII码 和 UNICODE码">
 <meta property="og:url" content="http://cokesprit.top/posts/504aee57/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="ASCII码0-127占一个byte大小，UNICODE码涵盖ASCII码 255 以后就占两个 byte大小。   练习 写一个函数，接收任意一个字符串，算出字符串的总字节数。 12345678910111213function strbyte(str){       let sum &#x3D; 0 ;       for(let i &#x3D; 0; i &lt; str.length; i++){">
+<meta property="og:description" content="ASCII码0-127占一个byte大小，UNICODE码涵盖ASCII码 255 以后就占两个 byte大小。   练习 写一个函数，接收任意一个字符串，算出字符串的总字节数。 12345678910111213function strByte(str){       let sum &#x3D; 0 ;       for(let i &#x3D; 0; i &lt; str.length; i++){">
 <meta property="article:published_time" content="2020-07-19T02:18:33.000Z">
-<meta property="article:modified_time" content="2020-07-19T02:48:23.534Z">
+<meta property="article:modified_time" content="2020-07-19T06:50:20.797Z">
 <meta property="article:author" content="可乐精">
 <meta property="article:tag" content="js笔记">
 <meta name="twitter:card" content="summary">
@@ -229,7 +229,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>ASCII码0-127占一个byte大小，UNICODE码涵盖ASCII码 255 以后就占两个 byte大小。  </p>
 <h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p> 写一个函数，接收任意一个字符串，算出字符串的总字节数。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strbyte</span>(<span class="params">str</span>)</span>{</span><br><span class="line">       <span class="keyword">let</span> sum = <span class="number">0</span> ;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++){</span><br><span class="line">           <span class="keyword">if</span>(str.charCodeAt(i) &gt;= <span class="number">0</span> &amp;&amp; str.charCodeAt(i) &lt; <span class="number">127</span>){</span><br><span class="line">               sum = sum + <span class="number">1</span>;</span><br><span class="line">           }<span class="keyword">else</span>{</span><br><span class="line">               sum = sum + <span class="number">2</span>;</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">return</span> sum;</span><br><span class="line">   }</span><br><span class="line">   <span class="keyword">var</span>  str = <span class="string">"深爱之人藏心不挂嘴，久念之人在梦不在眼"</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(strbyte(str));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strByte</span>(<span class="params">str</span>)</span>{</span><br><span class="line">       <span class="keyword">let</span> sum = <span class="number">0</span> ;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++){</span><br><span class="line">           <span class="keyword">if</span>(str.charCodeAt(i) &gt;= <span class="number">0</span> &amp;&amp; str.charCodeAt(i) &lt; <span class="number">127</span>){</span><br><span class="line">               sum = sum + <span class="number">1</span>;</span><br><span class="line">           }<span class="keyword">else</span>{</span><br><span class="line">               sum = sum + <span class="number">2</span>;</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">return</span> sum;</span><br><span class="line">   }</span><br><span class="line">   <span class="keyword">var</span>  str = <span class="string">"深爱之人藏心不挂嘴，久念之人在梦不在眼"</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(strByte(str));</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -259,7 +259,7 @@
     <div class="content">
         
 <span class="post-time">
-    Última actualización<time datetime="2020-07-19T02:48:23.534Z" itemprop="dateUpdated">2020-07-19 10:48:23</time>
+    Última actualización<time datetime="2020-07-19T06:50:20.797Z" itemprop="dateUpdated">2020-07-19 14:50:20</time>
 </span>
 
 
