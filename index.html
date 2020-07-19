@@ -156,7 +156,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -191,6 +191,76 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-js中的-运算-和-运算"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/js-huo-bingqie/">js中的 ||运算 和 &amp;&amp;运算</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-19 21:54:30" datetime="2020-07-19T13:54:30.000Z"  itemprop="datePublished">2020-07-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h5 id="js中的-运算"><a href="#js中的-运算" class="headerlink" title="js中的 || 运算"></a>js中的 || 运算</h5><p>只要 || 前面为 false 的话那么就会往后走(直到碰到true)，走到最后不管是真是假都返回。</p>
+<hr>
+<h5 id="js中的-amp-amp-运算"><a href="#js中的-amp-amp-运算" class="headerlink" title="js中的 &amp;&amp; 运算"></a>js中的 &amp;&amp; 运算</h5><p>只要 &amp;&amp; 前面为 false 的话,那么就返回 &amp;&amp; 前面的值，不管你后面有多少个真都返回 true。</p>
+<hr>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>在javasript中 <mark>undefined</mark>,<mark>null</mark>,<mark>NaN</mark>,<mark>“ “</mark>,<mark>0</mark>,<mark>false</mark> 这些都是为false即假。</p>
+<hr>
+<h5 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h5><p>传一个参数进函数判断有没有输入名字</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">funciton test(name){</span><br><span class="line">    <span class="keyword">return</span> name || <span class="string">'您没有输入姓名'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 无参 -&gt; 等于空 -&gt; 既 假</span></span><br><span class="line"><span class="built_in">console</span>.log(test()); <span class="comment">//输出-&gt; 您没有输入姓名</span></span><br><span class="line"><span class="comment">// 有参 -&gt; 不等于上面那几个假值 既真</span></span><br><span class="line"><span class="built_in">console</span>.log(test(<span class="string">'晓明'</span>)); <span class="comment">//输出-&gt; 晓明</span></span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/js-huo-bingqie/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="w-js实参求乘积"
   class="article-card article-type-w" itemprop="blogPost">
 
@@ -215,12 +285,12 @@
 
     
         <p> 在解题之前我们先搞懂什么是js中的形参和实参？  </p>
-<blockquote>
-</blockquote>
-<h5 id="js中的形参和实参"><a href="#js中的形参和实参" class="headerlink" title="js中的形参和实参"></a>js中的形参和实参</h5><pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 形式参数 形参</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">形参<span class="number">1</span>,形参<span class="number">2</span></span>)</span>{ <span class="comment">// 里面的就是形参</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length); <span class="comment">// 形参长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 实参长度</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//   实际参数 实参</span></span><br><span class="line">test(实参<span class="number">1</span>,实参<span class="number">2</span>,实参<span class="number">3</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><blockquote>
-</blockquote>
-<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>形参和实参数量可以不相等。<br><span style="color:#f5871f;">arguments</span> 是一个对应于传递给函数的参数的<span style="color:#f5871f;">类数组对象</span>里面包含所有的实参!!!  </p>
-<blockquote>
+<h5 id="js中的形参和实参"><a href="#js中的形参和实参" class="headerlink" title="js中的形参和实参"></a>js中的形参和实参</h5><pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 形式参数 形参</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">形参<span class="number">1</span>,形参<span class="number">2</span></span>)</span>{ <span class="comment">// 里面的就是形参</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length); <span class="comment">// 形参长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 实参长度</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//   实际参数 实参</span></span><br><span class="line">test(实参<span class="number">1</span>,实参<span class="number">2</span>,实参<span class="number">3</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><blockquote>
+<ol>
+<li>形参和实参数量可以不相等。  </li>
+<li><span style="color:#f5871f;">arguments</span> 是一个对应于传递给函数的参数的<span style="color:#f5871f;">类数组对象</span>里面包含所有的实参!!!  </li>
+<li>实参里面传了值的可以在函数内部修改实参的值，如果实参里面并没有传入值，也给形参赋值了，这样是没有用的。</li>
+</ol>
 </blockquote>
 <h5 id="js实参求乘积"><a href="#js实参求乘积" class="headerlink" title="js实参求乘积"></a>js实参求乘积</h5><p>了解了什么实参和形参接下来就可以愉快的码代码了  </p>
 <pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>{</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length;i++){</span><br><span class="line">    a *= <span class="built_in">arguments</span>[i];</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><script>
@@ -245,7 +315,7 @@
     
         <div class="post-more-div">
             <a href="/posts/js-shican-qiu-chengji/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -313,7 +383,7 @@
     
         <div class="post-more-div">
             <a href="/posts/504aee57/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -375,7 +445,7 @@
     
         <div class="post-more-div">
             <a href="/posts/ffafe98e/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -449,7 +519,7 @@
     
         <div class="post-more-div">
             <a href="/posts/c3259ce2/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
