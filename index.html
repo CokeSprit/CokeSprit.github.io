@@ -41,12 +41,12 @@
 
 
     
-    <meta name="description" content="一名大二的在校生">
+    <meta name="description" content="web端开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CokeSprit">
 <meta property="og:url" content="http://cokesprit.top/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="一名大二的在校生">
+<meta property="og:description" content="web端开发">
 <meta property="article:author" content="可乐精">
 <meta name="twitter:card" content="summary">
     
@@ -156,7 +156,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -245,7 +245,7 @@
     
         <div class="post-more-div">
             <a href="/posts/js-huo-bingqie/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -315,7 +315,7 @@
     
         <div class="post-more-div">
             <a href="/posts/js-shican-qiu-chengji/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -356,7 +356,13 @@
     
         <p>ASCII码0-127占一个byte大小，UNICODE码涵盖ASCII码 255 以后就占两个 byte大小。  </p>
 <h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p> 写一个函数，接收任意一个字符串，算出字符串的总字节数。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strByte</span>(<span class="params">str</span>)</span>{</span><br><span class="line">       <span class="keyword">let</span> sum = <span class="number">0</span> ;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; str.length; i++){</span><br><span class="line">           <span class="keyword">if</span>(str.charCodeAt(i) &gt;= <span class="number">0</span> &amp;&amp; str.charCodeAt(i) &lt; <span class="number">127</span>){</span><br><span class="line">               sum = sum + <span class="number">1</span>;</span><br><span class="line">           }<span class="keyword">else</span>{</span><br><span class="line">               sum = sum + <span class="number">2</span>;</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line">       <span class="keyword">return</span> sum;</span><br><span class="line">   }</span><br><span class="line">   <span class="keyword">var</span>  str = <span class="string">"深爱之人藏心不挂嘴，久念之人在梦不在眼"</span>;</span><br><span class="line">   <span class="built_in">console</span>.log(strByte(str));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBytes</span>(<span class="params">str</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> sth = str.length; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; str.length; i++){</span><br><span class="line">        <span class="keyword">var</span> stc = str.charCodeAt(i);</span><br><span class="line">        <span class="keyword">if</span>(stc &gt; <span class="number">255</span>){ </span><br><span class="line">            sth++; </span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> sth;</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(getBytes(<span class="string">'Hello js，我们做好朋友吧！'</span>));</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h5><p style="text-indent:2em;">先获取到字符串的长度,将其存入一个变量 sth ,然后利用循环判断编码是否大于 255 ,如果大于 stl++ 。</p>
+
+
+
+
+
 
 
 
@@ -383,7 +389,7 @@
     
         <div class="post-more-div">
             <a href="/posts/504aee57/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -445,7 +451,7 @@
     
         <div class="post-more-div">
             <a href="/posts/ffafe98e/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -519,7 +525,7 @@
     
         <div class="post-more-div">
             <a href="/posts/c3259ce2/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
