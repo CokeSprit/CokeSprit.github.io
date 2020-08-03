@@ -6,7 +6,7 @@
     
     
     
-    <title>作用域之对象的隐式属性[[scope]] | CokeSprit | 爱生活,爱编程</title>
+    <title>作用域与作用域链图解 | CokeSprit | 爱生活,爱编程</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -41,17 +41,26 @@
 
 
     
-    <meta name="description" content="对象 -&gt; 有些属性是我们无法访问的,JS引擎内部固有的隐式属性[[scope]]。 [[scope]] -&gt; 作用域 函数创建时,生成的一个JS内部的隐式属性。 函数存储作用域链的容器。Scope Chain -&gt; 作用域链 AO&#x2F;GO AO, 函数的执行期上下文 GO, 全局的执行期上下文 作用域链其实就是把这些AO&#x2F;GO形成链式从上到下排列起来,形成一个链式关系,这个链式关">
+    <meta name="description" content="作用域与作用域链 栗子一123456789function a(){    function b(){        var b &#x3D; 2;    }    var a &#x3D; 1;    b();}var c &#x3D; 3;a(); 图解当a函数被定义时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="作用域之对象的隐式属性[[scope]]">
-<meta property="og:url" content="http://cokesprit.top/posts/scope/index.html">
+<meta property="og:title" content="作用域与作用域链图解">
+<meta property="og:url" content="http://cokesprit.top/posts/ab6a816/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="对象 -&gt; 有些属性是我们无法访问的,JS引擎内部固有的隐式属性[[scope]]。 [[scope]] -&gt; 作用域 函数创建时,生成的一个JS内部的隐式属性。 函数存储作用域链的容器。Scope Chain -&gt; 作用域链 AO&#x2F;GO AO, 函数的执行期上下文 GO, 全局的执行期上下文 作用域链其实就是把这些AO&#x2F;GO形成链式从上到下排列起来,形成一个链式关系,这个链式关">
-<meta property="article:published_time" content="2020-08-02T13:13:15.000Z">
-<meta property="article:modified_time" content="2020-08-02T13:38:21.991Z">
+<meta property="og:description" content="作用域与作用域链 栗子一123456789function a(){    function b(){        var b &#x3D; 2;    }    var a &#x3D; 1;    b();}var c &#x3D; 3;a(); 图解当a函数被定义时">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/1.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/2.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/3.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/4.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/5.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/6.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/7.png">
+<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/8.png">
+<meta property="article:published_time" content="2020-08-03T01:42:56.000Z">
+<meta property="article:modified_time" content="2020-08-03T13:56:21.289Z">
 <meta property="article:author" content="可乐精">
 <meta property="article:tag" content="js作用域作用域链">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cokesprit.top/posts/ab6a816/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
     
@@ -153,7 +162,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">作用域之对象的隐式属性[[scope]]</div>
+        <div class="flex-col header-title ellipsis">作用域与作用域链图解</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -193,19 +202,19 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scope-gt-作用域"><span class="post-toc-number">1.</span> <span class="post-toc-text">[[scope]] -&gt; 作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Scope-Chain-gt-作用域链"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Scope Chain -&gt; 作用域链</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栗子一"><span class="post-toc-number">1.</span> <span class="post-toc-text">栗子一</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#图解"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">图解</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栗子二"><span class="post-toc-number">2.</span> <span class="post-toc-text">栗子二</span></a></li></ol>
         </nav>
     </aside>
    
-<article id="post-作用域之对象的隐式属性-scope"
+<article id="post-作用域与作用域链图解"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">作用域之对象的隐式属性[[scope]]</h1>
+        <h1 class="post-card-title">作用域与作用域链图解</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
-            <time class="post-time" title="2020-08-02 21:13:15" datetime="2020-08-02T13:13:15.000Z"  itemprop="datePublished">2020-08-02</time>
+            <time class="post-time" title="2020-08-03 09:42:56" datetime="2020-08-03T01:42:56.000Z"  itemprop="datePublished">2020-08-03</time>
 
             <br id="mybreak"/>
             
@@ -227,12 +236,85 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>对象 -&gt; 有些属性是我们无法访问的,JS引擎内部固有的隐式属性[[scope]]。</p>
-<h3 id="scope-gt-作用域"><a href="#scope-gt-作用域" class="headerlink" title="[[scope]] -> 作用域"></a>[[scope]] -&gt; 作用域</h3><ol>
-<li>函数创建时,生成的一个JS内部的隐式属性。</li>
-<li>函数<mark>存储</mark>作用域链<mark>的容器</mark>。<h4 id="Scope-Chain-gt-作用域链"><a href="#Scope-Chain-gt-作用域链" class="headerlink" title="Scope Chain -> 作用域链"></a>Scope Chain -&gt; 作用域链</h4> AO/GO<br> AO, 函数的执行期上下文<br> GO, 全局的执行期上下文<br> <mark>作用域链其实就是把这些AO/GO形成链式从上到下排列起来,形成一个链式关系,这个链式关系其实就是作用域链。</mark><br> <mark>作用域链也可以说是存储AO/GO的容器。</mark><br> 当函数执行完成以后,AO是要销毁的,也就是说AO是一个即时的存储容器;它不是长期保存的,它是根据函数的执行周期来保存。</li>
-</ol>
-<script>
+            <p>作用域与作用域链</p>
+<h4 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    b();</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h5><p><mark>当a函数被定义时</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>当a函数被执行时(前一刻)</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>当b函数被定义时</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>当b函数被执行时(前一刻)</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>当b函数被执行结束后</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>回归b函数被定义时的状态</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>当a函数被执行结束时</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><mark>回归a函数被定义时的状态</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/8.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>以上这就是作用域和作用域链的最基本的一个形态</p>
+<hr>
+<h4 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h4><p>这个例子比较特殊涉及到闭包,有关闭包的在下一篇更新。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line">test();</span><br></pre></td></tr></tbody></table></figure>
+
+<div class="loading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <p>正在更新~~~~</p>
+    </div><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -257,12 +339,12 @@
     <div class="content">
         
 <span class="post-time">
-    Última actualización<time datetime="2020-08-02T13:38:21.991Z" itemprop="dateUpdated">2020-08-02 21:38:21</time>
+    Última actualización<time datetime="2020-08-03T13:56:21.289Z" itemprop="dateUpdated">2020-08-03 21:56:21</time>
 </span>
 
 
         
-        原文链接：<a href="/posts/scope/" target="_blank" rel="external">http://cokesprit.top/posts/scope/</a>
+        原文链接：<a href="/posts/ab6a816/" target="_blank" rel="external">http://cokesprit.top/posts/ab6a816/</a>
         
     </div>
     <footer>
@@ -294,7 +376,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/scope/&title=《作用域之对象的隐式属性[[scope]]》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -304,22 +386,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/scope/&title=《作用域之对象的隐式属性[[scope]]》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/scope/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/ab6a816/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《作用域之对象的隐式属性[[scope]]》 — CokeSprit&url=http://cokesprit.top/posts/scope/&via=http://cokesprit.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《作用域与作用域链图解》 — CokeSprit&url=http://cokesprit.top/posts/ab6a816/&via=http://cokesprit.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/scope/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/ab6a816/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -339,21 +421,13 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/ab6a816/" id="post-prev" class="post-nav-link">
-        <h4 class="title" >
-          上一篇：作用域与作用域链图解
-        </h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/posts/tote-bricks/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：搬砖日记">下一篇：搬砖日记</h4>
+      <a href="/posts/scope/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：作用域之对象的隐式属性[[scope]]">下一篇：作用域之对象的隐式属性[[scope]]</h4>
       </a>
     </div>
   
@@ -446,7 +520,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/scope/&title=《作用域之对象的隐式属性[[scope]]》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -456,22 +530,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/scope/&title=《作用域之对象的隐式属性[[scope]]》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/scope/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/ab6a816/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《作用域之对象的隐式属性[[scope]]》 — CokeSprit&url=http://cokesprit.top/posts/scope/&via=http://cokesprit.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《作用域与作用域链图解》 — CokeSprit&url=http://cokesprit.top/posts/ab6a816/&via=http://cokesprit.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/scope/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/ab6a816/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -482,7 +556,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwElEQVR42u3ay24bMRAEQP3/TztAkIMvq3QPH5aB4klYC1R5DwNOD1+veH39Xd8/f3/y/nmy5+aFi4u7zP16u562zp887fP0Cp4MuLi497l58Yo2LUteYsDFxf1MblKwZkRcXNzfy80RbYHDxcX9TG7S/CStSw463qvh4uIucGeB6d7Px/NdXFzcTVOJvKjlgcjsd//tg4uLe4WbD0U2NC1vW6N8Z1xc3DvcNuZoo5C2FBbNDy4u7jFue+WiHbHkUUi0Dy4u7mFuS9xVkmZPcHFx73BXws38MLQ+bnmMRXBxca9w24sXs06rLZev2bkJFxd3mdvGoHuvX2wISXFxcY9xZ9HGSjxavz5cXNyL3PXq0Y5YZrEsLi7uaW4dSYxmneshKS4u7k1uW8jyqPREXIKLi3uH245D8nCkLWfRq8HFxb3IbaOKFrSycHFxf4qbr11HorzwRe8MFxd3K7ctKLPrF+1RKfkrLi7uaW5bvNrmZ/b96GIWLi7uYe7smJLs0zZFw1EKLi7uD3Hb485sKPufsxguLu4Hc3dd3Gx3xsXFvclNmp8k+lxpcqLSiYuLe4U7C0yT4euJfwMXF/cw9w+abwYc+KAtCQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aQW7EIAwF0Ln/pVOp6q4N+saAqPRYRSMCL7OwsM3nE4/neyRzkpn5mpMDFxe3zX2G423p/pzfz2MDLi7uee440BSWC0Jb8qmvv+Pi4l7G7Z86kqCGi4v7v7jjX97oSYDDxcW9k5uHoX7YOpSr4eLirslWouLmjueN9V1cXNwi9ymOudSov+/P+ri4uEe4yeEj2aYDraZDuLi4u7l5OySZ30mNosIKLi7uNdw85OXl1CSo/fEWLi7uQW714sVcy6TamInSHlxc3A3cuQZq/knVXZIrXLi4uCe5nWNKtZCaXNqIqji4uLjbuPkLyTZz1y/KLRlcXNwj3LlANpc45X9coQuEi4u7lFsNW0kyU22c4OLi3sMdQ8dfmTzPlUXKnR9cXNyl3CquWjCdK6oW6ru4uLgbuNUl8sCXzCwfpHBxcQ9yk4JpXlmJqi/FiiguLu55bj46oS2/tlXu9uDi4i7ldrqZeSNk7qJGKyDi4uK2uZ3gNfdu6+oGLi7uQW7nIkUSvPKjTNRKwcXFvYbboSRhLjpO4eLiXsld1t0ttnJxcXHPc6utlE7ilF/paOVquLi4DW6nYNpJnPoNXVxc3A3cL8883UTjsUvmAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

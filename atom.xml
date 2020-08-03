@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cokesprit.top/"/>
-  <updated>2020-08-02T13:38:21.991Z</updated>
+  <updated>2020-08-03T13:56:21.289Z</updated>
   <id>http://cokesprit.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>作用域与作用域链图解</title>
+    <link href="http://cokesprit.top/posts/ab6a816/"/>
+    <id>http://cokesprit.top/posts/ab6a816/</id>
+    <published>2020-08-03T01:42:56.000Z</published>
+    <updated>2020-08-03T13:56:21.289Z</updated>
+    
+    <content type="html"><![CDATA[<p>作用域与作用域链</p><h4 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    b();</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure><h5 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h5><p><mark>当a函数被定义时</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/1.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>当a函数被执行时(前一刻)</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/2.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>当b函数被定义时</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/3.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>当b函数被执行时(前一刻)</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/4.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>当b函数被执行结束后</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/5.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>回归b函数被定义时的状态</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/6.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>当a函数被执行结束时</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/7.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p><mark>回归a函数被定义时的状态</mark></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/ab6a816/8.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>以上这就是作用域和作用域链的最基本的一个形态</p><hr><h4 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h4><p>这个例子比较特殊涉及到闭包,有关闭包的在下一篇更新。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line">test();</span><br></pre></td></tr></tbody></table></figure><div class="loading">        <div></div>        <div></div>        <div></div>        <div></div>        <div></div>        <p>正在更新~~~~</p>    </div><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;作用域与作用域链&lt;/p&gt;
+&lt;h4 id=&quot;栗子一&quot;&gt;&lt;a href=&quot;#栗子一&quot; class=&quot;headerlink&quot; title=&quot;栗子一&quot;&gt;&lt;/a&gt;栗子一&lt;/h4&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;t
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js作用域作用域链" scheme="http://cokesprit.top/tags/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>作用域之对象的隐式属性[[scope]]</title>
