@@ -156,7 +156,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -224,6 +224,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>当a函数被执行时(前一刻)</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -232,6 +233,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>当b函数被定义时</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -240,6 +242,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>当b函数被执行时(前一刻)</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -248,6 +251,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>当b函数被执行结束后</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -256,6 +260,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>回归b函数被定义时的状态</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -264,6 +269,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>当a函数被执行结束时</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -272,6 +278,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<hr>
 <p><mark>回归a函数被定义时的状态</mark></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -283,16 +290,54 @@
 <p>以上这就是作用域和作用域链的最基本的一个形态</p>
 <hr>
 <h4 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h4><p>这个例子比较特殊涉及到闭包,有关闭包的在下一篇更新。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line">test();</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line">test3();</span><br></pre></td></tr></tbody></table></figure>
+<p><mark>当test1函数被定义时</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/9.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p><mark>当test1函数被执行时(前一刻),函数test2被定义</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/10.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p><mark>当test1函数被执行结束时</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/11.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这时test1的AO并没有被销毁只是把线剪断了,test1的AO本该是要被销毁的,但test2已经被返回到外部且死死的抓住test1的AO不放,所有test1的AO不能销毁。<br>注意这里是重头戏,这时候就形成了闭包了！！！</p>
+<hr>
+<p><mark>test3执行</mark></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab6a816/12.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
-<div class="loading">
+<p>这时的 test3 === test2。<br>a是在test1的AO里面的,为什么可以打印出来a? 就像之前讲的test2还死死的攥着test1的AO,当在自己的AO上没有查找到,则想test1的AO查找,实际操作的仍然是test1的AO。</p>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>每个函数都有全局执行上下文GO</p>
+<!-- <div class="loading">
         <div></div>
         <div></div>
         <div></div>
         <div></div>
         <div></div>
         <p>正在更新~~~~</p>
-    </div><script>
+    </div> --><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -314,7 +359,7 @@
     
         <div class="post-more-div">
             <a href="/posts/ab6a816/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -380,7 +425,7 @@
     
         <div class="post-more-div">
             <a href="/posts/scope/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -512,7 +557,7 @@
     
         <div class="post-more-div">
             <a href="/posts/tote-bricks/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -676,7 +721,7 @@
     
         <div class="post-more-div">
             <a href="/posts/GO-AO/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -769,7 +814,7 @@
     
         <div class="post-more-div">
             <a href="/posts/callee-caller/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -850,7 +895,7 @@
     
         <div class="post-more-div">
             <a href="/posts/call-apply/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -929,7 +974,7 @@
     
         <div class="post-more-div">
             <a href="/posts/iife/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -998,7 +1043,7 @@
     
         <div class="post-more-div">
             <a href="/posts/digui/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -1068,7 +1113,7 @@
     
         <div class="post-more-div">
             <a href="/posts/js-huo-bingqie/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -1138,7 +1183,7 @@
     
         <div class="post-more-div">
             <a href="/posts/js-shican-qiu-chengji/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
