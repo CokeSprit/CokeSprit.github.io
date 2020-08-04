@@ -41,17 +41,20 @@
 
 
     
-    <meta name="description" content="闭包的定义：当内部函数被返回到外部保存时,就一定会形成闭包。  闭包的优点:  避免全全局变量的污染; 私有成员的存在; 希望一个变量长期存储在内存中。   闭包的缺点:  闭包会产生原来的作用域链不释放。 过渡的闭包可能会导致内存泄漏或加载过慢,因为它常驻内存。   闭包的用途:可以用来做数据缓存。  闭包的三个特性:  函数嵌套函数。 函数内部可以引用外部的参数和变量。 参数和变量不会被垃圾回">
+    <meta name="description" content="闭包的定义：当内部函数被返回到外部并保存时,就一定会形成闭包。  闭包的优点:  避免全全局变量的污染; 私有成员的存在; 希望一个变量长期存储在内存中。   闭包的缺点:  闭包会产生原来的作用域链不释放。 过渡的闭包可能会导致内存泄漏或加载过慢,因为它常驻内存。   闭包的用途:可以用来做数据缓存。  闭包的三个特性:  函数嵌套函数。 函数内部可以引用外部的参数和变量。 参数和变量不会被垃圾">
 <meta property="og:type" content="article">
 <meta property="og:title" content="闭包基础">
 <meta property="og:url" content="http://cokesprit.top/posts/3d615767/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="闭包的定义：当内部函数被返回到外部保存时,就一定会形成闭包。  闭包的优点:  避免全全局变量的污染; 私有成员的存在; 希望一个变量长期存储在内存中。   闭包的缺点:  闭包会产生原来的作用域链不释放。 过渡的闭包可能会导致内存泄漏或加载过慢,因为它常驻内存。   闭包的用途:可以用来做数据缓存。  闭包的三个特性:  函数嵌套函数。 函数内部可以引用外部的参数和变量。 参数和变量不会被垃圾回">
+<meta property="og:description" content="闭包的定义：当内部函数被返回到外部并保存时,就一定会形成闭包。  闭包的优点:  避免全全局变量的污染; 私有成员的存在; 希望一个变量长期存储在内存中。   闭包的缺点:  闭包会产生原来的作用域链不释放。 过渡的闭包可能会导致内存泄漏或加载过慢,因为它常驻内存。   闭包的用途:可以用来做数据缓存。  闭包的三个特性:  函数嵌套函数。 函数内部可以引用外部的参数和变量。 参数和变量不会被垃圾">
+<meta property="og:image" content="http://cokesprit.top/posts/3d615767/1.png">
+<meta property="og:image" content="http://cokesprit.top/posts/3d615767/2.png">
 <meta property="article:published_time" content="2020-08-04T02:30:39.000Z">
-<meta property="article:modified_time" content="2020-08-04T02:47:52.145Z">
+<meta property="article:modified_time" content="2020-08-04T08:40:53.636Z">
 <meta property="article:author" content="可乐精">
 <meta property="article:tag" content="闭包">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cokesprit.top/posts/3d615767/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
     
@@ -193,7 +196,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栗子"><span class="post-toc-number">1.</span> <span class="post-toc-text">栗子</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栗子"><span class="post-toc-number">1.</span> <span class="post-toc-text">栗子</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#练习"><span class="post-toc-number">2.</span> <span class="post-toc-text">练习</span></a></li></ol>
         </nav>
     </aside>
    
@@ -227,7 +230,7 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>闭包的定义：当内部函数被返回到外部保存时,就一定会形成闭包。</p>
+            <p>闭包的定义：当内部函数被返回到外部并保存时,就一定会形成闭包。</p>
 <hr>
 <p>闭包的优点:</p>
 <ol>
@@ -251,7 +254,29 @@
 <li>参数和变量不会被垃圾回收机制回收。</li>
 </ol>
 <hr>
-<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(x);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line"></span><br><span class="line">test3(); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 这就是一个简单闭包</span></span><br></pre></td></tr></tbody></table></figure><script>
+<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(x);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line"></span><br><span class="line">test3(); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 这就是一个简单闭包</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p><mark>面包管理器</mark></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">breadMgr</span>(<span class="params">num</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> breadNum = <span class="built_in">arguments</span>[<span class="number">0</span>] || <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">supply</span>(<span class="params"></span>)</span>{</span><br><span class="line">        breadNum += <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(breadNum);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sale</span>(<span class="params"></span>)</span>{</span><br><span class="line">        breadNum--;</span><br><span class="line">        <span class="built_in">console</span>.log(breadNum);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [supply,sale];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> breadMgr = breadMgr(<span class="number">60</span>);</span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">0</span>](); <span class="comment">// 补给</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/3d615767/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p><mark>星期天计划管理器</mark></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sunSched</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> sunSched = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> operation = {</span><br><span class="line">        setSched: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>)</span>{</span><br><span class="line">            sunSched = thing;</span><br><span class="line">        },</span><br><span class="line">        showSched: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"My schedule on sunday is "</span> + sunSched);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> operation; <span class="comment">// 把对象返回出去</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> sunSched = sunSched(); <span class="comment">//执行返回 operation</span></span><br><span class="line"></span><br><span class="line">sunSched.setSched(<span class="string">'studying'</span>);</span><br><span class="line">sunSched.showSched();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/3d615767/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -276,7 +301,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-04T02:47:52.145Z" itemprop="dateUpdated">2020-08-04 10:47:52</time>
+    Last updated: <time datetime="2020-08-04T08:40:53.636Z" itemprop="dateUpdated">2020-08-04 16:40:53</time>
 </span>
 
 
