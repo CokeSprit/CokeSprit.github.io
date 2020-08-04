@@ -60,7 +60,7 @@
 <meta property="og:image" content="http://cokesprit.top/posts/ab6a816/11.jpg">
 <meta property="og:image" content="http://cokesprit.top/posts/ab6a816/12.jpg">
 <meta property="article:published_time" content="2020-08-03T01:42:56.000Z">
-<meta property="article:modified_time" content="2020-08-04T02:24:20.383Z">
+<meta property="article:modified_time" content="2020-08-04T02:30:42.466Z">
 <meta property="article:author" content="可乐精">
 <meta property="article:tag" content="js作用域作用域链">
 <meta name="twitter:card" content="summary">
@@ -355,15 +355,19 @@
             </figure>
 
 <p>这时的 test3 === test2。<br>a是在test1的AO里面的,为什么可以打印出来a? 就像之前讲的test2还死死的攥着test1的AO,当在自己的AO上没有查找到,则想test1的AO查找,实际操作的仍然是test1的AO。</p>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>每个函数都有全局执行上下文GO</p>
-<!-- <div class="loading">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <p>正在更新~~~~</p>
-    </div> --><script>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ol>
+<li>每个函数都有全局执行上下文GO。</li>
+<li>函数自己的AO产生了,就会把自己AO排在作用域链的最顶端,其他AO和全局GO就会被挤下去。</li>
+<li>函数被定义的时候它拿的是它上一级的作用域链。<!-- <div class="loading">
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <div></div>
+     <p>正在更新~~~~</p>
+ </div> --></li>
+</ol>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -388,7 +392,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-04T02:24:20.383Z" itemprop="dateUpdated">2020-08-04 10:24:20</time>
+    Last updated: <time datetime="2020-08-04T02:30:42.466Z" itemprop="dateUpdated">2020-08-04 10:30:42</time>
 </span>
 
 
@@ -470,7 +474,15 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/3d615767/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：闭包基础
+        </h4>
+      </a>
+    </div>
   
 
   
