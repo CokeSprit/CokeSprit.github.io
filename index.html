@@ -135,6 +135,7 @@
           
 
             </div>
+            
         
       </ul>
         
@@ -189,6 +190,95 @@
 
 <div class="container body-wrap">
     <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-window-xxx-xxx-与-return-xxx的区别"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/8b19ee89/">window.xxx=xxx 与 return xxx的区别</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-05 10:40:50" datetime="2020-08-05T02:40:50.000Z"  itemprop="datePublished">2020-08-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>区别:</p>
+<ol>
+<li>使用 return 出去后需要把执行函数赋值给一个全局变量,然后再执行这个全局变量的函数</li>
+<li>使用 window 直接将函数保存到GO。既把函数保存到 window 上的一个变量,然后再执行 window 上变量所对应的函数。 </li>
+</ol>
+<hr>
+<p>下面来举例说明</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 使用return xxx</span></span><br><span class="line"><span class="keyword">var</span> add = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</span><br><span class="line">     <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>{</span><br><span class="line">         a++;</span><br><span class="line">         <span class="built_in">console</span>.log(a);</span><br><span class="line">     }</span><br><span class="line">     <span class="keyword">return</span> add;  <span class="comment">// 把内部的add函数返回给全局变量add</span></span><br><span class="line">})();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line">add();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/8b19ee89/1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用window.xxx = xxx</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>{</span><br><span class="line">        a++;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">window</span>.add = add; <span class="comment">// 把内部的add函数保存到window.add上</span></span><br><span class="line">})();</span><br><span class="line">add();</span><br><span class="line">add();</span><br><span class="line">add();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/8b19ee89/2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>从上面的例子可以看出window.xxx = xxx 和 return xxx 二者是结果是一样,使用<mark>window.xxx = xxx 也是可以形成闭包</mark>。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/8b19ee89/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
     
         <li class="post-list-item fade">
             <article id="post-闭包基础"
@@ -1169,76 +1259,6 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-js中的-运算-和-运算"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/js-huo-bingqie/">js中的 ||运算 和 &amp;&amp;运算</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-07-19 21:54:30" datetime="2020-07-19T13:54:30.000Z"  itemprop="datePublished">2020-07-19</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h5 id="js中的-运算"><a href="#js中的-运算" class="headerlink" title="js中的 || 运算"></a>js中的 || 运算</h5><p>只要 || 前面为 false 的话那么就会往后走(直到碰到true)，走到最后不管是真是假都返回。</p>
-<hr>
-<h5 id="js中的-amp-amp-运算"><a href="#js中的-amp-amp-运算" class="headerlink" title="js中的 &amp;&amp; 运算"></a>js中的 &amp;&amp; 运算</h5><p>只要 &amp;&amp; 前面为 false 的话,那么就返回 &amp;&amp; 前面的值，不管你后面有多少个true。</p>
-<hr>
-<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>在javasript中 <mark>undefined</mark>,<mark>null</mark>,<mark>NaN</mark>,<mark>“ “</mark>,<mark>0</mark>,<mark>false</mark> 这些都是为false即假。</p>
-<hr>
-<h5 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h5><p>写一个函数如果有传入姓名则 return  出去，否则 return 您没有输入姓名</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">funciton test(name){</span><br><span class="line">    <span class="keyword">return</span> name || <span class="string">'您没有输入姓名'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 无参 -&gt; 等于空 -&gt; 既 假</span></span><br><span class="line"><span class="built_in">console</span>.log(test()); <span class="comment">//输出-&gt; 您没有输入姓名</span></span><br><span class="line"><span class="comment">// 有参 -&gt; 不等于上面那几个假值 既真</span></span><br><span class="line"><span class="built_in">console</span>.log(test(<span class="string">'晓明'</span>)); <span class="comment">//输出-&gt; 晓明</span></span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/js-huo-bingqie/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1252,6 +1272,8 @@
 </div>
 
         <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
     <div class="footer-content">
         <span class="power">
             <i class="icon icon-lg icon-copyright"></i>
@@ -1266,21 +1288,27 @@
         <br/>
 
         <!-- 访问人数 -->
-        <!-- <span>
+        <span>
             
 	<i class="icon icon-lg icon-user">
 <span id="busuanzi_container_site_uv" style='display:none'>
-       访问用户：<span id="busuanzi_value_site_uv"></span>
+       本站访客数：<span id="busuanzi_value_site_uv"></span>
     </span>人</i>
     ·
     <i class="icon icon-lg icon-eye">
     <span id="busuanzi_container_site_pv" style='display:none'>
-      访问次数：<span id="busuanzi_value_site_pv"></span>
+      本站总访问量：<span id="busuanzi_value_site_pv"></span>
     </span>次
     </i>
 
 
-        </span> -->
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
         <br/>
     </div>
 </footer>

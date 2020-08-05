@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cokesprit.top/about/index.html</loc>
+    
+    <lastmod>2020-08-04T09:09:33.201Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cokesprit.top/posts/3d615767/</loc>
     
     <lastmod>2020-08-04T08:40:53.636Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>http://cokesprit.top/categories/index.html</loc>
     
     <lastmod>2020-07-18T02:22:12.008Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cokesprit.top/about/index.html</loc>
-    
-    <lastmod>2020-06-20T02:10:27.979Z</lastmod>
     
   </url>
   
