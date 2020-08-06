@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cokesprit.top/about/index.html</loc>
+    <loc>http://cokesprit.top/posts/constructor/</loc>
     
-    <lastmod>2020-08-04T09:09:33.201Z</lastmod>
+    <lastmod>2020-08-06T08:46:34.419Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cokesprit.top/posts/8b19ee89/</loc>
+    
+    <lastmod>2020-08-05T03:13:54.640Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://cokesprit.top/posts/3d615767/</loc>
     
-    <lastmod>2020-08-04T08:40:53.636Z</lastmod>
+    <lastmod>2020-08-04T09:10:05.509Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://cokesprit.top/about/index.html</loc>
+    
+    <lastmod>2020-08-04T09:09:33.201Z</lastmod>
     
   </url>
   
