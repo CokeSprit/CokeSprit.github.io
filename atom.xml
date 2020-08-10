@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cokesprit.top/"/>
-  <updated>2020-08-06T08:46:34.419Z</updated>
+  <updated>2020-08-10T01:58:50.519Z</updated>
   <id>http://cokesprit.top/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>包装类</title>
+    <link href="http://cokesprit.top/posts/52c58cb2/"/>
+    <id>http://cokesprit.top/posts/52c58cb2/</id>
+    <published>2020-08-10T00:40:22.000Z</published>
+    <updated>2020-08-10T01:58:50.519Z</updated>
+    
+    <content type="html"><![CDATA[<p>原始值没有自己的方法和属性！！！<br>原始类型：Number、String、Boolean、Undefined、Null<br>引用类型：Object、Function、Aarry、Date、RegExp</p><h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">a.len = <span class="number">3</span>;</span><br><span class="line"><span class="comment">//a.len的时候系统转化成 ↓ </span></span><br><span class="line">    <span class="comment">// new Number(1).len = 3; new 前面没有东西接收,</span></span><br><span class="line">    <span class="comment">// 只能 delete 掉,所有打印 undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a.len); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这时候我们就用到了包装类 </span></span><br><span class="line"><span class="comment">// 变成实例化数字对象就可以有自己的属性和方法了</span></span><br><span class="line"><span class="keyword">var</span> aa = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>);</span><br><span class="line">aa.len = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa.len); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 经过 new Number 包装了之后再参与运算又会返回原始值</span></span><br><span class="line"><span class="keyword">var</span> d = aa + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 像这种经过包装了之后再返回原始值的有三种</span></span><br><span class="line">    <span class="comment">// new Number   new String    new Boolean</span></span><br></pre></td></tr></tbody></table></figure><p>运行结果：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/52c58cb2/1.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><hr><p>上面我们说了原始值是没有方法和属性的那下面这个又是怎么回事呢？</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abcd"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这又是怎么回事呢？</span></span><br><span class="line"><span class="built_in">console</span>.log(str.length); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统帮我做了如下的包装 ↓</span></span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">String</span>(str).length; </span><br><span class="line">    <span class="comment">// String 是有length这个属性的,所以可以通过这样的包装来访问到String里面独有的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其实系统打印的是</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">String</span>(str).length); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 面试如果别人问你字符串有没有 length 属性？</span></span><br><span class="line">    <span class="comment">//记住字符串没有 length 属性 中间是经过了一层包装类</span></span><br></pre></td></tr></tbody></table></figure><p>运行结果:</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/52c58cb2/2.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;原始值没有自己的方法和属性！！！&lt;br&gt;原始类型：Number、String、Boolean、Undefined、Null&lt;br&gt;引用类型：Object、Function、Aarry、Date、RegExp&lt;/p&gt;
+&lt;h4 id=&quot;包装类&quot;&gt;&lt;a href=&quot;#包装类&quot; c
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js对象" scheme="http://cokesprit.top/tags/js%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>构造函数实例化的原理</title>
