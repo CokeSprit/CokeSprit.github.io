@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://cokesprit.top/"/>
-  <updated>2020-08-10T01:58:50.519Z</updated>
+  <updated>2020-08-11T09:25:22.788Z</updated>
   <id>http://cokesprit.top/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>instanceof</title>
+    <link href="http://cokesprit.top/posts/instanceof/"/>
+    <id>http://cokesprit.top/posts/instanceof/</id>
+    <published>2020-08-11T09:12:18.000Z</published>
+    <updated>2020-08-11T09:25:22.788Z</updated>
+    
+    <content type="html"><![CDATA[<p><mark>instanceof </mark> 判断该该对象是否是该实例化构造函数构造出来的,是返回true不是返回false。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{}</span><br><span class="line"> <span class="keyword">var</span> car = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>{}</span><br><span class="line"> <span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p <span class="keyword">instanceof</span> Car); <span class="comment">// false</span></span><br><span class="line"> <span class="built_in">console</span>.log(car <span class="keyword">instanceof</span> Car); <span class="comment">// true</span></span><br><span class="line">  <span class="built_in">console</span>.log(car <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">   <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> Aarry); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">     <span class="built_in">console</span>.log({} <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">      <span class="built_in">console</span>.log({} <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure><p>总结：A对象的原型到底有没有B的原型,有的话就是 true,没有就是false。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;mark&gt;instanceof &lt;/mark&gt; 判断该该对象是否是该实例化构造函数构造出来的,是返回true不是返回false。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;g
+      
+    
+    </summary>
+    
+    
+    
+      <category term="面试/笔试" scheme="http://cokesprit.top/tags/%E9%9D%A2%E8%AF%95-%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>in</title>
+    <link href="http://cokesprit.top/posts/5fec8e4e/"/>
+    <id>http://cokesprit.top/posts/5fec8e4e/</id>
+    <published>2020-08-11T08:58:35.000Z</published>
+    <updated>2020-08-11T09:25:31.396Z</updated>
+    
+    <content type="html"><![CDATA[<p><makr>in</makr> 判断属性是否存在对象里。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = {</span><br><span class="line">    brand:<span class="string">'Benz'</span>,</span><br><span class="line">    color:<span class="string">'white'</span></span><br><span class="line">}</span><br><span class="line"> <span class="comment">// car对象不存在 displacement</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'displacement'</span> <span class="keyword">in</span>  car); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure><hr><p>in 不排除原型上自定义的属性。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> car = {</span><br><span class="line">    brand:<span class="string">'Benz'</span>,</span><br><span class="line">    color:<span class="string">'white'</span></span><br><span class="line">}</span><br><span class="line">Car.prototype = {</span><br><span class="line">    displacement: <span class="string">'3.5'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'displacement'</span> <span class="keyword">in</span> car); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;makr&gt;in&lt;/makr&gt; 判断属性是否存在对象里。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/spa
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hasOwnProperty</title>
+    <link href="http://cokesprit.top/posts/hasOwnProperty/"/>
+    <id>http://cokesprit.top/posts/hasOwnProperty/</id>
+    <published>2020-08-11T02:02:08.000Z</published>
+    <updated>2020-08-11T09:26:15.495Z</updated>
+    
+    <content type="html"><![CDATA[<p><mark>hasOwnProperty()</mark>如果对象具有指定名称的属性，则返回turn否则返回false</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.brand = <span class="string">'farrari'</span>;</span><br><span class="line">    <span class="keyword">this</span>.color = <span class="string">'red'</span>;</span><br><span class="line">    <span class="keyword">this</span>.displacement = <span class="string">'6.0'</span>;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"> Car.prototype = {</span><br><span class="line">     lang:<span class="number">5</span>,</span><br><span class="line">     width:<span class="number">2.5</span></span><br><span class="line"> }</span><br><span class="line"> <span class="built_in">Object</span>.prototype.name = <span class="string">'Object'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'第一次打印'</span>)</span><br><span class="line"> <span class="comment">// 连Car.prototype 和 Object.prototype 上自定义的属性都打印出来了 </span></span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> car){</span><br><span class="line">     <span class="built_in">console</span>.log(key + <span class="string">' : '</span>+car[key]);</span><br><span class="line"> }</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">var</span> car = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'使用了hasOwnProperty()方法之后'</span>)</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> car){</span><br><span class="line">        <span class="keyword">if</span>(car.hasOwnProperty(key)){ </span><br><span class="line">             <span class="built_in">console</span>.log(car[key]);</span><br><span class="line">        }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure><p>运行结果：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/hasOwnProperty/1.png" alt="" title="">                </div>                <div class="image-caption"></div>            </figure><p>总结：hasOwnproperty()主要用来找对象自身的属性,排除原型上自定义的属性</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;mark&gt;hasOwnProperty()&lt;/mark&gt;如果对象具有指定名称的属性，则返回turn否则返回false&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js对象" scheme="http://cokesprit.top/tags/js%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对象枚举</title>
+    <link href="http://cokesprit.top/posts/1313d393/"/>
+    <id>http://cokesprit.top/posts/1313d393/</id>
+    <published>2020-08-11T01:39:31.000Z</published>
+    <updated>2020-08-11T01:59:53.632Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实JavaScript并没有真正意义上的枚举,在 JavaScript 中有遍历就是有枚举。</p><hr><p>对象的遍历使用 for…in</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 for...in </span></span><br><span class="line"><span class="keyword">var</span> car = {</span><br><span class="line">    brand:<span class="string">'Ferrari'</span>,</span><br><span class="line">    color:<span class="string">'red'</span>,</span><br><span class="line">    displacement:<span class="string">'6.0'</span>,</span><br><span class="line">    lang:<span class="string">'5.5'</span>,</span><br><span class="line">    width:<span class="string">'2.5'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> car){</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  重点！！！</span></span><br><span class="line">    <span class="comment">// console.log(car.key);  // 为什么打印 undefined？</span></span><br><span class="line">    <span class="comment">// 因为 js 处理的时候是：car.key -&gt; car['key'] -&gt; undefined</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(key + <span class="string">' : '</span> + car[key]);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>运行结果：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/1313d393/1.png" alt title>                </div>                <div class="image-caption"></div>            </figure><hr><p>数组是特殊的对象它也可以使用for…in来遍历</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>] ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> arr){</span><br><span class="line">    <span class="built_in">console</span>.log(arr[i]);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>运行结果：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/posts/1313d393/2.png" alt title>                </div>                <div class="image-caption"></div>            </figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;其实JavaScript并没有真正意义上的枚举,在 JavaScript 中有遍历就是有枚举。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;对象的遍历使用 for…in&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js对象" scheme="http://cokesprit.top/tags/js%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>包装类</title>

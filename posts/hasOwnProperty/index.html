@@ -6,13 +6,13 @@
     
     
     
-    <title>作用域与作用域链图解 | CokeSprit | 爱生活,爱编程</title>
+    <title>hasOwnProperty | CokeSprit | 爱生活,爱编程</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="js作用域作用域链">
+    <meta name="keywords" content="js对象">
     
     
 
@@ -41,30 +41,19 @@
 
 
     
-    <meta name="description" content="作用域与作用域链 栗子一123456789function a(){    function b(){        var b &#x3D; 2;    }    var a &#x3D; 1;    b();}var c &#x3D; 3;a(); 图解当a函数被定义时">
+    <meta name="description" content="hasOwnProperty()如果对象具有指定名称的属性，则返回turn否则返回false 1234567891011121314151617181920212223242526function Car(){    this.brand &#x3D; &#39;farrari&#39;;    this.color &#x3D; &#39;red&#39;;    this.displacement &#x3D; &#39;6.0&#39;;}  Car.prototyp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="作用域与作用域链图解">
-<meta property="og:url" content="http://cokesprit.top/posts/ab6a816/index.html">
+<meta property="og:title" content="hasOwnProperty">
+<meta property="og:url" content="http://cokesprit.top/posts/hasOwnProperty/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="作用域与作用域链 栗子一123456789function a(){    function b(){        var b &#x3D; 2;    }    var a &#x3D; 1;    b();}var c &#x3D; 3;a(); 图解当a函数被定义时">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/1.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/2.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/3.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/4.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/5.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/6.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/7.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/8.png">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/9.jpg">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/10.jpg">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/11.jpg">
-<meta property="og:image" content="http://cokesprit.top/posts/ab6a816/12.jpg">
-<meta property="article:published_time" content="2020-08-03T01:42:56.000Z">
-<meta property="article:modified_time" content="2020-08-04T02:30:42.466Z">
+<meta property="og:description" content="hasOwnProperty()如果对象具有指定名称的属性，则返回turn否则返回false 1234567891011121314151617181920212223242526function Car(){    this.brand &#x3D; &#39;farrari&#39;;    this.color &#x3D; &#39;red&#39;;    this.displacement &#x3D; &#39;6.0&#39;;}  Car.prototyp">
+<meta property="og:image" content="http://cokesprit.top/posts/hasOwnProperty/1.png">
+<meta property="article:published_time" content="2020-08-11T02:02:08.000Z">
+<meta property="article:modified_time" content="2020-08-11T09:26:15.495Z">
 <meta property="article:author" content="可乐精">
-<meta property="article:tag" content="js作用域作用域链">
+<meta property="article:tag" content="js对象">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cokesprit.top/posts/ab6a816/1.png">
+<meta name="twitter:image" content="http://cokesprit.top/posts/hasOwnProperty/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
     
@@ -167,7 +156,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">作用域与作用域链图解</div>
+        <div class="flex-col header-title ellipsis">hasOwnProperty</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -204,22 +193,15 @@
 
 <div class="container body-wrap">
     
-    <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
-            <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栗子一"><span class="post-toc-number">1.</span> <span class="post-toc-text">栗子一</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#图解"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">图解</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#栗子二"><span class="post-toc-number">2.</span> <span class="post-toc-text">栗子二</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#补充"><span class="post-toc-number">3.</span> <span class="post-toc-text">补充</span></a></li></ol>
-        </nav>
-    </aside>
-   
-<article id="post-作用域与作用域链图解"
+<article id="post-hasOwnProperty"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">作用域与作用域链图解</h1>
+        <h1 class="post-card-title">hasOwnProperty</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
-            <time class="post-time" title="2020-08-03 09:42:56" datetime="2020-08-03T01:42:56.000Z"  itemprop="datePublished">2020-08-03</time>
+            <time class="post-time" title="2020-08-11 10:02:08" datetime="2020-08-11T02:02:08.000Z"  itemprop="datePublished">2020-08-11</time>
 
             <br id="mybreak"/>
             
@@ -241,133 +223,18 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>作用域与作用域链</p>
-<h4 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    b();</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure>
-<h5 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h5><p><mark>当a函数被定义时</mark></p>
+            <p><mark>hasOwnProperty()</mark>如果对象具有指定名称的属性，则返回turn否则返回false</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.brand = <span class="string">'farrari'</span>;</span><br><span class="line">    <span class="keyword">this</span>.color = <span class="string">'red'</span>;</span><br><span class="line">    <span class="keyword">this</span>.displacement = <span class="string">'6.0'</span>;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"> Car.prototype = {</span><br><span class="line">     lang:<span class="number">5</span>,</span><br><span class="line">     width:<span class="number">2.5</span></span><br><span class="line"> }</span><br><span class="line"> <span class="built_in">Object</span>.prototype.name = <span class="string">'Object'</span>;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'第一次打印'</span>)</span><br><span class="line"> <span class="comment">// 连Car.prototype 和 Object.prototype 上自定义的属性都打印出来了 </span></span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> car){</span><br><span class="line">     <span class="built_in">console</span>.log(key + <span class="string">' : '</span>+car[key]);</span><br><span class="line"> }</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">var</span> car = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line"> <span class="built_in">console</span>.log(<span class="string">'使用了hasOwnProperty()方法之后'</span>)</span><br><span class="line"> <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> car){</span><br><span class="line">        <span class="keyword">if</span>(car.hasOwnProperty(key)){ </span><br><span class="line">             <span class="built_in">console</span>.log(car[key]);</span><br><span class="line">        }</span><br><span class="line"> }</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/ab6a816/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当a函数被执行时(前一刻)</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当b函数被定义时</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当b函数被执行时(前一刻)</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当b函数被执行结束后</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/5.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>回归b函数被定义时的状态</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/6.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当a函数被执行结束时</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/7.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>回归a函数被定义时的状态</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/8.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>以上这就是作用域和作用域链的最基本的一个形态</p>
-<hr>
-<h4 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h4><p>这个例子比较特殊涉及到闭包,有关闭包的在下一篇更新。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line">test3();</span><br></pre></td></tr></tbody></table></figure>
-<p><mark>当test1函数被定义时</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/9.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当test1函数被执行时(前一刻),函数test2被定义</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/10.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>当test1函数被执行结束时</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/11.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>这时test1的AO并没有被销毁只是把线剪断了,test1的AO本该是要被销毁的,但test2已经被返回到外部且死死的抓住test1的AO不放,所有test1的AO不能销毁。<br>注意这里是重头戏,这时候就形成了闭包了！！！</p>
-<hr>
-<p><mark>test3执行</mark></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/ab6a816/12.jpg" alt="" title="">
+                    <img src="/posts/hasOwnProperty/1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
 
-<p>这时的 test3 === test2。<br>a是在test1的AO里面的,为什么可以打印出来a? 就像之前讲的test2还死死的攥着test1的AO,当在自己的AO上没有查找到,则想test1的AO查找,实际操作的仍然是test1的AO。</p>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ol>
-<li>每个函数都有全局执行上下文GO。</li>
-<li>函数自己的AO产生了,就会把自己AO排在作用域链的最顶端,其他AO和全局GO就会被挤下去。</li>
-<li>函数被定义的时候它拿的是它上一级的作用域链。<!-- <div class="loading">
-     <div></div>
-     <div></div>
-     <div></div>
-     <div></div>
-     <div></div>
-     <p>正在更新~~~~</p>
- </div> --></li>
-</ol>
+<p>总结：hasOwnproperty()主要用来找对象自身的属性,排除原型上自定义的属性</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -393,12 +260,12 @@
     <div class="content">
         
 <span class="post-time">
-    Última actualización<time datetime="2020-08-04T02:30:42.466Z" itemprop="dateUpdated">2020-08-04 10:30:42</time>
+    Última actualización<time datetime="2020-08-11T09:26:15.495Z" itemprop="dateUpdated">2020-08-11 17:26:15</time>
 </span>
 
 
         
-        原文链接：<a href="/posts/ab6a816/" target="_blank" rel="external">http://cokesprit.top/posts/ab6a816/</a>
+        原文链接：<a href="/posts/hasOwnProperty/" target="_blank" rel="external">http://cokesprit.top/posts/hasOwnProperty/</a>
         
     </div>
     <footer>
@@ -420,7 +287,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/" rel="tag">js作用域作用域链</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E5%AF%B9%E8%B1%A1/" rel="tag">js对象</a></li></ul>
 
 
             
@@ -430,7 +297,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/hasOwnProperty/&title=《hasOwnProperty》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -440,22 +307,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/hasOwnProperty/&title=《hasOwnProperty》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/ab6a816/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/hasOwnProperty/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《作用域与作用域链图解》 — CokeSprit&url=http://cokesprit.top/posts/ab6a816/&via=http://cokesprit.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hasOwnProperty》 — CokeSprit&url=http://cokesprit.top/posts/hasOwnProperty/&via=http://cokesprit.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/ab6a816/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/hasOwnProperty/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -478,9 +345,9 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/posts/3d615767/" id="post-prev" class="post-nav-link">
+      <a href="/posts/5fec8e4e/" id="post-prev" class="post-nav-link">
         <h4 class="title" >
-          上一篇：闭包基础
+          上一篇：in
         </h4>
       </a>
     </div>
@@ -488,8 +355,8 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/posts/scope/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：作用域之对象的隐式属性[[scope]]">下一篇：作用域之对象的隐式属性[[scope]]</h4>
+      <a href="/posts/1313d393/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：对象枚举">下一篇：对象枚举</h4>
       </a>
     </div>
   
@@ -593,7 +460,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/hasOwnProperty/&title=《hasOwnProperty》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -603,22 +470,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/ab6a816/&title=《作用域与作用域链图解》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/hasOwnProperty/&title=《hasOwnProperty》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/ab6a816/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/hasOwnProperty/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《作用域与作用域链图解》 — CokeSprit&url=http://cokesprit.top/posts/ab6a816/&via=http://cokesprit.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hasOwnProperty》 — CokeSprit&url=http://cokesprit.top/posts/hasOwnProperty/&via=http://cokesprit.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/ab6a816/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/hasOwnProperty/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -629,7 +496,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aQW7EIAwF0Ln/pVOp6q4N+saAqPRYRSMCL7OwsM3nE4/neyRzkpn5mpMDFxe3zX2G423p/pzfz2MDLi7uee440BSWC0Jb8qmvv+Pi4l7G7Z86kqCGi4v7v7jjX97oSYDDxcW9k5uHoX7YOpSr4eLirslWouLmjueN9V1cXNwi9ymOudSov+/P+ri4uEe4yeEj2aYDraZDuLi4u7l5OySZ30mNosIKLi7uNdw85OXl1CSo/fEWLi7uQW714sVcy6TamInSHlxc3A3cuQZq/knVXZIrXLi4uCe5nWNKtZCaXNqIqji4uLjbuPkLyTZz1y/KLRlcXNwj3LlANpc45X9coQuEi4u7lFsNW0kyU22c4OLi3sMdQ8dfmTzPlUXKnR9cXNyl3CquWjCdK6oW6ru4uLgbuNUl8sCXzCwfpHBxcQ9yk4JpXlmJqi/FiiguLu55bj46oS2/tlXu9uDi4i7ldrqZeSNk7qJGKyDi4uK2uZ3gNfdu6+oGLi7uQW7nIkUSvPKjTNRKwcXFvYbboSRhLjpO4eLiXsld1t0ttnJxcXHPc6utlE7ilF/paOVquLi4DW6nYNpJnPoNXVxc3A3cL8883UTjsUvmAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aQW4DIQwF0N7/0qlUdVcN+bYnTio9VqMJgccsLGP4+orb46f9fa72uep/c8PFxR1zH8d2RUn6VJ/PBlxc3H1uEpjOxPO/rj5QbsDFxf1Mbj7ZVZ8kqOHi4v4v7rlnvplZjbu4uLgDbrL5yQetvnnJXg0XF3fAnRRM73pequ/i4uKOTyXOAaW6vZnM+zsOLi7uCjdPR/Jp8lJpb6m4uLib3F6omhRY84+Ci4u7ye2FsPn75sEtLi7uCjc/5JhvgeZvcHFxd7hzXF767G14Lqs4uLi4L+P2iiDJ0OcFJP8tVHFwcXFv5VZDWI676w0uLu67uHlak6REzV1XkAzh4uLucKuFy/yYJE968lILLi7uDrdXYU2CV++o9ck4uLi4K9zztYlqyWN0B6RXMMXFxX0BNy9u5hue3mhR+MPFxV3k5tuYvJxRLYVEy8PFxV3k5i2h59DywnBxcVe41YCSsHrHrtVfcXFxX82tBq/qoUt+QBulSri4uIvc+bWtuy5hPOmDi4v7Ydx84mRJzVwMFxf347nV5KZ3RQMXF/dd3GqCki/mrjFxcXE3uZOCaTUYVcsiuLi469xv0xtsw9Zf6UMAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
