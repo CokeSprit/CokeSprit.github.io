@@ -41,16 +41,15 @@
 
 
     
-    <meta name="description" content="原型链原型链：沿着proto去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; professor">
+    <meta name="description" content="原型链原型链：沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; profe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原型链">
 <meta property="og:url" content="http://cokesprit.top/posts/bf8cf30/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="原型链原型链：沿着proto去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; professor">
+<meta property="og:description" content="原型链原型链：沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; profe">
 <meta property="og:image" content="http://cokesprit.top/posts/bf8cf30/1.png">
-<meta property="og:image" content="http://cokesprit.top/posts/bf8cf30/2.png">
 <meta property="article:published_time" content="2020-08-14T09:15:54.000Z">
-<meta property="article:modified_time" content="2020-08-14T11:01:08.371Z">
+<meta property="article:modified_time" content="2020-08-15T07:24:15.111Z">
 <meta property="article:author" content="可乐精">
 <meta property="article:tag" content="js原型&#x2F;原型链">
 <meta name="twitter:card" content="summary">
@@ -163,7 +162,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -197,7 +196,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原型链"><span class="post-toc-number">1.</span> <span class="post-toc-text">原型链</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#问题1"><span class="post-toc-number">2.</span> <span class="post-toc-text">问题1</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#问题2"><span class="post-toc-number">3.</span> <span class="post-toc-text">问题2</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#补充"><span class="post-toc-number">4.</span> <span class="post-toc-text">补充</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#原型链"><span class="post-toc-number">1.</span> <span class="post-toc-text">原型链</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#补充"><span class="post-toc-number">2.</span> <span class="post-toc-text">补充</span></a></li></ol>
         </nav>
     </aside>
    
@@ -231,31 +230,17 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p><mark>原型链：</mark>沿着<strong>proto</strong>去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。</p>
+            <h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p><mark>原型链：</mark>沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Professor.prototype.tSkill = <span class="string">'JAVA'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Professor</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> professor = <span class="keyword">new</span> Professor();</span><br><span class="line"></span><br><span class="line">Teacher.prototype = professor;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.mSkill = <span class="string">'JS/JQ'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> teacher = <span class="keyword">new</span> Teacher();</span><br><span class="line"></span><br><span class="line">Student.prototype = teacher;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.pSkill = <span class="string">'HTML/CSS'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> student = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="built_in">console</span>.log(student);</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/bf8cf30/1.png" alt="" title="">
+                    <img src="/posts/bf8cf30/1.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
 <p>我没有的属性我到我的原型上找,如果没有就一直往上找,这样就形成了一条链条。</p>
-<hr>
-<h4 id="问题1"><a href="#问题1" class="headerlink" title="问题1"></a>问题1</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.smoke = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.weight--;</span><br><span class="line">        <span class="comment">// 普通的函数如果返回值不写的话默认返回的是 undefined</span></span><br><span class="line">        <span class="comment">// 构造函数通过实例化返回 this</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Person.prototype = {</span><br><span class="line">    weight:<span class="number">130</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person();</span><br><span class="line">person.smoke();</span><br><span class="line"><span class="built_in">console</span>.log(person.weight); <span class="comment">// 129</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype); <span class="comment">// 里面的 weight 是130</span></span><br><span class="line"><span class="comment">// 执行过程</span></span><br><span class="line">    <span class="comment">// 发现(Person)里面没有weight,就去 Person.prototype 取weight</span></span><br><span class="line">    <span class="comment">// 然后再给给自己加一个this.weight</span></span><br><span class="line">    <span class="comment">// 然后 this.weight = this.weight - 1</span></span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<h4 id="问题2"><a href="#问题2" class="headerlink" title="问题2"></a>问题2</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// (1)</span></span><br><span class="line"><span class="keyword">var</span> obj1 = {};</span><br><span class="line"><span class="built_in">console</span>.log(obj1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// (2)</span></span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br><span class="line"><span class="comment">// 前两者的构造函数都指向Object</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// (3)</span></span><br><span class="line">functon Objc(){}</span><br><span class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> Objc();</span><br><span class="line"><span class="built_in">console</span>.log(obj3);</span><br><span class="line"><span class="comment">// obj3的构造器(constructor)指向的是构造函数Objc()</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/bf8cf30/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p><mark>总结:</mark>原型的原型是由系统自带的Object构造出来的。</p>
 <hr>
 <h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>所有的对象都有原型,包括原型的本身<br>原型的顶端是<mark>Object.prototype</mark>!!!<br>原型链上面的增删改只能是它自己本身!!!<br>原型的原型是由系统自带的Object构造出来的</p>
 <script>
@@ -283,7 +268,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-14T11:01:08.371Z" itemprop="dateUpdated">2020-08-14 19:01:08</time>
+    Última actualización<time datetime="2020-08-15T07:24:15.111Z" itemprop="dateUpdated">2020-08-15 15:24:15</time>
 </span>
 
 
@@ -365,7 +350,15 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/3837d091/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Object.create
+        </h4>
+      </a>
+    </div>
   
 
   
