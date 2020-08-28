@@ -192,6 +192,468 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-callee和caller"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/callee-caller/">callee-caller</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-24 18:45:47" datetime="2020-07-24T10:45:47.000Z"  itemprop="datePublished">2020-07-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h4><p>callee是arguments的属性,<mark>代表当前函数的引用(名字)</mark>,在函数内部使用，主要用来配合立即执行函数。<br>接下来让我们来认识 callee</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee); <span class="comment">//打印的是这个函数本身</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这两组是一样的</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length);<span class="comment">// 打印形参的长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee.length);<span class="comment">//打印形参的长度</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 打印实参的长度</span></span><br><span class="line">}</span><br><span class="line">test(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/callee-caller/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><mark>callee 配合立即执行函数</mark></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用递归求 n-1 的累加和 </span></span><br><span class="line"><span class="keyword">var</span> sum = (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">1</span>){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> n + <span class="built_in">arguments</span>.callee(n<span class="number">-1</span>);</span><br><span class="line">}(<span class="number">10</span>));</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/callee-caller/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="caller"><a href="#caller" class="headerlink" title="caller"></a>caller</h4><p><mark>返回当前被调用的函数的引用</mark>。<br>这听起来有点绕,让我们使用代码来更好的理解</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    test2();</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(test2.caller); </span><br><span class="line">    <span class="comment">//这里打印的是 test1,因为test1()调用了test2并且test1执行了。</span></span><br><span class="line">    <span class="comment">// 在被调用函数里面打印被调用函数的caller 它可以打印出谁在调用它。</span></span><br><span class="line">    <span class="comment">// 注意一定是要被真正执行才能打印出来！！！</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">test1();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/callee-caller/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>在严格模式下 callee 和 caller 会报错!!!</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/callee-caller/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95-%E7%AC%94%E8%AF%95/" rel="tag">面试/笔试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-call-apply方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/call-apply/">call/apply方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-24 12:20:37" datetime="2020-07-24T04:20:37.000Z"  itemprop="datePublished">2020-07-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>作用：call() 和 apply() 都是用来更改 this 指向;<br>call()：call(this指向的对象, 参数1, 参数2, 参数n);<br>apply()：apply(this指向的对象, []);<br>不同之处：apply() 第二个参数是数组,实际开发中用的比较多的是apply();</p>
+<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><h5 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h5><p>让 newCar1和newCar2 拥有Car构造函数的的所有属性以及方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Car </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">brand,color</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.brand = brand;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">    <span class="keyword">this</span>.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.color+<span class="string">"的"</span>+<span class="keyword">this</span>.brand+<span class="string">"正在行驶"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">    <span class="keyword">var</span> newCar1 = {</span><br><span class="line">        pdiliang:<span class="string">'3.0'</span></span><br><span class="line">    };</span><br><span class="line">    <span class="keyword">var</span> newCar2 = {</span><br><span class="line">        pdiliang:<span class="string">'2.0'</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    Car.call(newCar1,<span class="string">"奔驰"</span>,<span class="string">"白色"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(newCar1);</span><br><span class="line"></span><br><span class="line">    Car.apply(newCar2,[<span class="string">"五菱宏光"</span>,<span class="string">"米色"</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(newCar2);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：<br>可以看到 newCar1 和 newCar2 拥有了Car的属性和方法<br><img src="/posts/call-apply/1.png" alt=""></p>
+<h5 id="栗子一讲解："><a href="#栗子一讲解：" class="headerlink" title="栗子一讲解："></a>栗子一讲解：</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当使用 newCar1/newCar2 的时候 Car 变成内部的情况是这样的</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{</span><br><span class="line">    newCar1.brand = brand;</span><br><span class="line">    newCar1.color = color;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{</span><br><span class="line">    newCar2.brand = brand;</span><br><span class="line">    newCar2.color = color;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 因为 call/apply更改了 this 的指向</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h5><p>买车案例</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 买车案例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">brand,color,displacement</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.brand = brand;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">    <span class="keyword">this</span>.displacement = displacement;</span><br><span class="line">    <span class="keyword">this</span>.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'排量为'</span>+ <span class="keyword">this</span>.displacement + <span class="string">'的'</span> + <span class="keyword">this</span>.color + <span class="keyword">this</span>.brand;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Preson</span>(<span class="params">opt</span>)</span>{</span><br><span class="line">    <span class="comment">// 借用 Car 的属性和方法</span></span><br><span class="line">    Car.apply(<span class="keyword">this</span>,[opt.brand,opt.color,opt.displacement]);</span><br><span class="line">    <span class="keyword">this</span>.name = opt.name;</span><br><span class="line">    <span class="keyword">this</span>.age  = opt.age;</span><br><span class="line">    <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(</span><br><span class="line">            <span class="string">'年龄'</span>+ <span class="keyword">this</span>.age + <span class="string">'岁姓名为'</span>+<span class="keyword">this</span>.name+<span class="string">'买了一辆'</span>+<span class="keyword">this</span>.info()</span><br><span class="line">        );</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> pt = <span class="keyword">new</span> Preson({</span><br><span class="line">    brand:<span class="string">'法拉利'</span>,</span><br><span class="line">    color:<span class="string">'红色'</span>,</span><br><span class="line">    displacement:<span class="string">'3.5'</span>,</span><br><span class="line">    name:<span class="string">'黄一蓝'</span>,</span><br><span class="line">    age:<span class="string">'20'</span></span><br><span class="line">});</span><br><span class="line">pt.say();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/call-apply/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="call-和-apply-的使用场景"><a href="#call-和-apply-的使用场景" class="headerlink" title="call() 和 apply()的使用场景"></a>call() 和 apply()的使用场景</h4><ol>
+<li>以前写了一个功能不太完整，这时候可以写一个新的功能来补充完整，这个时候呢就可以使用 call() 和apply() 这两个方法去借用，以前功能相对应的方法和函数。</li>
+<li>在工作的过程中很多人一起写个大功能，这个时候可以分组来写，最终统一去调用,一起协同作战。</li>
+<li>分类：比如写一个东西，它有几种不同的类型，我们就可以分开写最后汇总。</li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/call-apply/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95-%E7%AC%94%E8%AF%95/" rel="tag">面试/笔试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-立即执行函数"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/iife/">立即执行函数</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-22 21:13:45" datetime="2020-07-22T13:13:45.000Z"  itemprop="datePublished">2020-07-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="立即执行函数："><a href="#立即执行函数：" class="headerlink" title="立即执行函数："></a>立即执行函数：</h4><pre><code>解释：自动执行，执行完成立即释放（销毁）
+英文：Immediately - Invoked Function Expression
+简称：IIFE 
+作用：创建一个独立的作用域
+好处：可以避免函数内的变量暴露在全局环境下，避免全局变量的污染。</code></pre><h4 id="写法"><a href="#写法" class="headerlink" title="写法"></a>写法</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    </span><br><span class="line">})(); <span class="comment">// 常用写法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">}()); <span class="comment">// w3C建议</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h4><h5 id="错误声明"><a href="#错误声明" class="headerlink" title="错误声明"></a>错误声明</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 错误声明</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"这样是错误的声明"</span>)</span><br><span class="line">}(); </span><br><span class="line">    <span class="comment">// 因为解析的时候是 ↓ </span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    (); <span class="comment">//括号里面是空的会报错,当有值的时候会解析成一个表达式。</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="正确声明"><a href="#正确声明" class="headerlink" title="正确声明"></a>正确声明</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正确声明</span></span><br><span class="line">    <span class="keyword">var</span> ts =  <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{ <span class="comment">// 这个匿名函数赋值给了 ts 这是一个赋值的过程</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"这样可以执行！"</span>);</span><br><span class="line">    }();</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="证明立即执行函数完就销毁"><a href="#证明立即执行函数完就销毁" class="headerlink" title="证明立即执行函数完就销毁"></a>证明立即执行函数完就销毁</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 证明立即执行函数的销毁</span></span><br><span class="line"><span class="keyword">var</span> testone = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"%c 1"</span>,<span class="string">"color:red;background:pink;"</span>);</span><br><span class="line">    }(); <span class="comment">// 这是一个赋值的过程 并不是执行所以可以这样写</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(testone);<span class="comment">//打印 undefined </span></span><br><span class="line"><span class="comment">// 打印 undefined 证明 testone 在执行完之后就被销毁了</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例子一</span></span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{<span class="comment">//这两个是形参</span></span><br><span class="line">        <span class="built_in">console</span>.log(a+b);  <span class="number">6</span></span><br><span class="line">    }(<span class="number">2</span>,<span class="number">4</span>));<span class="comment">//这两个是实参</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 例子二</span></span><br><span class="line">    <span class="keyword">var</span> sum = (<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    }(<span class="number">3</span>,<span class="number">4</span>));</span><br><span class="line">    <span class="built_in">console</span>.log(sum); <span class="comment">// 7</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>1.括号括起来的都是表达式,不管里面是什么;<br>2.只有表达式才能被执行符号(括号)执行;<br>3.把函数声明变成表达式，那么你的函数名就会被自动的忽略;</p>
+<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><h5 id="函数声明变成表达式的方法"><a href="#函数声明变成表达式的方法" class="headerlink" title="函数声明变成表达式的方法"></a>函数声明变成表达式的方法</h5><p>函数声明变成表达式的方法在 function前面加 + 、- 、！、||(前面得加 0)、&amp;&amp;(前面得加 1)</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我前面加了 + 号变成表达式了,所以可以立即执行"</span>);</span><br><span class="line">}();</span><br><span class="line"></span><br><span class="line"><span class="number">0</span>||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我前面加了 0|| 运算符,我也变成表达式了,我也可以立即执行了。"</span>);</span><br><span class="line">}();</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="逗号运算符"><a href="#逗号运算符" class="headerlink" title="逗号运算符"></a>逗号运算符</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 逗号运算符</span></span><br><span class="line">    <span class="comment">// 逗号运算符只返回,所有逗号的最后一个值</span></span><br><span class="line">    <span class="comment">// 例子：</span></span><br><span class="line">    <span class="built_in">console</span>.log((<span class="number">6</span><span class="number">-7</span>,<span class="number">8</span>+<span class="number">9</span>,<span class="number">5</span>+<span class="number">5</span>)); <span class="comment">//  10</span></span><br><span class="line">    <span class="built_in">console</span>.log((<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>)); <span class="comment">//  7</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 面试题</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">tst</span>(<span class="params">a</span>)</span>{</span><br><span class="line">    <span class="comment">// console.log("不报错，也不运行");</span></span><br><span class="line">}(<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析流程</span></span><br><span class="line">    <span class="comment">// 因为解析的时候是解析成两部分的</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">tst</span>(<span class="params"></span>)</span>{</span><br><span class="line">        </span><br><span class="line">    } <span class="comment">//解析这是一个函数</span></span><br><span class="line">   (<span class="number">6</span>); <span class="comment">//这个(6),解析成一个表达式</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/iife/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-递归"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/digui/">递归</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-21 16:23:14" datetime="2020-07-21T08:23:14.000Z"  itemprop="datePublished">2020-07-21</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="什么是递归？"><a href="#什么是递归？" class="headerlink" title="什么是递归？"></a>什么是递归？</h4><p>递归说白了就是，函数自己调用自己。</p>
+<h4 id="递归主要的两个部分"><a href="#递归主要的两个部分" class="headerlink" title="递归主要的两个部分"></a>递归主要的两个部分</h4><p>1.找到计算的规律!<br>2.找到一个出口,让它结束掉!</p>
+<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><h5 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h5><p>求 n 的阶乘 -&gt; 不能使用 for 循环 </p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// fact(n);</span></span><br><span class="line"><span class="comment">// 规律：n = n * fact(n-1)</span></span><br><span class="line"><span class="comment">// 出口：n === 1 </span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fact</span>(<span class="params">n</span>)</span>{</span><br><span class="line">        <span class="comment">//出口</span></span><br><span class="line">        <span class="keyword">if</span>(n === <span class="number">1</span>){ </span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 规律</span></span><br><span class="line">        <span class="keyword">return</span> n * fact(n - <span class="number">1</span>); </span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">console</span>.log(fact(<span class="number">5</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解析</span></span><br><span class="line">    <span class="comment">// 当 n = 5;</span></span><br><span class="line">    <span class="comment">// 120 = fact(5) = 5 * fact(4);  -&gt;   5 * 4 * 6;</span></span><br><span class="line">    <span class="comment">// 24 = fact(4) = 4 * fact(3);  -&gt;   4 * 3 * 2;</span></span><br><span class="line">    <span class="comment">// 6 =  fact(3) = 3 * fact(2);  -&gt;   3 * 2 * 1;</span></span><br><span class="line">    <span class="comment">// 2 = fact(2) = 2 * fact(1);  -&gt;   2 * 1 * 1; ↑ </span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//  当程序走到出口1的时候又往上执行，</span></span><br><span class="line">    <span class="comment">//  因为上面还有一大堆队列都没有实际的运算结果，但是一到 1 </span></span><br><span class="line">    <span class="comment">//  fact(1) = 1 然后</span></span><br><span class="line">    <span class="comment">//  2 * 1 等于 2； fact(2) 等于 2; </span></span><br><span class="line">    <span class="comment">//  3 * 2 等于 6;  fact(3) 等于 6;</span></span><br><span class="line">    <span class="comment">//  4 * 6 等于 24; fact(4) 等于 24;</span></span><br><span class="line">    <span class="comment">//  5 * 24 等于 120; fact(5) 等于 120;</span></span><br></pre></td></tr></tbody></table></figure>
+<h5 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h5><p>斐波拉契数列</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//规律: n3 = n2 + n1;</span></span><br><span class="line"><span class="comment">//出口：n &lt;= 0  n &lt;= 2;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>)</span>{</span><br><span class="line">        <span class="comment">// 两个出口</span></span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">2</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 规律</span></span><br><span class="line">        <span class="keyword">return</span> fb(n<span class="number">-1</span>) + fb(n<span class="number">-2</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">console</span>.log(fb(<span class="number">6</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 解析:</span></span><br><span class="line">        <span class="comment">//  斐波拉契数列： 0,1,1,2,3,5,8,13.... 像这种规律的。</span></span><br><span class="line">        <span class="comment">//  规律：n3 = n2 + n1</span></span><br><span class="line">        <span class="comment">//  出口：n &lt;= 0 n &lt;= 2 </span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// n = 6;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 8 = fb(6) = fb(5) + fb(4);  -&gt;  5 + 3</span></span><br><span class="line">            <span class="comment">// 5 = fb(5) = fb(4) + fb(3);  -&gt;  3 + 2</span></span><br><span class="line">            <span class="comment">// 3 = fb(4) = fb(3) + fb(2);  -&gt;  2 + 1</span></span><br><span class="line">            <span class="comment">// 2 = fb(3) = fb(2) + fb(1);  -&gt;  1 + 1   ↑</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>递归它总是走到出口的时候,再向上一步一步的赋值计算后返回结果.</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>递归会涉及到性能的问题,return 的值一直出不去,要等执行到出口的时候。递归处理一些,小逻辑还是可以的,但是JavaScript里慎用。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/digui/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-js中的-运算-和-运算"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/js-huo-bingqie/">js中的 ||运算 和 &amp;&amp;运算</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-19 21:54:30" datetime="2020-07-19T13:54:30.000Z"  itemprop="datePublished">2020-07-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h5 id="js中的-运算"><a href="#js中的-运算" class="headerlink" title="js中的 || 运算"></a>js中的 || 运算</h5><p>1.只要有一个条件为true,结果就为true<br>2.当两个条件为false，结果才为false<br>3.只要 || 前面为 false 的话那么就会往后走(直到碰到true)，走到最后不管是真是假都返回。<br>4.当一个条件为true时，后面的条件不再判断</p>
+<hr>
+<h5 id="js中的-amp-amp-运算"><a href="#js中的-amp-amp-运算" class="headerlink" title="js中的 &amp;&amp; 运算"></a>js中的 &amp;&amp; 运算</h5><p>1.两边条件都为true时,结果才为true<br>2.如果有一个为false,结果就为false<br>3.当第一个条件为false时,就不再判断后面的条件<br>注意：当数值参与逻辑运算时，结果为true，那么会返回第二个为真的值；如果结果为false，返回第一个为假的值。</p>
+<hr>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p>在javasript中 <mark>undefined</mark>,<mark>null</mark>,<mark>NaN</mark>,<mark>“ “</mark>,<mark>0</mark>,<mark>false</mark> 这些都是为false即假。</p>
+<hr>
+<h5 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h5><p>写一个函数如果有传入姓名则 return  出去，否则 return 您没有输入姓名</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">funciton test(name){</span><br><span class="line">    <span class="keyword">return</span> name || <span class="string">'您没有输入姓名'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 无参 -&gt; 等于空 -&gt; 既 假</span></span><br><span class="line"><span class="built_in">console</span>.log(test()); <span class="comment">//输出-&gt; 您没有输入姓名</span></span><br><span class="line"><span class="comment">// 有参 -&gt; 不等于上面那几个假值 既真</span></span><br><span class="line"><span class="built_in">console</span>.log(test(<span class="string">'晓明'</span>)); <span class="comment">//输出-&gt; 晓明</span></span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/js-huo-bingqie/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="w-js实参求乘积"
+  class="article-card article-type-w" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/js-shican-qiu-chengji/">js实参求乘积</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-19 15:25:53" datetime="2020-07-19T07:25:53.000Z"  itemprop="datePublished">2020-07-19</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p> 在解题之前我们先搞懂什么是js中的形参和实参？  </p>
+<h5 id="js中的形参和实参"><a href="#js中的形参和实参" class="headerlink" title="js中的形参和实参"></a>js中的形参和实参</h5><pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">            <span class="comment">// 形式参数 形参</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">形参<span class="number">1</span>,形参<span class="number">2</span></span>)</span>{ <span class="comment">// 里面的就是形参</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length); <span class="comment">// 形参长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 实参长度</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//   实际参数 实参</span></span><br><span class="line">test(实参<span class="number">1</span>,实参<span class="number">2</span>,实参<span class="number">3</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><blockquote>
+<ol>
+<li>形参和实参数量可以不相等。  </li>
+<li><span style="color:#f5871f;">arguments</span> 是一个对应于传递给函数的参数的<span style="color:#f5871f;">类数组对象</span>里面包含所有的实参!!!  </li>
+<li>实参里面传了值的可以在函数内部修改实参的值，如果实参里面并没有传入值，也给形参赋值了，这样是没有用的。</li>
+</ol>
+</blockquote>
+<h5 id="js实参求乘积"><a href="#js实参求乘积" class="headerlink" title="js实参求乘积"></a>js实参求乘积</h5><p>了解了什么实参和形参接下来就可以愉快的码代码了  </p>
+<pre><code><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>{</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length;i++){</span><br><span class="line">    a *= <span class="built_in">arguments</span>[i];</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br></pre></td></tr></tbody></table></figure></code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/js-shican-qiu-chengji/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">js面试题</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-ASCII码-和-UNICODE码"
   class="article-card article-type-post" itemprop="blogPost">
 
