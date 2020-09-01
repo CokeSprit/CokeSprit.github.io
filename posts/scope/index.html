@@ -41,15 +41,15 @@
 
 
     
-    <meta name="description" content="对象 -&gt; 有些属性是我们无法访问的,JS引擎内部固有的隐式属性[[scope]]。 [[scope]] -&gt; 作用域 函数创建时,生成的一个JS内部的隐式属性。  函数是存储作用域链的容器。 Scope Chain -&gt; 作用域链 AO&#x2F;GO AO, 函数的执行期上下文 GO, 全局的执行期上下文  作用域链其实就是把这些AO&#x2F;GO形成链式从上到下排列起来,形成一个链式关系,这">
+    <meta name="description" content="[[scope]] -&gt; 作用域，它是函数创建时，生成的一个JS内部的隐式属性，这个属性只能由JS引擎来读取的。 [[scope]] [[scope]]它是函数创建时,生成的一个JS内部的隐式属性。 [[scope]]它是存储函数作用域链的 容器,作用域链存储的是AO&#x2F;GO。 GO:全局执行期上下文AO：函数执行期上下文，当函数执行完成以后，AO是要销毁的,如果再次执行这个函数的时候AO会重">
 <meta property="og:type" content="article">
 <meta property="og:title" content="作用域之对象的隐式属性[[scope]]">
 <meta property="og:url" content="http://cokesprit.top/posts/scope/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="对象 -&gt; 有些属性是我们无法访问的,JS引擎内部固有的隐式属性[[scope]]。 [[scope]] -&gt; 作用域 函数创建时,生成的一个JS内部的隐式属性。  函数是存储作用域链的容器。 Scope Chain -&gt; 作用域链 AO&#x2F;GO AO, 函数的执行期上下文 GO, 全局的执行期上下文  作用域链其实就是把这些AO&#x2F;GO形成链式从上到下排列起来,形成一个链式关系,这">
+<meta property="og:description" content="[[scope]] -&gt; 作用域，它是函数创建时，生成的一个JS内部的隐式属性，这个属性只能由JS引擎来读取的。 [[scope]] [[scope]]它是函数创建时,生成的一个JS内部的隐式属性。 [[scope]]它是存储函数作用域链的 容器,作用域链存储的是AO&#x2F;GO。 GO:全局执行期上下文AO：函数执行期上下文，当函数执行完成以后，AO是要销毁的,如果再次执行这个函数的时候AO会重">
 <meta property="article:published_time" content="2020-08-02T13:13:15.000Z">
-<meta property="article:modified_time" content="2020-08-27T01:11:06.287Z">
-<meta property="article:author" content="可乐精">
+<meta property="article:modified_time" content="2020-08-31T01:50:30.461Z">
+<meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="js作用域作用域链">
 <meta name="twitter:card" content="summary">
     
@@ -77,7 +77,7 @@
           <img src="/img/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
-          <h5 class="nickname" id="name">可乐精</h5>
+          <h5 class="nickname" id="name">CokeSprit</h5>
           
             <div id="yiyanmotto" class="motto">&nbsp;</div>
           
@@ -194,7 +194,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>目录</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scope-gt-作用域"><span class="post-toc-number">1.</span> <span class="post-toc-text">[[scope]] -&gt; 作用域</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Scope-Chain-gt-作用域链"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Scope Chain -&gt; 作用域链</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scope"><span class="post-toc-number">1.</span> <span class="post-toc-text">[[scope]]</span></a></li></ol>
         </nav>
     </aside>
    
@@ -217,10 +217,6 @@
 
             <i>·</i>
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
-</span>
-
 
         </div>
         <div class="post-count-custom">
@@ -228,16 +224,10 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>对象 -&gt; 有些属性是我们无法访问的,JS引擎内部固有的隐式属性[[scope]]。</p>
-<h3 id="scope-gt-作用域"><a href="#scope-gt-作用域" class="headerlink" title="[[scope]] -> 作用域"></a>[[scope]] -&gt; 作用域</h3><ol>
-<li><p>函数创建时,生成的一个JS内部的隐式属性。</p>
-</li>
-<li><p>函数是<mark>存储</mark>作用域链的<mark>容器</mark>。</p>
-<h4 id="Scope-Chain-gt-作用域链"><a href="#Scope-Chain-gt-作用域链" class="headerlink" title="Scope Chain -> 作用域链"></a>Scope Chain -&gt; 作用域链</h4><p> AO/GO<br> AO, 函数的执行期上下文<br> GO, 全局的执行期上下文</p>
-<p> <mark>作用域链其实就是把这些AO/GO形成链式从上到下排列起来,形成一个链式关系,这个链式关系其实就是作用域链。</mark></p>
-<p> <mark> 作用域链也可以说是存储AO/GO的容器。</mark></p>
-<p> 当函数执行完成以后,AO是要销毁的,也就是说AO是一个即时的存储容器;它不是长期保存的,它是根据函数的执行周期来保存。</p>
-</li>
+            <p>[[scope]] -&gt; 作用域，它是函数创建时，生成的一个JS内部的隐式属性，这个属性只能由JS引擎来读取的。</p>
+<h3 id="scope"><a href="#scope" class="headerlink" title="[[scope]]"></a>[[scope]]</h3><ol>
+<li>[[scope]]它是函数创建时,生成的一个JS内部的隐式属性。</li>
+<li>[[scope]]它是存储函数作用域链的 <span class="s_red">容器</span>,作用域链<span class="s_red">存储的是AO/GO</span>。<br><span class="s_green"> GO:全局执行期上下文</span><br><span class="s_green">AO：函数执行期上下文</span>，当函数执行完成以后，AO是要销毁的,如果再次执行这个函数的时候AO会重新生成而且这个AO是新的AO。也就是说每一次执行会生成一个新的AO，原来老的AO在函数执行完以后它就会被销毁，也就是说AO是一个即时的存储容器;它不是长期保存的，它是根据函数的执行周期来保存。<br><span class="s_green">而作用域链其实就是把这些AO/GO形成链式从上到下排列起来,形成一个链式关系,这个链式关系其实就是作用域链。</span></li>
 </ol>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -264,7 +254,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-27T01:11:06.287Z" itemprop="dateUpdated">2020-08-27 09:11:06</time>
+    Last updated: <time datetime="2020-08-31T01:50:30.461Z" itemprop="dateUpdated">2020-08-31 09:50:30</time>
 </span>
 
 
@@ -274,8 +264,8 @@
     </div>
     <footer>
         <div onclick="location.href='http://cokesprit.top'">
-            <img src="/img/avatar.jpg" alt="可乐精">
-            <a>可乐精</a>
+            <img src="/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
         </div>
     </footer>
 </blockquote>
@@ -365,8 +355,6 @@
     </div>
   
 
-  <!-- 网易云音乐插件 -->
-  <!--  -->
 </nav>
 
 
@@ -395,24 +383,15 @@
         </span>
 
         <br/>
-
-        <span id="RunTime" style="color:#a7a7a2;"></span>
         <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
 
-        <!-- 访问人数 -->
+        
+
+        <!-- 访问人数
         <span>
             
-	<i class="icon icon-lg icon-user">
-<span id="busuanzi_container_site_uv" style='display:none'>
-       本站访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>人</i>
-    ·
-    <i class="icon icon-lg icon-eye">
-    <span id="busuanzi_container_site_pv" style='display:none'>
-      本站总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>次
-    </i>
-
 
         </span>
         <span id="busuanzi_container_site_pv">
@@ -421,7 +400,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>
           </span>
-        <br/>
+        <br/> -->
     </div>
 </footer>
 
@@ -592,7 +571,7 @@ $("#name").bumpyText();
 
 /* 网站运行时间 */
 setInterval(function () {
-	setTime("2020/06/19");
+	setTime("2020/10/11");
 }, 1000);
 
 /* 文章块的淡出 */
@@ -605,7 +584,7 @@ postshow();
 
 
 /* 粘贴提示 */
-G($(".post-content"), location.href, "可乐精");
+G($(".post-content"), location.href, "CokeSprit");
 
 
 /* 控制台 */
@@ -625,8 +604,6 @@ if (window.console && window.console.log) {
 
 
 <!-- 不蒜子 -->
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
 
 
 </body>
