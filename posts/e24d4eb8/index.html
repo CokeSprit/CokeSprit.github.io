@@ -44,34 +44,34 @@
     <meta name="description" content="JavaScript有六种错误类型，每一种类型都对应着一种构造函数,这些构造函数都可以通过实例化去定义错误类型。除此之外还有一个总的错误类型 Error。下面分别介绍这六种错误类型。  SyntaxErrorSyntaxError -&gt; 语法错误，有以下几种情况： 变量名不规范1var 1ab &#x3D; 1; 运行结果：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS错误类型">
-<meta property="og:url" content="https://gitee.com/CokeSprit/blog/posts/e24d4eb8/index.html">
+<meta property="og:url" content="https://gitee.com/CokeSprit/posts/e24d4eb8/index.html">
 <meta property="og:site_name" content="CokeSprit">
 <meta property="og:description" content="JavaScript有六种错误类型，每一种类型都对应着一种构造函数,这些构造函数都可以通过实例化去定义错误类型。除此之外还有一个总的错误类型 Error。下面分别介绍这六种错误类型。  SyntaxErrorSyntaxError -&gt; 语法错误，有以下几种情况： 变量名不规范1var 1ab &#x3D; 1; 运行结果：">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/1-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/1-2.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/1-3.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/2-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/2-2.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/3-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/3-2.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/4-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/4-1-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/4-2.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/5-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/6-1.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/6-2.png">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/7-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/1-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/1-2.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/1-3.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/2-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/2-2.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/3-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/3-2.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/4-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/4-1-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/4-2.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/5-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/6-1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/6-2.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/7-1.png">
 <meta property="article:published_time" content="2020-08-28T01:44:10.000Z">
 <meta property="article:modified_time" content="2020-08-28T08:24:36.449Z">
 <meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="js错误信息篇">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/blog/CokeSprit/blog/posts/e24d4eb8/1-1.png">
+<meta name="twitter:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/e24d4eb8/1-1.png">
     
-        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/blog/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/CokeSprit/atom.xml">
     
-    <link rel="shortcut icon" href="/blog/img/favicon.ico">
-    <link id="style" rel="stylesheet" href="/blog/css/style.css?v=3.0">
+    <link rel="shortcut icon" href="/CokeSprit/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/CokeSprit/css/style.css?v=3.0">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -88,8 +88,8 @@
     </a>
     <div class="brand-wrap" >
       <div class="brand">
-        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/blog/img/avatar.jpg" alt="avatar">
+        <a href="/CokeSprit/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/CokeSprit/img/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname" id="name">CokeSprit</h5>
@@ -103,35 +103,35 @@
       <ul class="nav">
         
               <li class="waves-block waves-effect">
-                  <a href="/blog/"  >
+                  <a href="/CokeSprit/"  >
                     <i class="icon icon-lg icon-home"></i>
                     <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/archives"  >
+                  <a href="/CokeSprit/archives"  >
                     <i class="icon icon-lg icon-archives"></i>
                     <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/categories"  >
+                  <a href="/CokeSprit/categories"  >
                     <i class="icon icon-lg icon-th-list"></i>
                     <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/tags"  >
+                  <a href="/CokeSprit/tags"  >
                     <i class="icon icon-lg icon-tags"></i>
                     <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/about"  >
+                  <a href="/CokeSprit/about"  >
                     <i class="icon icon-lg icon-smile-o"></i>
                     <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
@@ -175,7 +175,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -247,7 +247,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/1-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/1-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -257,7 +257,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/1-2.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/1-2.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -267,7 +267,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/1-3.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/1-3.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -278,7 +278,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/2-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/2-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -288,7 +288,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/2-2.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/2-2.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -299,7 +299,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/3-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/3-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -309,7 +309,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/3-2.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/3-2.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -320,7 +320,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/4-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/4-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -329,7 +329,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/4-1-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/4-1-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -340,7 +340,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/4-2.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/4-2.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -354,7 +354,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/5-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/5-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -366,7 +366,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/6-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/6-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -377,7 +377,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/6-2.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/6-2.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -390,7 +390,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/e24d4eb8/7-1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/e24d4eb8/7-1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -419,17 +419,17 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-28T08:24:36.449Z" itemprop="dateUpdated">2020-08-28 16:24:36</time>
+    Última actualización<time datetime="2020-08-28T08:24:36.449Z" itemprop="dateUpdated">2020-08-28 16:24:36</time>
 </span>
 
 
         
-        原文链接：<a href="/blog/posts/e24d4eb8/" target="_blank" rel="external">https://gitee.com/CokeSprit/blog/posts/e24d4eb8/</a>
+        原文链接：<a href="/CokeSprit/posts/e24d4eb8/" target="_blank" rel="external">https://gitee.com/CokeSprit/posts/e24d4eb8/</a>
         
     </div>
     <footer>
-        <div onclick="location.href='https://gitee.com/CokeSprit/blog'">
-            <img src="/blog/img/avatar.jpg" alt="CokeSprit">
+        <div onclick="location.href='https://gitee.com/CokeSprit'">
+            <img src="/CokeSprit/img/avatar.jpg" alt="CokeSprit">
             <a>CokeSprit</a>
         </div>
     </footer>
@@ -446,7 +446,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E7%AF%87/" rel="tag">js错误信息篇</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/js%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E7%AF%87/" rel="tag">js错误信息篇</a></li></ul>
 
 
             
@@ -456,7 +456,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&pic=https://gitee.com/CokeSprit/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&pic=https://gitee.com/CokeSprit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -466,22 +466,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/posts/e24d4eb8/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS错误类型》 — CokeSprit&url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/&via=https://gitee.com/CokeSprit/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS错误类型》 — CokeSprit&url=https://gitee.com/CokeSprit/posts/e24d4eb8/&via=https://gitee.com/CokeSprit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/posts/e24d4eb8/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -504,7 +504,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/blog/posts/a86aeb16/" id="post-prev" class="post-nav-link">
+      <a href="/CokeSprit/posts/a86aeb16/" id="post-prev" class="post-nav-link">
         <h4 class="title" >
           上一篇：try...catch...
         </h4>
@@ -514,7 +514,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/blog/posts/dc5c6a5/" id="post-next" class="post-nav-link">
+      <a href="/CokeSprit/posts/dc5c6a5/" id="post-next" class="post-nav-link">
         <h4 class="title" data-hover="下一篇：字符串去重">下一篇：字符串去重</h4>
       </a>
     </div>
@@ -544,7 +544,7 @@
             <i class="icon icon-lg icon-copyright"></i>
             2020
             <i class="icon icon-lg icon-heart"></i>
-            <a href="https://gitee.com/CokeSprit/blog">CokeSprit.top</a>
+            <a href="https://gitee.com/CokeSprit">CokeSprit.top</a>
         </span>
 
         <br/>
@@ -582,12 +582,12 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" data-img="/blog/img/dog.png" alt="打赏二维码">
+            <img id="rewardCode" data-img="/CokeSprit/img/dog.png" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
             <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/blog/img/wechat.png" data-alipay="/blog/img/alipay.png">
+                data-wechat="/CokeSprit/img/wechat.png" data-alipay="/CokeSprit/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
                 <span class="reward-toggle-item alipayPay">支付宝</span>
@@ -608,7 +608,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&pic=https://gitee.com/CokeSprit/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&pic=https://gitee.com/CokeSprit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -618,22 +618,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/posts/e24d4eb8/&title=《JS错误类型》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/posts/e24d4eb8/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS错误类型》 — CokeSprit&url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/&via=https://gitee.com/CokeSprit/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS错误类型》 — CokeSprit&url=https://gitee.com/CokeSprit/posts/e24d4eb8/&via=https://gitee.com/CokeSprit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/blog/posts/e24d4eb8/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/posts/e24d4eb8/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -644,7 +644,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aS27DMAwFwNz/0u62i8Z5JJUClsarIPFH4wIsRfL1io/r1/Hu1+TM+2vffbPswMDAeCzjuj3ycya8Bc/FwMA4gJEsIgnBCTK/Kr8DBgYGxiT43oPzzxgYGBhrA+67c/IEFAMDA6O3ia1S87RvQXDHwMDYmlEt3//n56/0NzAwMB7FuIpHXsRf1XKIVoWBgbE1Iw9w1UJ/vsRewMXAwDiHMdl29gYmegMZH2AYGBhbM5LgOBmV6JXSqs0JDAyMvRlJY3LSvMwD7ijUYmBgHMDIS2mT+vw3mqYYGBgnMJLNZBIEe5vbyb8BDAyMcxjVEaskgPbSwd7Y2R+dWAwMjO0Y+eJ6QxV5PJwU+DAwMPZmlLsHg7QyeRHN9gMGBsYxjPxhvbGJSUIZJYUYGBhbM6q36xXO8g1w+RVjYGAcw0gCZXVsa1UqORq2wMDAeDij2kSctDyrgx3V4TMMDIxzGNXHfKOFMGmOYmBg7MqYh858OzpPOt9ehYGBcQCjuqGdj2X0Bs6imREMDIwDGNXiV3Xwa1Jc+zBygYGBsR3jKh75gnpb3OpgWfR3wMDAeDij2g28D6zJ93miWd3oYmBg7M2opobzUDt/ZYXcEwMDYyNGL/BV08r7O0xWi4GBgVFtc/baBsmYxeKAi4GBsTWjWvrvUQsvEQMD4wDGpNw/CpSDF4GBgXEOY7R1XFSwyxsAo0YmBgbG8xg/KUnRP8NPaJ0AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3ay66DMAxFUf7/p6l0p1eEfWxaCWdnVLUFshhYfuQ48Dr/1vr7899aX3v16/r/rSVDhozXMs7lItu9+n96Ve1ZMmTI2IfBg2kaNGuvgO9NhgwZMgiJh11+NxkyZMjoB9z1Ftf35GWtDBkyZNSKUk6qhdev1+IyZMh4ISMdDPzy8xfnGzJkyHgJ4wwXabGRTdSC++VVMmTIGM1Ijzv0YZ3U8CYcy5AhYyijo+8MNWstvMtvZMiQMZpBbkoKy05IrZXTMmTI2I3Bi8n1tjqA2sEyGTJk7MAgm04bZ7Ugy5t3l11DGTJkbMPgm+PBuvZNMJyQIUPGaEba9koPYXTK4LjZJ0OGjKEMUlg+FWRJ6llLEGXIkLEDg9yOjx55A45vFwVcGTJkDGWkI0nysLTFz1PPeAgqQ4aMbRid+jht2PE9oBchQ4aMEYyztNIhAX9Zaeg/eGYqQ4aM1zJqwbTz+GeHlzeHw2TIkDGUkW4oLTv5K4vbcDJkyBjK4MlfbXPPNtdukkIZMmSMZqRFIx8b1H6N01MZMmSMZvD2fTpE5C/oCJcMGTJ2Y3RGAukRrk7r7ab/L0OGjNGMNMx1itv+wQ6eRMqQIWMeo3a0Ig21PMUsvm8ZMmRswHgqpWvV06WgL0OGDBkkgeMpHXliWtbKkCFDRprkdZJIniwGB1hlyJAxiJEejEhJTx0gi8+4yZAhYwSjPxhIJw/rkJoGaBkyZIxmfACEOGqYKVWt+AAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -655,11 +655,11 @@
 
 <!-- 主题配置脚本 -->
 <script>
-var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/CokeSprit/', SHARE: true, REWARD: true };
 </script>
 
 <!-- jquery -->
-<script src="/blog/js/jquery.min.js?v=3.0"></script>
+<script src="/CokeSprit/js/jquery.min.js?v=3.0"></script>
 
 <!-- 搜索 -->
 
@@ -674,10 +674,10 @@ var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: true };
 
 
 <!-- main博客脚本 -->
-<script src="/blog/js/main.min.js?v=3.0" ></script>
+<script src="/CokeSprit/js/main.min.js?v=3.0" ></script>
 
 <!-- 动画&配置 -->
-<script src="/blog/js/script.min.js?v=3.0" ></script>
+<script src="/CokeSprit/js/script.min.js?v=3.0" ></script>
 
 <!-- 脚本管理 -->
 <script>

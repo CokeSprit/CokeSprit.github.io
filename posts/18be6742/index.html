@@ -44,21 +44,21 @@
     <meta name="description" content="上篇使用原型链的方式来继承并不是很科学,像老鼠的名字就没有必要继承。这次我们使用call&#x2F;apply实现继承。 1234567891011121314151617&#x2F;&#x2F; call&#x2F;applyTeacher.prototype.wife &#x3D; &#39;Ms. Min&#39;;function Teacher(){    this.name &#x3D; name;    this.mSkill &#x3D; mSkill;}funct">
 <meta property="og:type" content="article">
 <meta property="og:title" content="借助call或apply实现继承">
-<meta property="og:url" content="https://gitee.com/CokeSprit/blog/posts/18be6742/index.html">
+<meta property="og:url" content="https://gitee.com/CokeSprit/posts/18be6742/index.html">
 <meta property="og:site_name" content="CokeSprit">
 <meta property="og:description" content="上篇使用原型链的方式来继承并不是很科学,像老鼠的名字就没有必要继承。这次我们使用call&#x2F;apply实现继承。 1234567891011121314151617&#x2F;&#x2F; call&#x2F;applyTeacher.prototype.wife &#x3D; &#39;Ms. Min&#39;;function Teacher(){    this.name &#x3D; name;    this.mSkill &#x3D; mSkill;}funct">
-<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/18be6742/1.png">
+<meta property="og:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/18be6742/1.png">
 <meta property="article:published_time" content="2020-08-17T09:50:13.000Z">
 <meta property="article:modified_time" content="2020-08-17T10:14:03.026Z">
 <meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="js原型&#x2F;原型链">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/blog/CokeSprit/blog/posts/18be6742/1.png">
+<meta name="twitter:image" content="https://gitee.com/CokeSprit/CokeSprit/posts/18be6742/1.png">
     
-        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/blog/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/CokeSprit/atom.xml">
     
-    <link rel="shortcut icon" href="/blog/img/favicon.ico">
-    <link id="style" rel="stylesheet" href="/blog/css/style.css?v=3.0">
+    <link rel="shortcut icon" href="/CokeSprit/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/CokeSprit/css/style.css?v=3.0">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -75,8 +75,8 @@
     </a>
     <div class="brand-wrap" >
       <div class="brand">
-        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/blog/img/avatar.jpg" alt="avatar">
+        <a href="/CokeSprit/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/CokeSprit/img/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname" id="name">CokeSprit</h5>
@@ -90,35 +90,35 @@
       <ul class="nav">
         
               <li class="waves-block waves-effect">
-                  <a href="/blog/"  >
+                  <a href="/CokeSprit/"  >
                     <i class="icon icon-lg icon-home"></i>
                     <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/archives"  >
+                  <a href="/CokeSprit/archives"  >
                     <i class="icon icon-lg icon-archives"></i>
                     <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/categories"  >
+                  <a href="/CokeSprit/categories"  >
                     <i class="icon icon-lg icon-th-list"></i>
                     <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/tags"  >
+                  <a href="/CokeSprit/tags"  >
                     <i class="icon icon-lg icon-tags"></i>
                     <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/blog/about"  >
+                  <a href="/CokeSprit/about"  >
                     <i class="icon icon-lg icon-smile-o"></i>
                     <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
@@ -162,7 +162,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -225,7 +225,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/blog/CokeSprit/blog/posts/18be6742/1.png" alt="" title="">
+                    <img src="/CokeSprit/CokeSprit/posts/18be6742/1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -255,17 +255,17 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-17T10:14:03.026Z" itemprop="dateUpdated">2020-08-17 18:14:03</time>
+    Última actualización<time datetime="2020-08-17T10:14:03.026Z" itemprop="dateUpdated">2020-08-17 18:14:03</time>
 </span>
 
 
         
-        原文链接：<a href="/blog/posts/18be6742/" target="_blank" rel="external">https://gitee.com/CokeSprit/blog/posts/18be6742/</a>
+        原文链接：<a href="/CokeSprit/posts/18be6742/" target="_blank" rel="external">https://gitee.com/CokeSprit/posts/18be6742/</a>
         
     </div>
     <footer>
-        <div onclick="location.href='https://gitee.com/CokeSprit/blog'">
-            <img src="/blog/img/avatar.jpg" alt="CokeSprit">
+        <div onclick="location.href='https://gitee.com/CokeSprit'">
+            <img src="/CokeSprit/img/avatar.jpg" alt="CokeSprit">
             <a>CokeSprit</a>
         </div>
     </footer>
@@ -282,7 +282,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">js原型/原型链</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/js%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">js原型/原型链</a></li></ul>
 
 
             
@@ -292,7 +292,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/blog/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&pic=https://gitee.com/CokeSprit/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&pic=https://gitee.com/CokeSprit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -302,22 +302,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/blog/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/blog/posts/18be6742/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/posts/18be6742/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《借助call或apply实现继承》 — CokeSprit&url=https://gitee.com/CokeSprit/blog/posts/18be6742/&via=https://gitee.com/CokeSprit/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《借助call或apply实现继承》 — CokeSprit&url=https://gitee.com/CokeSprit/posts/18be6742/&via=https://gitee.com/CokeSprit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/blog/posts/18be6742/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/posts/18be6742/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -340,7 +340,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/blog/posts/8f490e5b/" id="post-prev" class="post-nav-link">
+      <a href="/CokeSprit/posts/8f490e5b/" id="post-prev" class="post-nav-link">
         <h4 class="title" >
           上一篇：公共原型继承
         </h4>
@@ -350,7 +350,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/blog/posts/31601a23/" id="post-next" class="post-nav-link">
+      <a href="/CokeSprit/posts/31601a23/" id="post-next" class="post-nav-link">
         <h4 class="title" data-hover="下一篇：原型链继承">下一篇：原型链继承</h4>
       </a>
     </div>
@@ -380,7 +380,7 @@
             <i class="icon icon-lg icon-copyright"></i>
             2020
             <i class="icon icon-lg icon-heart"></i>
-            <a href="https://gitee.com/CokeSprit/blog">CokeSprit.top</a>
+            <a href="https://gitee.com/CokeSprit">CokeSprit.top</a>
         </span>
 
         <br/>
@@ -418,12 +418,12 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" data-img="/blog/img/dog.png" alt="打赏二维码">
+            <img id="rewardCode" data-img="/CokeSprit/img/dog.png" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
             <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/blog/img/wechat.png" data-alipay="/blog/img/alipay.png">
+                data-wechat="/CokeSprit/img/wechat.png" data-alipay="/CokeSprit/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
                 <span class="reward-toggle-item alipayPay">支付宝</span>
@@ -444,7 +444,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/blog/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&pic=https://gitee.com/CokeSprit/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&pic=https://gitee.com/CokeSprit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -454,22 +454,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/blog/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/posts/18be6742/&title=《借助call或apply实现继承》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/blog/posts/18be6742/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/posts/18be6742/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《借助call或apply实现继承》 — CokeSprit&url=https://gitee.com/CokeSprit/blog/posts/18be6742/&via=https://gitee.com/CokeSprit/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《借助call或apply实现继承》 — CokeSprit&url=https://gitee.com/CokeSprit/posts/18be6742/&via=https://gitee.com/CokeSprit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/blog/posts/18be6742/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/posts/18be6742/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -480,7 +480,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS27DMAwFwN7/0u62myiPpFPAzGhVNFasaQFC/Pz8xOv6s159mjx53vvqN7ctDAyMxzKu48qfqfLO319+LwYGxhcwkkOcX5l8eg6yZ+qbM2NgYGCMn0mOjoGBgXEv4xyOz9fBakqMgYGBMQl8eTEuSWKTa+gNuTgGBsYDGdXy/X/+/JH+BgYGxqMYV3Hlu3qh/GotDAyM3Yw8wFUL/T3w6DwYGBhLGb208xO7khZCYbIMAwNjESMPqfnr8xZC3uZMmhMYGBi7GUkaOWl59sJ0M9RiYGAsZcwHL6rtxnIprQrDwMBYzciDYH6VnA9JNPdiYGCsYPQS10nhrBea3ySxGBgYqxlJqSsv9PcaA70W6ctOLAYGxjpGHs7ygn51/CvvXUQDYRgYGOsY+aWtmi0mB80vlM0pEgwMjEWM3ube83lorn4bBgbGbkb1xVV8dbxjNGaBgYGxjpGH1PwFvTLcaBwWAwNjNaM6WjE5aJ4k5+W85oQIBgbGYxn50XPwJIiXd2FgYHwZIwmO84A7GUR704/FwMBYyqhe2vKhrt6lMP8eDAyM3YyruHoDGb1WZXI9jf4PGBgYD2dUW5vVwlyvwdBLdDEwMHYzelfD6vDWDXfY3l8aAwNjESMPfNXmQU6dnBYDAwMjSVPnoxjVIQ8MDAyM6rhDteWZXwejUI6BgfEFjEm5fxQo42bAbcMWGBgYD2SMUsdWwa7aYLitkYmBgfE8xi9r69sZnOAffQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3awW7EIAyE4bz/S6fXSlHYmTFbFfvnVKVs4MvBAtvXJY/713g+f855Pl+/ef1k24ABA8axjHs51ow1VSHp677NgQEDxhzGOhQqJGWL9Zmvz2HAgAFDCKN6mNaDMgwYMGDsZei3y/oFGAYMGDMZymVSep15NVU+3+a7OAwYMA5k6Fn3v//7K/UNGDBgHMW4zeEe9faG19ddwYABozVDD3DrxFmWUHOPmx/WhQEDRlNG1h6RbUX5BG5xtNTlAQMGjEMYypXVXUAP2W5QdtvUYMCA0YnhHvsqv9pVkLh2bQgGDBj/nrH+QdaEkcV4JZ33+l8YMGC0ZmxIx5uXUjf1ZhQ4YcCA0ZRRCYJZk5byTvfqCwMGjAkMpalCWVif75YTPqwFAwaM1gzlgFjJa7nhVb9C2+dcGDBgHM7QN+c2YbhBtlQohQEDxhhGBaC3UGRtHFKPGwwYMMYwsmJAljJzWzRe58OAAaMpw+gdi9opvlHUtOsbMGDAOJyx60qpB1P9iFn6LQwYMNox6kkxfevuG4wMGwwYMIYx3HKmu0V3SFdcGDBgDGDowa7S4FWnSs0WMGDAaMS4zVEP0G6SzkiuwYABoymjfjjTF3Nn6ok8GDBgTGDoQTYrbVY+jfG9YcCAMYARtjUIwVTZUHaJLfXhwoABozWjkhrLWmOlQAwDBgwYZgtXdn4rpepgwIAxgKEXA7Jip0J1Z8KAAWMOI8tlZQfK7JNtK2rCgAHjPMYP6K90corI9CsAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -491,11 +491,11 @@
 
 <!-- 主题配置脚本 -->
 <script>
-var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/CokeSprit/', SHARE: true, REWARD: true };
 </script>
 
 <!-- jquery -->
-<script src="/blog/js/jquery.min.js?v=3.0"></script>
+<script src="/CokeSprit/js/jquery.min.js?v=3.0"></script>
 
 <!-- 搜索 -->
 
@@ -510,10 +510,10 @@ var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: true };
 
 
 <!-- main博客脚本 -->
-<script src="/blog/js/main.min.js?v=3.0" ></script>
+<script src="/CokeSprit/js/main.min.js?v=3.0" ></script>
 
 <!-- 动画&配置 -->
-<script src="/blog/js/script.min.js?v=3.0" ></script>
+<script src="/CokeSprit/js/script.min.js?v=3.0" ></script>
 
 <!-- 脚本管理 -->
 <script>
