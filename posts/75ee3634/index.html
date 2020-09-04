@@ -44,24 +44,24 @@
     <meta name="description" content="三种声明数组的方式12345678&#x2F;&#x2F; 推荐var arr1 &#x3D; []; &#x2F;&#x2F; 字面量&#x2F;&#x2F; 不推荐var arr2 &#x3D; new Array(); &#x2F;&#x2F; 通过系统内置的Array 构造函数声明&#x2F;&#x2F; 不使用var arr3 &#x3D;  Array(); &#x2F;&#x2F; 可以省略new  数组的原型这三种声明数组的原型是？  123456789var arr1 &#x3D; []; var arr2 &#x3D; new Array();">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数组的声明和数组的原理">
-<meta property="og:url" content="http://cokesprit.top/posts/75ee3634/index.html">
+<meta property="og:url" content="https://gitee.com/CokeSprit/blog/posts/75ee3634/index.html">
 <meta property="og:site_name" content="CokeSprit">
 <meta property="og:description" content="三种声明数组的方式12345678&#x2F;&#x2F; 推荐var arr1 &#x3D; []; &#x2F;&#x2F; 字面量&#x2F;&#x2F; 不推荐var arr2 &#x3D; new Array(); &#x2F;&#x2F; 通过系统内置的Array 构造函数声明&#x2F;&#x2F; 不使用var arr3 &#x3D;  Array(); &#x2F;&#x2F; 可以省略new  数组的原型这三种声明数组的原型是？  123456789var arr1 &#x3D; []; var arr2 &#x3D; new Array();">
-<meta property="og:image" content="http://cokesprit.top/posts/75ee3634/1.png">
-<meta property="og:image" content="http://cokesprit.top/posts/75ee3634/2.png">
-<meta property="og:image" content="http://cokesprit.top/posts/75ee3634/3.png">
-<meta property="og:image" content="http://cokesprit.top/posts/75ee3634/4.png">
+<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/75ee3634/1.png">
+<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/75ee3634/2.png">
+<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/75ee3634/3.png">
+<meta property="og:image" content="https://gitee.com/blog/CokeSprit/blog/posts/75ee3634/4.png">
 <meta property="article:published_time" content="2020-08-22T08:32:04.000Z">
 <meta property="article:modified_time" content="2020-08-22T09:16:54.899Z">
 <meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="js&#x2F;数组">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://cokesprit.top/posts/75ee3634/1.png">
+<meta name="twitter:image" content="https://gitee.com/blog/CokeSprit/blog/posts/75ee3634/1.png">
     
-        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/blog/css/style.css?v=3.0">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -78,8 +78,8 @@
     </a>
     <div class="brand-wrap" >
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg" alt="avatar">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg" alt="avatar">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname" id="name">CokeSprit</h5>
@@ -93,35 +93,35 @@
       <ul class="nav">
         
               <li class="waves-block waves-effect">
-                  <a href="/"  >
+                  <a href="/blog/"  >
                     <i class="icon icon-lg icon-home"></i>
                     <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/archives"  >
+                  <a href="/blog/archives"  >
                     <i class="icon icon-lg icon-archives"></i>
                     <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/categories"  >
+                  <a href="/blog/categories"  >
                     <i class="icon icon-lg icon-th-list"></i>
                     <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/tags"  >
+                  <a href="/blog/tags"  >
                     <i class="icon icon-lg icon-tags"></i>
                     <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
               </li>
             
               <li class="waves-block waves-effect">
-                  <a href="/about"  >
+                  <a href="/blog/about"  >
                     <i class="icon icon-lg icon-smile-o"></i>
                     <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
                   </a>
@@ -237,7 +237,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/75ee3634/1.png" alt title>
+                    <img src="/blog/CokeSprit/blog/posts/75ee3634/1.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -248,7 +248,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/75ee3634/2.png" alt title>
+                    <img src="/blog/CokeSprit/blog/posts/75ee3634/2.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -260,7 +260,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/75ee3634/3.png" alt title>
+                    <img src="/blog/CokeSprit/blog/posts/75ee3634/3.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -271,7 +271,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/75ee3634/4.png" alt title>
+                    <img src="/blog/CokeSprit/blog/posts/75ee3634/4.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure><script>
@@ -304,12 +304,12 @@
 
 
         
-        原文链接：<a href="/posts/75ee3634/" target="_blank" rel="external">http://cokesprit.top/posts/75ee3634/</a>
+        原文链接：<a href="/blog/posts/75ee3634/" target="_blank" rel="external">https://gitee.com/CokeSprit/blog/posts/75ee3634/</a>
         
     </div>
     <footer>
-        <div onclick="location.href='http://cokesprit.top'">
-            <img src="/img/avatar.jpg" alt="CokeSprit">
+        <div onclick="location.href='https://gitee.com/CokeSprit/blog'">
+            <img src="/blog/img/avatar.jpg" alt="CokeSprit">
             <a>CokeSprit</a>
         </div>
     </footer>
@@ -326,7 +326,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
 
 
             
@@ -336,7 +336,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/blog/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&pic=https://gitee.com/CokeSprit/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -346,22 +346,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/blog/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/75ee3634/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/blog/posts/75ee3634/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数组的声明和数组的原理》 — CokeSprit&url=http://cokesprit.top/posts/75ee3634/&via=http://cokesprit.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数组的声明和数组的原理》 — CokeSprit&url=https://gitee.com/CokeSprit/blog/posts/75ee3634/&via=https://gitee.com/CokeSprit/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/75ee3634/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/blog/posts/75ee3634/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -384,7 +384,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/posts/f5194d63/" id="post-prev" class="post-nav-link">
+      <a href="/blog/posts/f5194d63/" id="post-prev" class="post-nav-link">
         <h4 class="title" >
           上一篇：数组的push和unshift方法
         </h4>
@@ -394,7 +394,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/posts/c8cf727d/" id="post-next" class="post-nav-link">
+      <a href="/blog/posts/c8cf727d/" id="post-next" class="post-nav-link">
         <h4 class="title" data-hover="下一篇：看似牛掰的对象拷贝">下一篇：看似牛掰的对象拷贝</h4>
       </a>
     </div>
@@ -424,7 +424,7 @@
             <i class="icon icon-lg icon-copyright"></i>
             2020
             <i class="icon icon-lg icon-heart"></i>
-            <a href="http://cokesprit.top">CokeSprit.top</a>
+            <a href="https://gitee.com/CokeSprit/blog">CokeSprit.top</a>
         </span>
 
         <br/>
@@ -462,12 +462,12 @@
     <div class="reward-content">
         
         <div class="reward-code">
-            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+            <img id="rewardCode" data-img="/blog/img/dog.png" alt="打赏二维码">
         </div>
         
         <label class="reward-toggle">
             <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+                data-wechat="/blog/img/wechat.png" data-alipay="/blog/img/alipay.png">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
                 <span class="reward-toggle-item alipayPay">支付宝</span>
@@ -488,7 +488,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://cokesprit.top/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&pic=http://cokesprit.top/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://gitee.com/CokeSprit/blog/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&pic=https://gitee.com/CokeSprit/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -498,22 +498,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://cokesprit.top/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://gitee.com/CokeSprit/blog/posts/75ee3634/&title=《数组的声明和数组的原理》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://cokesprit.top/posts/75ee3634/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://gitee.com/CokeSprit/blog/posts/75ee3634/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数组的声明和数组的原理》 — CokeSprit&url=http://cokesprit.top/posts/75ee3634/&via=http://cokesprit.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数组的声明和数组的原理》 — CokeSprit&url=https://gitee.com/CokeSprit/blog/posts/75ee3634/&via=https://gitee.com/CokeSprit/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://cokesprit.top/posts/75ee3634/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://gitee.com/CokeSprit/blog/posts/75ee3634/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -524,7 +524,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aQW7DMAwEwPz/0ylQ9Gp7V7SVFBifgrqQR5cFRer1ip/375O8Pfrdrjl6cHFxx9z36ZOAkr/k6xwZcHFx93OTeDpfKKEnW7qw4eLifhk32cY84HBxcf8X9zySjt6en19wcXG/mZscftYi7OjDj5/VcHFxB9y2YfrE7wf7u7i4uCX3XT7tand99281XFzcLdyk+MjLlPw41DZNagQuLu6Ae/46Gbi2UXV+QLrYMC4u7kZu28JoB6h5K+Ti67i4uFu4bRFTR085cM3DDhcX92luG0b5VtfQFxJcXNyHuZNCJD8+5XEZTYNxcXEf5ub/mkPnB6rFUSsuLu4Wbjt2bTfQFkO4uLh7uHmBkrxd4+ZtFFxc3P3cu4aj87bIxeQHFxf3YW4bJUXzohy33NzfxcXFHXDbJebDlfayBS4u7qe4a0edOatukeDi4m7ktu3RexusRamEi4u7hbtWrLRXrNaKp1EI4uLijrl5eOV7zddJgrJIX1xc3Fu5k/BKcO1Wi/4uLi7uR7lJGK2NWotaDBcX9yu57dWKuy544eLi7ue2V7LWwmutmbLYFsHFxR1wJw3T8xCct0VwcXG3c38AttoGHBaEzW8AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aOXIDMQxEUd3/0uPUCgh1NyiXCf6JVLPyKUARy+slH8+vY3VVubN+dnVm2wEDBoxjGU951IurP1m/YXW1Pr/8m2DAgHEBQ1mEHi6zAF1TP6wZBgwYMMxAqWwr9UAPAwYMGFnAzRLaLBzDgAEDRj/w6QH3X+TiMGDAOJDhlu//8vdX+hswYMA4ivGYh56UdkK5vSoYMGCMZugBTk873QVlARcGDBj3MDppp/tUVp6TYDBgwLiAkRWz9HK/XmLTn307AwMGjGsY+quzkpwerI1Q62bPMGDAOJCRjU1kKWtWUNNXCwMGjNmMbAPnBuLOkITxLAwYMMYx+uNf2XbQDc1hEgsDBowRDHd4Ikt9O0msMpABAwaM2QwjnLWbBDVM+bo0EAYDBoxxDH3Tpg9bZHml2x6AAQPGbYxt/0E7rdXP2DtcGDBgHMtQEs7O9q6zlWz1DWDAgDGI0WlkuuV7pUjX/xYMGDBuYGS9Bb0l4CbJWZsBBgwY8xj6rXtDZGdLKg1bwIABYzQjazS6ATcb7NgwMwIDBoxjGVnxS7+/0xwNJ0dgwIAxgvGYh76gLMVV7v+wKYQBA8Y4Rtbs1AcmjBQ0uj+sHcKAAeNAhh5k3VdngxTh+AUMGDAuYHQGL/SrSpEuWy0MGDBguAt1G5/1U9J+FgYMGDBMkpvuZgF62d+AAQPGUEZW7ncHvJSgnIVjGDBgzGb0a1lZwU4PytsamTBgwDiP8QMWg2qYP9qwdwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -535,11 +535,11 @@
 
 <!-- 主题配置脚本 -->
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: true };
 </script>
 
 <!-- jquery -->
-<script src="/js/jquery.min.js?v=3.0"></script>
+<script src="/blog/js/jquery.min.js?v=3.0"></script>
 
 <!-- 搜索 -->
 
@@ -554,10 +554,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 <!-- main博客脚本 -->
-<script src="/js/main.min.js?v=3.0" ></script>
+<script src="/blog/js/main.min.js?v=3.0" ></script>
 
 <!-- 动画&配置 -->
-<script src="/js/script.min.js?v=3.0" ></script>
+<script src="/blog/js/script.min.js?v=3.0" ></script>
 
 <!-- 脚本管理 -->
 <script>

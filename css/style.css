@@ -5881,59 +5881,40 @@ input[type="reset"] {
 mark {
   background-color: #fa673a;
   color: #fff;
-  font-size: 1rem;
-  padding: 0.5rem 1rem;
-  margin: 0.5 0.6rem;
-  border-radius: 0.3rem;
+  font-size: 1em;
+  padding: 0.5em 0.5em;
+  margin: 0.5em 1em;
+  border-radius: 0.3em;
 }
-.loading {
-  height: 125px;
+.s_red,
+.s_green,
+.s_yellow,
+.s_jacinth,
+.s_js {
+  color: #fff;
+  font-size: 1.04em;
+  font-family: '楷体';
+  padding: 0.1em 0.2em;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px #bbbaba;
 }
-.loading p {
-  text-align: left;
-  text-indent: 1.3rem;
-  width: 100%;
-  float: left;
-  /*p标签默认有样式*/
-  margin: 0;
-  padding: 0;
+.s_green {
+  background: #2ed573;
+  border: 1px solid #2ed573;
 }
-.loading div {
-  width: 16px;
-  height: 70px;
-  margin: 0.3rem 1rem;
-  float: left;
-  background-color: hotpink;
-  border-radius: 10px;
+.s_red {
+  background: #ff7675;
+  border: 1px solid #ff7675;
 }
-.loading div:nth-child(1) {
-  background-color: lightcoral;
-  /*缩、放 这是两次，所以是2*/
-  /*animation:loading 0.5s ease 0s 2 alternate;*/
-  animation: loading 0.5s ease 0s infinite alternate;
+.s_yellow {
+  background: #ffa502;
+  border: 1px solid #ffa502;
 }
-.loading div:nth-child(2) {
-  background-color: darkorange;
-  animation: loading 0.5s ease 0.1s infinite alternate;
+.s_jacinth {
+  background: #fd6a41;
+  border: 1px solid #fd6a41;
 }
-.loading div:nth-child(3) {
-  background-color: lightcoral;
-  animation: loading 0.5s ease 0.2s infinite alternate;
-}
-.loading div:nth-child(4) {
-  background-color: gold;
-  animation: loading 0.5s ease 0.3s infinite alternate;
-}
-.loading div:nth-child(5) {
-  background-color: burlywood;
-  animation: loading 0.5s ease 0.4s infinite alternate;
-}
-@keyframes loading {
-  from {
-    /*缩放y轴*/
-    transform: scaleY(1);
-  }
-  to {
-    transform: scaleY(0.5);
-  }
+.s_js {
+  background: #23aaf2;
+  border: 1px solid #23aaf2;
 }
