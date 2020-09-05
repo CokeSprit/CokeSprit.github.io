@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>document对象、获取元素、节点、遍历树 | CokeSprit | 爱生活,爱编程</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="DOM">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+	<script src="//hm.baidu.com/hm.js?fb0c91ff53575b161978475ac07850b8"></script>
+
+
+    
+    <meta name="description" content="documentdocument 代表的是整个HTML文档,HTML是一个根标签，而docment是整个文档的最上层，HTML是document的下一级。  获取元素getElementById通过元素的id来选择元素，只有getElementById是选择一个元素，其他都是选择一组的。 开发习惯和规范问题:id在项目当中是不可以顺便乱用的，在大公司里面id一般是不作为样式去定义的，一般在一些大公">
+<meta property="og:type" content="article">
+<meta property="og:title" content="document对象、获取元素、节点、遍历树">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/edf1905e/index.html">
+<meta property="og:site_name" content="CokeSprit">
+<meta property="og:description" content="documentdocument 代表的是整个HTML文档,HTML是一个根标签，而docment是整个文档的最上层，HTML是document的下一级。  获取元素getElementById通过元素的id来选择元素，只有getElementById是选择一个元素，其他都是选择一组的。 开发习惯和规范问题:id在项目当中是不可以顺便乱用的，在大公司里面id一般是不作为样式去定义的，一般在一些大公">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/1.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/2.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/3.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/4.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/5.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/6.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/7.png">
+<meta property="og:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/8.png">
+<meta property="article:published_time" content="2020-09-02T13:52:31.000Z">
+<meta property="article:modified_time" content="2020-09-03T11:00:23.374Z">
+<meta property="article:author" content="CokeSprit">
+<meta property="article:tag" content="DOM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cokesprit.gitee.io/CokeSprit/CokeSprit/posts/edf1905e/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/CokeSprit/atom.xml">
+    
+    <link rel="shortcut icon" href="/CokeSprit/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/CokeSprit/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/CokeSprit/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/CokeSprit/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">CokeSprit</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/CokeSprit/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/CokeSprit/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/CokeSprit/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/CokeSprit/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/CokeSprit/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:2665281140@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/cokesprit" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6179399347" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+            
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">document对象、获取元素、节点、遍历树</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#document"><span class="post-toc-number">1.</span> <span class="post-toc-text">document</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取元素"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取元素</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#getElementById"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">getElementById</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#getElementsByClassName"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">getElementsByClassName</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#getElementsByName"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">getElementsByName</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#querySelector-querySeclectorAll"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">querySelector querySeclectorAll</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#遍历节点树"><span class="post-toc-number">3.</span> <span class="post-toc-text">遍历节点树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#parentNode"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">parentNode</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#childNodes"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">childNodes</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#firstChild-lastChild"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">firstChild lastChild</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#nextSibling-previousSibling"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">nextSibling previousSibling</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#补充"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">补充</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#遍历元素节点树"><span class="post-toc-number">4.</span> <span class="post-toc-text">遍历元素节点树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#补充-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">补充</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-document对象、获取元素、节点、遍历树"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">document对象、获取元素、节点、遍历树</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2020-09-02 21:52:31" datetime="2020-09-02T13:52:31.000Z"  itemprop="datePublished">2020-09-02</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="document"><a href="#document" class="headerlink" title="document"></a>document</h4><p><span class="jacinth">document 代表的是整个HTML文档</span>,HTML是一个根标签，而docment是整个文档的最上层，HTML是document的下一级。</p>
+<hr>
+<h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><h5 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById"></a>getElementById</h5><p>通过元素的id来选择元素，只有getElementById是选择一个元素，其他都是选择一组的。</p>
+<p><span class="s_green">开发习惯和规范问题:</span>id在项目当中是不可以顺便乱用的，在大公司里面id一般是不作为样式去定义的，一般在一些大公司里面这个id称为 钩子，真正的id的用处是拿来对接后端的，这个id在模块化开发当中一般来是一个模块一个id，能不用id尽量不用id,在大公司里面id一般不是你定的。</p>
+<hr>
+<h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName"></a>getElementsByClassName</h5><p>通过元素class来选择元素，返回的是一个数组。在IE8及以下的是没有这个方法，所以说DOM和BOM队兼容性要求比较高。</p>
+<hr>
+<h5 id="getElementsByName"><a href="#getElementsByName" class="headerlink" title="getElementsByName"></a>getElementsByName</h5><p>通过元素的name来选择元素，返回一个数组，支持到ie4这个极不常用。</p>
+<hr>
+<h5 id="querySelector-querySeclectorAll"><a href="#querySelector-querySeclectorAll" class="headerlink" title="querySelector querySeclectorAll"></a>querySelector querySeclectorAll</h5><p>这两个是HTML5这个版本新引入的WEB API，但是它们两个很早之前就有了，它们两个比getElementsByClassName还要早，兼容IE7,IE6及以下不兼容，querySelector 和 querySeclectorAll 它们两个的写法和CSS选择器是一样的。<br><br></p>
+<hr>
+<p><span class="s_jacinth">querySelector</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelector<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div2 = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)[<span class="number">1</span>];</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><span class="s_red">总结:</span>如果类和标签有多个的话，querySelector只会选择第一个，它不能选择一组。</p>
+<hr>
+<br>
+<span class="s_jacinth">querySelectorAll</span>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelectorAll<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div1 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div1);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div2 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'#box'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div2);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div3 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div3);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+js运行结结果：
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<span class="s_red">总结：</span>querySelectorAll 使用无论类、id、标签，返回来的都是一组。
+<br>
+
+<hr>
+<p><span class="s_jacinth">querySelector和querySelectorAll的缺点</span><br>1.性能要比get慢得多 -&gt; 公司用的少<br>2.不实时,相当于存了一个缓存在那，稍微有点有点更改对它都是无效的。这才是它们最致命的缺点。<br><span class="s_greens">例子</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelector和querySelectorAll的缺点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>);</span></span><br><span class="line">          divs[0].remove();</span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(divs); <span class="comment">// 节点并没有被删除！！！</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h4 id="遍历节点树"><a href="#遍历节点树" class="headerlink" title="遍历节点树"></a>遍历节点树</h4><p>节点不是元素，元素是节点的一部分。<br>节点包含元素 -&gt; 元素节点 = DOM元素</p>
+<hr>
+<h5 id="parentNode"><a href="#parentNode" class="headerlink" title="parentNode"></a>parentNode</h5><p>父节点，每个子元素只有一个父节点</p>
+<span class="s_green">html</span>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<span class="s_js">JavaScript</span>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(a.parentNode);<span class="comment">// a的父节点是li</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/4.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="childNodes"><a href="#childNodes" class="headerlink" title="childNodes"></a>childNodes</h5><p><span class="s_red">childNodes</span>子节点集合<br><span class="s_green">常用的节点有：</span><br>1、元素节点  = 1<br>2、属性节点  = 2<br>3、文本节点(#text)  = 3    换行也算是文本节点！！！<br>4、注释节点(#comment)  = 8<br>5、document = 9<br>6、DocumentFragment = 11<br>后面的数字表示节点号</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>123</span><br><span class="line">        <span class="comment">&lt;!-- 我是注释 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(li.childNodes.length); <span class="comment">// 9</span></span><br><span class="line"><span class="built_in">console</span>.log(li.childNodes);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/5.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="firstChild-lastChild"><a href="#firstChild-lastChild" class="headerlink" title="firstChild lastChild"></a>firstChild lastChild</h5><p>第一个子节点，最后一个子节点</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(li.firstChild); <span class="comment">//"123"</span></span><br><span class="line">    <span class="built_in">console</span>.log(li.lastChild); <span class="comment">// #text</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/6.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="nextSibling-previousSibling"><a href="#nextSibling-previousSibling" class="headerlink" title="nextSibling previousSibling"></a>nextSibling previousSibling</h5><p>下一个兄弟节点,上一个兄弟节点</p>
+<p><span class="s_js">JavaScript</span></p>
+<pre><code class="JavaScript"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];
+   <span class="built_in">console</span>.log(p.previousSibling)
+   <span class="built_in">console</span>.log(p.nextSibling);
+   <span class="built_in">console</span>.log(p.nextSibling.nextSibling);</code></pre>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/7.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p><span class="s_jacinth">遍历节点树补充：</span> 在公司里面只使用parentNode和childNodes,其他都是不用的,虽然其他不用但是一定要认识。</p>
+<hr>
+<h4 id="遍历元素节点树"><a href="#遍历元素节点树" class="headerlink" title="遍历元素节点树"></a>遍历元素节点树</h4><p> <span class="s_red">parentElement</span>  -&gt; 父元素<br>  <span class="s_red">children</span>  -&gt; 子元素<br>   <span class="s_red">firstElementChild lastElementChild</span>  -&gt; 第一个子元素  最后一个子元素<br>    <span class="s_red">nextElementSibling previousElementSibling</span> -&gt; 下一个兄弟元素  上一个兄弟元素<br><br></p>
+<p><span class="s_js">JavaScript</span></p>
+<pre><code class="JavaScript"><span class="comment">// parentElement</span>
+    <span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];
+    <span class="built_in">console</span>.log(p.parentElement);
+
+    <span class="keyword">var</span> html = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>];
+    <span class="built_in">console</span>.log(html.parentElement);
+    <span class="comment">// 总结：html标签有父节点 -&gt; #document ，但是但是但是没有父元素</span>
+
+<span class="comment">// children</span>
+    <span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];
+    <span class="built_in">console</span>.log(li.children); <span class="comment">//[a, p, h1]</span>
+
+<span class="comment">// 笔试</span>
+<span class="comment">// childElementCount = children.length  这两个是一样的 不过前者没人用</span>
+    <span class="built_in">console</span>.log(li.childElementCount,li.children.length); <span class="comment">// 3 3</span>
+
+
+<span class="comment">// firstElementChild lastElementChild</span>
+    <span class="built_in">console</span>.log(li.firstElementChild,li.lastElementChild);
+
+<span class="comment">// nextElementSibling previousElementSibling </span>
+    <span class="built_in">console</span>.log(p.previousElementSibling,p.nextElementSibling);</code></pre>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/edf1905e/8.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="补充-1"><a href="#补充-1" class="headerlink" title="补充"></a>补充</h5><p><span class="s_green">遍历节点树补充：</span><br>parentElement IE9及以下不支持<br>children IE7及以下不支持<br>childElementCount = children.length  IE9及以下不支持<br>firstElementChild lastElementChild  IE9及以下不支持<br>nextElementSibling previousElementSibling  IE9及以下不支持<br>在公司里面除了children有时候用之外,其他都没有人用,虽然不用但是不得不认识!!!</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-09-03T11:00:23.374Z" itemprop="dateUpdated">2020-09-03 19:00:23</time>
+</span>
+
+
+        
+        原文链接：<a href="/CokeSprit/posts/edf1905e/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/edf1905e/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://cokesprit.gitee.io'">
+            <img src="/CokeSprit/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/edf1905e/&title=《document对象、获取元素、节点、遍历树》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/edf1905e/&title=《document对象、获取元素、节点、遍历树》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/edf1905e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《document对象、获取元素、节点、遍历树》 — CokeSprit&url=https://cokesprit.gitee.io/posts/edf1905e/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/edf1905e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/CokeSprit/posts/e02e7815/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：节点属性和方法
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/CokeSprit/posts/f75e92e9/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：DOM介绍">下一篇：DOM介绍</h4>
+      </a>
+    </div>
+  
+
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2020
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="https://cokesprit.gitee.io">CokeSprit.top</a>
+        </span>
+
+        <br/>
+        <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
+
+        
+
+        <!-- 访问人数
+        <span>
+            
+
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        <br/> -->
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/CokeSprit/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/CokeSprit/img/wechat.png" data-alipay="/CokeSprit/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/edf1905e/&title=《document对象、获取元素、节点、遍历树》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/edf1905e/&title=《document对象、获取元素、节点、遍历树》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/edf1905e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《document对象、获取元素、节点、遍历树》 — CokeSprit&url=https://cokesprit.gitee.io/posts/edf1905e/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/edf1905e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABz0lEQVR42u3aQW7kMAwEwPn/pxNgTzlkPN2UpXiB8slwxlI5B4Ii+XrF19e/6+d9/uTn83dr3nzh4uIuc78ur3dLJ79P3soNuLi457mz4JWskK8fBTtcXNyHcWfJUB7IcHFx/0fu7MPywxIuLu7TuO1h5vr+OvAdOqvh4uIucFcSl7vut9d3cXFxb+pK3FU8ne31y2q4uLhHuNfbt23RNjWZHYdwcXFPcmdtkpUCa9KA+XBWw8XF3cBNAlNb1GjToDw9wsXFPcNti5h5CMu3b9/FxcXdzU0aou3wRNtuyYspuLi4Z7j58ES7fX64qksquLi4m7lJ2Go/rx3CKMqyuLi4x7k7xrNmadPbXXBxcY9w2wbqLCWqi6FJuMTFxd3GnSUiK03ZWWsWFxf3JLfut8TjFyvF1g/pES4u7mZu+/JsLKP9JS4u7hO4bbiZVS+TYPfhw3BxcQ9yV8qmeVE1f/7KsyRcXNwN3DagtEWT2WBHXi7BxcXdx23bnHnRJB/YKv6Ki4t7kJu0OfPj0GxUK/p34OLiPozbjmLkAav4PFxc3Edy60JnnPosDWvi4uJu4LZF0us0aH2k44ayCC4u7gK3LZjOhqvalXFxcf+I+w0Ro75V1wHGVgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/CokeSprit/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/CokeSprit/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/CokeSprit/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/CokeSprit/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 600){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2020/10/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "CokeSprit");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 尽人事,听天命 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+
+</body>
+</html>
