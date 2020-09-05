@@ -44,7 +44,7 @@
     <meta name="description" content="web端开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CokeSprit">
-<meta property="og:url" content="https://gitee.com/CokeSprit/page/4/index.html">
+<meta property="og:url" content="https://cokesprit.gitee.io/CokeSprit/page/4/index.html">
 <meta property="og:site_name" content="CokeSprit">
 <meta property="og:description" content="web端开发">
 <meta property="article:author" content="CokeSprit">
@@ -190,6 +190,166 @@
 
 <div class="container body-wrap">
     <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-Object-create"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/CokeSprit/posts/3837d091/">Object.create</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-15 15:25:21" datetime="2020-08-15T07:25:21.000Z"  itemprop="datePublished">2020-08-15</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>Obcet.create():创建对象,提供一个自定义原型的功能,参数是对象或者null。</p>
+<hr>
+<h4 id="参数是null时"><a href="#参数是null时" class="headerlink" title="参数是null时"></a>参数是null时</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = Objcet.create(<span class="literal">null</span>);</span><br><span class="line"><span class="built_in">console</span>.log(s);  <span class="comment">// {}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/3837d091/1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>总结:Object.create(null);创建的对象是没有原型的。</p>
+<hr>
+<h4 id="参数是对象时"><a href="#参数是对象时" class="headerlink" title="参数是对象时"></a>参数是对象时</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = {</span><br><span class="line">    num:<span class="number">2</span>,</span><br><span class="line">    say:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'今天天气真好'</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Obj</span>(<span class="params"></span>)</span>{}</span><br><span class="line"></span><br><span class="line">Obj.prototype.num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> Obj();</span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Object.create自定义原型</span></span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.create(test); </span><br><span class="line"><span class="built_in">console</span>.log(obj2);</span><br><span class="line">obj2.say();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/3837d091/2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>总结：Object.create 可以把其他的对象作为原型,形成一个祖先与后代的关系。使用Object.create()实现继承会更优雅一些。</p>
+<hr>
+<h4 id="面试-笔试"><a href="#面试-笔试" class="headerlink" title="面试/笔试"></a>面试/笔试</h4><p>不是所有的对象都继承于Object.prototype:<br><mark>Object.create(null)</mark>创建出来的对象没有原型所以<mark>不继承</mark>于Object.prototype</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/CokeSprit/posts/3837d091/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/js%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">js原型/原型链</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-原型链"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/CokeSprit/posts/bf8cf30/">原型链</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-14 17:15:54" datetime="2020-08-14T09:15:54.000Z"  itemprop="datePublished">2020-08-14</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p><mark>原型链：</mark>沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Professor.prototype.tSkill = <span class="string">'JAVA'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Professor</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> professor = <span class="keyword">new</span> Professor();</span><br><span class="line"></span><br><span class="line">Teacher.prototype = professor;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.mSkill = <span class="string">'JS/JQ'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> teacher = <span class="keyword">new</span> Teacher();</span><br><span class="line"></span><br><span class="line">Student.prototype = teacher;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.pSkill = <span class="string">'HTML/CSS'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> student = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="built_in">console</span>.log(student);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/CokeSprit/CokeSprit/posts/bf8cf30/1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我没有的属性我到我的原型上找,如果没有就一直往上找,这样就形成了一条链条。</p>
+<hr>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>所有的对象都有原型,包括原型的本身<br>原型的顶端是<mark>Object.prototype</mark>!!!<br>原型链上面的增删改只能是它自己本身!!!<br>原型的原型是由系统自带的Object构造出来的</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/CokeSprit/posts/bf8cf30/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/js%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">js原型/原型链</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
     
         <li class="post-list-item fade">
             <article id="post-原型"
@@ -859,303 +1019,6 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-闭包基础"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/CokeSprit/posts/3d615767/">闭包基础</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-04 10:30:39" datetime="2020-08-04T02:30:39.000Z"  itemprop="datePublished">2020-08-04</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>闭包的定义：当内部函数被返回到外部并保存时,就一定会形成闭包。</p>
-<hr>
-<p>闭包的优点:</p>
-<ol>
-<li>避免全全局变量的污染;</li>
-<li>私有成员的存在;</li>
-<li>希望一个变量长期存储在内存中。</li>
-</ol>
-<hr>
-<p>闭包的缺点:</p>
-<ol>
-<li>闭包会产生原来的作用域链不释放。</li>
-<li>过渡的闭包<mark>可能</mark>会导致内存泄漏或加载过慢,因为它常驻内存。</li>
-</ol>
-<hr>
-<p>闭包的用途:可以用来做数据缓存。</p>
-<hr>
-<p>闭包的三个特性:</p>
-<ol>
-<li>函数嵌套函数。</li>
-<li>函数内部可以引用外部的参数和变量。</li>
-<li>参数和变量不会被垃圾回收机制回收。</li>
-</ol>
-<hr>
-<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(x);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line"></span><br><span class="line">test3(); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 这就是一个简单闭包</span></span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p><mark>面包管理器</mark></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">breadMgr</span>(<span class="params">num</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> breadNum = <span class="built_in">arguments</span>[<span class="number">0</span>] || <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">supply</span>(<span class="params"></span>)</span>{</span><br><span class="line">        breadNum += <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(breadNum);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sale</span>(<span class="params"></span>)</span>{</span><br><span class="line">        breadNum--;</span><br><span class="line">        <span class="built_in">console</span>.log(breadNum);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [supply,sale];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> breadMgr = breadMgr(<span class="number">60</span>);</span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">0</span>](); <span class="comment">// 补给</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/3d615767/1.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><mark>星期天计划管理器</mark></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sunSched</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> sunSched = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> operation = {</span><br><span class="line">        setSched: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>)</span>{</span><br><span class="line">            sunSched = thing;</span><br><span class="line">        },</span><br><span class="line">        showSched: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"My schedule on sunday is "</span> + sunSched);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> operation; <span class="comment">// 把对象返回出去</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> sunSched = sunSched(); <span class="comment">//执行返回 operation</span></span><br><span class="line"></span><br><span class="line">sunSched.setSched(<span class="string">'studying'</span>);</span><br><span class="line">sunSched.showSched();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/3d615767/2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/CokeSprit/posts/3d615767/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/%E9%97%AD%E5%8C%85/" rel="tag">闭包</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-作用域与作用域链图解"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/CokeSprit/posts/ab6a816/">作用域与作用域链图解</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-03 09:42:56" datetime="2020-08-03T01:42:56.000Z"  itemprop="datePublished">2020-08-03</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>作用域与作用域链</p>
-<h4 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    b();</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure>
-<h5 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h5><p><span class="s_jacinth">当a函数被定义时</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/1.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当a函数被执行时(前一刻)</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当b函数被定义时</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/3.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当b函数被执行时(前一刻)</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/4.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当b函数被执行结束后</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/5.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">回归b函数被定义时的状态</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/6.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当a函数被执行结束时</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/7.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">回归a函数被定义时的状态</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/8.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p><span class="s_red">以上这就是作用域和作用域链的最基本的一个形态</span></p>
-<hr>
-<h4 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h4><p>这个例子比较特殊涉及到闭包,有关闭包的在下一篇更新。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> c = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line">test3();</span><br></pre></td></tr></tbody></table></figure>
-<p><span class="s_jacinth">当test1函数被定义时</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/9.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当test1函数被执行时(前一刻),函数test2被定义</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/10.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p><span class="s_jacinth">当test1函数被执行结束时</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/11.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>这时test1的AO并没有被销毁只是把线剪断了,test1的AO本该是要被销毁的,但test2已经被返回到外部且死死的抓住test1的AO不放,所有test1的AO不能销毁。<br>注意这里是重头戏,这时候就形成了闭包了！！！</p>
-<hr>
-<p><span class="s_jacinth">test3执行</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/12.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p><span class="s_jacinth">test3执行结束时</span></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/CokeSprit/CokeSprit/posts/ab6a816/13.jpg" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>这时的 test3 === test2。<br>a是在test1的AO里面的,为什么可以打印出来a? 就像之前讲的test2还死死的攥着test1的AO,当在自己的AO上没有查找到,则想test1的AO查找,实际操作的仍然是test1的AO。</p>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ol>
-<li>每个函数在定义的时候就已经保存了全局上下文GO。</li>
-<li>函数自己的AO产生了,就会把自己AO排在作用域链的最顶端,其他AO和全局GO就会被挤下去。</li>
-<li>函数被定义的时候它拿的是它上一级的作用域链。</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/CokeSprit/posts/ab6a816/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/CokeSprit/tags/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/" rel="tag">js作用域作用域链</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
@@ -1176,7 +1039,7 @@
             <i class="icon icon-lg icon-copyright"></i>
             2020
             <i class="icon icon-lg icon-heart"></i>
-            <a href="https://gitee.com/CokeSprit">CokeSprit.top</a>
+            <a href="https://cokesprit.gitee.io/CokeSprit">CokeSprit.top</a>
         </span>
 
         <br/>
