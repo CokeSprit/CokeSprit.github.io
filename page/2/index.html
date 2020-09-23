@@ -192,6 +192,911 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-元素属性设置获取"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/949b6685/">元素属性设置获取</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-09 15:14:36" datetime="2020-09-09T07:14:36.000Z"  itemprop="datePublished">2020-09-09</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_green">setAttribute()</span>添加指定的属性，并为其赋值指定的值。如果这个指定的属性已存在，则仅设置/更改值。<br><span class="s_jacinth">语法：</span>setAttribute(‘属性名’,’属性值’);</p>
+<p><span class="s_green">getAttribute()</span>返回指定属性名的属性值。如果希望返回的是 Attr对象返回属性，就用getAttributeNode。<br><span class="s_jacinth">语法：</span>getAttribute(‘属性名’);</p>
+<hr>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// setAttribute 给元素增加属性和属性值</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">div.setAttribute(<span class="string">'id'</span>,<span class="string">'box'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// getAttribute 获取属性值</span></span><br><span class="line"><span class="keyword">var</span> attr = div.getAttribute(<span class="string">'class'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>元素属性设置获取<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.running</span>{<span class="attribute">color</span>:<span class="number">#3ae374</span>;}</span></span><br><span class="line"><span class="css">            <span class="selector-class">.warning</span>{<span class="attribute">color</span>:orange;}</span></span><br><span class="line"><span class="css">            <span class="selector-class">.denger</span>{<span class="attribute">color</span>:red;}</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            系统正在运行...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">syetemStatus</span>(<span class="params">statu</span>)</span>{</span><br><span class="line">    div.setAttribute(<span class="string">'class'</span>,statu);</span><br><span class="line">    <span class="keyword">switch</span>(statu){</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'running'</span>:</span><br><span class="line">        div.innerHTML = <span class="string">"系统正在运行"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'warning'</span>: </span><br><span class="line">        div.innerHTML = <span class="string">"系统运行有警告异常"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> <span class="string">'denger'</span>: </span><br><span class="line">        div.innerHTML = <span class="string">"系统存在危险"</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line"> }</span><br><span class="line"> syetemStatus(<span class="string">'warning'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/949b6685/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/949b6685/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-节点操作"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/f7e7dff7/">节点操作</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-08 09:58:28" datetime="2020-09-08T01:58:28.000Z"  itemprop="datePublished">2020-09-08</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>常用的节点操作有创建节点、剪切节点/增加节点、插入节点、替换节点、删除节点</p>
+<p><span class="s_green">创建节点</span>createElement、createTextNode、createComment</p>
+<p><span class="s_green">剪切/增加节点</span>：appendChild()</p>
+<p><span class="s_green">插入节点</span>：insertBefore()</p>
+<p><span class="s_green">替换节点</span>：repelaceChild()</p>
+<p><span class="s_green">删除节点</span>：removeChild()、remove()</p>
+<hr>
+<h4 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h4><p>createElement()、createTextNode()、createComment()，分别为创建元素节点、创建文本节点、创建注释节点</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建元素节点</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建文本节点</span></span><br><span class="line"><span class="keyword">var</span> text = <span class="built_in">document</span>.createTextNode(<span class="string">'Hello Word！！！'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建注释节点</span></span><br><span class="line"><span class="keyword">var</span> comment = <span class="built_in">document</span>.createComment(<span class="string">'我是注释君'</span>);</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="剪切-增加节点"><a href="#剪切-增加节点" class="headerlink" title="剪切/增加节点"></a>剪切/增加节点</h4><p>appendChild()方法向节点添加最后一个子节点。也可以使用appendChild()方法从一个元素向另一个元素中移动元素，实现剪切的功能。</p>
+<p><span class="s_jacinth">增加节点</span><br><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取div</span></span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">'p'</span>);</span><br><span class="line">p.innerHTML = <span class="string">"JavaScript"</span>;</span><br><span class="line">div.appendChild(p); <span class="comment">// 把p元素添加到div里面去</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_jacinth">剪切节点</span></p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>剪切节点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>hhh <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素a</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div); </span><br><span class="line">div.appendChild(a); <span class="comment">// 将a剪切到div里面</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f7e7dff7/1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h4 id="插入节点"><a href="#插入节点" class="headerlink" title="插入节点"></a>插入节点</h4><p>insertBefore()方法在指定的已有节点之前插入新的子节点。也可以使用 insertBefore 方法插入/移动已有元素<br><span class="s_green">语法：</span> parent.insertBefore(a,b); <span class="s_red">将a元素插入到parent节点下的b元素前面</span>。</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>插入节点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是p标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">a.hrfe = <span class="string">''</span>;</span><br><span class="line">a.innerHTML = <span class="string">'我是a标签'</span>;</span><br><span class="line">div.insertBefore(a,p);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f7e7dff7/2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h4 id="替换节点"><a href="#替换节点" class="headerlink" title="替换节点"></a>替换节点</h4><p>replaceChild()方法将某个子节点替换为另外一个。<br><span>语法</span>：parent.replaceChild(newnode,oldnode);</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>替换节点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我标题标签h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> h1 = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'h1'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> h2 = <span class="built_in">document</span>.createElement(<span class="string">'h2'</span>);</span><br><span class="line">h2.innerHTML = <span class="string">"我是标题标签h2"</span>;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'box'</span>).replaceChild(h2,h1);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f7e7dff7/3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h4 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h4><p>删除节点的方法有两个分别是：removeChild() 和 remove()。<br><span class="s_green">removeChild()</span>方法从子节点列表中删除某个节点，成功删除返回被删除的节点，删除失败返回null。</p>
+<p><span class="s_green">remove()</span>是真正的删除掉。ES5出来的。</p>
+<p><span class="s_jacinth">二者的区别</span>removeChild()删除的是DOM节点但是内存里面的空间并没有释放，而remove()是彻底的删除掉。</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>删除节点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(div.removeChild(p)); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementsByTag(<span class="string">'a'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.remove());</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f7e7dff7/4.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/f7e7dff7/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-DOM结构树"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/25df9200/">DOM结构树</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-06 14:57:17" datetime="2020-09-06T06:57:17.000Z"  itemprop="datePublished">2020-09-06</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_green">DOM结构树</span></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/25df9200/DOM结构树.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h4 id="DOM操作深入"><a href="#DOM操作深入" class="headerlink" title="DOM操作深入"></a>DOM操作深入</h4><h5 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById"></a>getElementById</h5><p>它是定义在<span class="s_red">Document.prototype</span>上的，<span class="s_red">Element.prototype</span>和<span class="s_red">HTMLElement.prototype</span>并没有。  </p>
+<p><span class="s_jacinth">举例证明：</span><br><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    我是文本节点</span><br><span class="line">    <span class="comment">&lt;!-- 我是注释君 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>我是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>]; </span><br><span class="line">div.getElementById(); <span class="comment">// 报错 因为HTMLElement.prototype上没有这个方法</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/25df9200/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="getElementsByName"><a href="#getElementsByName" class="headerlink" title="getElementsByName"></a>getElementsByName</h5><p>它是定义在Doment.prototype上的。</p>
+<hr>
+<h5 id="getElementsByTagName…"><a href="#getElementsByTagName…" class="headerlink" title="getElementsByTagName…."></a>getElementsByTagName….</h5><p><span class="s_red">getElementsByTagName</span><br><span class="s_red">getElementsClass</span><br><span class="s_red">querySelector<br><span class="s_red">querySelectorAll</span></span></p>
+<p>这四个在<span class="s_jacinth">Document.prototype </span>和 <span class="s_jacinth">Element.prototype</span>都有。</p>
+<hr>
+<h5 id="星号-gt-通配符"><a href="#星号-gt-通配符" class="headerlink" title="* 星号 -> 通配符"></a>* 星号 -&gt; 通配符</h5><p><span class="s_jacinth">&nbsp;*&nbsp;</span> DOM里面也有这个东西，<span class="s_jacinth">&nbsp;*&nbsp;</span>选出来所有标签。只能document.getElementsByTagName使用！！！</p>
+<p><span class="s_jacinth">举例证明：</span><br><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    我是文本节点</span><br><span class="line">    <span class="comment">&lt;!-- 我是注释君 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>我是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span>  </p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> all = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'*'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(all);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/25df9200/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="获取-body-和-head"><a href="#获取-body-和-head" class="headerlink" title="获取 body 和 head"></a>获取 body 和 head</h5><p><span class="s_red">body</span> 和 <span class="s_red">head</span>在<span class="s_jacinth">HTMLDocument</span>上定义有，所以可以直接通过 document.body 和 document.head来获取body和head标签。</p>
+<p><span class="s_js">JavaScript</span>  </p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.body;</span><br><span class="line"><span class="built_in">console</span>.log(body);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.head;</span><br><span class="line"><span class="built_in">console</span>.log(head);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 那么有没有 title呢？有但不是返回元素,而是title里面的文本</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> title = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="built_in">console</span>.log(title);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/25df9200/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h5 id="documentElement"><a href="#documentElement" class="headerlink" title="documentElement"></a>documentElement</h5><p>Document.prototype 提供了<span class="s_jacinth">documentElement</span>可以直接访问整个HTML文档。</p>
+<h4 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h4><p> 1.在原型上编程</p>
+<pre><code>要求 ：不能使用 children 和 childNodes
+    遍历任意一个父元素 找到它的子元素节点
+    有数字参数 -&gt; 某一个对应子元素
+    没有数字参数 -&gt;  子元素节点集合
+提示：是写在那个原型上，怎么判断有无参数的时候返回的参数不同</code></pre><p> 2.在原型上编程</p>
+<pre><code>要求：
+    找出一个元素的第N层父级元素</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/25df9200/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-封装childnodes方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/db01237d/">封装childnodes方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-04 22:18:33" datetime="2020-09-04T14:18:33.000Z"  itemprop="datePublished">2020-09-04</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>我们在获取子节点的时候虽然可以使用 <span class="s_red">childnodes</span> 和 <span class="s_red">children</span>,但是二者都有缺点,<br><span class="s_red">childnodes</span>会把一些我们不需要的注释节点和文本节点等返回回来。<br><span class="s_red">children</span>IE9以上版本才返回元素节点。<br><span class="s_green">所以我们需要封装一个只返回元素节点的方法。</span></p>
+<hr>
+<h4 id="简单封装"><a href="#简单封装" class="headerlink" title="简单封装"></a>简单封装</h4><p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">elemChildren</span>(<span class="params">node</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> arr = [],</span><br><span class="line">        children = node.childnodes;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++){</span><br><span class="line">        <span class="keyword">var</span> childItem = children[i]</span><br><span class="line">        <span class="keyword">if</span>(childItem.nodeType === <span class="number">1</span> ){</span><br><span class="line">            arr.push(childItem)</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="使用类数组的方式进行封装"><a href="#使用类数组的方式进行封装" class="headerlink" title="使用类数组的方式进行封装"></a>使用类数组的方式进行封装</h4><p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">elemChildren</span>(<span class="params">node</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> temp = {</span><br><span class="line">        <span class="string">'length'</span>:<span class="number">0</span>,</span><br><span class="line">        <span class="string">'push'</span>:<span class="built_in">Array</span>.prototype.push,</span><br><span class="line">        <span class="string">'splice'</span>:<span class="built_in">Array</span>.prototype.splice</span><br><span class="line">    },</span><br><span class="line"></span><br><span class="line">    len = node.childNodes.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++){</span><br><span class="line">        <span class="keyword">var</span> childItem = node.childNodes[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(childItem.nodeType === <span class="number">1</span>){</span><br><span class="line">            temp[temp[<span class="string">'length'</span>]] = childItem;</span><br><span class="line">            temp[<span class="string">'length'</span>]++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/db01237d/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-节点属性和方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/e02e7815/">节点属性和方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-04 22:05:48" datetime="2020-09-04T14:05:48.000Z"  itemprop="datePublished">2020-09-04</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_red">nodeName</span><span class="s_red">nodeVaue</span><span class="s_red">nodeType</span><span class="s_red">attributes</span><span class="s_red">getAttributeNode</span><br>这几个属性除了 <span class="s_jacinth">nodeType</span> 是经常用其他都不怎么用。</p>
+<hr>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">style</span>=<span class="string">"background-color: green;"</span>&gt;</span></span><br><span class="line">    我是文本节点</span><br><span class="line">    <span class="comment">&lt;!-- 我是注释君 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="nodeName"><a href="#nodeName" class="headerlink" title="nodeName"></a>nodeName</h4><p>nodeName 属性可依据节点的类型返回其名称。<br>如果节点是一个元素节点 , nodeName 属性将返回标签名。<br>如果节点是一个属性节点， nodeName 属性将返回属性名。<br>其他节点类型, nodeName 属性将返根据不同的节点类型返回不同的节点名称。<br>nodeName -&gt; 只读<br><br><br><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="built_in">console</span>.log(div.nodeName);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">document</span>.nodeName);</span><br><span class="line">  <span class="built_in">console</span>.log(div.nodeName.toLowerCase()); <span class="comment">// 转小写</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/e02e7815/1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<hr>
+<h4 id="nodeValue"><a href="#nodeValue" class="headerlink" title="nodeValue"></a>nodeValue</h4><p>nodeValue属性根据节点的类型设置或返回节点的值。<br>nodeValue属性可读可写，<span class="s_red">属性、注释、文本</span>节点<span class="s_jacinth">可用</span>。<br><br><br><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">// 文本节点 也有nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.firstChild.nodeValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注释节点 也有nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.childNodes[<span class="number">1</span>].nodeValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 元素节点 没有nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.childNodes[<span class="number">3</span>].nodeValue); <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 属性节点也有 nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.getAttributeNode(<span class="string">'id'</span>).nodeValue);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(div.firstChild.nodeValue = <span class="string">"我是假的文本节点"</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/e02e7815/2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h4 id="nodeType"><a href="#nodeType" class="headerlink" title="nodeType"></a>nodeType</h4><p><span class="s_jacinth">nodeType返回节点类型。无比重要！！！</span>  只可读不可修改。</p>
+<table>
+<thead>
+<tr>
+<th align="center">节点名称</th>
+<th align="center">节点类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">元素节点</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">属性节点</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">文本节点</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">注释节点</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">document</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td align="center">DocumentFragment</td>
+<td align="center">11</td>
+</tr>
+</tbody></table>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">// 结果返回1 -&gt; 元素节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.nodeType);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 结果返回2 -&gt; 属性节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.getAttributeNode(<span class="string">'id'</span>).nodeType); </span><br><span class="line"></span><br><span class="line">  <span class="comment">// 结果返回3 -&gt; 文本节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.firstChild.nodeType); </span><br><span class="line"></span><br><span class="line">  <span class="comment">// 结果返回8 -&gt; 注释节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.childNodes[<span class="number">1</span>].nodeType);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/e02e7815/3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h4 id="attributes-getAttributeNode"><a href="#attributes-getAttributeNode" class="headerlink" title="attributes getAttributeNode"></a>attributes getAttributeNode</h4><p>attributes方法获取一个元素的属性集合<br>getAttributeNod方法获取元素属性<br>这两个了解即可。</p>
+<hr>
+<h4 id="hasChildNodes"><a href="#hasChildNodes" class="headerlink" title="hasChildNodes"></a>hasChildNodes</h4><p>hasChildNodes 判断节点下有没有子节点,返回true或false。</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'box'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 注意换行也是属于文本节点！！！</span></span><br><span class="line"><span class="built_in">console</span>.log(box.hasChildNodes());</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/e02e7815/4.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/e02e7815/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-document对象、获取元素、节点、遍历树"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/edf1905e/">document对象、获取元素、节点、遍历树</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-02 21:52:31" datetime="2020-09-02T13:52:31.000Z"  itemprop="datePublished">2020-09-02</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="document"><a href="#document" class="headerlink" title="document"></a>document</h4><p><span class="jacinth">document 代表的是整个HTML文档</span>,HTML是一个根标签，而docment是整个文档的最上层，HTML是document的下一级。</p>
+<hr>
+<h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><h5 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById"></a>getElementById</h5><p>通过元素的id来选择元素，只有getElementById是选择一个元素，其他都是选择一组的。</p>
+<p><span class="s_green">开发习惯和规范问题:</span>id在项目当中是不可以顺便乱用的，在大公司里面id一般是不作为样式去定义的，一般在一些大公司里面这个id称为 钩子，真正的id的用处是拿来对接后端的，这个id在模块化开发当中一般来是一个模块一个id，能不用id尽量不用id,在大公司里面id一般不是你定的。</p>
+<hr>
+<h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName"></a>getElementsByClassName</h5><p>通过元素class来选择元素，返回的是一个数组。在IE8及以下的是没有这个方法，所以说DOM和BOM队兼容性要求比较高。</p>
+<hr>
+<h5 id="getElementsByName"><a href="#getElementsByName" class="headerlink" title="getElementsByName"></a>getElementsByName</h5><p>通过元素的name来选择元素，返回一个数组，支持到ie4这个极不常用。</p>
+<hr>
+<h5 id="querySelector-querySeclectorAll"><a href="#querySelector-querySeclectorAll" class="headerlink" title="querySelector querySeclectorAll"></a>querySelector querySeclectorAll</h5><p>这两个是HTML5这个版本新引入的WEB API，但是它们两个很早之前就有了，它们两个比getElementsByClassName还要早，兼容IE7,IE6及以下不兼容，querySelector 和 querySeclectorAll 它们两个的写法和CSS选择器是一样的。<br><br></p>
+<hr>
+<p><span class="s_jacinth">querySelector</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelector<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div2 = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)[<span class="number">1</span>];</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/1.png" alt="1" title>
+                </div>
+                <div class="image-caption">1</div>
+            </figure>
+<p><span class="s_red">总结:</span>如果类和标签有多个的话，querySelector只会选择第一个，它不能选择一组。</p>
+<hr>
+<br>
+<span class="s_jacinth">querySelectorAll</span>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelectorAll<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div1 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div1);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div2 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'#box'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div2);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div3 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div3);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+js运行结结果：
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<span class="s_red">总结：</span>querySelectorAll 使用无论类、id、标签，返回来的都是一组。
+<br>
+
+<hr>
+<p><span class="s_jacinth">querySelector和querySelectorAll的缺点</span><br>1.性能要比get慢得多 -&gt; 公司用的少<br>2.不实时,相当于存了一个缓存在那，稍微有点有点更改对它都是无效的。这才是它们最致命的缺点。<br><span class="s_greens">例子</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelector和querySelectorAll的缺点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>);</span></span><br><span class="line">          divs[0].remove();</span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(divs); <span class="comment">// 节点并没有被删除！！！</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h4 id="遍历节点树"><a href="#遍历节点树" class="headerlink" title="遍历节点树"></a>遍历节点树</h4><p>节点不是元素，元素是节点的一部分。<br>节点包含元素 -&gt; 元素节点 = DOM元素</p>
+<hr>
+<h5 id="parentNode"><a href="#parentNode" class="headerlink" title="parentNode"></a>parentNode</h5><p>父节点，每个子元素只有一个父节点</p>
+<span class="s_green">html</span>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<span class="s_js">JavaScript</span>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(a.parentNode);<span class="comment">// a的父节点是li</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/4.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="childNodes"><a href="#childNodes" class="headerlink" title="childNodes"></a>childNodes</h5><p><span class="s_red">childNodes</span>子节点集合<br><span class="s_green">常用的节点有：</span><br>1、元素节点  = 1<br>2、属性节点  = 2<br>3、文本节点(#text)  = 3    换行也算是文本节点！！！<br>4、注释节点(#comment)  = 8<br>5、document = 9<br>6、DocumentFragment = 11<br>后面的数字表示节点号</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>123</span><br><span class="line">        <span class="comment">&lt;!-- 我是注释 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(li.childNodes.length); <span class="comment">// 9</span></span><br><span class="line"><span class="built_in">console</span>.log(li.childNodes);</span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/5.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="firstChild-lastChild"><a href="#firstChild-lastChild" class="headerlink" title="firstChild lastChild"></a>firstChild lastChild</h5><p>第一个子节点，最后一个子节点</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(li.firstChild); <span class="comment">//"123"</span></span><br><span class="line">    <span class="built_in">console</span>.log(li.lastChild); <span class="comment">// #text</span></span><br></pre></td></tr></tbody></table></figure>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/6.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="nextSibling-previousSibling"><a href="#nextSibling-previousSibling" class="headerlink" title="nextSibling previousSibling"></a>nextSibling previousSibling</h5><p>下一个兄弟节点,上一个兄弟节点</p>
+<p><span class="s_js">JavaScript</span></p>
+<pre><code class="JavaScript"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];
+   <span class="built_in">console</span>.log(p.previousSibling)
+   <span class="built_in">console</span>.log(p.nextSibling);
+   <span class="built_in">console</span>.log(p.nextSibling.nextSibling);</code></pre>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/7.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p><span class="s_jacinth">遍历节点树补充：</span> 在公司里面只使用parentNode和childNodes,其他都是不用的,虽然其他不用但是一定要认识。</p>
+<hr>
+<h4 id="遍历元素节点树"><a href="#遍历元素节点树" class="headerlink" title="遍历元素节点树"></a>遍历元素节点树</h4><p> <span class="s_red">parentElement</span>  -&gt; 父元素<br>  <span class="s_red">children</span>  -&gt; 子元素<br>   <span class="s_red">firstElementChild lastElementChild</span>  -&gt; 第一个子元素  最后一个子元素<br>    <span class="s_red">nextElementSibling previousElementSibling</span> -&gt; 下一个兄弟元素  上一个兄弟元素<br><br></p>
+<p><span class="s_js">JavaScript</span></p>
+<pre><code class="JavaScript"><span class="comment">// parentElement</span>
+    <span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];
+    <span class="built_in">console</span>.log(p.parentElement);
+
+    <span class="keyword">var</span> html = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>];
+    <span class="built_in">console</span>.log(html.parentElement);
+    <span class="comment">// 总结：html标签有父节点 -&gt; #document ，但是但是但是没有父元素</span>
+
+<span class="comment">// children</span>
+    <span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];
+    <span class="built_in">console</span>.log(li.children); <span class="comment">//[a, p, h1]</span>
+
+<span class="comment">// 笔试</span>
+<span class="comment">// childElementCount = children.length  这两个是一样的 不过前者没人用</span>
+    <span class="built_in">console</span>.log(li.childElementCount,li.children.length); <span class="comment">// 3 3</span>
+
+
+<span class="comment">// firstElementChild lastElementChild</span>
+    <span class="built_in">console</span>.log(li.firstElementChild,li.lastElementChild);
+
+<span class="comment">// nextElementSibling previousElementSibling </span>
+    <span class="built_in">console</span>.log(p.previousElementSibling,p.nextElementSibling);</code></pre>
+<p>js运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/edf1905e/8.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="补充-1"><a href="#补充-1" class="headerlink" title="补充"></a>补充</h5><p><span class="s_green">遍历节点树补充：</span><br>parentElement IE9及以下不支持<br>children IE7及以下不支持<br>childElementCount = children.length  IE9及以下不支持<br>firstElementChild lastElementChild  IE9及以下不支持<br>nextElementSibling previousElementSibling  IE9及以下不支持<br>在公司里面除了children有时候用之外,其他都没有人用,虽然不用但是不得不认识!!!</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/edf1905e/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-DOM介绍"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/f75e92e9/">DOM介绍</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-02 21:15:10" datetime="2020-09-02T13:15:10.000Z"  itemprop="datePublished">2020-09-02</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_green">DOM</span> : Document Object Model 文档对象模型。<br>DOM是一个对象 -&gt; 又叫宿主对象 -&gt; 浏览器提供的。</p>
+<hr>
+<h4 id="JavaScript的3种对象"><a href="#JavaScript的3种对象" class="headerlink" title="JavaScript的3种对象"></a>JavaScript的3种对象</h4><h5 id="本地对象"><a href="#本地对象" class="headerlink" title="本地对象"></a>本地对象</h5><p><span class="s_red">本地对象 Native Object </span>：<br>Object、function、Array、String、Number、Boolean、Error、EvalError、SyntaxError、 SyntaxError、RangeError、ReferenceError、TypeError、URIError Date、RegExp</p>
+<h5 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h5><p><span class="s_red">内置对象 Built-in Object</span><br>Global 、 Math<br><span class="s_red">Global</span>是全局内置对象的总称但是它在ECMA是不存在的是虚拟的，ECMA -&gt; isNaN() parseInt() Number decodeURI EencodeURI Infinity NaN undefined 等等这些属性和方法都是属于Global。<br><span>补充:</span>本地对象和内置对象都是ECMAScript的内置对象。</p>
+<h5 id="宿主对象"><a href="#宿主对象" class="headerlink" title="宿主对象"></a>宿主对象</h5><p><span class="s_red">宿主对象 Host Object</span><br>执行JS脚本的环境提供的对象，所以宿主对象又称为浏览器对象，<span class="s_jacinth">使用浏览器对象会涉及到兼容性问题</span>。</p>
+<p><span class="s_green">浏览器对象</span>：window(BOM) 和 document(DOM),DOM是有W3C规范的，document是存在window下的。<br><span class="s_green">DOM的作用</span>：通过浏览器提供的这一套方法表示或操作HTML/XML。注意DOM是操作不了CSS的。它只是操作style这属性并没有直接操作样式表。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/f75e92e9/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-hello-world"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/c3259ce2/">hexo 博客文章发布部署</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-02 18:56:29" datetime="2020-09-02T10:56:29.786Z"  itemprop="datePublished">2020-09-02</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h3 id="创建新帖子"><a href="#创建新帖子" class="headerlink" title="创建新帖子"></a>创建新帖子</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="运行服务器"><a href="#运行服务器" class="headerlink" title="运行服务器"></a>运行服务器</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="部署到远程站点"><a href="#部署到远程站点" class="headerlink" title="部署到远程站点"></a>部署到远程站点</h3><pre><code class="bash">$ hexo deploy</code></pre>
+<p>作者：可乐精<br>链接：<a href="http://cokesprit.top/" target="_blank" rel="noopener">CokeSprit</a><br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/c3259ce2/" class="post-more waves-button">
+                Leer más
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-ES5严格模式"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -429,899 +1334,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-JS错误类型"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/e24d4eb8/">JS错误类型</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-28 09:44:10" datetime="2020-08-28T01:44:10.000Z"  itemprop="datePublished">2020-08-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>JavaScript有六种错误类型，每一种类型都对应着一种构造函数,这些构造函数都可以通过实例化去定义错误类型。除此之外还有一个总的错误类型 Error。下面分别介绍这六种错误类型。</p>
-<hr>
-<h4 id="SyntaxError"><a href="#SyntaxError" class="headerlink" title="SyntaxError"></a>SyntaxError</h4><p>SyntaxError -&gt; 语法错误，有以下几种情况：</p>
-<h5 id="变量名不规范"><a href="#变量名不规范" class="headerlink" title="变量名不规范"></a>变量名不规范</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="number">1</span>ab = <span class="number">1</span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/1-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="关键字赋值"><a href="#关键字赋值" class="headerlink" title="关键字赋值"></a>关键字赋值</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> = 1;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/1-2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="基本语法错误"><a href="#基本语法错误" class="headerlink" title="基本语法错误"></a>基本语法错误</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>:</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/1-3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="ReferenceError"><a href="#ReferenceError" class="headerlink" title="ReferenceError"></a>ReferenceError</h4><p>ReferenceError -&gt; 引用错误 -&gt; 以下都是报引用错误</p>
-<h5 id="变量或者函数未声明"><a href="#变量或者函数未声明" class="headerlink" title="变量或者函数未声明"></a>变量或者函数未声明</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/2-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="给无法被赋值的对象赋值的时候"><a href="#给无法被赋值的对象赋值的时候" class="headerlink" title="给无法被赋值的对象赋值的时候"></a>给无法被赋值的对象赋值的时候</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> = <span class="number">2</span>;</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/2-2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="RangeError"><a href="#RangeError" class="headerlink" title="RangeError"></a>RangeError</h4><p>RangeError -&gt; 范围错误 -&gt; 以下都是报引范围错误</p>
-<h5 id="数组长度赋值为负数"><a href="#数组长度赋值为负数" class="headerlink" title="数组长度赋值为负数"></a>数组长度赋值为负数</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line">arr.length = <span class="number">-1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/3-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="对象方法参数超出可行范围"><a href="#对象方法参数超出可行范围" class="headerlink" title="对象方法参数超出可行范围"></a>对象方法参数超出可行范围</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">66.66</span>);</span><br><span class="line"><span class="comment">// toFixed 保留小数点几位</span></span><br><span class="line"><span class="built_in">console</span>.log(num.toFixed(<span class="number">-1</span>)); <span class="comment">// 如果为 -1就会报错</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/3-2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="TypeError"><a href="#TypeError" class="headerlink" title="TypeError"></a>TypeError</h4><p>TypeError -&gt; 类型错误 -&gt; 以下都是报引类型错误</p>
-<h5 id="调用不存在的方法"><a href="#调用不存在的方法" class="headerlink" title="调用不存在的方法"></a>调用不存在的方法</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果写 test(); -&gt; ReferenceError -&gt; 引用错误</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// 但 如果写 123(); 报类型错误</span></span><br><span class="line"><span class="number">123</span>();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/4-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {};</span><br><span class="line">obj.say(); </span><br><span class="line"><span class="comment">// obj.say; // 这样就不会有错误</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/4-1-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>没有括号的时候不会报错,证明如果没有这个括号的时候JavaScript会认为这是一个属性只是没有赋值。加了括号以后属性执行了,但是属性不能像函数那样执行,所以报 TypeError -&gt; 类型错误。</p>
-<hr>
-<h5 id="实例化原始值"><a href="#实例化原始值" class="headerlink" title="实例化原始值"></a>实例化原始值</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// new 后面必须是一个构造器</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="string">'String'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// var b = new 123; //还是会报类型错误</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/4-2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="URIError"><a href="#URIError" class="headerlink" title="URIError"></a>URIError</h4><p>URIError -&gt; 编码错误<br>URI介绍：<br>URI：UNIFORM RESOURCE IDENTIFIER 统一的资源标识符<br>URL：UNIFORM RESOURCE LOCATOR 统一资源定位符<br>URN：UNIFORM RESOURCE NAME 统一资源名称</p>
-<p>URL和URN是URI的子集</p>
-<p>URL：有传输协议、有域名、或者有资源空间例如：<br><a href="http://www.baidu.com/new#today" target="_blank" rel="noopener">http://www.baidu.com/new#today</a><br><a href="ftp://www.baidu.com/ftp#developer">ftp://www.baidu.com/ftp#developer</a></p>
-<p>URN：<a href="http://www.baidu.com/ftp#developer" target="_blank" rel="noopener">www.baidu.com/ftp#developer</a> -&gt; 唯一的ID<br>hrfe=”tel:13900000”<br>href=”mailto:<a href="mailto:2665281140@qq.com">2665281140@qq.com</a>“</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myUrl = <span class="string">"http://www.baidu.cin?name=可乐"</span>;</span><br><span class="line">    <span class="comment">// encodeURI 把URI里面的中文转化为中文字符编码</span></span><br><span class="line"><span class="keyword">var</span> newUrl = <span class="built_in">encodeURI</span>(myUrl);</span><br><span class="line"><span class="built_in">console</span>.log(newUrl)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// decodeURI将中文编码转化成中文</span></span><br><span class="line"><span class="keyword">var</span> newNewUrl = <span class="built_in">decodeURI</span>(newUrl); </span><br><span class="line"><span class="built_in">console</span>.log(newNewUrl);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果decodeURI 里面的中文编码乱填的haul就会报错</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">decodeURI</span>(<span class="string">'%fdsd'</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/5-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="EvalError"><a href="#EvalError" class="headerlink" title="EvalError"></a>EvalError</h4><p>EvalError -&gt; 全局错误</p>
-<h5 id="eval函数执行错误"><a href="#eval函数执行错误" class="headerlink" title="eval函数执行错误"></a>eval函数执行错误</h5><p>现在呢，这个已经不那么容易报错了。<br>eval();最大的功能是可以在括号写JavaScript程序然后执行还有就是把json对象转化成课循环的对象。不过现在已经很少使用了，es6已经完全摒弃了。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">'var a = 1;console.log(a)'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/6-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p>把json对象转化成可循环的对象</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonDate = <span class="string">'['</span>+</span><br><span class="line">    <span class="string">'{'</span>+</span><br><span class="line">        <span class="string">'"name": "abc"'</span>+</span><br><span class="line">    <span class="string">'},'</span>+</span><br><span class="line">    <span class="string">'{'</span>+</span><br><span class="line">        <span class="string">'"name": "bc"'</span>+</span><br><span class="line">    <span class="string">'},'</span>+</span><br><span class="line">    <span class="string">'{'</span>+</span><br><span class="line">        <span class="string">'"name": "c"'</span>+</span><br><span class="line">    <span class="string">'},'</span>+</span><br><span class="line"><span class="string">']'</span>;</span><br><span class="line"><span class="keyword">var</span> data = <span class="built_in">eval</span>(<span class="string">'('</span> + jsonDate +<span class="string">')'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(data);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> data){</span><br><span class="line">    <span class="keyword">var</span> item = data[i];</span><br><span class="line">    <span class="built_in">console</span>.log(item.name);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/6-2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p>为什么不推荐使用 eval?<br>1.实际上es3就不建议是用了es5.0也不建议使用，es6已经完全摒弃了<br>2.语法规范不好<br>3.不好调试<br>4.性能问题<br>5.些许的安全性问题<br>6.可读性差</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>JavaScript的错误类型一共有六种：<br>SyntaxError -&gt; 语法错误<br>ReferenceError -&gt; 引用错误<br>RangeError -&gt; 范围错误<br>TypeError -&gt; 类型错误<br>URIError - 编码错误（比较少见）<br>EvalError -&gt; 编码错误 （很少见）</p>
-<p>这六种错误类型都可以人为的抛出通过 new来：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Syerror = <span class="keyword">new</span> <span class="built_in">SyntaxError</span>(<span class="string">'语法错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Syerror);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Reerror = <span class="keyword">new</span> <span class="built_in">SyntaxError</span>(<span class="string">'引用错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Reerror);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Raerror = <span class="keyword">new</span> <span class="built_in">SyntaxError</span>(<span class="string">'范围错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Raerror);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Tyerror = <span class="keyword">new</span> <span class="built_in">SyntaxError</span>(<span class="string">'类型错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Tyerror);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> URerror = <span class="keyword">new</span> <span class="built_in">SyntaxError</span>(<span class="string">'编码错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(URerror);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Everror = <span class="keyword">new</span> <span class="built_in">SyntaxError</span>(<span class="string">'编码错误'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(Everror);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> srror = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">"总的Error"</span>);  <span class="comment">// 总的Error</span></span><br><span class="line"><span class="built_in">console</span>.log(srror);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e24d4eb8/7-1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/e24d4eb8/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E7%AF%87/" rel="tag">js错误信息篇</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-字符串去重"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/dc5c6a5/">字符串去重</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-26 19:42:53" datetime="2020-08-26T11:42:53.000Z"  itemprop="datePublished">2020-08-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>字符串去重思路思路和数组的一样的,不过字符串去重相对来说简单一点;</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"aaa1111222333ddewdd6"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法挂载在String.prototype上</span></span><br><span class="line"><span class="built_in">String</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> temp = {},</span><br><span class="line">        newStr = <span class="string">''</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i ++){</span><br><span class="line">        <span class="keyword">if</span>(!temp.hasOwnProperty(<span class="keyword">this</span>[i])){</span><br><span class="line">            temp[<span class="keyword">this</span>[i]] = <span class="keyword">this</span>[i];</span><br><span class="line">            <span class="comment">//字符串拼接对象也可以</span></span><br><span class="line">            newStr += <span class="keyword">this</span>[i];</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> newStr;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str.unique());</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/dc5c6a5/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p>注意：字符串去重的时候方法挂载在String.prototype上。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/dc5c6a5/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数组去重"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/908d091d/">数组去重</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-26 19:12:22" datetime="2020-08-26T11:12:22.000Z"  itemprop="datePublished">2020-08-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在JavaScript中属性是字符串只是它可以把字符串变成变量类型</span></span><br><span class="line">    <span class="comment">// obj = {</span></span><br><span class="line">    <span class="comment">//     "0": 1,</span></span><br><span class="line">    <span class="comment">//     "1": 2,</span></span><br><span class="line">    <span class="comment">//     "2": 3,</span></span><br><span class="line">    <span class="comment">//     "3": 4,</span></span><br><span class="line">    <span class="comment">//     "4": 5</span></span><br><span class="line">    <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="built_in">Array</span>.prototype.unique = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> temp = {},</span><br><span class="line">        newArr = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++){</span><br><span class="line">        <span class="comment">// 如果不存在则为false,然后取反就为true</span></span><br><span class="line">        <span class="keyword">if</span>(!temp.hasOwnProperty(<span class="keyword">this</span>[i])){</span><br><span class="line">            <span class="comment">// 把它添加到对象里面去</span></span><br><span class="line">            temp[<span class="keyword">this</span>[i]] = <span class="keyword">this</span>[i];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 添加到一个新的数组</span></span><br><span class="line">            newArr.push(<span class="keyword">this</span>[i]);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回到外界</span></span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.unique());</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/908d091d/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>实现思路：<br>使用for和if还有对象的hasOwnProperty来循环判断添加到个空对象里面，同时添加到一个新的数组里面。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/908d091d/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-类数组"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/5b0dde5/">类数组</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-26 12:01:27" datetime="2020-08-26T04:01:27.000Z"  itemprop="datePublished">2020-08-26</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>类数组并不是真正意义上的数组它是类似于<span class="s_red">数组的对象！！！</span><br>类数组一定要有以下这几种形式：<br>第一、一定要有数组形式下标对应的值;<br>第二、一定要有length属性;<br>第三、要挂载有数组原型上的方法例如:Array.prototype.push 或者 Array.prototype.splice;</p>
-<p>注意：类数组的原型是object真正的数组原型是Array<br>接下来举例子说明：</p>
-<hr>
-<h4 id="arguments类数组"><a href="#arguments类数组" class="headerlink" title="arguments类数组"></a>arguments类数组</h4><p>arguments 最典型的的类数组,我们来打印一下它</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">}</span><br><span class="line">test(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/5b0dde5/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<h4 id="写一个类数组"><a href="#写一个类数组" class="headerlink" title="写一个类数组"></a>写一个类数组</h4><p>按照上面的几种形式写一个完整的类数组</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="string">'0'</span>:<span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'1'</span>:<span class="string">'2'</span>,</span><br><span class="line">    <span class="string">'2'</span>:<span class="string">'3'</span>,</span><br><span class="line">    <span class="string">'3'</span>:<span class="string">'4'</span>,</span><br><span class="line">    <span class="string">'4'</span>:<span class="string">'5'</span>,</span><br><span class="line">    <span class="string">'5'</span>:<span class="string">'6'</span>,</span><br><span class="line">    <span class="string">'length'</span>:<span class="number">6</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 也可以将它们挂载到对象的原型上</span></span><br><span class="line">    <span class="string">'push'</span>: <span class="built_in">Array</span>.prototype.push,</span><br><span class="line">    <span class="string">'splice'</span>: <span class="built_in">Array</span>.prototype.splice</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 也可以挂载到原型上去</span></span><br><span class="line"><span class="comment">// Object.prototype.push = Array.prototype.push;</span></span><br><span class="line"><span class="comment">// Object.prototype.splice = Array.prototype.splice;</span></span><br><span class="line"></span><br><span class="line">obj.push(<span class="string">"7"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/5b0dde5/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h4><p>push方法是怎么做到的？ 为什么它能在类数组里面起作用呢？</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// push原理在类数组的原理</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.push = <span class="function"><span class="keyword">function</span>(<span class="params">elem</span>)</span>{</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 真正的写法 谁用this就指向谁</span></span><br><span class="line">        <span class="keyword">this</span>[<span class="keyword">this</span>.length] = elem;</span><br><span class="line">        <span class="keyword">this</span>.length ++;</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="阿里题目"><a href="#阿里题目" class="headerlink" title="阿里题目"></a>阿里题目</h4><p>下面的打印结果是怎么样的?</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    <span class="string">'2'</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="string">'3'</span>:<span class="number">4</span>,</span><br><span class="line">    <span class="string">'length'</span>:<span class="number">2</span>,</span><br><span class="line">    <span class="string">'splice'</span>: <span class="built_in">Array</span>.prototype.splice,</span><br><span class="line">    <span class="string">'push'</span>: <span class="built_in">Array</span>.prototype.push</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">obj.push(<span class="number">1</span>);</span><br><span class="line">obj.push(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(obj);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/5b0dde5/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>结果为两个空，一个 1 ，一个 2,length长度变成了 4。它是怎么来的呢？</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 根据push的原理一步一步的剖析</span></span><br><span class="line">    <span class="built_in">Array</span>.prototype.push = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>[<span class="keyword">this</span>.length] = elem;</span><br><span class="line">        <span class="keyword">this</span>.length ++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 最开始length长度为 2</span></span><br><span class="line">            <span class="comment">// 第一次push</span></span><br><span class="line">                <span class="comment">// obj[2] = 1;</span></span><br><span class="line">                <span class="comment">// obj.length ++; //obj.length变成 3</span></span><br><span class="line">        </span><br><span class="line">            <span class="comment">// 第二次push </span></span><br><span class="line">                <span class="comment">// obj[3] = 2;</span></span><br><span class="line">                <span class="comment">// obj.length ++; // obj.length 变成4</span></span><br><span class="line">       </span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
-<p>  执行完两次length变成了4，之前的 0 和 1项并没有发生改变而3 和 4 被 1 和 2替换掉了。</p>
-<hr>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>讲一讲为什么会打印 empty？<br>这是数组的一个特性，可以有空的项,类数组也同样具备这样的特性。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 之前讲过的稀松数组</span></span><br><span class="line"><span class="keyword">var</span> arr = [,,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/5b0dde5/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/5b0dde5/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数组深入篇"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/3061e2e2/">数组深入篇</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-24 20:27:16" datetime="2020-08-24T12:27:16.000Z"  itemprop="datePublished">2020-08-24</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>数组的深入篇有五个方法分别是concat、slice、toString、join和split。这五个数组方法都不会修改原数组，下面逐个进行讲解。</p>
-<hr>
-<h4 id="concat"><a href="#concat" class="headerlink" title="concat"></a>concat</h4><p>数组concat方法拼接数组,返回拼接后的数组。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="string">'a'</span>,<span class="string">'b'</span>];</span><br><span class="line"><span class="keyword">var</span> arr2  =  arr1.concat(arr);</span><br><span class="line"><span class="built_in">console</span>.log(arr2);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/3061e2e2/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h4><p>数组slice方法截取数组,并返回截取的部分<br>语法：slice(起始下标包含，结束下标不包含)<br>如果不写参数那就是返回整个数组(数组克隆)<br>如果只写一个参数,就从这个位置截取到最后</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr0 = arr.slice();</span><br><span class="line"><span class="built_in">console</span>.log(arr0)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">""</span>); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr1 = arr.slice(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr1)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">""</span>); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = arr.slice(<span class="number">1</span>,<span class="number">4</span>); <span class="comment">// b c d</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">""</span>); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = arr.slice(<span class="number">-3</span>,<span class="number">4</span>); <span class="comment">// c d</span></span><br><span class="line"><span class="built_in">console</span>.log(arr3)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">""</span>); </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr4 = arr.slice(<span class="number">1</span>,<span class="number">-1</span>); <span class="comment">// b c d</span></span><br><span class="line"><span class="built_in">console</span>.log(arr4);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/3061e2e2/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><p>数组toString方法将数组转化成字符串每个元素之间用逗号隔开</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr.toString());</span><br><span class="line"><span class="built_in">console</span>.log(arr1.toString());</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/3061e2e2/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="join和split"><a href="#join和split" class="headerlink" title="join和split"></a>join和split</h4><p>join 和 split 是一组!!!!</p>
-<h5 id="join"><a href="#join" class="headerlink" title="join"></a>join</h5><p>把数组中的所有元素放入一个字符串。有一个参数该参数通过指定分隔符进行分隔。<br>如果join里面不填写参数那么它和toString方法是一样的。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不填写参数时</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"join不填写参数时："</span>);</span><br><span class="line"><span class="keyword">var</span> str1 = arr.join();</span><br><span class="line"><span class="keyword">var</span> str2 = arr.toString();</span><br><span class="line"><span class="built_in">console</span>.log(str1+<span class="string">"    "</span>+str2);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"  "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 填写参数时</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"join填写参数时："</span>);</span><br><span class="line"><span class="keyword">var</span> str3 = arr.join(<span class="string">"-"</span>)</span><br><span class="line"><span class="built_in">console</span>.log(str3);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/3061e2e2/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="split"><a href="#split" class="headerlink" title="split"></a>split</h5><p>split(‘分隔符’,’截取位数’)将字符串按照分隔符转换成数组,二个参数为截取的位数可以不写。<br>如果把空字符串 (“”) 用作 参数那么每个字符之间都会被分割。<br>join 和 split 是一组!!!</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr =  [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用join 变成字符串</span></span><br><span class="line"><span class="keyword">var</span> arr1 = arr.join();</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">// a,b,c,d</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入"" 的时候</span></span><br><span class="line"><span class="keyword">var</span> arr2 =  arr1.split(<span class="string">""</span>); <span class="comment">// ["a", ",", "b", ",", "c", ",", "d"]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = arr1.split(<span class="string">","</span>); <span class="comment">// ["a", "b", "c", "d"]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr3);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 传入+ 的时候</span></span><br><span class="line"><span class="keyword">var</span> arr4 = arr1.split(<span class="string">"+"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr4); <span class="comment">// ["a,b,c,d"]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 有第二个参数时</span></span><br><span class="line"><span class="keyword">var</span> arr5 = arr1.split(<span class="string">","</span>,<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr5); <span class="comment">// ["a", "b", "c"]</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/3061e2e2/5.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/3061e2e2/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数组排序sort方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/cc10395e/">数组排序sort方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-23 21:25:47" datetime="2020-08-23T13:25:47.000Z"  itemprop="datePublished">2020-08-23</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>sort方法按照ASCII来对数组进行排序,返回排序以后的数组,默认按升序排序。当数值有参数传进去的时候只接受函数且这个函数要满足以下两个规则:<br>1.函数里面必须包含两个参数a，b<br>2.必须要有返回值：<br>负值，a就排在前面<br>正值，b就排在前面<br>0 ，保持不动</p>
-<p class="s_red">这两个规则是重中之重,只要掌握了这两个规则啥都不是问题</p>
-
-<hr>
-<h4 id="例子一"><a href="#例子一" class="headerlink" title="例子一"></a>例子一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr =  [<span class="number">27</span>,<span class="number">49</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 简写 </span></span><br><span class="line">        <span class="comment">// return a - b;</span></span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/cc10395e/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="例子二降序"><a href="#例子二降序" class="headerlink" title="例子二降序"></a>例子二降序</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr =  [<span class="number">27</span>,<span class="number">49</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">100</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(a &lt; b ){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 简写 </span></span><br><span class="line">        <span class="comment">// return b - a;</span></span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/cc10395e/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="笔试-面试"><a href="#笔试-面试" class="headerlink" title="笔试 / 面试"></a>笔试 / 面试</h4><h5 id="随机排序"><a href="#随机排序" class="headerlink" title="随机排序"></a>随机排序</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> rand = <span class="built_in">Math</span>.random();</span><br><span class="line">    <span class="keyword">if</span>(rand &gt; <span class="number">0.5</span>){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 简写</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/cc10395e/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h5 id="对象排序-根据年龄"><a href="#对象排序-根据年龄" class="headerlink" title="对象排序 根据年龄"></a>对象排序 根据年龄</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [</span><br><span class="line">    {</span><br><span class="line">        name:<span class="string">'张三'</span>,</span><br><span class="line">        age: <span class="number">18</span></span><br><span class="line">    },</span><br><span class="line">    {</span><br><span class="line">        name:<span class="string">'李四'</span>,</span><br><span class="line">        age: <span class="number">12</span></span><br><span class="line">    },</span><br><span class="line">    {</span><br><span class="line">        name:<span class="string">'王五'</span>,</span><br><span class="line">        age: <span class="number">8</span></span><br><span class="line">    },</span><br><span class="line">    {</span><br><span class="line">        name:<span class="string">'赵六'</span>,</span><br><span class="line">        age: <span class="number">28</span></span><br><span class="line">    },</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(a.age &gt; b.age){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 简写 </span></span><br><span class="line">        <span class="comment">// return a.age - b.age;</span></span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/cc10395e/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="字符串排序"><a href="#字符串排序" class="headerlink" title="字符串排序"></a>字符串排序</h4><p>对比字符串的长度</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'12346'</span>,<span class="string">'5'</span>,<span class="string">'1613'</span>,<span class="string">'54'</span>];</span><br><span class="line">arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> a.length - b.length;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/cc10395e/5.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/cc10395e/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数组的splice方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/32269d8b/">数组的splice方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-22 18:03:23" datetime="2020-08-22T10:03:23.000Z"  itemprop="datePublished">2020-08-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>splice方法可以实现数组的插入删除修改的功能,有三个参数。返回值是以一个数组的形式返回删除的数组。<br>splice(开始项的下标(包含),剪切长度,剪切长度以后最后以为开始添加数据); 剪切长度可以是0和负数。</p>
-<hr>
-<h4 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在下标为 1 的地方  删除2位 插入3位</span></span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/32269d8b/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 c 和 e 之间添加 d</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在下标为3 的地方 删除0位 插入一位</span></span><br><span class="line">arr.splice(<span class="number">3</span>, <span class="number">0</span>, <span class="string">'d'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/32269d8b/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="笔试经常考"><a href="#笔试经常考" class="headerlink" title="笔试经常考"></a>笔试经常考</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>];</span><br><span class="line">arr.splice(<span class="number">-1</span>, <span class="number">0</span>, <span class="string">'d'</span>); <span class="comment">// -1 即e 所在的位置</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line">    <span class="comment">// 只要往后数就是 -1 开始 &lt;---</span></span><br><span class="line">    <span class="comment">// 只要往前开始就是从 0 开始 ---&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/32269d8b/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="splice是如何找到相应的下标的"><a href="#splice是如何找到相应的下标的" class="headerlink" title="splice是如何找到相应的下标的"></a>splice是如何找到相应的下标的</h4><p>splice 当下标为负数的时候是如何找到相应的下标的它的原理是什么?</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传入数组和下标</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">splice</span>(<span class="params">arr,index</span>)</span>{</span><br><span class="line">    <span class="comment">// 常规写法</span></span><br><span class="line">        <span class="comment">// 如果index下标大于或等于0 </span></span><br><span class="line">        <span class="comment">// if(index &gt;= 0){</span></span><br><span class="line">        <span class="comment">//     index += 0; </span></span><br><span class="line">        <span class="comment">// }else{</span></span><br><span class="line">        <span class="comment">//     // 否则就 index = index + arr.length</span></span><br><span class="line">        <span class="comment">//     index += arr.length;</span></span><br><span class="line">        <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 三目运算</span></span><br><span class="line">    <span class="keyword">return</span> index += index &gt;=<span class="number">0</span> ? <span class="number">0</span> : arr.length;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>];</span><br><span class="line"> <span class="keyword">var</span> str = splice(arr,<span class="number">-1</span>);</span><br><span class="line"> <span class="built_in">console</span>.log(str); <span class="comment">// 3</span></span><br><span class="line"> <span class="built_in">console</span>.log(arr[str]); <span class="comment">// e</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/32269d8b/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/32269d8b/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-数组的reverse方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/fd9290b5/">数组的reverse方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-22 17:52:20" datetime="2020-08-22T09:52:20.000Z"  itemprop="datePublished">2020-08-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>reverse 数组倒序排列,就是一个倒序的功能而已</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>];</span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/fd9290b5/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/fd9290b5/" class="post-more waves-button">
-                Leer más
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 
