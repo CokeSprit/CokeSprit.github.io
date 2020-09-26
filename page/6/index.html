@@ -157,7 +157,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -259,7 +259,7 @@
     
         <div class="post-more-div">
             <a href="/posts/52c58cb2/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -364,7 +364,7 @@
     
         <div class="post-more-div">
             <a href="/posts/constructor/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -430,7 +430,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>从上面的例子可以看出window.xxx = xxx 和 return xxx 二者是结果是一样,使用<mark>window.xxx = xxx 也是可以形成闭包</mark>。</p>
+<p>从上面的例子可以看出window.xxx = xxx 和 return xxx 二者是结果是一样,使用<span class="s_yellow">window.xxx = xxx 也是可以形成闭包</span>。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -453,7 +453,7 @@
     
         <div class="post-more-div">
             <a href="/posts/8b19ee89/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -504,7 +504,7 @@
 <p>闭包的缺点:</p>
 <ol>
 <li>闭包会产生原来的作用域链不释放。</li>
-<li>过渡的闭包<mark>可能</mark>会导致内存泄漏或加载过慢,因为它常驻内存。</li>
+<li>过渡的闭包<span class="s_jacinth">可能</span>会导致内存泄漏或加载过慢,因为它常驻内存。</li>
 </ol>
 <hr>
 <p>闭包的用途:可以用来做数据缓存。</p>
@@ -518,7 +518,7 @@
 <hr>
 <h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(x);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> test2;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> test3 = test1();</span><br><span class="line"></span><br><span class="line">test3(); <span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 这就是一个简单闭包</span></span><br></pre></td></tr></tbody></table></figure>
 <hr>
-<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p><mark>面包管理器</mark></p>
+<h4 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h4><p><span class="s_green">面包管理器</span></p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">breadMgr</span>(<span class="params">num</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> breadNum = <span class="built_in">arguments</span>[<span class="number">0</span>] || <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">supply</span>(<span class="params"></span>)</span>{</span><br><span class="line">        breadNum += <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(breadNum);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sale</span>(<span class="params"></span>)</span>{</span><br><span class="line">        breadNum--;</span><br><span class="line">        <span class="built_in">console</span>.log(breadNum);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [supply,sale];</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> breadMgr = breadMgr(<span class="number">60</span>);</span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">1</span>](); <span class="comment">// 售出</span></span><br><span class="line">breadMgr[<span class="number">0</span>](); <span class="comment">// 补给</span></span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="image-bubble">
@@ -529,7 +529,7 @@
                 <div class="image-caption"></div>
             </figure>
 <hr>
-<p><mark>星期天计划管理器</mark></p>
+<p><span class="s_green">星期天计划管理器</span></p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sunSched</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> sunSched = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> operation = {</span><br><span class="line">        setSched: <span class="function"><span class="keyword">function</span>(<span class="params">thing</span>)</span>{</span><br><span class="line">            sunSched = thing;</span><br><span class="line">        },</span><br><span class="line">        showSched: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"My schedule on sunday is "</span> + sunSched);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> operation; <span class="comment">// 把对象返回出去</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> sunSched = sunSched(); <span class="comment">//执行返回 operation</span></span><br><span class="line"></span><br><span class="line">sunSched.setSched(<span class="string">'studying'</span>);</span><br><span class="line">sunSched.showSched();</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="image-bubble">
@@ -560,7 +560,7 @@
     
         <div class="post-more-div">
             <a href="/posts/3d615767/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -722,7 +722,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p>这时的 test3 === test2。<br>a是在test1的AO里面的,为什么可以打印出来a? 就像之前讲的test2还死死的攥着test1的AO,当在自己的AO上没有查找到,则想test1的AO查找,实际操作的仍然是test1的AO。</p>
+<p>这时的 test3 === test2。<br>a是在test1的AO里面的,为什么可以打印出来a? 就像之前讲的test2还死死的攥着test1的AO,当在自己的AO上没有查找到,则去test1的AO查找,实际操作的仍然是test1的AO。</p>
 <h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ol>
 <li>每个函数在定义的时候就已经保存了全局上下文GO。</li>
 <li>函数自己的AO产生了,就会把自己AO排在作用域链的最顶端,其他AO和全局GO就会被挤下去。</li>
@@ -750,7 +750,7 @@
     
         <div class="post-more-div">
             <a href="/posts/ab6a816/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -816,7 +816,7 @@
     
         <div class="post-more-div">
             <a href="/posts/scope/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -948,7 +948,7 @@
     
         <div class="post-more-div">
             <a href="/posts/tote-bricks/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -1017,7 +1017,7 @@
 <li>找函数声明,赋值</li>
 <li>执行</li>
 </ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栗子一</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(a); <span class="comment">// ƒ a(){}</span></span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{}  <span class="comment">// 1</span></span><br><span class="line">        <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}</span><br><span class="line">        <span class="built_in">console</span>.log(b); <span class="comment">// ƒ (){}</span></span><br><span class="line">        funciton d(){}</span><br><span class="line">    }</span><br><span class="line">    test(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// AO = {</span></span><br><span class="line">    <span class="comment">//     a: undefined -&gt;</span></span><br><span class="line">    <span class="comment">//        2  -&gt;</span></span><br><span class="line">    <span class="comment">//        function a(){} -&gt;</span></span><br><span class="line">    <span class="comment">//        1</span></span><br><span class="line">    <span class="comment">//     b: undefined</span></span><br><span class="line">    <span class="comment">//        function (){}</span></span><br><span class="line">    <span class="comment">//     d: function d(){}</span></span><br><span class="line">    <span class="comment">// }</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 栗子一</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(a); <span class="comment">// ƒ a(){}</span></span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{}  </span><br><span class="line">        <span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}</span><br><span class="line">        <span class="built_in">console</span>.log(b); <span class="comment">// ƒ (){}</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">d</span>(<span class="params"></span>)</span>{}</span><br><span class="line">    }</span><br><span class="line">    test(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// AO = {</span></span><br><span class="line">    <span class="comment">//     a: undefined -&gt;</span></span><br><span class="line">    <span class="comment">//        2  -&gt;</span></span><br><span class="line">    <span class="comment">//        function a(){} -&gt;</span></span><br><span class="line">    <span class="comment">//        1</span></span><br><span class="line">    <span class="comment">//     b: undefined</span></span><br><span class="line">    <span class="comment">//        function (){}</span></span><br><span class="line">    <span class="comment">//     d: function d(){}</span></span><br><span class="line">    <span class="comment">// }</span></span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -1094,7 +1094,7 @@
     
         <div class="post-more-div">
             <a href="/posts/GO-AO/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -1140,7 +1140,7 @@
 <li>解释一行,执行一行</li>
 </ol>
 <h4 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h4><p>代码演示</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">test(); <span class="comment">// 2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined  如果不声明a然后直接打印的话就会报错</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// var a =  1 ; // 是2个步骤 编译时找a并且赋值undefined -&gt; 执行时赋值 1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">test(); <span class="comment">// 2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined  如果不声明a然后直接打印的话就会报错</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// var a = 10 ; // 是2个步骤 编译时找a并且赋值undefined -&gt; 执行时赋值 10</span></span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -1174,7 +1174,7 @@
     
         <div class="post-more-div">
             <a href="/posts/ab96ffb5/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -1213,7 +1213,7 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        <h4 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h4><p>callee是arguments的属性,<mark>代表当前函数的引用(名字)</mark>,在函数内部使用，主要用来配合立即执行函数。<br>接下来让我们来认识 callee</p>
+        <h4 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h4><p>callee是arguments的属性,<span class="s_red">代表当前函数的引用(名字)</span>,在函数内部使用，主要用来配合立即执行函数。<br>接下来让我们来认识 callee</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee); <span class="comment">//打印的是这个函数本身</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这两组是一样的</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length);<span class="comment">// 打印形参的长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee.length);<span class="comment">//打印形参的长度</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 打印实参的长度</span></span><br><span class="line">}</span><br><span class="line">test(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果：</p>
 <figure class="image-bubble">
@@ -1224,7 +1224,7 @@
                 <div class="image-caption"></div>
             </figure>
 
-<p><mark>callee 配合立即执行函数</mark></p>
+<p><span class="s_jacinth">callee 配合立即执行函数</span></p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用递归求 n-1 的累加和 </span></span><br><span class="line"><span class="keyword">var</span> sum = (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">1</span>){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> n + <span class="built_in">arguments</span>.callee(n<span class="number">-1</span>);</span><br><span class="line">}(<span class="number">10</span>));</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果：</p>
 <figure class="image-bubble">
@@ -1234,7 +1234,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h4 id="caller"><a href="#caller" class="headerlink" title="caller"></a>caller</h4><p><mark>返回当前被调用的函数的引用</mark>。<br>这听起来有点绕,让我们使用代码来更好的理解</p>
+<h4 id="caller"><a href="#caller" class="headerlink" title="caller"></a>caller</h4><p><span class="s_jacinth">返回当前被调用的函数的引用</span><br>这听起来有点绕,让我们使用代码来更好的理解</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    test2();</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(test2.caller); </span><br><span class="line">    <span class="comment">//这里打印的是 test1,因为test1()调用了test2并且test1执行了。</span></span><br><span class="line">    <span class="comment">// 在被调用函数里面打印被调用函数的caller 它可以打印出谁在调用它。</span></span><br><span class="line">    <span class="comment">// 注意一定是要被真正执行才能打印出来！！！</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">test1();</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果：</p>
 <figure class="image-bubble">
@@ -1267,7 +1267,7 @@
     
         <div class="post-more-div">
             <a href="/posts/callee-caller/" class="post-more waves-button">
-                Leer más
+                Continue reading...
             </a>
         </div>
     </div>
@@ -1419,7 +1419,7 @@ $("#name").bumpyText();
 
 /* 网站运行时间 */
 setInterval(function () {
-	setTime("2020/10/11");
+	setTime("");
 }, 1000);
 
 /* 文章块的淡出 */
