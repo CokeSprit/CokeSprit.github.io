@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://cokesprit.gitee.io//posts/constructor/</loc>
+    <lastmod>2020-09-26</lastmod>
+  </url>  <url>
     <loc>https://cokesprit.gitee.io//posts/8b19ee89/</loc>
     <lastmod>2020-09-26</lastmod>
   </url>  <url>
@@ -104,9 +107,6 @@
     <lastmod>2020-09-06</lastmod>
   </url>  <url>
     <loc>https://cokesprit.gitee.io//posts/8f490e5b/</loc>
-    <lastmod>2020-09-06</lastmod>
-  </url>  <url>
-    <loc>https://cokesprit.gitee.io//posts/constructor/</loc>
     <lastmod>2020-09-06</lastmod>
   </url>  <url>
     <loc>https://cokesprit.gitee.io//posts/18be6742/</loc>
