@@ -51,7 +51,7 @@
 <meta property="og:image" content="https://cokesprit.gitee.io/posts/7a59e1cc/2.png">
 <meta property="og:image" content="https://cokesprit.gitee.io/posts/7a59e1cc/3.png">
 <meta property="article:published_time" content="2020-08-18T09:13:23.000Z">
-<meta property="article:modified_time" content="2020-09-06T03:26:22.230Z">
+<meta property="article:modified_time" content="2020-09-27T12:43:37.261Z">
 <meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="js&#x2F;数组">
 <meta name="twitter:card" content="summary">
@@ -236,7 +236,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/7a59e1cc/1.png" alt="" title="">
+                    <img src="/posts/7a59e1cc/1.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -248,19 +248,19 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/7a59e1cc/2.png" alt="" title="">
+                    <img src="/posts/7a59e1cc/2.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
 
 <hr>
-<h4 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h4><p>使用call和Object原型下的toString方法来进行判断。推荐使用这种！！！</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把 Object原型下的toString方法赋给 str</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"><span class="keyword">var</span> trueTip = <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 然后利用call指向a</span></span><br><span class="line"><span class="keyword">if</span>(str.call(a) === trueTip){</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'是数组'</span>);</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'不是数组'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行分析</span></span><br><span class="line">    <span class="comment">// Object.prototype = {</span></span><br><span class="line">    <span class="comment">//     toString:function(){</span></span><br><span class="line">    <span class="comment">//         // 没call 之前</span></span><br><span class="line">    <span class="comment">//             this.toString();</span></span><br><span class="line">    <span class="comment">//         // call 以后更改 this 指向 -&gt; a</span></span><br><span class="line">    <span class="comment">//             a.toString();</span></span><br><span class="line">    <span class="comment">//     }</span></span><br><span class="line">    <span class="comment">// }</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h4><p>使用call和Object原型下的toString方法来进行判断,<span class="s_jacinth">推荐使用这种！！！</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把 Object原型下的toString方法赋给 str</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">Object</span>.prototype.toString,</span><br><span class="line">    a = [];</span><br><span class="line"><span class="keyword">var</span> trueTip = <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 然后利用call指向a</span></span><br><span class="line"><span class="keyword">if</span>(str.call(a) === trueTip){</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'是数组'</span>);</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'不是数组'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行分析</span></span><br><span class="line">    <span class="comment">// Object.prototype = {</span></span><br><span class="line">    <span class="comment">//     toString:function(){</span></span><br><span class="line">    <span class="comment">//         // 没call 之前</span></span><br><span class="line">    <span class="comment">//             this.toString();</span></span><br><span class="line">    <span class="comment">//         // call 以后更改 this 指向 -&gt; a</span></span><br><span class="line">    <span class="comment">//             a.toString();</span></span><br><span class="line">    <span class="comment">//     }</span></span><br><span class="line">    <span class="comment">// }</span></span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/7a59e1cc/3.png" alt="" title="">
+                    <img src="/posts/7a59e1cc/3.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -290,7 +290,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-09-06T03:26:22.230Z" itemprop="dateUpdated">2020-09-06 11:26:22</time>
+    Last updated: <time datetime="2020-09-27T12:43:37.261Z" itemprop="dateUpdated">2020-09-27 20:43:37</time>
 </span>
 
 

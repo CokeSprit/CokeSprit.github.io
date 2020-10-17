@@ -41,15 +41,15 @@
 
 
     
-    <meta name="description" content="原型链原型链：沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; profe">
+    <meta name="description" content="原型链原型链：沿着__proto__一层一层的去继承原型的属性所形成的链条,我们叫做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; professor;func">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原型链">
 <meta property="og:url" content="https://cokesprit.gitee.io/posts/bf8cf30/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="原型链原型链：沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; profe">
+<meta property="og:description" content="原型链原型链：沿着__proto__一层一层的去继承原型的属性所形成的链条,我们叫做原型链。 12345678910111213141516171819Professor.prototype.tSkill &#x3D; &#39;JAVA&#39;;function Professor(){}var professor &#x3D; new Professor();Teacher.prototype &#x3D; professor;func">
 <meta property="og:image" content="https://cokesprit.gitee.io/posts/bf8cf30/1.png">
 <meta property="article:published_time" content="2020-08-14T09:15:54.000Z">
-<meta property="article:modified_time" content="2020-09-06T03:29:17.199Z">
+<meta property="article:modified_time" content="2020-09-27T08:06:52.667Z">
 <meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="js原型&#x2F;原型链">
 <meta name="twitter:card" content="summary">
@@ -226,7 +226,7 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p><mark>原型链：</mark>沿着__proto__去找原型里的属性,一层一层的去继承原型的属性所形成的链条,我们我做原型链。</p>
+            <h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p><span class="s_jacinth">原型链</span>：沿着__proto__一层一层的去继承原型的属性所形成的链条,我们叫做原型链。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Professor.prototype.tSkill = <span class="string">'JAVA'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Professor</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> professor = <span class="keyword">new</span> Professor();</span><br><span class="line"></span><br><span class="line">Teacher.prototype = professor;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.mSkill = <span class="string">'JS/JQ'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> teacher = <span class="keyword">new</span> Teacher();</span><br><span class="line"></span><br><span class="line">Student.prototype = teacher;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.pSkill = <span class="string">'HTML/CSS'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> student = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="built_in">console</span>.log(student);</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="image-bubble">
@@ -238,7 +238,7 @@
             </figure>
 <p>我没有的属性我到我的原型上找,如果没有就一直往上找,这样就形成了一条链条。</p>
 <hr>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>所有的对象都有原型,包括原型的本身<br>原型的顶端是<mark>Object.prototype</mark>!!!<br>原型链上面的增删改只能是它自己本身!!!<br>原型的原型是由系统自带的Object构造出来的</p>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>所有的对象都有原型,包括原型的本身<br>原型的顶端是<span class="s_green">Object.prototype</span>!!!<br>原型链上面的增删改只能是它自己本身!!!<br>原型的原型是由系统自带的Object构造出来的</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -264,7 +264,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-09-06T03:29:17.199Z" itemprop="dateUpdated">2020-09-06 11:29:17</time>
+    Last updated: <time datetime="2020-09-27T08:06:52.667Z" itemprop="dateUpdated">2020-09-27 16:06:52</time>
 </span>
 
 

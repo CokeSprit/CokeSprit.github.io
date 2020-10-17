@@ -192,6 +192,346 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-数组的splice方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/32269d8b/">数组的splice方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-22 18:03:23" datetime="2020-08-22T10:03:23.000Z"  itemprop="datePublished">2020-08-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>splice方法可以实现数组的插入删除修改的功能,有三个参数。返回值是以一个数组的形式返回删除的数组。<br>splice(开始项的下标(包含),剪切长度,剪切长度以后最后以为开始添加数据); 剪切长度可以是0和负数。</p>
+<hr>
+<h4 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在下标为 1 的地方  删除2位 插入3位</span></span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/32269d8b/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h4 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在 c 和 e 之间添加 d</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在下标为3 的地方 删除0位 插入一位</span></span><br><span class="line">arr.splice(<span class="number">3</span>, <span class="number">0</span>, <span class="string">'d'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/32269d8b/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h4 id="笔试经常考"><a href="#笔试经常考" class="headerlink" title="笔试经常考"></a>笔试经常考</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>];</span><br><span class="line">arr.splice(<span class="number">-1</span>, <span class="number">0</span>, <span class="string">'d'</span>); <span class="comment">// -1 即e 所在的位置</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line">    <span class="comment">// 只要往后数就是 -1 开始 &lt;---</span></span><br><span class="line">    <span class="comment">// 只要往前开始就是从 0 开始 ---&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/32269d8b/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<hr>
+<h4 id="splice是如何找到相应的下标的"><a href="#splice是如何找到相应的下标的" class="headerlink" title="splice是如何找到相应的下标的"></a>splice是如何找到相应的下标的</h4><p>splice 当下标为负数的时候是如何找到相应的下标的它的原理是什么?</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传入数组和下标</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">splice</span>(<span class="params">arr,index</span>)</span>{</span><br><span class="line">    <span class="comment">// 常规写法</span></span><br><span class="line">        <span class="comment">// 如果index下标大于或等于0 </span></span><br><span class="line">        <span class="comment">// if(index &gt;= 0){</span></span><br><span class="line">        <span class="comment">//     index += 0; </span></span><br><span class="line">        <span class="comment">// }else{</span></span><br><span class="line">        <span class="comment">//     // 否则就 index = index + arr.length</span></span><br><span class="line">        <span class="comment">//     index += arr.length;</span></span><br><span class="line">        <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 三目运算</span></span><br><span class="line">    <span class="keyword">return</span> index += index &gt;=<span class="number">0</span> ? <span class="number">0</span> : arr.length;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>];</span><br><span class="line"> <span class="keyword">var</span> str = splice(arr,<span class="number">-1</span>);</span><br><span class="line"> <span class="built_in">console</span>.log(str); <span class="comment">// 3</span></span><br><span class="line"> <span class="built_in">console</span>.log(arr[str]); <span class="comment">// e</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/32269d8b/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/32269d8b/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-数组的reverse方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/fd9290b5/">数组的reverse方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-22 17:52:20" datetime="2020-08-22T09:52:20.000Z"  itemprop="datePublished">2020-08-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>reverse 数组倒序排列,就是一个倒序的功能而已</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>];</span><br><span class="line">arr.reverse();</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/fd9290b5/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/fd9290b5/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-数组的pop和shift方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/a6d7cc58/">数组的pop和shift方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-22 17:42:31" datetime="2020-08-22T09:42:31.000Z"  itemprop="datePublished">2020-08-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>pop 删除数组的最后一位，并把它返会回来<br>shift 删除数组的第一位，并把它返回回来</p>
+<hr>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pop</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> str1 = arr1.pop();</span><br><span class="line">    <span class="comment">// 注意pop是没有参数的!!! 它执行一次删除一个</span></span><br><span class="line"><span class="built_in">console</span>.log(str1,arr1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// shift</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>];</span><br><span class="line">    <span class="comment">// 注意shift也是没有参数的!!! 它执行一次删除一个</span></span><br><span class="line"><span class="keyword">var</span> str2 = arr2.shift();</span><br><span class="line"><span class="built_in">console</span>.log(str2,arr2);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/a6d7cc58/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/a6d7cc58/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-数组的push和unshift方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/f5194d63/">数组的push和unshift方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-22 17:15:29" datetime="2020-08-22T09:15:29.000Z"  itemprop="datePublished">2020-08-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>push 尾部添加，返回值为执行了方法以后数组的长度<br>unshift 头部添加，返回值为执行了方法以后数组的长度</p>
+<h4 id="push方法的实现"><a href="#push方法的实现" class="headerlink" title="push方法的实现"></a>push方法的实现</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 尾部添加：获取实参列表和现最后坐标</span></span><br><span class="line"><span class="built_in">Array</span>.prototype.myPush = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length; i++){</span><br><span class="line">        <span class="keyword">this</span>[<span class="keyword">this</span>.length] = <span class="built_in">arguments</span>[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.length; <span class="comment">// 返回添加后的数组长度</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr.myPush(<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f5194d63/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h4 id="unshift方法的实现"><a href="#unshift方法的实现" class="headerlink" title="unshift方法的实现"></a>unshift方法的实现</h4><h5 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.myUnshfit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> pos = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="built_in">arguments</span>.length;i++){</span><br><span class="line">            <span class="keyword">this</span>.splice(pos,<span class="number">0</span>,<span class="built_in">arguments</span>[i]);</span><br><span class="line">            pos++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.length;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>];</span><br><span class="line"><span class="keyword">var</span>  str =arr.myUnshfit(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr,str);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f5194d63/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h5><p>使用数组concat方法和使用Array.prototype.slice.call 将argument类数组转化成数组</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.myUnshift = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">// 将类数组转化成数组</span></span><br><span class="line">    Arr = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">var</span> newArr = Arr.concat(<span class="keyword">this</span>);</span><br><span class="line">    <span class="keyword">return</span> newArr;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>];</span><br><span class="line"><span class="keyword">var</span> newArr = arr.myUnshift(<span class="string">'a'</span>,<span class="string">'b'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f5194d63/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/f5194d63/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-数组的声明和数组的原理"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -497,7 +837,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/2198d04d/1.png" alt="" title="">
+                    <img src="/posts/2198d04d/1.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -508,7 +848,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/2198d04d/2.png" alt="" title="">
+                    <img src="/posts/2198d04d/2.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -519,12 +859,12 @@
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span> = {</span><br><span class="line">    name:<span class="string">'123'</span>,</span><br><span class="line">    \_\_proto\_\_:Test.prototype</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>并且覆盖了之前指向window的this,最后系统隐式的把这个新的this返回了出去被全局下的test接收到,从这里我没可以总结出来<span class="s_red">构造函数的this指向实例化对象</span></p>
 <hr>
-<h4 id="call-apply"><a href="#call-apply" class="headerlink" title="call/apply"></a>call/apply</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call/apply的作用是this指向</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="comment">// Person使用了apply, 当Programmer实例化之后Personn内部属性变成</span></span><br><span class="line">            <span class="comment">// p.name = "张三";</span></span><br><span class="line">            <span class="comment">// p.age = 18;</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Programmer</span>(<span class="params">name,age</span>)</span>{</span><br><span class="line">        Person.apply(<span class="keyword">this</span>,[name,age]);</span><br><span class="line">        <span class="keyword">this</span>.work = <span class="string">'Programming'</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> Programmer(<span class="string">'张三'</span>,<span class="number">18</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(p)</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="call-apply"><a href="#call-apply" class="headerlink" title="call/apply"></a>call/apply</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call/apply的作用是更改this指向</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="comment">// Person使用了apply, 当Programmer实例化之后Personn内部属性变成</span></span><br><span class="line">            <span class="comment">// p.name = "张三";</span></span><br><span class="line">            <span class="comment">// p.age = 18;</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Programmer</span>(<span class="params">name,age</span>)</span>{</span><br><span class="line">        Person.apply(<span class="keyword">this</span>,[name,age]);</span><br><span class="line">        <span class="keyword">this</span>.work = <span class="string">'Programming'</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> Programmer(<span class="string">'张三'</span>,<span class="number">18</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(p)</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果:</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/posts/2198d04d/3.png" alt="" title="">
+                    <img src="/posts/2198d04d/3.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -602,9 +942,10 @@
 <h6 id="主谓双宾"><a href="#主谓双宾" class="headerlink" title="主谓双宾"></a>主谓双宾</h6><p>I bought <span class="s_red">him</span> a <span class="s_red">dog</span><br><span calss="s_red">说明：双宾就是两个宾语你是你我是我</span></p>
 <p>主谓双宾和主谓宾宾补的区别就在于：需要在两</p>
 <h6 id="主谓宾宾补"><a href="#主谓宾宾补" class="headerlink" title="主谓宾宾补"></a>主谓宾宾补</h6><p><span calss="s_red">说明：</span>宾补就是后面的那个单词对前面的那个单词的补充说明</p>
-<p><mark>主谓双宾和主谓宾宾补的区别:</mark>只需要在两个宾语之间加一个be动词，如果读起来意思是不对的就是主谓双宾，如果读起来意思是对的就是主谓宾宾补。</p>
+<p><span class="s_yellow">主谓双宾和主谓宾宾补的区别</span>:只需要在两个宾语之间加一个be动词，如果读起来意思是不对的就是主谓双宾，如果读起来意思是对的就是主谓宾宾补。</p>
 <p><span class="s_green">练习:</span><br>We elect him our monitor.<br><span class="s_green">解题：</span>在 him 和 our monitor之间加上be动词 变成 –&gt; We elect him is our monitor. 意思是对的所以是主谓宾宾补</p>
-<h5 id="句子的成分"><a href="#句子的成分" class="headerlink" title="句子的成分"></a>句子的成分</h5><p><mark><strong>**</strong>！！！很重要</mark><br>谓语：<br>(1)谓语的成分：有时态的实义动词或系动词充当谓语。</p>
+<h5 id="句子的成分"><a href="#句子的成分" class="headerlink" title="句子的成分"></a>句子的成分</h5><p><span class="s_jacinth">谓语 ***** 很重要!!!!</span></p>
+<p>(1)谓语的成分：有时态的实义动词或系动词充当谓语。</p>
 <p>(2)动词能不能多？<br>谓语只能是动词；动词只能做谓语,所以我们需要把一句话当中,所有不做谓语的动词全部都要<span class="s_red">变成不是动词。怎么把动词变成不是动词呢?<br>①在动词后面加-&gt; ving -&gt; : ving表示主动<br>②在动词后面加-&gt; ved -&gt; : ved被动<br>③在动词前面加-&gt;to do -&gt; : to do 表示目的<br>它们三个有个共同名字:小名叫做<span class="s_red">不是动词</span>,大名叫做<span class="s_red">非</span>谓语动词。</span></p>
 <p><span class="s_green">试译：</span><br>他拍了拍我的肩膀,一句话都没<span class="s_yellow">说</span>就<span class="s_yellow">离开</span>了。<br>He beating my shoulder,saying nothing departed<br><span class="s_red">当一句话有多个动词的时候,谁的意思最重要就选谁做谓语!!!</span></p>
 <p><span class="s_yellow">爱</span>我就<span class="s_yellow">是</span> <span class="s_yellow">抱抱</span>我<br>Loving me is hugging (embracing) me.</p>
@@ -722,343 +1063,12 @@
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-判断是否是数组的三种方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/7a59e1cc/">判断是否是数组的三种方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-18 17:13:23" datetime="2020-08-18T09:13:23.000Z"  itemprop="datePublished">2020-08-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>在开发中后端传过来的数据有可能是 null、对象、Array,有时候我们需要判断传回来是不是数组。</p>
-<hr>
-<h4 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h4><p>使用 constructor</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="built_in">console</span>.log(a.constructor); <span class="comment">//ƒ Array() { [native code] }</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/7a59e1cc/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h4><p>使用 instanceof 判断该对象是否是该构造函数构造出来的,是返回ture，否则返回false</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"Hello word"</span>; </span><br><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br><span class="line"><span class="built_in">console</span>.log(str <span class="keyword">instanceof</span> <span class="built_in">Array</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/7a59e1cc/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="第三种"><a href="#第三种" class="headerlink" title="第三种"></a>第三种</h4><p>使用call和Object原型下的toString方法来进行判断。推荐使用这种！！！</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把 Object原型下的toString方法赋给 str</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"><span class="keyword">var</span> trueTip = <span class="string">'[object Array]'</span>;</span><br><span class="line"><span class="comment">// 然后利用call指向a</span></span><br><span class="line"><span class="keyword">if</span>(str.call(a) === trueTip){</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'是数组'</span>);</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'不是数组'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行分析</span></span><br><span class="line">    <span class="comment">// Object.prototype = {</span></span><br><span class="line">    <span class="comment">//     toString:function(){</span></span><br><span class="line">    <span class="comment">//         // 没call 之前</span></span><br><span class="line">    <span class="comment">//             this.toString();</span></span><br><span class="line">    <span class="comment">//         // call 以后更改 this 指向 -&gt; a</span></span><br><span class="line">    <span class="comment">//             a.toString();</span></span><br><span class="line">    <span class="comment">//     }</span></span><br><span class="line">    <span class="comment">// }</span></span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/7a59e1cc/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/7a59e1cc/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-%E6%95%B0%E7%BB%84/" rel="tag">js/数组</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-企业模块化开发"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/adbaaf4/">企业模块化开发</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-18 16:23:21" datetime="2020-08-18T08:23:21.000Z"  itemprop="datePublished">2020-08-18</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>在开发的时候往往需要写很多功能模块,为了更好的协作开发需要采用模块化开发的方式,把这些功能分一个一个的分开来写最后汇总到一个大模块里。</p>
-<hr>
-<h4 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第三步</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    init();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二步</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{</span><br><span class="line">    initCompute();</span><br><span class="line">    initFunctions();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一步</span></span><br><span class="line">    <span class="comment">// 功能一</span></span><br><span class="line">initCompute = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">3</span>,</span><br><span class="line">        b = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(a + b);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">minus</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(a - b);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mul</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(a * b);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">div</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(a / b);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        add();</span><br><span class="line">        minus();</span><br><span class="line">        mul();</span><br><span class="line">        div();</span><br><span class="line">    }</span><br><span class="line">})();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一步</span></span><br><span class="line">    <span class="comment">// 功能二 </span></span><br><span class="line"><span class="keyword">var</span> initFunctions = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
-<p>把功能全部封装到各自的自启动函数里面，然后分别赋给initCompute 和 initFunctions，再把他们放到一个总的init里面,最后再放到window.onload里面执行。</p>
-<hr>
-<h4 id="模块化练习"><a href="#模块化练习" class="headerlink" title="模块化练习"></a>模块化练习</h4><p>使用模块化开发的实现两个功能:<br>1.求n的斐波拉契数列<br>2.输入一个数n求有打印那些可以被3获被5获被7获整除的数</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    init();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把每个模块放到init里面</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(initFb(<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(initDiv(<span class="number">100</span>);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 斐波拉契数列</span></span><br><span class="line"><span class="keyword">var</span> initFb = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fb</span>(<span class="params">n</span>)</span>{</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">0</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span>(n &lt;= <span class="number">2</span>){</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> fb(n<span class="number">-1</span>) + fb(n<span class="number">-2</span>); </span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> fb;</span><br><span class="line">})();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被3或被5或被7或整除</span></span><br><span class="line"><span class="keyword">var</span> initDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">div</span>(<span class="params">n</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> arr = [];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= n; i++){</span><br><span class="line">            <span class="keyword">if</span>(i % <span class="number">3</span> === <span class="number">0</span> || i % <span class="number">5</span> === <span class="number">0</span> || i % <span class="number">7</span> === <span class="number">0</span>){</span><br><span class="line">                arr.push(i);</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> div; </span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/adbaaf4/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/adbaaf4/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">js原型/原型链</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-原型继承之圣杯模式"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/98829262/">原型继承之圣杯模式</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-17 19:27:04" datetime="2020-08-17T11:27:04.000Z"  itemprop="datePublished">2020-08-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>之前的那几种方案都不太尽人意,在解决继承,有专门的企业即解决方案圣杯模式。</p>
-<hr>
-<h4 id="圣杯模式"><a href="#圣杯模式" class="headerlink" title="圣杯模式"></a>圣杯模式</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Mr. Li'</span>;</span><br><span class="line">    <span class="keyword">this</span>.tSkill = <span class="string">'JAVA'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Teacher.prototype = {</span><br><span class="line">    pSkill: <span class="string">'JS/JQ'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Mr. Wang'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个缓冲区介于 Teacher 和 Student之间</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Buffer</span>(<span class="params"></span>)</span>{}</span><br><span class="line">Buffer.prototype = Teacher.prototype;</span><br><span class="line"><span class="keyword">var</span> buffer = <span class="keyword">new</span> Buffer();</span><br><span class="line"><span class="comment">// Buffer 实例化出来之后没有属性和方法,</span></span><br><span class="line"><span class="comment">// 但是它有Teacher.prototype</span></span><br><span class="line"><span class="comment">// 然后把实例化对象buffer赋给Student.prototype</span></span><br><span class="line"></span><br><span class="line">Student.prototype = buffer;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这样Student实例化出来的对象就能访问Buffer.prototype</span></span><br><span class="line"><span class="comment">// 也能访问到Teacher.prototype</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这就是圣杯模式完美解决了继承和隔离的问题。</span></span><br><span class="line">Student.prototype.age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> Student();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(s);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/98829262/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="圣杯模式封装"><a href="#圣杯模式封装" class="headerlink" title="圣杯模式封装"></a>圣杯模式封装</h4><p>为了方便使用我们把它封装起来,这样我们需要的时候直接调用就行了</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 圣杯模式之封装</span></span><br><span class="line"><span class="keyword">var</span> inherit = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> Buffer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Target,Origin</span>)</span>{</span><br><span class="line">        Buffer.prototype =  Origin.prototype;</span><br><span class="line">        Target.prototype = <span class="keyword">new</span> Buffer();</span><br><span class="line">        <span class="comment">// 为了还原构造器,把Target构造器重新指向 Student</span></span><br><span class="line">        Target.prototype.constructor  = Target;</span><br><span class="line">        <span class="comment">// 继承源</span></span><br><span class="line">        Target.prototype.super_class = Origin; </span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
-<p>企业级的解决方案  -&gt; 这是雅虎当年在 YUI3 里面封装的一个方法,虽然 YUI3 已经不在了但是这个方法被留存了下来。</p>
-<hr>
-<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>写一个程序员的构造函数，然后再写各写一个前端程序员和后端程序员的构造函数,并且这两个构造函数继承程序员这个构造函数</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 实现继承的方法</span></span><br><span class="line"><span class="keyword">var</span> inherit = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> Buffer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{};</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Target,Origin</span>)</span>{</span><br><span class="line">        Buffer.prototype = Origin.prototype;</span><br><span class="line">        Target.prototype = <span class="keyword">new</span> Buffer();</span><br><span class="line">        Target.prototype.constructor = Target;</span><br><span class="line">        Target.prototype.super_class = Origin;</span><br><span class="line">    }</span><br><span class="line">})();</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="comment">// 采用模块化开发方式</span></span><br><span class="line"><span class="keyword">var</span> initProgrammer = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> Programmer = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把一些很少更改的属性和方法写到原型上</span></span><br><span class="line">    Programmer.prototype = {</span><br><span class="line">        name:<span class="string">'程序员'</span>,</span><br><span class="line">        tool:<span class="string">'计算机'</span>,</span><br><span class="line">        work:<span class="string">'编写应用程序'</span>,</span><br><span class="line">        duration:<span class="string">'10个小时'</span>,</span><br><span class="line">        say:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'我是一名'</span> + <span class="keyword">this</span>.myName + <span class="keyword">this</span>.name + </span><br><span class="line">            <span class="string">"我的工作用到"</span> + <span class="keyword">this</span>.tool + <span class="keyword">this</span>.work +</span><br><span class="line">             <span class="string">",我每天工作"</span> + <span class="keyword">this</span>.duration + </span><br><span class="line">             <span class="string">" ，我的工作需要用到："</span> + <span class="keyword">this</span>.lang.toString() + <span class="string">"。"</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">FrondEnd</span>(<span class="params"></span>)</span>{} <span class="comment">// 前端工程师</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">BackEnd</span>(<span class="params"></span>)</span>{} <span class="comment">// 后端工程师</span></span><br><span class="line"></span><br><span class="line">    inherit(FrondEnd,Programmer); <span class="comment">// 使用 inherit 实现继承</span></span><br><span class="line">    inherit(BackEnd,Programmer); </span><br><span class="line"></span><br><span class="line">    FrondEnd.prototype.lang = [<span class="string">'HTML'</span>,<span class="string">'CSS'</span>,<span class="string">'JavaScript'</span>];</span><br><span class="line">    FrondEnd.prototype.myName = <span class="string">'前端'</span>;</span><br><span class="line">    </span><br><span class="line">    BackEnd.prototype.lang = [<span class="string">'Node'</span>,<span class="string">'Java'</span>,<span class="string">'SQL'</span>];</span><br><span class="line">    BackEnd.prototype.myName = <span class="string">'后端'</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 把它们写在一个对象里面返回出去</span></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        FrondEnd:FrondEnd,</span><br><span class="line">        BackEnd:BackEnd</span><br><span class="line">    }</span><br><span class="line">})();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例化对象</span></span><br><span class="line">    <span class="keyword">var</span> frondEnd = <span class="keyword">new</span> initProgrammer.FrondEnd();</span><br><span class="line">    <span class="keyword">var</span> backEnd = <span class="keyword">new</span> initProgrammer.BackEnd();</span><br><span class="line">    frondEnd.say();</span><br><span class="line">    backEnd.say();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/98829262/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/98829262/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E5%8E%9F%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E9%93%BE/" rel="tag">js原型/原型链</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-公共原型继承"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/8f490e5b/">公共原型继承</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-17 18:15:36" datetime="2020-08-17T10:15:36.000Z"  itemprop="datePublished">2020-08-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>使用call/apply这种方法也不尽人意,我在想我这样写行不行</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name =<span class="string">'Mr. Li'</span>;</span><br><span class="line">    <span class="keyword">this</span>.tSkill = <span class="string">'JAVA'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Teacher.prototype = {</span><br><span class="line">    pSkill:<span class="string">'JS/JQ'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> Teacher();</span><br><span class="line"><span class="built_in">console</span>.log(t);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Mr. Wang'</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> Student.prototype = Teacher.prototype; </span><br><span class="line"> Student.prototype.age = <span class="number">18</span>;</span><br><span class="line"> <span class="keyword">var</span> s = <span class="keyword">new</span> Student();</span><br><span class="line"> </span><br><span class="line"> <span class="built_in">console</span>.log(s);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/8f490e5b/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p class="txt-indent">把 Teacher 的原型赋给 Student 的原型，这样的话 Stduent 下的属性也可以拥有而且还可以拥有 Teacher 原型的下属性,并且没有继承Teahcer下的一些属性我们不需要的属性。</p>
-
-<p>问题：这种方式也有一点不好的就是如果向 Student.prototype 增加属性和方法的时候也会添加的 Teacher.prototype 里面。因为它们两个指向同一个地址。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/8f490e5b/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
     </div>
 </nav>
 

@@ -41,14 +41,14 @@
 
 
     
-    <meta name="description" content="instanceof  判断该对象是否是该构造函数构造出来的,是返回true不是返回false。 12345678910111213 function Car(){} var car &#x3D; new Car(); function Person(){} var p &#x3D; new Person();console.log(p instanceof Car); &#x2F;&#x2F; false console.log(ca">
+    <meta name="description" content="instanceof判断该对象是否是该构造函数构造出来的,是返回true不是返回false。 12345678910111213 function Car(){} var car &#x3D; new Car(); function Person(){} var p &#x3D; new Person();console.log(p instanceof Car); &#x2F;&#x2F; false console.log(car">
 <meta property="og:type" content="article">
 <meta property="og:title" content="instanceof">
 <meta property="og:url" content="https://cokesprit.gitee.io/posts/instanceof/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="instanceof  判断该对象是否是该构造函数构造出来的,是返回true不是返回false。 12345678910111213 function Car(){} var car &#x3D; new Car(); function Person(){} var p &#x3D; new Person();console.log(p instanceof Car); &#x2F;&#x2F; false console.log(ca">
+<meta property="og:description" content="instanceof判断该对象是否是该构造函数构造出来的,是返回true不是返回false。 12345678910111213 function Car(){} var car &#x3D; new Car(); function Person(){} var p &#x3D; new Person();console.log(p instanceof Car); &#x2F;&#x2F; false console.log(car">
 <meta property="article:published_time" content="2020-08-11T09:12:18.000Z">
-<meta property="article:modified_time" content="2020-08-18T10:15:34.668Z">
+<meta property="article:modified_time" content="2020-09-27T07:42:57.381Z">
 <meta property="article:author" content="CokeSprit">
 <meta property="article:tag" content="面试&#x2F;笔试">
 <meta name="twitter:card" content="summary">
@@ -217,7 +217,7 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p><mark>instanceof </mark> 判断该对象是否是该构造函数构造出来的,是返回true不是返回false。</p>
+            <p><span class="s_jacinth">instanceof</span>判断该对象是否是该构造函数构造出来的,是返回true不是返回false。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{}</span><br><span class="line"> <span class="keyword">var</span> car = <span class="keyword">new</span> Car();</span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>{}</span><br><span class="line"> <span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p <span class="keyword">instanceof</span> Car); <span class="comment">// false</span></span><br><span class="line"> <span class="built_in">console</span>.log(car <span class="keyword">instanceof</span> Car); <span class="comment">// true</span></span><br><span class="line">  <span class="built_in">console</span>.log(car <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">   <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> Aarry); <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log([] <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">     <span class="built_in">console</span>.log({} <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">      <span class="built_in">console</span>.log({} <span class="keyword">instanceof</span> <span class="built_in">Array</span>); <span class="comment">// false</span></span><br></pre></td></tr></tbody></table></figure>
 <p>总结：A对象的原型到底有没有B的原型,有的话就是 true,没有就是false。</p>
 <script>
@@ -245,7 +245,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-08-18T10:15:34.668Z" itemprop="dateUpdated">2020-08-18 18:15:34</time>
+    Last updated: <time datetime="2020-09-27T07:42:57.381Z" itemprop="dateUpdated">2020-09-27 15:42:57</time>
 </span>
 
 
