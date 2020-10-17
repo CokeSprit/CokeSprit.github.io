@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AJAX | CokeSprit | 爱生活,爱编程</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="AJAX">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+	<script src="//hm.baidu.com/hm.js?fb0c91ff53575b161978475ac07850b8"></script>
+
+
+    
+    <meta name="description" content="AJAX前奏前言:1、浏览器与服务器之间的通信基础是HTTP协议2、用户通过网址或表单向服务器提交请求，服务器向浏览器发送相应的响应。 混编模式： 服务端的代码跟客服端的代码写在一起。例如前端和后端一起写在一个页面里面，文件后缀名必须是后端的那个语言，不能写html，因为html是解析不了服务端的代码的，而php为后缀的页面它是可以嵌入html的代码的。 混编模式的缺点：不好维护、前后端分离比较难">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/f3334fd0/index.html">
+<meta property="og:site_name" content="CokeSprit">
+<meta property="og:description" content="AJAX前奏前言:1、浏览器与服务器之间的通信基础是HTTP协议2、用户通过网址或表单向服务器提交请求，服务器向浏览器发送相应的响应。 混编模式： 服务端的代码跟客服端的代码写在一起。例如前端和后端一起写在一个页面里面，文件后缀名必须是后端的那个语言，不能写html，因为html是解析不了服务端的代码的，而php为后缀的页面它是可以嵌入html的代码的。 混编模式的缺点：不好维护、前后端分离比较难">
+<meta property="article:published_time" content="2020-10-17T07:42:22.000Z">
+<meta property="article:modified_time" content="2020-10-17T11:24:59.004Z">
+<meta property="article:author" content="CokeSprit">
+<meta property="article:tag" content="AJAX">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">CokeSprit</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:2665281140@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/cokesprit" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6179399347" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+            
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AJAX</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AJAX前奏"><span class="post-toc-number">1.</span> <span class="post-toc-text">AJAX前奏</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AJAX"><span class="post-toc-number">2.</span> <span class="post-toc-text">AJAX</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#创建XMLHttpRequest对象"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">创建XMLHttpRequest对象</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#AJAX发送HTTP请求"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">AJAX发送HTTP请求</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#AJAX-发送请求时的响应状态"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">AJAX-发送请求时的响应状态</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#ajax的三种方式"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">ajax的三种方式</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-AJAX"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AJAX</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2020-10-17 15:42:22" datetime="2020-10-17T07:42:22.000Z"  itemprop="datePublished">2020-10-17</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="AJAX前奏"><a href="#AJAX前奏" class="headerlink" title="AJAX前奏"></a>AJAX前奏</h4><p><span class="s_jacinth">前言:</span><br>1、浏览器与服务器之间的通信基础是HTTP协议<br>2、用户通过网址或表单向服务器提交请求，服务器向浏览器发送相应的响应。</p>
+<p><span class="s_jacinth">混编模式：</span></p>
+<p>服务端的代码跟客服端的代码写在一起。例如前端和后端一起写在一个页面里面，文件后缀名必须是后端的那个语言，不能写html，因为html是解析不了服务端的代码的，而php为后缀的页面它是可以嵌入html的代码的。</p>
+<p><span class="s_red">混编模式的缺点：</span>不好维护、前后端分离比较难。<br>前端程序员：前端程序员是在有了AJAX和异步了以后才有了前后端之分的。</p>
+<hr>
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h4><p><span class="s_jacinth">全称:</span> Asynchronous JavaScript and XML (异步的JavaScript 和 XML)。<br><span class="s_red">历史：</span><br>1999 IE5.0 允许JS脚本向服务器单独发起HTTP请求的新功能<br>2004 Gmail 退出异步邮件更新服务<br>2005 Google Map 异步更新地图服务<br>2005 AJAX被大厂公认命名<br>2005 W3C发布AJAX国际标准</p>
+<p>AJAX不是新的编程语言，而是一种使用现有标准的新方法。<br>AJAX是与服务器交互数据并更新部分网页的艺术，在不重新加载整个页面的情况下。</p>
+<p><span class="s_red">JavaScript异步通信：</span>请求服务器返回JSON/XML文档从前端JSON/XML文档中提取数据，在不刷新整个页面的基础上渲染到相应的位置。</p>
+<p><span class="s_red">同步请求：</span>点击跳转然后出数据这叫同步<br><span class="s_red">异步：</span>异步不刷新页面，不跳转，只请求数据</p>
+<p><span class="s_red">AJAX主要做</span>向服务器发送一个请求，这个请求是请求一段数据然后服务器就返回这样一段数据，返回来以后我拿到这个数据直接去整理这个数据然后把内容给更新。</p>
+<h5 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h5><p>原生AJAX：<span class="s_green">XMLHttpRequest</span> 对象与 <span class="s_green">Active</span>  对象</p>
+<p><span class="s_red">作用：</span>js脚本HTTP请求的发起必须通过XMLHttpRequest对象也是通过AJAX进行浏览器与服务器通信的接口不局限于XML，可以发送任何格式的数据。</p>
+<p><span class="s_red">XMLHttpRequest</span>本身是一个JS引擎内置的构造函数所有XMLHttpRequest对象都需要被实例化 var xhr = new XMLHttpRequest。</p>
+<p><span class="s_red">兼容性：</span>IE5/IE6 使用Active对象<br>var xhr = new ActiveXObject(‘Micrsoft.XMLHTTP’);</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 兼容性写法</span></span><br><span class="line"><span class="keyword">var</span> xhr ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest){</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Mcisoft.XMLHTTP'</span>);</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(xhr);</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="AJAX发送HTTP请求"><a href="#AJAX发送HTTP请求" class="headerlink" title="AJAX发送HTTP请求"></a>AJAX发送HTTP请求</h5><p>实例化出来的xhr有两个方法：<br><span class="s_jacinth">open()</span> 发送设置：<br><span class="s_red">参数：</span>open(method,url,async)<br><span class="s_red">method:</span> 请求方式<br><span class="s_red">url:</span> 请求发送的地址<br><span class="s_red">async:</span> false同步 true异步，建议都用ture</p>
+<p><span class="s_jacinth">send()</span>发送请求：<br><span class="s_red">参数：</span><br>发送POST请求体用数据，GET请求不用填写。</p>
+<hr>
+<h5 id="AJAX-发送请求时的响应状态"><a href="#AJAX-发送请求时的响应状态" class="headerlink" title="AJAX-发送请求时的响应状态"></a>AJAX-发送请求时的响应状态</h5><p><span class="s_jacinth">onreadyStatechange事件：</span><br>挂载到XMLHttpRequest对象上的事件。每当readyState改变时，就会触发onreadystatechange事件</p>
+<p><span class="s_jacinth">readyState状态：</span><br>通过XMLHttpRequest对象发送HTTP请求的各阶段状态(0-4)<br>0：请求未初始化<br>1：服务器连接一建立<br>2：请求以接收<br>3：请求处理中<br>4：请求已完成，且响应已就绪</p>
+<p><span class="s_red">注释：</span>onreadystatechange 事件被触发5次(0-4),对应着readyState的每个变化。</p>
+<p><span class="s_jacinth">status状态：</span><br>服务器响应的状态码<br>200:”OK”<br>400:”未找到页面”</p>
+<p>当readyState等于4且状态为200时，表示响应以就绪。</p>
+<hr>
+<h5 id="ajax的三种方式"><a href="#ajax的三种方式" class="headerlink" title="ajax的三种方式"></a>ajax的三种方式</h5><p>这三种都基于jQuery在使用的时候要引入jQuery<br><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line">    $.ajax({</span><br><span class="line">        url:<span class="string">"http://localhost:8086/myItem/class/data/data.json"</span>, <span class="comment">// 请求地址</span></span><br><span class="line">        type:<span class="string">'POST'</span>, <span class="comment">// 请求方式</span></span><br><span class="line">        dataType: <span class="string">'JSON'</span>,</span><br><span class="line">        data: { <span class="comment">// 数据体</span></span><br><span class="line">            status: <span class="number">1</span> </span><br><span class="line">        },</span><br><span class="line">        <span class="comment">// 成功之后的回调函数</span></span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line">    $.post(<span class="string">"http://localhost:8086/myItem/class/data/data.json"</span>,</span><br><span class="line">    {<span class="attr">stadus</span>: <span class="number">1</span>},<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种</span></span><br><span class="line">    $.<span class="keyword">get</span>('http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1',</span><br><span class="line">        function(data){</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        });</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-10-17T11:24:59.004Z" itemprop="dateUpdated">2020-10-17 19:24:59</time>
+</span>
+
+
+        
+        原文链接：<a href="/posts/f3334fd0/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/f3334fd0/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://cokesprit.gitee.io'">
+            <img src="/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/f3334fd0/&title=《AJAX》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/f3334fd0/&title=《AJAX》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/f3334fd0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AJAX》 — CokeSprit&url=https://cokesprit.gitee.io/posts/f3334fd0/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/f3334fd0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/987b192d/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：JSON基础、方法">下一篇：JSON基础、方法</h4>
+      </a>
+    </div>
+  
+
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2020
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="https://cokesprit.gitee.io">CokeSprit.top</a>
+        </span>
+
+        <br/>
+        <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
+
+        
+
+        <!-- 访问人数
+        <span>
+            
+
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        <br/> -->
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/f3334fd0/&title=《AJAX》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/f3334fd0/&title=《AJAX》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/f3334fd0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AJAX》 — CokeSprit&url=https://cokesprit.gitee.io/posts/f3334fd0/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/f3334fd0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3aQW7DMAwEwPz/0+0DWju7YqS6wOhUpIE8zmEhknq94vUVr6vvX+352rFwcXHH3Pbx9w/7+fn9nrkBFxf3PPf+wffQJMgSbhR2uLi4j+fmAZeHGi4u7n/k3kfV1Wu0++Pi4j6Bu3YcSdof7et9rFbDxcUdcPMu5b6/t/R3cXFxl7hf5Zrs0zZJf9kBFxf3CDcPlPnho22gXBZRuLi4R7iTQ8k8/vKmKi4u7nluXvx8NrzaViwuLu5u7toY9T7+PtUM/cWDi4t7hFsUG0utz7WGSO7BxcXdx82vULSF0NqxqZ4J4+LibuPmRUsyJskjMv8JcHFxz3DXLky0Y9Hk2BSNZnFxcY9w69HmUmEzGb1EByZcXNwN3Dxo2sPKZMh6+R1cXNwHcNvCpm12JI2YIshwcXE3c/MWalsOta+Ni4v7V9zJ4aMduI4ugeHi4m7mTmKoHc3mnxc5h4uLu4Gbr7XjS/Lf/CoGLi7uSW475kwappOhy5tfFBcX9yB3HjSTUBvVari4uA/gToqZeVMVFxf3mdx5PLW115tRCi4u7jZuUvysXcGcvxIuLu55bhsl0SWJcoe2BYOLi7uN+w2GyOIx22LNpwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 600){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "CokeSprit");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 尽人事,听天命 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+
+</body>
+</html>

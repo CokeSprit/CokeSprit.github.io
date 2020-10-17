@@ -192,6 +192,150 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-浏览器的兼容性模式"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/cbc93df7/">浏览器的兼容性模式</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-22 11:26:21" datetime="2020-09-22T03:26:21.000Z"  itemprop="datePublished">2020-09-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>浏览器的兼容性模式分为标准模式和怪异模式<br><span class="s_green">标准模式</span>:在顶部加上<span class="s_red">&lt;!DOCTYPE html&gt;</span>就变成标准模式。<br><span class="s_green">怪异模式</span>:把<span class="s_red">&lt;!DOCTYPE html&gt;</span>注释掉就会切换到怪异模式,怪异模式 -&gt; 向后兼容五个版本。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/cbc93df7/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-查看滚动条距离与高度"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/6ad09b7c/">查看滚动条距离与高度</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-22 09:57:43" datetime="2020-09-22T01:57:43.000Z"  itemprop="datePublished">2020-09-22</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>查看滚动条的方式有分为两种一种是比较常见的，另一种是不常见的。</p>
+<p><span class="s_jacinth">比较常见</span>:<br><span class="s_red">window.pageXOffset/window.pageYOffset</span>ie9某一些版本及ie8以下不支持。<br><span class="s_green">ie9/ie8及以以下的写法：</span><br><span class="s_red">document.body.scrollLeft/scrollTop</span><br><span class="s_red">document.documentElement.scrollLeft/scrollTop</span></p>
+<p><span class="s_jacinth">不常见</span>:<br><span class="s_red">window.scrollX/scrollY</span></p>
+<hr>
+<p><span class="s_yellow">浏览器兼容情况</span><br>下面分别为<span class="s_js">标准模式（s）</span> 和 <span class="s_js">怪异模式（b）</span>，在下一篇详细的讲什么是标准模式和怪异模式。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/6ad09b7c/怪异模式和标准模式.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><span class="s_jacinth">结论:</span>从图中很清楚的看到document.body可以使用,那么document..documentElement就不可以使用，反之也是如此。</p>
+<hr>
+<h4 id="滚动条兼容性封装"><a href="#滚动条兼容性封装" class="headerlink" title="滚动条兼容性封装"></a>滚动条兼容性封装</h4><p>为了解决上述所出现的兼容性问题，我们将这些方法封装成一个功能模块，来解决这个问题。</p>
+<p><span class="s_red">获取滚动条滚动距离</span><br><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollOffset</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">// 如果window.pageXOffset不为空</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.pageXOffset){</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            left: <span class="built_in">window</span>.pageXOffset,</span><br><span class="line">            top: <span class="built_in">window</span>.pageYOffset</span><br><span class="line">        }</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span>{</span><br><span class="line">            <span class="comment">/* 因为document.body或document.documentElement</span></span><br><span class="line"><span class="comment">                不可用时就会是空，所以这样写可以。*/</span></span><br><span class="line">            left: <span class="built_in">document</span>.body.scrollLeft + <span class="built_in">document</span>.documentElement.scrollLeft,</span><br><span class="line">            top: <span class="built_in">document</span>.body.scrollTop + <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/6ad09b7c/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-日期对象"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -905,363 +1049,6 @@
     
         <div class="post-more-div">
             <a href="/posts/db01237d/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-节点属性和方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/e02e7815/">节点属性和方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-04 22:05:48" datetime="2020-09-04T14:05:48.000Z"  itemprop="datePublished">2020-09-04</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><span class="s_red">nodeName</span><span class="s_red">nodeVaue</span><span class="s_red">nodeType</span><span class="s_red">attributes</span><span class="s_red">getAttributeNode</span><br>这几个属性除了 <span class="s_jacinth">nodeType</span> 是经常用其他都不怎么用。</p>
-<hr>
-<p><span class="s_green">html</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">class</span>=<span class="string">"box"</span> <span class="attr">style</span>=<span class="string">"background-color: green;"</span>&gt;</span></span><br><span class="line">    我是文本节点</span><br><span class="line">    <span class="comment">&lt;!-- 我是注释君 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h4 id="nodeName"><a href="#nodeName" class="headerlink" title="nodeName"></a>nodeName</h4><p>nodeName 属性可依据节点的类型返回其名称。<br>如果节点是一个元素节点 , nodeName 属性将返回标签名。<br>如果节点是一个属性节点， nodeName 属性将返回属性名。<br>其他节点类型, nodeName 属性将返根据不同的节点类型返回不同的节点名称。<br>nodeName -&gt; 只读<br><br><br><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="built_in">console</span>.log(div.nodeName);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">document</span>.nodeName);</span><br><span class="line">  <span class="built_in">console</span>.log(div.nodeName.toLowerCase()); <span class="comment">// 转小写</span></span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e02e7815/1.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-
-<hr>
-<h4 id="nodeValue"><a href="#nodeValue" class="headerlink" title="nodeValue"></a>nodeValue</h4><p>nodeValue属性根据节点的类型设置或返回节点的值。<br>nodeValue属性可读可写，<span class="s_red">属性、注释、文本</span>节点<span class="s_jacinth">可用</span>。<br><br><br><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">// 文本节点 也有nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.firstChild.nodeValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注释节点 也有nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.childNodes[<span class="number">1</span>].nodeValue);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 元素节点 没有nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.childNodes[<span class="number">3</span>].nodeValue); <span class="comment">// null</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 属性节点也有 nodeValue</span></span><br><span class="line">    <span class="built_in">console</span>.log(div.getAttributeNode(<span class="string">'id'</span>).nodeValue);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(div.firstChild.nodeValue = <span class="string">"我是假的文本节点"</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e02e7815/2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="nodeType"><a href="#nodeType" class="headerlink" title="nodeType"></a>nodeType</h4><p><span class="s_jacinth">nodeType返回节点类型。无比重要！！！</span>  只可读不可修改。</p>
-<table>
-<thead>
-<tr>
-<th align="center">节点名称</th>
-<th align="center">节点类型</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">元素节点</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">属性节点</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td align="center">文本节点</td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center">注释节点</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">document</td>
-<td align="center">9</td>
-</tr>
-<tr>
-<td align="center">DocumentFragment</td>
-<td align="center">11</td>
-</tr>
-</tbody></table>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span><br><span class="line">  <span class="comment">// 结果返回1 -&gt; 元素节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.nodeType);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 结果返回2 -&gt; 属性节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.getAttributeNode(<span class="string">'id'</span>).nodeType); </span><br><span class="line"></span><br><span class="line">  <span class="comment">// 结果返回3 -&gt; 文本节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.firstChild.nodeType); </span><br><span class="line"></span><br><span class="line">  <span class="comment">// 结果返回8 -&gt; 注释节点</span></span><br><span class="line">  <span class="built_in">console</span>.log(div.childNodes[<span class="number">1</span>].nodeType);</span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e02e7815/3.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="attributes-getAttributeNode"><a href="#attributes-getAttributeNode" class="headerlink" title="attributes getAttributeNode"></a>attributes getAttributeNode</h4><p>attributes方法获取一个元素的属性集合<br>getAttributeNod方法获取元素属性<br>这两个了解即可。</p>
-<hr>
-<h4 id="hasChildNodes"><a href="#hasChildNodes" class="headerlink" title="hasChildNodes"></a>hasChildNodes</h4><p>hasChildNodes 判断节点下有没有子节点,返回true或false。</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'box'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">// 注意换行也是属于文本节点！！！</span></span><br><span class="line"><span class="built_in">console</span>.log(box.hasChildNodes());</span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/e02e7815/4.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/e02e7815/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-document对象、获取元素、节点、遍历树"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/edf1905e/">document对象、获取元素、节点、遍历树</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-02 21:52:31" datetime="2020-09-02T13:52:31.000Z"  itemprop="datePublished">2020-09-02</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h4 id="document"><a href="#document" class="headerlink" title="document"></a>document</h4><p><span class="jacinth">document 代表的是整个HTML文档</span>,HTML是一个根标签，而docment是整个文档的最上层，HTML是document的下一级。</p>
-<hr>
-<h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><h5 id="getElementById"><a href="#getElementById" class="headerlink" title="getElementById"></a>getElementById</h5><p>通过元素的id来选择元素，只有getElementById是选择一个元素，其他都是选择一组的。</p>
-<p><span class="s_green">开发习惯和规范问题:</span>id在项目当中是不可以顺便乱用的，在大公司里面id一般是不作为样式去定义的，一般在一些大公司里面这个id称为 钩子，真正的id的用处是拿来对接后端的，这个id在模块化开发当中一般来是一个模块一个id，能不用id尽量不用id,在大公司里面id一般不是你定的。</p>
-<hr>
-<h5 id="getElementsByClassName"><a href="#getElementsByClassName" class="headerlink" title="getElementsByClassName"></a>getElementsByClassName</h5><p>通过元素class来选择元素，返回的是一个数组。在IE8及以下的是没有这个方法，所以说DOM和BOM队兼容性要求比较高。</p>
-<hr>
-<h5 id="getElementsByName"><a href="#getElementsByName" class="headerlink" title="getElementsByName"></a>getElementsByName</h5><p>通过元素的name来选择元素，返回一个数组，支持到ie4这个极不常用。</p>
-<hr>
-<h5 id="querySelector-querySeclectorAll"><a href="#querySelector-querySeclectorAll" class="headerlink" title="querySelector querySeclectorAll"></a>querySelector querySeclectorAll</h5><p>这两个是HTML5这个版本新引入的WEB API，但是它们两个很早之前就有了，它们两个比getElementsByClassName还要早，兼容IE7,IE6及以下不兼容，querySelector 和 querySeclectorAll 它们两个的写法和CSS选择器是一样的。<br><br></p>
-<hr>
-<p><span class="s_jacinth">querySelector</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelector<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div2 = <span class="built_in">document</span>.querySelector(<span class="string">'div'</span>)[<span class="number">1</span>];</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/1.png" alt="1" title>
-                </div>
-                <div class="image-caption">1</div>
-            </figure>
-<p><span class="s_red">总结:</span>如果类和标签有多个的话，querySelector只会选择第一个，它不能选择一组。</p>
-<hr>
-<br>
-<span class="s_jacinth">querySelectorAll</span>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelectorAll<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> div1 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div1);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div2 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'#box'</span>);</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div2);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">          <span class="keyword">var</span> div3 = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(div3);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-js运行结结果：
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<span class="s_red">总结：</span>querySelectorAll 使用无论类、id、标签，返回来的都是一组。
-<br>
-
-<hr>
-<p><span class="s_jacinth">querySelector和querySelectorAll的缺点</span><br>1.性能要比get慢得多 -&gt; 公司用的少<br>2.不实时,相当于存了一个缓存在那，稍微有点有点更改对它都是无效的。这才是它们最致命的缺点。<br><span class="s_greens">例子</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>querySelector和querySelectorAll的缺点<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>456<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span>789<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'.box'</span>);</span></span><br><span class="line">          divs[0].remove();</span><br><span class="line"><span class="javascript">          <span class="built_in">console</span>.log(divs); <span class="comment">// 节点并没有被删除！！！</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/3.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="遍历节点树"><a href="#遍历节点树" class="headerlink" title="遍历节点树"></a>遍历节点树</h4><p>节点不是元素，元素是节点的一部分。<br>节点包含元素 -&gt; 元素节点 = DOM元素</p>
-<hr>
-<h5 id="parentNode"><a href="#parentNode" class="headerlink" title="parentNode"></a>parentNode</h5><p>父节点，每个子元素只有一个父节点</p>
-<span class="s_green">html</span>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<span class="s_js">JavaScript</span>
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(a.parentNode);<span class="comment">// a的父节点是li</span></span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/4.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h5 id="childNodes"><a href="#childNodes" class="headerlink" title="childNodes"></a>childNodes</h5><p><span class="s_red">childNodes</span>子节点集合<br><span class="s_green">常用的节点有：</span><br>1、元素节点  = 1<br>2、属性节点  = 2<br>3、文本节点(#text)  = 3    换行也算是文本节点！！！<br>4、注释节点(#comment)  = 8<br>5、document = 9<br>6、DocumentFragment = 11<br>后面的数字表示节点号</p>
-<p><span class="s_green">html</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>123</span><br><span class="line">        <span class="comment">&lt;!-- 我是注释 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span>&gt;</span>我是超链接标签<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>是段落标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是标题标签<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(li.childNodes.length); <span class="comment">// 9</span></span><br><span class="line"><span class="built_in">console</span>.log(li.childNodes);</span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/5.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="firstChild-lastChild"><a href="#firstChild-lastChild" class="headerlink" title="firstChild lastChild"></a>firstChild lastChild</h5><p>第一个子节点，最后一个子节点</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">console</span>.log(li.firstChild); <span class="comment">//"123"</span></span><br><span class="line">    <span class="built_in">console</span>.log(li.lastChild); <span class="comment">// #text</span></span><br></pre></td></tr></tbody></table></figure>
-<p>js运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/6.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h5 id="nextSibling-previousSibling"><a href="#nextSibling-previousSibling" class="headerlink" title="nextSibling previousSibling"></a>nextSibling previousSibling</h5><p>下一个兄弟节点,上一个兄弟节点</p>
-<p><span class="s_js">JavaScript</span></p>
-<pre><code class="JavaScript"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];
-   <span class="built_in">console</span>.log(p.previousSibling)
-   <span class="built_in">console</span>.log(p.nextSibling);
-   <span class="built_in">console</span>.log(p.nextSibling.nextSibling);</code></pre>
-<p>js运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/7.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h5 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h5><p><span class="s_jacinth">遍历节点树补充：</span> 在公司里面只使用parentNode和childNodes,其他都是不用的,虽然其他不用但是一定要认识。</p>
-<hr>
-<h4 id="遍历元素节点树"><a href="#遍历元素节点树" class="headerlink" title="遍历元素节点树"></a>遍历元素节点树</h4><p> <span class="s_red">parentElement</span>  -&gt; 父元素<br>  <span class="s_red">children</span>  -&gt; 子元素<br>   <span class="s_red">firstElementChild lastElementChild</span>  -&gt; 第一个子元素  最后一个子元素<br>    <span class="s_red">nextElementSibling previousElementSibling</span> -&gt; 下一个兄弟元素  上一个兄弟元素<br><br></p>
-<p><span class="s_js">JavaScript</span></p>
-<pre><code class="JavaScript"><span class="comment">// parentElement</span>
-    <span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];
-    <span class="built_in">console</span>.log(p.parentElement);
-
-    <span class="keyword">var</span> html = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>];
-    <span class="built_in">console</span>.log(html.parentElement);
-    <span class="comment">// 总结：html标签有父节点 -&gt; #document ，但是但是但是没有父元素</span>
-
-<span class="comment">// children</span>
-    <span class="keyword">var</span> li = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>)[<span class="number">0</span>];
-    <span class="built_in">console</span>.log(li.children); <span class="comment">//[a, p, h1]</span>
-
-<span class="comment">// 笔试</span>
-<span class="comment">// childElementCount = children.length  这两个是一样的 不过前者没人用</span>
-    <span class="built_in">console</span>.log(li.childElementCount,li.children.length); <span class="comment">// 3 3</span>
-
-
-<span class="comment">// firstElementChild lastElementChild</span>
-    <span class="built_in">console</span>.log(li.firstElementChild,li.lastElementChild);
-
-<span class="comment">// nextElementSibling previousElementSibling </span>
-    <span class="built_in">console</span>.log(p.previousElementSibling,p.nextElementSibling);</code></pre>
-<p>js运行结果:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/edf1905e/8.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="补充-1"><a href="#补充-1" class="headerlink" title="补充"></a>补充</h5><p><span class="s_green">遍历节点树补充：</span><br>parentElement IE9及以下不支持<br>children IE7及以下不支持<br>childElementCount = children.length  IE9及以下不支持<br>firstElementChild lastElementChild  IE9及以下不支持<br>nextElementSibling previousElementSibling  IE9及以下不支持<br>在公司里面除了children有时候用之外,其他都没有人用,虽然不用但是不得不认识!!!</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/edf1905e/" class="post-more waves-button">
                 Continue reading...
             </a>
         </div>
