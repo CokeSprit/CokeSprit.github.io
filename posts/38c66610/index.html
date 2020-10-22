@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>箭头函数的实质&amp;使用场景 | CokeSprit | 爱生活,爱编程</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="ES6">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+	<script src="//hm.baidu.com/hm.js?fb0c91ff53575b161978475ac07850b8"></script>
+
+
+    
+    <meta name="description" content="箭头函数的实质箭头函数的this指向问题箭头函数的 this 指向是固化的，箭头函数的内部并没有自己的 this ,只能通过父级作用域来获取 this , 这里的this实际是闭包的this。 例子一 12345678910111213141516 function foo(){        return (a) &#x3D;&gt; {            console.log(this.a);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="箭头函数的实质&amp;使用场景">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/38c66610/index.html">
+<meta property="og:site_name" content="CokeSprit">
+<meta property="og:description" content="箭头函数的实质箭头函数的this指向问题箭头函数的 this 指向是固化的，箭头函数的内部并没有自己的 this ,只能通过父级作用域来获取 this , 这里的this实际是闭包的this。 例子一 12345678910111213141516 function foo(){        return (a) &#x3D;&gt; {            console.log(this.a);">
+<meta property="article:published_time" content="2020-10-22T02:19:02.000Z">
+<meta property="article:modified_time" content="2020-10-22T04:22:32.301Z">
+<meta property="article:author" content="CokeSprit">
+<meta property="article:tag" content="ES6">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">CokeSprit</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:2665281140@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/cokesprit" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6179399347" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+            
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">箭头函数的实质&amp;使用场景</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数的实质"><span class="post-toc-number">1.</span> <span class="post-toc-text">箭头函数的实质</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#箭头函数的this指向问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">箭头函数的this指向问题</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#箭头函数不能作为构造函数来使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">箭头函数不能作为构造函数来使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#没有-arguments-对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">没有 arguments 对象</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#yeid命令不能生效"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">yeid命令不能生效</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#练习"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">练习</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#箭头函数使用场景总结"><span class="post-toc-number">2.</span> <span class="post-toc-text">箭头函数使用场景总结</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-箭头函数的实质-使用场景"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">箭头函数的实质&使用场景</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2020-10-22 10:19:02" datetime="2020-10-22T02:19:02.000Z"  itemprop="datePublished">2020-10-22</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="箭头函数的实质"><a href="#箭头函数的实质" class="headerlink" title="箭头函数的实质"></a>箭头函数的实质</h4><h5 id="箭头函数的this指向问题"><a href="#箭头函数的this指向问题" class="headerlink" title="箭头函数的this指向问题"></a>箭头函数的this指向问题</h5><p>箭头函数的 this 指向是固化的，箭头函数的内部并没有自己的 this ,只能通过父级作用域来获取 this , 这里的this实际是闭包的this。</p>
+<p><span class="s_js">例子一</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="function">(<span class="params">a</span>) =&gt;</span> {</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> obj1 = {<span class="attr">a</span>:<span class="number">2</span>};</span><br><span class="line"><span class="keyword">var</span> obj2 = {<span class="attr">a</span>:<span class="number">3</span>};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果一 </span></span><br><span class="line">    <span class="keyword">var</span> bar = foo.call(obj1);</span><br><span class="line">    bar.call(obj2); <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 结果二</span></span><br><span class="line">    <span class="keyword">var</span> bars = foo();</span><br><span class="line">    bars.call(obj2); <span class="comment">//undefined  并没有打印出a 的值</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p><span class="s_js">例子二</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = {</span><br><span class="line">    <span class="comment">// 对象里面的function冒号可以简写</span></span><br><span class="line">    eat(){</span><br><span class="line">        <span class="built_in">console</span>.l0g(<span class="keyword">this</span>); <span class="comment">// person</span></span><br><span class="line">    },</span><br><span class="line">    drind: <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// window</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">person.eat(); <span class="comment">//谁调用指向谁</span></span><br><span class="line">person.drind();</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="箭头函数不能作为构造函数来使用"><a href="#箭头函数不能作为构造函数来使用" class="headerlink" title="箭头函数不能作为构造函数来使用"></a>箭头函数不能作为构造函数来使用</h5><p>箭头函数没有this ，不能作为构造函数来使用。</p>
+<hr>
+<h5 id="没有-arguments-对象"><a href="#没有-arguments-对象" class="headerlink" title="没有 arguments 对象"></a>没有 arguments 对象</h5><p>箭头函数没有arguments对象,用 rest(扩展运算符)替代</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line">    <span class="keyword">var</span> test = <span class="function"><span class="params">()</span> =&gt;</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">    }</span><br><span class="line">    test(); <span class="comment">// 报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不报错</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">            <span class="comment">// 这里打印的是foo的arguments</span></span><br><span class="line">        },<span class="number">1000</span>);</span><br><span class="line">    }</span><br><span class="line">    foo();</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="yeid命令不能生效"><a href="#yeid命令不能生效" class="headerlink" title="yeid命令不能生效"></a>yeid命令不能生效</h5><pre><code>yied 命令不能生效，在generator 函数中</code></pre><hr>
+<h5 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h5><p>把下面这个函数缓存箭头函数的写法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params">value</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        into: <span class="function"><span class="keyword">function</span>(<span class="params">array</span>)</span>{</span><br><span class="line">            <span class="keyword">return</span> {</span><br><span class="line">                after: <span class="function"><span class="keyword">function</span>(<span class="params">afterValue</span>)</span>{</span><br><span class="line">                    array.splice(array.indexOf(afterValue)+ <span class="number">1</span>, <span class="number">0</span>, value);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 插入</span></span><br><span class="line"> <span class="built_in">console</span>.log(insert(<span class="number">5</span>).into([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>]).after(<span class="number">4</span>));</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p><span class="s_jacinth">箭头函数写法</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 改成这样  但是还是不建议这么写 因为语义化不是很好</span></span><br><span class="line">    <span class="keyword">let</span> insert = <span class="function">(<span class="params">value</span>) =&gt;</span> ({</span><br><span class="line">        into:<span class="function">(<span class="params">array</span>) =&gt;</span> ({</span><br><span class="line">            after:<span class="function">(<span class="params">afterValue</span>) =&gt;</span> {</span><br><span class="line">                array.splice(array.indexOf(afterValue)+<span class="number">1</span>, <span class="number">0</span>,value);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> array;</span><br><span class="line">            }</span><br><span class="line">        })</span><br><span class="line">    });</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="箭头函数使用场景总结"><a href="#箭头函数使用场景总结" class="headerlink" title="箭头函数使用场景总结"></a>箭头函数使用场景总结</h4><p><span class="s_jacinth">1、</span>简单的函数表达式，得出唯一的return 的计算，函数内部没有this引用，没有递归、事件绑定、解绑定、用重构箭头函数的方式。</p>
+<p><span class="s_jacinth">2、</span>内层函数的函数的表达式需要的是调用this</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"button"</span>&gt;</span>button<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Button</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">this</span>.button = <span class="built_in">document</span>.getElementById(<span class="string">'button'</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    Button.prototype = {</span><br><span class="line">        init(){</span><br><span class="line">                <span class="keyword">this</span>.bindEvent();   </span><br><span class="line">        },</span><br><span class="line">        bindEvent(){</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 传统方式                                      // 改变this指向 让它指向window</span></span><br><span class="line">                <span class="comment">// this.button.addEventListener('click',this.clickBtn.bind(this),false);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 箭头函数的方式 -&gt; 箭头函数的使用场景            通过父级作用域获取到this</span></span><br><span class="line">                <span class="keyword">this</span>.button.addEventListener(<span class="string">'click'</span>,(e) =&gt; <span class="keyword">this</span>.clickBtn(e),<span class="literal">false</span>)</span><br><span class="line">            </span><br><span class="line">        },</span><br><span class="line">        clickBtn(e){</span><br><span class="line">            <span class="built_in">console</span>.log(e);</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">new</span> Button().init();</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><span class="s_jacinth">3、</span>当你考虑用到arguments/sort把类数组转化成数组时</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传统方式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sortNumber</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">    <span class="keyword">return</span> args.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> a -b;</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数的形式</span></span><br><span class="line"><span class="keyword">const</span> sortNumber = <span class="function">(<span class="params">...numbers</span>) =&gt;</span> numbers.sort( <span class="function">(<span class="params">a,b</span>) =&gt;</span> a - b );</span><br><span class="line"><span class="built_in">console</span>.log(sortNumber([<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">56</span>,<span class="number">4554</span>,<span class="number">23</span>,<span class="number">568</span>]));</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p><span class="s_jacinth">4、</span>不适合箭头函数的情况：<br>函数声明，执行语句比较多的，<br>还需要用到递归，需要引用函数名，<br>以及事件绑定、解绑定，避免用 箭头函数。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Última actualización<time datetime="2020-10-22T04:22:32.301Z" itemprop="dateUpdated">2020-10-22 12:22:32</time>
+</span>
+
+
+        
+        原文链接：<a href="/posts/38c66610/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/38c66610/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://cokesprit.gitee.io'">
+            <img src="/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/38c66610/&title=《箭头函数的实质&使用场景》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/38c66610/&title=《箭头函数的实质&使用场景》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/38c66610/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《箭头函数的实质&使用场景》 — CokeSprit&url=https://cokesprit.gitee.io/posts/38c66610/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/38c66610/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/ad9de38b/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：Symbol.iterator 迭代器
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/3e85b841/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：this指向总结&amp; 箭头函数基本形式">下一篇：this指向总结&amp; 箭头函数基本形式</h4>
+      </a>
+    </div>
+  
+
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2020
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="https://cokesprit.gitee.io">CokeSprit.top</a>
+        </span>
+
+        <br/>
+        <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
+
+        
+
+        <!-- 访问人数
+        <span>
+            
+
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        <br/> -->
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/38c66610/&title=《箭头函数的实质&使用场景》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/38c66610/&title=《箭头函数的实质&使用场景》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/38c66610/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《箭头函数的实质&使用场景》 — CokeSprit&url=https://cokesprit.gitee.io/posts/38c66610/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/38c66610/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQY6DMAwFUO5/aWYzi5FGTb8dcKn0sqqKgBcWkf2T44jH+Wf8/ye5+uqZxx0DFxd3m3sux/r1a1Byb27AxcWd564Xmio9/wS5ARcX98ncZDLru9Z0XFzcb+SuEXljg4uL+3xurxzJg49qc3VBr4aLi7vBzVPK+37fku/i4uK2uGdxrIuPJE7txSi/d+Hi4o5wq41KtZS5qkHCxcWd5Fbbnt52S3JvEqri4uLOcKuHqHpHrPItmSRAwcXFvZtbXW6qB7CqDdWb9+Li4o5w9+OM3nZpNXzBxcX9LDcPOHrhyI3NDy4u7qWxSJXSOzCRTP7NQoaLizvIzR+RBxzVw1tRaIuLizvCzQuU/HF5M9NsfnBxcce5vUAkb5x6TVSUzuLi4l7KTUqKvBCphh3558DFxX0Cd39Ry7dU8/fi4uLOc3stTS9yrT4BFxd3hnsWRx6VVhukaDK4uLgj3Hz0ypfkan4UAxcXd5JbXbzybdd887UQtuLi4g5ye6/Ji5VqOFK+jIuL+1FuXgxdVSrh4uI+n9vrn3qTf7mVgouLO8LtHa3Iw9BqcVPYZMXFxb2Bu78M5c1PMpn9RRMXF3eD+wN1RAEvvw9sKAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 600){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "CokeSprit");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 尽人事,听天命 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+
+</body>
+</html>
