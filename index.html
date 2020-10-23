@@ -157,7 +157,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -190,6 +190,226 @@
 
 <div class="container body-wrap">
     <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-表单、表单标签属性、标签总结"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/dbb51634/">表单、表单标签属性、标签总结</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-23 10:06:17" datetime="2020-10-23T02:06:17.000Z"  itemprop="datePublished">2020-10-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <hr>
+<p>form 标签</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">block element</span><br><span class="line">配合input 和 提交按钮</span><br><span class="line"></span><br><span class="line">method: <span class="keyword">get</span> | post</span><br><span class="line"></span><br><span class="line">action: 提交数据的后端地址，不写就是本页面</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p>input 标签</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">inline block element</span><br><span class="line"></span><br><span class="line">name：为了提交数据设置名称</span><br><span class="line">type：</span><br><span class="line">    text -&gt; 文本框</span><br><span class="line">    password -&gt; 密码框</span><br><span class="line">    submit -&gt; 提交按钮：</span><br><span class="line">        提交数据的两大要素：</span><br><span class="line">            名称 和 值</span><br><span class="line">            名称是 input 的name属性的值；一定要写！！！</span><br><span class="line">    radio -&gt; 单选按钮</span><br><span class="line">    checkbox -&gt; 多选课</span><br><span class="line"></span><br><span class="line">maxlength: 最大可输入的字符</span><br><span class="line">readyonly: 只读属性；不可输入，表单提交时会是会提交数据。</span><br><span class="line">disabled: 禁用；表单提交时不提交数据</span><br><span class="line">readonly 和 disabled 区别： 前者表单提交数据时会提交数据，后者不提交数据。</span><br><span class="line">placeholder：默认内容</span><br><span class="line">onfocus：聚焦的方法</span><br><span class="line">onblur：失去焦点的方法</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p>lable</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">inline element</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>属性</span><br><span class="line"></span><br><span class="line">lable的最大价值：</span><br><span class="line">    lable 的 <span class="keyword">for</span> 属性与某个input的属性的值相同时，</span><br><span class="line">    点击lable可以自动聚焦</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p>select 下拉框</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">子项：option</span><br><span class="line"></span><br><span class="line">&lt;select name=<span class="string">"lang"</span>&gt;</span><br><span class="line">    &lt;option value=<span class="string">""</span>&gt;请选择&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">    &lt;option &gt;JavaScript&lt;/</span>option&gt;</span><br><span class="line">    &lt;option &gt;JAVA&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>select&gt;</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p>textarea 多行文本框</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cols: 可见宽度</span><br><span class="line">    宽度计算(大概)：<span class="number">8</span>px * cols +<span class="number">17</span>px(滚动条);</span><br><span class="line">    <span class="number">8</span>个像素是指英文字符,而且是在浏览器默认字体(<span class="number">16</span>px)大小的情况下。</span><br><span class="line"></span><br><span class="line">rows：可见行数</span><br><span class="line"></span><br><span class="line">placeholder：默认内容</span><br><span class="line"></span><br><span class="line">补充：为什么在多行文本里面会出现空格的现象？</span><br><span class="line">    因为 textarea 它的文本是在这两个双标签之间，</span><br><span class="line">    换行和空格相当占用了它的字符显示。</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p>fieldset 控件组</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">block element</span><br><span class="line"></span><br><span class="line">legend -&gt; block element</span><br><span class="line"></span><br><span class="line">&lt;fieldset&gt;</span><br><span class="line">    &lt;legend&gt;用户登录&lt;<span class="regexp">/legend&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;label for="username"&gt;用户名：&lt;/</span>label&gt;</span><br><span class="line">        &lt;input type=<span class="string">"text"</span> name=<span class="string">""</span>  id=<span class="string">"username"</span> placeholder=<span class="string">"用户名"</span>/&gt;</span><br><span class="line">    &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;</span></span><br><span class="line"><span class="regexp">        &lt;label for="password"&gt;密码：&lt;/</span>label&gt;</span><br><span class="line">        &lt;input type=<span class="string">"password"</span> name=<span class="string">""</span>  id=<span class="string">"password"</span> placeholder=<span class="string">"密码"</span>/&gt;</span><br><span class="line">    &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>fieldset&gt;</span><br><span class="line"></span><br><span class="line">fieldset控件组可以自定义样式！！！</span><br></pre></td></tr></tbody></table></figure>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/dbb51634/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p>前端验证</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">前端验证：长度验证、字符验证</span><br><span class="line"></span><br><span class="line">    md5加密：“消息摘要的算法”或者“不可逆加密算法”</span><br><span class="line">        <span class="number">1.</span>不可逆加密算法</span><br><span class="line">        <span class="number">2.</span>只要加密了就不可以解密</span><br><span class="line">        <span class="number">3.</span>这种加密方式是不需要提供额外秘钥的</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><h5 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h5><p><span class="s_jaincth">内联元素</span>：span / strong / em / lable / del(删除线) / ins(下划线) / a / sup(上标) / sub(下标) </p>
+<p><span class="s_jaincth">块级元素</span>：div / h1-6 / p / address / ul / ol / li / dl / dt / dd / table / form / fieldset / legend </p>
+<p><span class="s_jaincth">内联块元素</span>：input / img / select / textarea / iframe(内联框架)</p>
+<p>HTML4.0 有89个标签(十分之3常用)，HTML5标签新增30个标签，二分之一是有用的，其他要不然是兼容性不行或者是功能性太强。不到一定web发展阶段是很难有出路的。</p>
+<hr>
+<h4 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h4><p><span class="s_jacinth">HTML5 和 HTML5技术</span></p>
+<p>HTML是 HTML的新标准</p>
+<pre><code>更新：简化编码的声明的方式
+
+删除：center font big small framest frame s u 等等
+
+新增：增加了音视频标签video、audio；header nav footer，canvas画布等等。
+
+增加 JavaScript API: 地理位置、离线缓存、canvas 应用缓存
+
+CSS3：过渡、转换、动画</code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/dbb51634/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-基础标签、列表、框架"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/5e8fe3d2/">基础标签、列表、框架</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-23 08:02:55" datetime="2020-10-23T00:02:55.000Z"  itemprop="datePublished">2020-10-23</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h5 id="sub-amp-sup-标签"><a href="#sub-amp-sup-标签" class="headerlink" title="sub &amp; sup 标签"></a>sub &amp; sup 标签</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sub：下标标签 -&gt; subscripted</span><br><span class="line">sup：上标标签 -&gt; superscripted</span><br><span class="line"></span><br><span class="line">两个都是inline element</span><br><span class="line"></span><br><span class="line">前端&lt;sup&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;<span class="name">sup</span>/&gt;</span></span> <span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">H&lt;sub&gt;<span class="number">2</span>&lt;<span class="regexp">/sub&gt;SO&lt;sub&gt;4&lt;/</span>sub&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/5e8fe3d2/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="span-标签"><a href="#span-标签" class="headerlink" title="span 标签"></a>span 标签</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">没有任何的样式</span><br><span class="line">为什么要用span标签？</span><br><span class="line">    在一个文本内为了区分其他文本的样式差别；</span><br><span class="line">    为了获取文章中某些字；</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="ol-有序列表"><a href="#ol-有序列表" class="headerlink" title="ol 有序列表"></a>ol 有序列表</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">全称：order list</span><br><span class="line">tyoe：可取<span class="number">1</span>、A、a、I、i</span><br><span class="line">start：只能写数字 从第几位开始</span><br><span class="line">reversed: 倒序</span><br><span class="line"></span><br><span class="line">&lt;ol type=<span class="string">"1"</span> start=<span class="string">"5"</span> reversed&gt;</span><br><span class="line">    &lt;li&gt;HTML&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;CSS&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;JavaScript&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;PHP&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;Pythone&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;JAVA&lt;/</span>li&gt;</span><br><span class="line">&lt;<span class="regexp">/ol&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="ul-无序列表"><a href="#ul-无序列表" class="headerlink" title="ul 无序列表"></a>ul 无序列表</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">全称：unorder list 无序列表</span><br><span class="line">type：disk -&gt; 默认</span><br><span class="line">      square -&gt; 黑色方框</span><br><span class="line">      circle -&gt; 圆</span><br><span class="line"></span><br><span class="line">最大的用处写Tab组件/轮播图，平分区域或者是横排列的块级布局，</span><br><span class="line">横排列表/竖排列表。</span><br></pre></td></tr></tbody></table></figure>
+<p>效果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/5e8fe3d2/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="dl-定义列表"><a href="#dl-定义列表" class="headerlink" title="dl 定义列表"></a>dl 定义列表</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">全称：definition list</span><br><span class="line">dt：项 -&gt; definiton term</span><br><span class="line">dd：描述 -&gt; definition description</span><br><span class="line"></span><br><span class="line">&lt;dl&gt;</span><br><span class="line">    &lt;dt&gt;我的梦想&lt;<span class="regexp">/dt&gt; </span></span><br><span class="line"><span class="regexp">    &lt;dd&gt;我要成为WEB开发工程师&lt;/</span>dd&gt;</span><br><span class="line">    &lt;dt&gt;我的梦想&lt;<span class="regexp">/dt&gt; </span></span><br><span class="line"><span class="regexp">    &lt;dd&gt;我要成后端工程师&lt;/</span>dd&gt;</span><br><span class="line">    &lt;dt&gt;我的梦想&lt;<span class="regexp">/dt&gt; </span></span><br><span class="line"><span class="regexp">&lt;/</span>dl&gt;</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="frameset-页面框架"><a href="#frameset-页面框架" class="headerlink" title="frameset 页面框架"></a>frameset 页面框架</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以快速的把页面框架加起来；</span><br><span class="line">使用这个框架不能有body!!!</span><br><span class="line">现在已经不使用了</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="table-表格"><a href="#table-表格" class="headerlink" title="table 表格"></a>table 表格</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">caption -&gt; 表格的标题标签</span><br><span class="line">tr -&gt; table row 表格的行标签</span><br><span class="line">th -&gt; table header call 表头标签</span><br><span class="line">td -&gt; table data cell 单元格标签</span><br><span class="line">border -&gt; 表格边框； border = <span class="number">1</span> ; 不能有单位</span><br><span class="line">cellpadding -&gt; 单元内格边距 不能有单位</span><br><span class="line">cellspacing -&gt; 单元格间距 不能有但我</span><br><span class="line">colspan -&gt; 列和并，表格的数加起来要等于列数</span><br><span class="line">rowspan -&gt; 行合并</span><br><span class="line">align: left | center | right</span><br><span class="line"></span><br><span class="line">thead -&gt; 表格也页眉标签 table head</span><br><span class="line">tfoot -&gt; 表格尾页标签 table foot</span><br><span class="line">tbody -&gt; 表格的主体标签 table body</span><br><span class="line">    这三个标签必须同时出现！！！</span><br><span class="line">        如果不加这三个标签表格要等所有的内容加载完毕了之后，</span><br><span class="line">    才会渲染出来；加了这三个标签页眉和页尾先加载出来然后</span><br><span class="line">    再加载主体部分，所以这个三个标签的出现循序是：</span><br><span class="line">       thead -&gt; tfood -&gt; tbody</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p><span class="s_js">例子</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">border</span>=<span class="string">"1"</span> <span class="attr">cellpadding</span>=<span class="string">"10"</span> <span class="attr">cellspacing</span>=<span class="string">"5"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">caption</span>&gt;</span></span><br><span class="line">            学生管理系统</span><br><span class="line">        <span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>学号<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>班级<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>181203010934<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>黄一蓝<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>1812030109<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>181203010934<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>陶一蓝<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>181203010933<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span>&gt;</span>张晓蓝<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>1812030109 、女<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tfoot</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span> <span class="attr">align</span>=<span class="string">"right"</span>&gt;</span>学生都可以顺利毕业<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> </span><br><span class="line">        <span class="tag">&lt;/<span class="name">tfoot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/5e8fe3d2/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="iframe-内联框架"><a href="#iframe-内联框架" class="headerlink" title="iframe 内联框架"></a>iframe 内联框架</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">iframe 是重frameset衍生出来的；</span><br><span class="line">页面占用少，而且有body；</span><br><span class="line">inline-block element</span><br><span class="line"></span><br><span class="line">framboder：添加像素</span><br><span class="line">scrolling：禁用/许可 滚动条；取值：yes | no | auto</span><br><span class="line"></span><br><span class="line">优点：</span><br><span class="line">    不需要去加载整个页面，只加载ifname的页面；</span><br><span class="line">    变相的减少了Http请求;</span><br><span class="line">    像功能性导航用ifname来做挺好的；</span><br><span class="line"></span><br><span class="line">缺点：最恶心的缺点是对搜索引擎不友好；</span><br><span class="line">     滚动条的题型混乱，各个浏览器的都是不太一样；</span><br><span class="line">     之间的数据传递非常困难；</span><br><span class="line">    </span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &lt;a href=<span class="string">"http://wwww.taobao.com"</span> target=<span class="string">"mainFrame"</span>&gt;&lt;<span class="regexp">/a&gt;&lt;br/</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">    &lt;a href=<span class="string">"http://wwww.baidu.com"</span> target=<span class="string">"mainFrame"</span>&gt;&lt;<span class="regexp">/a&gt;&lt;br/</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">    &lt;a href=<span class="string">"http://wwww.taobao.com"</span> target=<span class="string">"mainFrame"</span>&gt;&lt;<span class="regexp">/a&gt;&lt;br/</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">&lt;iframe src="https:/</span><span class="regexp">/baidu.com" width="600px" height="200px" name="mainFrame" frameborder="0" &gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/i</span>frame&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>效果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/5e8fe3d2/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/5e8fe3d2/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
     
         <li class="post-list-item fade">
             <article id="post-HTML基础、编码、基础标签"
@@ -232,7 +452,9 @@
 <hr>
 <h5 id="html-根标签："><a href="#html-根标签：" class="headerlink" title="html 根标签："></a>html 根标签：</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;html lang=<span class="string">"zh-CN"</span>&gt; </span><br><span class="line">zh-CN: 中华人民共和国 - 简体中文</span><br><span class="line">    EN: 英文</span><br><span class="line">zh-Hans: 纯简体中文 -&gt; 部分地域</span><br><span class="line">zh-CHS: 纯简体中文 -&gt; 部分地域</span><br></pre></td></tr></tbody></table></figure>
 <hr>
-<h5 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h5><pre><code>head标签向浏览器网页的基本信息和配置</code></pre><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">三大件：</span><br><span class="line">    title: </span><br><span class="line">        &lt;title&gt;<span class="number">30</span><span class="number">-40</span>个字&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">        主页：网站 + 主要关键字/</span>关键字的描述</span><br><span class="line">        详情页：详情名称 + 网站名称 + 简介</span><br><span class="line">        列表页：分类名称 + 关键字 + 网站名称</span><br><span class="line">        文章页：标题 + 分类 + 网站名称</span><br><span class="line">    </span><br><span class="line">    keywords:</span><br><span class="line">        &lt;meta name=<span class="string">"keywords"</span> content=<span class="string">""</span>&gt;</span><br><span class="line">        要求<span class="number">100</span>个字符</span><br><span class="line">            网站名称 + 分类信息 + 网站名称</span><br><span class="line">    </span><br><span class="line">    description:</span><br><span class="line">        &lt;meta name=<span class="string">"description"</span> centent=<span class="string">""</span>&gt;</span><br><span class="line">        描述信息 <span class="number">80</span> - <span class="number">120</span> 汉字</span><br><span class="line">        综合title + keywords的简单问题</span><br><span class="line"></span><br><span class="line"><span class="comment">/****************************分割*********************/</span></span><br><span class="line"></span><br><span class="line">搜索引擎认知的优先级：</span><br><span class="line">    title &gt; description &gt; keywords</span><br><span class="line"></span><br><span class="line">搜索引擎：</span><br><span class="line">    是有学习能力的，每隔一段时间自动启动蜘蛛爬虫程序，</span><br><span class="line">爬别人网页上的内容，会对一定范围之内的网站进行搜索，</span><br><span class="line">搜索到了存在到自己的数据库。</span><br><span class="line">爬虫程序对语义化标签非常青睐。</span><br><span class="line"></span><br><span class="line">    搜索引擎的优化：</span><br><span class="line">        并不是网页技术，它实际到方方面面，比如网页的营销。</span><br><span class="line">    </span><br><span class="line">    面貌字符集：</span><br><span class="line">        &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">        GB2312：中国信息处理国家标准码 -&gt; 简体中文编码</span><br><span class="line">        GBK：汉字扩展规范 -&gt; 扩大了汉字的收入，增加了繁体中文、藏、蒙、维吾尔等少数民族的文字</span><br><span class="line">        UTF<span class="number">-8</span>：万国码 -&gt; 它几乎认识世界所有文字</span><br></pre></td></tr></tbody></table></figure>
+<h5 id="head标签"><a href="#head标签" class="headerlink" title="head标签"></a>head标签</h5><pre><code>head标签向浏览器网页的基本信息和配置</code></pre><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">三大件：</span><br><span class="line">    title: </span><br><span class="line">        &lt;title&gt;<span class="number">30</span><span class="number">-40</span>个字&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">        主页：网站 + 主要关键字/</span>关键字的描述</span><br><span class="line">        详情页：详情名称 + 网站名称 + 简介</span><br><span class="line">        列表页：分类名称 + 关键字 + 网站名称</span><br><span class="line">        文章页：标题 + 分类 + 网站名称</span><br><span class="line">    </span><br><span class="line">    keywords:</span><br><span class="line">        &lt;meta name=<span class="string">"keywords"</span> content=<span class="string">""</span>&gt;</span><br><span class="line">        要求<span class="number">100</span>个字符</span><br><span class="line">            网站名称 + 分类信息 + 网站名称</span><br><span class="line">    </span><br><span class="line">    description:</span><br><span class="line">        &lt;meta name=<span class="string">"description"</span> centent=<span class="string">""</span>&gt;</span><br><span class="line">        描述信息 <span class="number">80</span> - <span class="number">120</span> 汉字</span><br><span class="line">        综合title + keywords的简单问题</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/****************************分割*********************/</span></span><br><span class="line"></span><br><span class="line">搜索引擎认知的优先级：</span><br><span class="line">    title &gt; description &gt; keywords</span><br><span class="line"></span><br><span class="line">搜索引擎：</span><br><span class="line">    是有学习能力的，每隔一段时间自动启动蜘蛛爬虫程序，</span><br><span class="line">爬别人网页上的内容，会对一定范围之内的网站进行搜索，</span><br><span class="line">搜索到了存在到自己的数据库。</span><br><span class="line">爬虫程序对语义化标签非常青睐。</span><br><span class="line"></span><br><span class="line">搜索引擎的优化：</span><br><span class="line">    并不是网页技术，它实际到方方面面，比如网页的营销。</span><br><span class="line"></span><br><span class="line">编码字符集：</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    GB2312：中国信息处理国家标准码 -&gt; 简体中文编码</span><br><span class="line">    GBK：汉字扩展规范 -&gt; 扩大了汉字的收入，增加了繁体中文、藏、蒙、维吾尔等少数民族的文字</span><br><span class="line">    UTF<span class="number">-8</span>：万国码 -&gt; 它几乎认识世界所有文字</span><br></pre></td></tr></tbody></table></figure>
 <hr>
 <h5 id="h1-h6-gt-标签"><a href="#h1-h6-gt-标签" class="headerlink" title="h1-h6->标签"></a>h1-h6-&gt;标签</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">h1-h6：粗体、独占一行其中h1标签的文字大小是<span class="number">2</span>em;</span><br><span class="line">补充：浏览器默认的文字大小<span class="number">16</span>px</span><br></pre></td></tr></tbody></table></figure>
 <hr>
@@ -260,7 +482,7 @@
 <hr>
 <h5 id="anchor-标签-锚点"><a href="#anchor-标签-锚点" class="headerlink" title="anchor 标签 (锚点)"></a>anchor 标签 (锚点)</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;a target=<span class="string">"_blank"</span> href=<span class="string">"https://www.baidu.com"</span>&gt;最早是锚点标签&lt;a/&gt;</span><br><span class="line">href：</span><br><span class="line">target：_blank 新开一个页面</span><br><span class="line"></span><br><span class="line">a标签的作用：</span><br><span class="line">    <span class="number">1</span>、超链接标签</span><br><span class="line">    <span class="number">2</span>、打电话</span><br><span class="line">        &lt;a href=<span class="string">"tel:17677537662"</span>&gt;联系商家&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">    3、发邮件</span></span><br><span class="line"><span class="regexp">        &lt;a href="mailto:2665281140@qq.com"&gt;发邮件&lt;/</span>a&gt;</span><br><span class="line">    <span class="number">4</span>、锚点定位</span><br><span class="line">    <span class="number">5</span>、协议限定</span><br><span class="line">        &lt;a href=<span class="string">"JavaScript:;"</span>&gt;&lt;<span class="regexp">/a&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <hr>
-<h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><p>元素 == 标签 + 元素内容； -&gt;  </p><p>元素</p><p></p>
+<h4 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h4><p>元素 == 标签 + 元素内容； -&gt;  &lt;p&gt;元素&lt;/p&gt;</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    内联元素(专业叫法) 也叫行间元素 行内元素 inline element ：</span><br><span class="line">    inline element</span><br><span class="line">    不独占一行，无法定义宽高</span><br><span class="line">    strong em del ins</span><br><span class="line"></span><br><span class="line">块级元素 -&gt; block element :</span><br><span class="line">    独占一行、可以定义宽高</span><br><span class="line">    p hx div address</span><br><span class="line"></span><br><span class="line">内联块级元素  -&gt; inline-block element :</span><br><span class="line">    不独占一行、可以定义宽高</span><br><span class="line">    img</span><br><span class="line">    &lt;img src=<span class="string">"img/1.png"</span> alt=<span class="string">""</span> /&gt;<span class="number">123</span></span><br></pre></td></tr></tbody></table></figure>
 <p><span class="s_red">提示</span>：块级元素可以嵌套任何元素。<br>p标签不可以嵌套div;<br>a标签不可以嵌套a标签;</p>
 <hr>
@@ -288,7 +510,7 @@
     
         <div class="post-more-div">
             <a href="/posts/95ef9666/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -373,7 +595,7 @@
     
         <div class="post-more-div">
             <a href="/posts/ad9de38b/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -466,7 +688,7 @@
     
         <div class="post-more-div">
             <a href="/posts/38c66610/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -562,7 +784,7 @@
     
         <div class="post-more-div">
             <a href="/posts/3e85b841/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -653,7 +875,7 @@
     
         <div class="post-more-div">
             <a href="/posts/4783bbff/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -735,7 +957,7 @@
     
         <div class="post-more-div">
             <a href="/posts/dcc531c7/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -870,7 +1092,7 @@
     
         <div class="post-more-div">
             <a href="/posts/d624f1ca/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -975,7 +1197,7 @@ ECMA ECMA-262 ECMAscript 脚本语言规范：
     
         <div class="post-more-div">
             <a href="/posts/4328cb48/" class="post-more waves-button">
-                続きを読む…
+                Continue reading...
             </a>
         </div>
     </div>
@@ -983,208 +1205,6 @@ ECMA ECMA-262 ECMAscript 脚本语言规范：
     <div class="post-footer">
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-AJAX"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/f3334fd0/">AJAX</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-10-17 15:42:22" datetime="2020-10-17T07:42:22.000Z"  itemprop="datePublished">2020-10-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h4 id="AJAX前奏"><a href="#AJAX前奏" class="headerlink" title="AJAX前奏"></a>AJAX前奏</h4><p><span class="s_jacinth">前言:</span><br>1、浏览器与服务器之间的通信基础是HTTP协议<br>2、用户通过网址或表单向服务器提交请求，服务器向浏览器发送相应的响应。</p>
-<p><span class="s_jacinth">混编模式：</span></p>
-<p>服务端的代码跟客服端的代码写在一起。例如前端和后端一起写在一个页面里面，文件后缀名必须是后端的那个语言，不能写html，因为html是解析不了服务端的代码的，而php为后缀的页面它是可以嵌入html的代码的。</p>
-<p><span class="s_red">混编模式的缺点：</span>不好维护、前后端分离比较难。<br>前端程序员：前端程序员是在有了AJAX和异步了以后才有了前后端之分的。</p>
-<hr>
-<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h4><p><span class="s_jacinth">全称:</span> Asynchronous JavaScript and XML (异步的JavaScript 和 XML)。<br><span class="s_red">历史：</span><br>1999 IE5.0 允许JS脚本向服务器单独发起HTTP请求的新功能<br>2004 Gmail 退出异步邮件更新服务<br>2005 Google Map 异步更新地图服务<br>2005 AJAX被大厂公认命名<br>2005 W3C发布AJAX国际标准</p>
-<p>AJAX不是新的编程语言，而是一种使用现有标准的新方法。<br>AJAX是与服务器交互数据并更新部分网页的艺术，在不重新加载整个页面的情况下。</p>
-<p><span class="s_red">JavaScript异步通信：</span>请求服务器返回JSON/XML文档从前端JSON/XML文档中提取数据，在不刷新整个页面的基础上渲染到相应的位置。</p>
-<p><span class="s_red">同步请求：</span>点击跳转然后出数据这叫同步<br><span class="s_red">异步：</span>异步不刷新页面，不跳转，只请求数据</p>
-<p><span class="s_red">AJAX主要做</span>向服务器发送一个请求，这个请求是请求一段数据然后服务器就返回这样一段数据，返回来以后我拿到这个数据直接去整理这个数据然后把内容给更新。</p>
-<h5 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h5><p>原生AJAX：<span class="s_green">XMLHttpRequest</span> 对象与 <span class="s_green">Active</span>  对象</p>
-<p><span class="s_red">作用：</span>js脚本HTTP请求的发起必须通过XMLHttpRequest对象也是通过AJAX进行浏览器与服务器通信的接口不局限于XML，可以发送任何格式的数据。</p>
-<p><span class="s_red">XMLHttpRequest</span>本身是一个JS引擎内置的构造函数所有XMLHttpRequest对象都需要被实例化 var xhr = new XMLHttpRequest。</p>
-<p><span class="s_red">兼容性：</span>IE5/IE6 使用Active对象<br>var xhr = new ActiveXObject(‘Micrsoft.XMLHTTP’);</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 兼容性写法</span></span><br><span class="line"><span class="keyword">var</span> xhr ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest){</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Mcisoft.XMLHTTP'</span>);</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(xhr);</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h5 id="AJAX发送HTTP请求"><a href="#AJAX发送HTTP请求" class="headerlink" title="AJAX发送HTTP请求"></a>AJAX发送HTTP请求</h5><p>实例化出来的xhr有两个方法：<br><span class="s_jacinth">open()</span> 发送设置：<br><span class="s_red">参数：</span>open(method,url,async)<br><span class="s_red">method:</span> 请求方式<br><span class="s_red">url:</span> 请求发送的地址<br><span class="s_red">async:</span> false同步 true异步，建议都用ture</p>
-<p><span class="s_jacinth">send()</span>发送请求：<br><span class="s_red">参数：</span><br>发送POST请求体用数据，GET请求不用填写。</p>
-<hr>
-<h5 id="AJAX-发送请求时的响应状态"><a href="#AJAX-发送请求时的响应状态" class="headerlink" title="AJAX-发送请求时的响应状态"></a>AJAX-发送请求时的响应状态</h5><p><span class="s_jacinth">onreadyStatechange事件：</span><br>挂载到XMLHttpRequest对象上的事件。每当readyState改变时，就会触发onreadystatechange事件</p>
-<p><span class="s_jacinth">readyState状态：</span><br>通过XMLHttpRequest对象发送HTTP请求的各阶段状态(0-4)<br>0：请求未初始化<br>1：服务器连接一建立<br>2：请求以接收<br>3：请求处理中<br>4：请求已完成，且响应已就绪</p>
-<p><span class="s_red">注释：</span>onreadystatechange 事件被触发5次(0-4),对应着readyState的每个变化。</p>
-<p><span class="s_jacinth">status状态：</span><br>服务器响应的状态码<br>200:”OK”<br>400:”未找到页面”</p>
-<p>当readyState等于4且状态为200时，表示响应以就绪。</p>
-<p><span class="s_jacinth">responseText 属性</span><br>获得字符串形式的响应数据<br><span class="s_red">语法：</span>xhr.responseText</p>
-<p><span class="s_jacinth">responseXML 属性</span><br>获得XML形式的响应数据<br><span class="s_red">语法：</span>xhr.responseXML</p>
-<p><span class="s_jacinth">AJAX-POST请求方式的主要事项</span></p>
-<p>POST请求方式下，send方法参数中的格式：a=1&amp;b=2&amp;c=3</p>
-<p>xhr.setRequestHeader(‘Content-Type’,’application/X-www-from-urlencoded’);<br>POST请求必须设置这个请求头信息，目的是请求体中的数据转化为键值对，这样后端a=1&amp;b=2&amp;c=3这样的数据才知道这是一个POST方式传来的数据</p>
-<p>还有一点xhr.open是在xhr.send前面设置才有用</p>
-<hr>
-<h5 id="ajax的三种方式"><a href="#ajax的三种方式" class="headerlink" title="ajax的三种方式"></a>ajax的三种方式</h5><p>这三种都基于jQuery在使用的时候要引入jQuery<br><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line">    $.ajax({</span><br><span class="line">        url:<span class="string">"http://localhost:8086/myItem/class/data/data.json"</span>, <span class="comment">// 请求地址</span></span><br><span class="line">        type:<span class="string">'POST'</span>, <span class="comment">// 请求方式</span></span><br><span class="line">        dataType: <span class="string">'JSON'</span>,</span><br><span class="line">        data: { <span class="comment">// 数据体</span></span><br><span class="line">            status: <span class="number">1</span> </span><br><span class="line">        },</span><br><span class="line">        <span class="comment">// 成功之后的回调函数</span></span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line">    $.post(<span class="string">"http://localhost:8086/myItem/class/data/data.json"</span>,</span><br><span class="line">    {<span class="attr">stadus</span>: <span class="number">1</span>},<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种</span></span><br><span class="line">    $.<span class="keyword">get</span>('http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1',</span><br><span class="line">        function(data){</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        });</span><br></pre></td></tr></tbody></table></figure>
-
-<h5 id="原生AJAX请求数据"><a href="#原生AJAX请求数据" class="headerlink" title="原生AJAX请求数据"></a>原生AJAX请求数据</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr;</span><br><span class="line"><span class="comment">// 1、创建HttpRequest对象</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest){</span><br><span class="line">    xhr = <span class="keyword">new</span> <span class="built_in">window</span>.XMLHttpRequest();</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Mcisoft.XMLHTTP'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(xhr.readyState); <span class="comment">// 输出各个阶段的状态码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、配置请求发送</span></span><br><span class="line">xhr.open(<span class="string">"GET"</span>,<span class="string">"http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1"</span>,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、发送</span></span><br><span class="line">xhr.send(); <span class="comment">// 发送HTTP请求</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(xhr.readyState);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4、监听请求的状态和响应的状态</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(xhr.readyState);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听请求的状态和响应的状态</span></span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>){</span><br><span class="line">        <span class="built_in">console</span>.log(xhr.responseText); <span class="comment">// 返回的是json字符串</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5、接到响应的数据</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(xhr.responseText));</span><br><span class="line">        <span class="comment">// 使用JSON.parse 把json字符串解析成JSON对象</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/f3334fd0/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="AJAX封装"><a href="#AJAX封装" class="headerlink" title="AJAX封装"></a>AJAX封装</h5><p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">var</span> xhr = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> o = <span class="built_in">window</span>.XMLHttpRequest?</span><br><span class="line">            <span class="keyword">new</span> XMLHttpRequest:</span><br><span class="line">            <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果浏览器的版本是IE5或者IE4时</span></span><br><span class="line">    <span class="keyword">if</span>(!o){</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'您的浏览器不支持异步发起HTTP请求'</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_doAjax</span>(<span class="params">opt</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> opt = opt || {},</span><br><span class="line">            type = (opt.type || <span class="string">'GET'</span>).toUpperCase(), <span class="comment">//获取方式都转化为大写</span></span><br><span class="line">            <span class="keyword">async</span> = opt.async || <span class="literal">true</span>,</span><br><span class="line">            url = opt.url,</span><br><span class="line">            data = opt.data || <span class="literal">null</span>, <span class="comment">// 如果是GET请求data就等于null</span></span><br><span class="line">            error = opt.error || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},</span><br><span class="line">            success = opt.success || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},</span><br><span class="line">            complete = opt.complete || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}; <span class="comment">// 无论成功还是失败这个函数都执行</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果url没配置的话就抛出异常</span></span><br><span class="line">        <span class="keyword">if</span>(!url){</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Errow(<span class="string">'您没有填写URL'</span>);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        o.open(type,url,<span class="keyword">async</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如果是post才设置 </span></span><br><span class="line">        type === <span class="string">'POST'</span> &amp;&amp; o.setRequestHeader(<span class="string">'Content-type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">        o.send(type === <span class="string">'GET'</span> ? <span class="literal">null</span> : formatDatas(data));</span><br><span class="line">        </span><br><span class="line">        o.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="keyword">if</span>(o.readyState === <span class="number">4</span> &amp;&amp; o.status === <span class="number">200</span>){</span><br><span class="line">                success(<span class="built_in">JSON</span>.parse(o.responseText));</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(o.status === <span class="number">400</span>){</span><br><span class="line">                error();</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            complete(); <span class="comment">// 无论成功还是失败这个函数都执行</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将对象转成成 status=1&amp;flag=2 这种格式</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">formatDatas</span>(<span class="params">obj</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj){</span><br><span class="line">            str += key + <span class="string">'='</span> + obj[key] + <span class="string">'&amp;'</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> str.replace(<span class="regexp">/&amp;$/</span>,<span class="string">''</span>); <span class="comment">// 写一个正则表达式判断最后面一个是不是&amp;</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        ajax:<span class="function"><span class="keyword">function</span>(<span class="params">opt</span>)</span>{</span><br><span class="line">            _doAjax(opt);</span><br><span class="line">        },</span><br><span class="line">        post:<span class="function"><span class="keyword">function</span>(<span class="params">url,data,callback</span>)</span>{</span><br><span class="line">            _doAjax({</span><br><span class="line">                type:<span class="string">'POST'</span>,</span><br><span class="line">                url: url,</span><br><span class="line">                data:data,</span><br><span class="line">                success: callback</span><br><span class="line">            });</span><br><span class="line">        },</span><br><span class="line">        <span class="keyword">get</span>:function(url,callback){</span><br><span class="line">            _doAjax({</span><br><span class="line">                type:<span class="string">'GET'</span>,</span><br><span class="line">                url:url,</span><br><span class="line">                success:callback</span><br><span class="line">            })</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<p><span class="s_js">使用ajax</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用xhr.ajax</span></span><br><span class="line">    xhr.ajax({</span><br><span class="line">        type:<span class="string">'POST'</span>,</span><br><span class="line">        url:<span class="string">'http://localhost:8086/myItem/class/server/get_courses.php'</span>,</span><br><span class="line">        data:{</span><br><span class="line">            status:<span class="number">1</span>,</span><br><span class="line">            flag:<span class="number">2</span></span><br><span class="line">        },</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用xhr.post</span></span><br><span class="line">    xhr.post(<span class="string">'http://localhost:8086/myItem/class/server/get_courses.php'</span>,{</span><br><span class="line">        status:<span class="number">1</span>,</span><br><span class="line">        flag:<span class="number">2</span></span><br><span class="line">    },<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用xhr.get</span></span><br><span class="line"></span><br><span class="line">xhr.get(<span class="string">'http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1&amp;flag=2'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/f3334fd0/" class="post-more waves-button">
-                続きを読む…
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-JSON基础、方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/987b192d/">JSON基础、方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-10-17 10:35:55" datetime="2020-10-17T02:35:55.000Z"  itemprop="datePublished">2020-10-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h4 id="什么是JSON"><a href="#什么是JSON" class="headerlink" title="什么是JSON"></a>什么是JSON</h4><p>JSON全称是“JavaScript Object Notation”,是JavaScript对象的延伸;为了数据交互存在。<br>JSON特点：选用映射模式来形成比较轻量级的数据结构。<br>JSON一定是对象但是JavaScript的对象就不一定是JSON。</p>
-<hr>
-<h4 id="JSON的书写格式"><a href="#JSON的书写格式" class="headerlink" title="JSON的书写格式"></a>JSON的书写格式</h4><p>1.映射用冒号隔开<br>2.并列数据用逗号隔开<br>3.映射的集合用{}包裹<br>4.键名一定要有双引号<br>5.并列数据集合用[]包裹</p>
-<p>JavaScript</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、映射用冒号隔开</span></span><br><span class="line">  <span class="keyword">var</span>  str1 =  {</span><br><span class="line">        <span class="string">"name"</span>:<span class="string">"张三"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、并列数据用逗号隔开</span></span><br><span class="line">   <span class="keyword">var</span>  str2 =  {</span><br><span class="line">        <span class="string">"name"</span>:<span class="string">"张三"</span>,</span><br><span class="line">        <span class="string">"age"</span>:<span class="number">18</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、映射的集合用</span></span><br><span class="line">   <span class="keyword">var</span>  str3 =  {</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"张三"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">22</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//4、键名一定要用双引号</span></span><br><span class="line">  <span class="keyword">var</span>  str4 =   {</span><br><span class="line">        <span class="string">"name"</span>:<span class="string">"张三"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">22</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="comment">//5、 并列数据集合用[]包裹</span></span><br><span class="line">    <span class="keyword">var</span>  str5 =  [</span><br><span class="line">            {</span><br><span class="line">                <span class="string">"name"</span>: <span class="string">"张三"</span>,</span><br><span class="line">                <span class="string">"age"</span>: <span class="number">18</span></span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                <span class="string">"name"</span>: <span class="string">"李四"</span>,</span><br><span class="line">                <span class="string">"age"</span>: <span class="number">22</span></span><br><span class="line">            }</span><br><span class="line">        ];</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="JSON方法"><a href="#JSON方法" class="headerlink" title="JSON方法"></a>JSON方法</h4><p><span class="s_green">JSON.parse(text,reviver)</span>将JSON字符串转化成JSON对象<br><span class="s_red">text:</span>必需,一个有效的 JSON 字符串。<br><span class="s_red">reviver:</span>可选，一个转换结果的函数， 将为对象的每个成员调用此函数。</p>
-<p><span class="s_green">JSON.stringify()</span>将JavaScript对象转换成JSON字符串。可以将JavaScript数组转换成JSON,不能保存Date对象，JSON.stringify() 会将所有日期转换为字符串。</p>
-<p><span class="s_jacinth">例子</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JSON方法<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 注意键名一定要用双引号 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-info</span>=<span class="string">'{"name":"张三","age":25}'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> info = oDiv.getAttribute(<span class="string">'data-info'</span>);</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 将数据转化为JavaScript对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> jsonData = <span class="built_in">JSON</span>.parse(info); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(jsonData);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oDivtwo = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> obj = {</span></span><br><span class="line"><span class="actionscript">            <span class="string">"name"</span>:<span class="string">"王五"</span>,</span></span><br><span class="line"><span class="actionscript">            <span class="string">"age"</span>:<span class="number">18</span></span></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 将JavaScript对象转换成JSON字符串</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(obj);</span></span><br><span class="line"><span class="actionscript">        oDivtwo.setAttribute(<span class="string">'data-info'</span>,str);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(str);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<p>结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/987b192d/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/987b192d/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-
-<hr>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>实际上最早期的时候不是用JSON，而是用XML来做数据交互的而是用自定义标签，不过 -&gt; 解析难度大，损耗性能。XML数据文档很大、不宜阅读、解析难度比较复杂。现在XML还是有在用的服务器端与服务器通信的时候，做数据交互的时候XML用的还比较多的。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/987b192d/" class="post-more waves-button">
-                続きを読む…
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li></ul>
 
     </div>
     
