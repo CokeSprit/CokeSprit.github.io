@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cokesprit.gitee.io/"/>
-  <updated>2021-04-14T12:42:54.186Z</updated>
+  <updated>2021-05-02T09:57:37.981Z</updated>
   <id>https://cokesprit.gitee.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>天干地支</title>
+    <link href="https://cokesprit.gitee.io/posts/de5e28/"/>
+    <id>https://cokesprit.gitee.io/posts/de5e28/</id>
+    <published>2021-05-02T09:56:34.000Z</published>
+    <updated>2021-05-02T09:57:37.981Z</updated>
+    
+    <content type="html"><![CDATA[<p>给年月求天干地支</p><hr><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 天干---&gt; 年数减3， 除以10所得余数；</span></span><br><span class="line"><span class="comment">        * 地支---&gt; 年数减3，除以12所得余数；</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * **/</span></span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">"天干："</span>+(<span class="number">1999</span><span class="number">-3</span>)%<span class="number">10</span>,<span class="string">"地支："</span>+(<span class="number">1999</span><span class="number">-3</span>)%<span class="number">12</span>)</span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">calcilate</span>(<span class="params">year</span>) </span>{</span><br><span class="line">           <span class="keyword">const</span> sky = [</span><br><span class="line">            <span class="string">"甲"</span>, <span class="string">"乙"</span>, <span class="string">"丙"</span>, <span class="string">"丁"</span>, <span class="string">"戊"</span>,</span><br><span class="line">            <span class="string">"己"</span>, <span class="string">"庚"</span>, <span class="string">"辛"</span>, <span class="string">"壬"</span>, <span class="string">"癸"</span>];</span><br><span class="line">           <span class="keyword">const</span> land = [</span><br><span class="line">               <span class="string">'子'</span>, <span class="string">'丑'</span>, <span class="string">'寅'</span>, <span class="string">'卯'</span>, <span class="string">'辰'</span>, <span class="string">'巳'</span>,</span><br><span class="line">               <span class="string">'午'</span>, <span class="string">'未'</span>, <span class="string">'申'</span>, <span class="string">'酉'</span>, <span class="string">'戌'</span>, <span class="string">'亥'</span>];</span><br><span class="line"></span><br><span class="line">           <span class="keyword">let</span> d = (year<span class="number">-3</span>)%<span class="number">10</span>; <span class="comment">// 天干</span></span><br><span class="line">           <span class="keyword">let</span> l = (year<span class="number">-3</span>)%<span class="number">12</span>; <span class="comment">// 地支</span></span><br><span class="line"></span><br><span class="line">           <span class="keyword">return</span> {</span><br><span class="line">               sky: sky[d<span class="number">-1</span>],</span><br><span class="line">               land: land[l<span class="number">-1</span>]</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> obj = calcilate(<span class="number">1996</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'天干地支：'</span>+ obj.sky + <span class="string">''</span> + obj.land);</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * 1999 --&gt; 己卯</span></span><br><span class="line"><span class="comment">       * 1999 --&gt; 丙子</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">      */</span></span><br></pre></td></tr></tbody></table></figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;给年月求天干地支&lt;/p&gt;
+&lt;hr&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla
+      
+    
+    </summary>
+    
+    
+    
+      <category term="玄学" scheme="https://cokesprit.gitee.io/tags/%E7%8E%84%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue中created和mmounted</title>
