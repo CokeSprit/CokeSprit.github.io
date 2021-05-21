@@ -192,6 +192,88 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-块级作用域-let-暂行性死区"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/dcc531c7/">块级作用域&amp;let&amp;暂行性死区</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-18 12:19:16" datetime="2020-10-18T04:19:16.000Z"  itemprop="datePublished">2020-10-18</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="块级作用域"><a href="#块级作用域" class="headerlink" title="块级作用域"></a>块级作用域</h4><p>在说块级作用域之前我们先了解<span class="s_green">函数作用域</span>和<span class="s_green">全局作用域</span><br>这个两个东西其实是一个隐式的对象，是访问不到的，在函数执行的前一刻会产生这样一个对象[[scope]],它的第0位如果是在全局的作用域下的话那么存的是GO；如果是在函数的作用域那么执行的前一刻它就会产生相应的AO存在第0位并且把GO挤下去，这个就是作用域的具体概念;里面存储的是就是AO和GO。</p>
+<hr>
+<p><span class="s_jacinth">预编译的五步：</span><br>    <span class="s_red">AO：</span><br>        1、创建AO对象<br>        2、找形参然后找var关键字赋值undefined<br>        3、形参和实参相统一<br>        4、找function 赋值为函数体<br>        5、执行</p>
+<pre><code>GO：和上面是一样的 就是没有形参和实参统一</code></pre><hr>
+<p><span class="s_jacinth">块级作用域的产生</span><br>在预编译的时候会有一个寻找var的过程，这个过程就是声明提升，声明提升会赋值为undefined或者替换，如果是替换的话就会造成变量的污染;ES5的解决解决方法是立即执行函数；通过封闭自己的作用域解决一部分问题，针对这个现状产生了 <span class="s_yellow">let语法 -&gt; 块级作用域概念</span></p>
+<hr>
+<h4 id="let-amp-暂行性死区"><a href="#let-amp-暂行性死区" class="headerlink" title="let &amp; 暂行性死区"></a>let &amp; 暂行性死区</h4><p>为了解决变量污染的问题，针对这个现状产生了let语法。</p>
+<p><span class="s_jacinth">let特征：</span></p>
+<h5 id="let不能在同一作用域下声明"><a href="#let不能在同一作用域下声明" class="headerlink" title="let不能在同一作用域下声明"></a>let不能在同一作用域下声明</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    这种情况就会报错，a在预编译的时候已经被定义了，</span></span><br><span class="line"><span class="comment">    然后let再定义，这种也叫重复定义。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a</span>)</span>{</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">}</span><br><span class="line">test();</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="let不会声明提升，会产生一个暂时性死区"><a href="#let不会声明提升，会产生一个暂时性死区" class="headerlink" title="let不会声明提升，会产生一个暂时性死区"></a>let不会声明提升，会产生一个暂时性死区</h5><p><span class="s_green">暂时性死区</span>：在let定义之前所定义的变量会产生一个死区。提升范围之前就叫暂时性死区。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下例子都会报错</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 例1</span></span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> b = b;</span><br><span class="line">    <span class="built_in">console</span>.log(b);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 例2</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">x = y, y =<span class="number">2</span></span>)</span>{</span><br><span class="line">        <span class="comment">/* 这也是一个死区，</span></span><br><span class="line"><span class="comment">        先将y赋值给x但y并没有被定义y是在赋值之后才被定义的*/</span></span><br><span class="line">        <span class="built_in">console</span>.log(x,y);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 例3</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);</span><br><span class="line">    <span class="keyword">let</span> a;</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="let只在当前的作用域下生效"><a href="#let只在当前的作用域下生效" class="headerlink" title="let只在当前的作用域下生效"></a>let只在当前的作用域下生效</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例子1</span></span><br><span class="line"><span class="keyword">for</span>(;<span class="number">1</span>;){ <span class="comment">// 死循环</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 不会报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例子2</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">1</span>){</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 报错，它们不在同一作用域中，访问不到a</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例子3</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例子4</span></span><br><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>l i++){</span><br><span class="line">    arr[i] = function()[</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    ]</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++){</span><br><span class="line">    arr[i]();</span><br><span class="line">    <span class="comment">// 打印0-9并不是 两个10 因为 i被覆盖了</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例子5</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span>  i = <span class="number">0</span>; i &lt; <span class="number">10</span>;i++){</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">        大括号里面的i是在父级作用域()之下的</span></span><br><span class="line"><span class="comment">        这两个i并不是相同的i</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">let</span> i = <span class="string">'a'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 打印十个a</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// let 本质就是为js增加一个块级作用域</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例子6</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">1</span>){</span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">11</span>;</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">/* 如果换成var 的话会被提升到全局,</span></span><br><span class="line"><span class="comment">        let不会提升 </span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">let</span> a = <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(a); <span class="comment">//10</span></span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">//11</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="块级作用域运行嵌套函数声明"><a href="#块级作用域运行嵌套函数声明" class="headerlink" title="块级作用域运行嵌套函数声明"></a>块级作用域运行嵌套函数声明</h4><p>不推荐这函数声明，建议缓存函数表达式</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 例1</span></span><br><span class="line">{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例2</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">2</span>){</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例3</span></span><br><span class="line"><span class="keyword">try</span>{</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{}</span><br><span class="line">}<span class="keyword">catch</span>(e){</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 建议写成这样</span></span><br><span class="line"><span class="keyword">if</span>(<span class="number">2</span>){</span><br><span class="line">    <span class="comment">// 表达式</span></span><br><span class="line">    <span class="keyword">var</span> test = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="块级作用域并没有返回值"><a href="#块级作用域并没有返回值" class="headerlink" title="块级作用域并没有返回值"></a>块级作用域并没有返回值</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="number">1</span>){</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">for</span>(;<span class="number">1</span>;){</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>块级作用域它等于匿名函数的立即调用吗? 这个说法是不准确的</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/dcc531c7/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-babel搭建"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1139,78 +1221,6 @@ ECMA ECMA-262 ECMAscript 脚本语言规范：
     
         <div class="post-more-div">
             <a href="/posts/a2c7835c/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-getBoundingClientRect"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/b7620653/">getBoundingClientRect</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-22 16:42:39" datetime="2020-09-22T08:42:39.000Z"  itemprop="datePublished">2020-09-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><span class="s_green">Element.getBoundingCligClientRect()</span>方法返回元素的大小及其相对于视口的位置。<br>如果是标准盒子模型，元素的尺寸等于width/height + padding + border-width的总和。如果box-sizing: border-box，元素的的尺寸等于 width/height。</p>
-<p><span class="s_green">html</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>getBoundingClientRect<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.box</span>{</span></span><br><span class="line">            position: absolute;</span><br><span class="line"><span class="css">            <span class="selector-tag">top</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line">            left: 100px;</span><br><span class="line"><span class="css">            <span class="selector-tag">width</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line">            height: 100px;</span><br><span class="line">            background-color: green;</span><br><span class="line">        }</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'box'</span>)[<span class="number">0</span>];</span></span><br><span class="line">        /*ie浏览器宽度和高度不答应出来 ,</span><br><span class="line">        不打印的话：width = rigth - left, top = buttom - top*/</span><br><span class="line"><span class="actionscript">            <span class="keyword">var</span> info = box.getBoundingClientRect();</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(info);</span></span><br><span class="line"><span class="actionscript">            <span class="comment">// getBoundingClientRect 这个基本不用</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>js运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/b7620653/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/b7620653/" class="post-more waves-button">
                 Continue reading...
             </a>
         </div>

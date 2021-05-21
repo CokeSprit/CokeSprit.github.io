@@ -6,13 +6,13 @@
     
     
     
-    <title>天干地支 | CokeSprit | 爱生活,爱编程</title>
+    <title>jjs修改对象数组里的对象属性名 | CokeSprit | 爱生活,爱编程</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="玄学">
+    <meta name="keywords" content="">
     
     
 
@@ -41,16 +41,15 @@
 
 
     
-    <meta name="description" content="给年月求天干地支  12345678910111213141516171819202122232425262728293031323334&#x2F;**        * 天干---&gt; 年数减3， 除以10所得余数；        * 地支---&gt; 年数减3，除以12所得余数；        *        *        *        * **&#x2F;       console.log(">
+    <meta name="description" content="有些时候，后端返回来的 JSON 数据对象，某些字段并不是我们前端想要的，需要对字段进行重命名处理。一般修改对象数组的对象属性名, 常用的方法就是遍历修改，但是这样的处理当数据量很大的时候效率非常低。下面介绍一个更高校的方法，通过正则的方法进行过滤修改。  1234567891011JSON.parse(JSON.stringify(data).replace(&#x2F;name&#x2F;g, &#39;new_name">
 <meta property="og:type" content="article">
-<meta property="og:title" content="天干地支">
-<meta property="og:url" content="https://cokesprit.gitee.io/posts/de5e28/index.html">
+<meta property="og:title" content="jjs修改对象数组里的对象属性名">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/c9ababfa/index.html">
 <meta property="og:site_name" content="CokeSprit">
-<meta property="og:description" content="给年月求天干地支  12345678910111213141516171819202122232425262728293031323334&#x2F;**        * 天干---&gt; 年数减3， 除以10所得余数；        * 地支---&gt; 年数减3，除以12所得余数；        *        *        *        * **&#x2F;       console.log(">
-<meta property="article:published_time" content="2021-05-02T09:56:34.000Z">
-<meta property="article:modified_time" content="2021-05-02T09:58:02.554Z">
+<meta property="og:description" content="有些时候，后端返回来的 JSON 数据对象，某些字段并不是我们前端想要的，需要对字段进行重命名处理。一般修改对象数组的对象属性名, 常用的方法就是遍历修改，但是这样的处理当数据量很大的时候效率非常低。下面介绍一个更高校的方法，通过正则的方法进行过滤修改。  1234567891011JSON.parse(JSON.stringify(data).replace(&#x2F;name&#x2F;g, &#39;new_name">
+<meta property="article:published_time" content="2021-05-03T03:29:49.000Z">
+<meta property="article:modified_time" content="2021-05-03T03:36:38.596Z">
 <meta property="article:author" content="CokeSprit">
-<meta property="article:tag" content="玄学">
 <meta name="twitter:card" content="summary">
     
         <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
@@ -154,7 +153,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">天干地支</div>
+        <div class="flex-col header-title ellipsis">jjs修改对象数组里的对象属性名</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -191,15 +190,15 @@
 
 <div class="container body-wrap">
     
-<article id="post-天干地支"
+<article id="post-jjs修改对象数组里的对象属性名"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">天干地支</h1>
+        <h1 class="post-card-title">jjs修改对象数组里的对象属性名</h1>
         <div class="post-meta">
             <i class="icon icon-lg icon-calendar-o"></i>
             发表于
-            <time class="post-time" title="2021-05-02 17:56:34" datetime="2021-05-02T09:56:34.000Z"  itemprop="datePublished">2021-05-02</time>
+            <time class="post-time" title="2021-05-03 11:29:49" datetime="2021-05-03T03:29:49.000Z"  itemprop="datePublished">2021-05-03</time>
 
             <br id="mybreak"/>
             
@@ -217,9 +216,12 @@
             阅读本文可能花费您&nbsp;<span class="post-count">1</span>&nbsp;分钟
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>给年月求天干地支</p>
+            <p>有些时候，后端返回来的 JSON 数据对象，某些字段并不是我们前端想要的，需要对字段进行重命名处理。一般修改对象数组的对象属性名, 常用的方法就是遍历修改，但是这样的处理当数据量很大的时候效率非常低。下面介绍一个更高校的方法，通过正则的方法进行过滤修改。</p>
 <hr>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 天干---&gt; 年数减3， 除以10所得余数；</span></span><br><span class="line"><span class="comment">        * 地支---&gt; 年数减3，除以12所得余数；</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        *</span></span><br><span class="line"><span class="comment">        * **/</span></span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">"天干："</span>+(<span class="number">1999</span><span class="number">-3</span>)%<span class="number">10</span>,<span class="string">"地支："</span>+(<span class="number">1999</span><span class="number">-3</span>)%<span class="number">12</span>)</span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">calcilate</span>(<span class="params">year</span>) </span>{</span><br><span class="line">           <span class="keyword">const</span> sky = [</span><br><span class="line">            <span class="string">"甲"</span>, <span class="string">"乙"</span>, <span class="string">"丙"</span>, <span class="string">"丁"</span>, <span class="string">"戊"</span>,</span><br><span class="line">            <span class="string">"己"</span>, <span class="string">"庚"</span>, <span class="string">"辛"</span>, <span class="string">"壬"</span>, <span class="string">"癸"</span>];</span><br><span class="line">           <span class="keyword">const</span> land = [</span><br><span class="line">               <span class="string">'子'</span>, <span class="string">'丑'</span>, <span class="string">'寅'</span>, <span class="string">'卯'</span>, <span class="string">'辰'</span>, <span class="string">'巳'</span>,</span><br><span class="line">               <span class="string">'午'</span>, <span class="string">'未'</span>, <span class="string">'申'</span>, <span class="string">'酉'</span>, <span class="string">'戌'</span>, <span class="string">'亥'</span>];</span><br><span class="line"></span><br><span class="line">           <span class="keyword">let</span> d = (year<span class="number">-3</span>)%<span class="number">10</span>; <span class="comment">// 天干</span></span><br><span class="line">           <span class="keyword">let</span> l = (year<span class="number">-3</span>)%<span class="number">12</span>; <span class="comment">// 地支</span></span><br><span class="line"></span><br><span class="line">           <span class="keyword">return</span> {</span><br><span class="line">               sky: sky[d<span class="number">-1</span>],</span><br><span class="line">               land: land[l<span class="number">-1</span>]</span><br><span class="line">           }</span><br><span class="line">       }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> obj = calcilate(<span class="number">1996</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'天干地支：'</span>+ obj.sky + <span class="string">''</span> + obj.land);</span><br><span class="line">      <span class="comment">/**</span></span><br><span class="line"><span class="comment">       * 1999 --&gt; 己卯</span></span><br><span class="line"><span class="comment">       * 1999 --&gt; 丙子</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">       *</span></span><br><span class="line"><span class="comment">      */</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(data).replace(<span class="regexp">/name/g</span>, <span class="string">'new_name'</span>))    <span class="comment">//data为数组，name为修改前，new_name为修改后</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解释：(1) JSON.stringify()把json对象转成json字符串；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//         (2) 使用正则的replace()方法替换属性名；</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//         (3) JSON.parse()把json字符串又转成json对象。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改多个属性：当要修改多个属性名时，多次调用replace方法，可以链式调用。如下面说明</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(data).replace(<span class="regexp">/name1/g</span>, <span class="string">'new_name1'</span>).replace(<span class="regexp">/name2/g</span>, <span class="string">'new_name2'</span>).replace(<span class="regexp">/name3/g</span>, <span class="string">'new_name3'</span>)...)</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p><span class="s_jacinth">注意：</span>如果对象出现和属性名相同的值，这种方法就没用了； 最好还是通过拷贝出来一个新对象，这样还能避免很多问题的发生： data.map(v=&gt;{return {name: v.title}})</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -245,12 +247,12 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2021-05-02T09:58:02.554Z" itemprop="dateUpdated">2021-05-02 17:58:02</time>
+    Last updated: <time datetime="2021-05-03T03:36:38.596Z" itemprop="dateUpdated">2021-05-03 11:36:38</time>
 </span>
 
 
         
-        原文链接：<a href="/posts/de5e28/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/de5e28/</a>
+        原文链接：<a href="/posts/c9ababfa/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/c9ababfa/</a>
         
     </div>
     <footer>
@@ -272,8 +274,6 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%8E%84%E5%AD%A6/" rel="tag">玄学</a></li></ul>
-
 
             
 <div class="page-share-wrap">
@@ -282,7 +282,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/de5e28/&title=《天干地支》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/c9ababfa/&title=《jjs修改对象数组里的对象属性名》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -292,22 +292,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/de5e28/&title=《天干地支》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/c9ababfa/&title=《jjs修改对象数组里的对象属性名》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/de5e28/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/c9ababfa/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《天干地支》 — CokeSprit&url=https://cokesprit.gitee.io/posts/de5e28/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jjs修改对象数组里的对象属性名》 — CokeSprit&url=https://cokesprit.gitee.io/posts/c9ababfa/&via=https://cokesprit.gitee.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/de5e28/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/c9ababfa/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -327,21 +327,13 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/posts/c9ababfa/" id="post-prev" class="post-nav-link">
-        <h4 class="title" >
-          上一篇：jjs修改对象数组里的对象属性名
-        </h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/posts/74e93217/" id="post-next" class="post-nav-link">
-        <h4 class="title" data-hover="下一篇：Vue中created和mmounted">下一篇：Vue中created和mmounted</h4>
+      <a href="/posts/de5e28/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：天干地支">下一篇：天干地支</h4>
       </a>
     </div>
   
@@ -434,7 +426,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/de5e28/&title=《天干地支》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/c9ababfa/&title=《jjs修改对象数组里的对象属性名》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -444,22 +436,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/de5e28/&title=《天干地支》 — CokeSprit&source=web端开发" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/c9ababfa/&title=《jjs修改对象数组里的对象属性名》 — CokeSprit&source=web端开发" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/de5e28/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/c9ababfa/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《天干地支》 — CokeSprit&url=https://cokesprit.gitee.io/posts/de5e28/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《jjs修改对象数组里的对象属性名》 — CokeSprit&url=https://cokesprit.gitee.io/posts/c9ababfa/&via=https://cokesprit.gitee.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/de5e28/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/c9ababfa/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -470,7 +462,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p class="wechatshare">扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABuUlEQVR42u3aMW4DMQwEwPv/p502QGBlSUqyi1FlGIZuriHIpZ8nPq9f5933f8/v37y78zlxcHFxx9z8kWvEmrW+ITHg4uLe564LTVJ05tzoTlxc3K/krkvY+sU2tEG4uLhfyU0K2dsGpXg/Li7uZ7m9aKP64GS42jar4eLiDrh5Snnu85F8FxcXt8V9FU/S0OSjUfnpuLi4V7jVwaYHypcx0XIXFxf3Indvg3Ji9YKLi3uTm686dn2zRhfCEVxc3MPcXcWr97fOcgiLi4t7kZtftGsQSm7DxcX9LLf6Aklbc2T4wcXFPcydR5nN6DNoZcqBKS4u7pibRKV5kcrvqY5GuLi4N7l5uakWnV5EUhh+cHFxD3Pz9UnC6kWiG6JSXFzcY9wnPpPhZ9RU4eLiXudWV6G9YWbySri4uDe5SatxoqEp/xIXF/cw91U8vYBj/qq4uLg3ub3GpVfmyvHHYDDDxcWdc0drzk3L1yQcwcXFvc/trVSr6Dwc2TCr4eLiXuTmi9jeuNVMTXBxcT/K7S1c89v+EeLi4l7k5qFnNQbtNTcbZjVcXNwBd7L4nMSjvb9q4eLiHub+AOFS7Atzhlz0AAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABw0lEQVR42u3ay24CMQwFUP7/p+m2VTvh2p4EKp2sEITMgYUVPx6PeD0v1nrP9/evznzsWLi4uGPuc7l+71k/svczEgMuLu557jrQ5EcnO9fnv7Dh4uJ+JDe/oGy5BuHi4n4wN8lK8h+Di4v7mdz8OpIEqWphZUuuhouLO+DmVcp9r7fUd3FxcVvcZ3H1iqeT8sqPE3BxcY9we4lNkupU6flzcXFxd3OTx68phQAUj19EIQwXF3cbNwlS9xZQeuMaf/zHuLi427jJQUm46SUzeZjDxcU9z01C2LxF2mucXFZxcHFxj3PzcYrq/htyNVxc3CPcSTN1VKmNT/7jRoaLi7uN2/tCNfD1BrYuVbi4uAe55VSk2FLttV5e3MtwcXE3cyfJzI4m6+UeXFzcg9z1pSQvkVSLHflzcXFx38W9q+RRDWqF4TBcXNyD3PwK0vtWwo124uLibub2hqgm15RJUxYXF/cMN1/R5aOVDuWjGLi4uCe51TbnfHhr0pTFxcU9yZ08Zl5OvTlXw8XFfSs3+XQyfoGLi/tfuL2RizxleiHExcU9yK0WSXtF2JxV6Anj4uJu4FZDSQ+UD2f0/iZcXNybuF/PyHGwHmAcAwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
