@@ -192,6 +192,89 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-包装类"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/52c58cb2/">包装类</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-08-10 08:40:22" datetime="2020-08-10T00:40:22.000Z"  itemprop="datePublished">2020-08-10</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>原始值没有自己的方法和属性！！！<br>原始类型：Number、String、Boolean、Undefined、Null<br>引用类型：Object、Function、Aarry、Date、RegExp</p>
+<h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line">a.len = <span class="number">3</span>;</span><br><span class="line"><span class="comment">//a.len的时候系统转化成 ↓ </span></span><br><span class="line">    <span class="comment">// new Number(1).len = 3; new 前面没有东西接收,</span></span><br><span class="line">    <span class="comment">// 只能 delete 掉,所有打印 undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a.len); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这时候我们就用到了包装类 </span></span><br><span class="line"><span class="comment">// 变成实例化数字对象就可以有自己的属性和方法了</span></span><br><span class="line"><span class="keyword">var</span> aa = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>);</span><br><span class="line">aa.len = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(aa.len); <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 经过 new Number 包装了之后再参与运算又会返回原始值</span></span><br><span class="line"><span class="keyword">var</span> d = aa + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 像这种经过包装了之后再返回原始值的有三种</span></span><br><span class="line">    <span class="comment">// new Number   new String    new Boolean</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/52c58cb2/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p>上面我们说了原始值是没有方法和属性的那下面这个又是怎么回事呢？</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"abcd"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这又是怎么回事呢？</span></span><br><span class="line"><span class="built_in">console</span>.log(str.length); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 系统帮我做了如下的包装 ↓</span></span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">String</span>(str).length; </span><br><span class="line">    <span class="comment">// String 是有length这个属性的,所以可以通过这样的包装来访问到String里面独有的属性</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其实系统打印的是</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">String</span>(str).length); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 面试如果别人问你字符串有没有 length 属性？</span></span><br><span class="line">    <span class="comment">//记住字符串没有 length 属性 中间是经过了一层包装类</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/52c58cb2/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/52c58cb2/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E5%AF%B9%E8%B1%A1/" rel="tag">js对象</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-构造函数实例化的原理"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1184,87 +1267,6 @@
     
         <div class="post-more-div">
             <a href="/posts/callee-caller/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95-%E7%AC%94%E8%AF%95/" rel="tag">面试/笔试</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-call-apply方法"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/call-apply/">call/apply方法</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-07-24 12:20:37" datetime="2020-07-24T04:20:37.000Z"  itemprop="datePublished">2020-07-24</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>作用：call() 和 apply() 都是用来更改 this 指向;<br>call()：call(this指向的对象, 参数1, 参数2, 参数n);<br>apply()：apply(this指向的对象, []);<br>不同之处：apply() 第二个参数是数组,实际开发中用的比较多的是apply();</p>
-<h4 id="栗子"><a href="#栗子" class="headerlink" title="栗子"></a>栗子</h4><h5 id="栗子一"><a href="#栗子一" class="headerlink" title="栗子一"></a>栗子一</h5><p>让 newCar1和newCar2 拥有Car构造函数的的所有属性以及方法</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Car </span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">brand,color</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.brand = brand;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">    <span class="keyword">this</span>.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.color+<span class="string">"的"</span>+<span class="keyword">this</span>.brand+<span class="string">"正在行驶"</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">    <span class="keyword">var</span> newCar1 = {</span><br><span class="line">        pdiliang:<span class="string">'3.0'</span></span><br><span class="line">    };</span><br><span class="line">    <span class="keyword">var</span> newCar2 = {</span><br><span class="line">        pdiliang:<span class="string">'2.0'</span></span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    Car.call(newCar1,<span class="string">"奔驰"</span>,<span class="string">"白色"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(newCar1);</span><br><span class="line"></span><br><span class="line">    Car.apply(newCar2,[<span class="string">"五菱宏光"</span>,<span class="string">"米色"</span>]);</span><br><span class="line">    <span class="built_in">console</span>.log(newCar2);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：<br>可以看到 newCar1 和 newCar2 拥有了Car的属性和方法<br><img src="//call-apply%E6%96%B9%E6%B3%95/1.png" alt=""></p>
-<h5 id="栗子一讲解："><a href="#栗子一讲解：" class="headerlink" title="栗子一讲解："></a>栗子一讲解：</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当使用 newCar1/newCar2 的时候 Car 变成内部的情况是这样的</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{</span><br><span class="line">    newCar1.brand = brand;</span><br><span class="line">    newCar1.color = color;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>{</span><br><span class="line">    newCar2.brand = brand;</span><br><span class="line">    newCar2.color = color;</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 因为 call/apply更改了 this 的指向</span></span><br></pre></td></tr></tbody></table></figure>
-<h5 id="栗子二"><a href="#栗子二" class="headerlink" title="栗子二"></a>栗子二</h5><p>买车案例</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 买车案例</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">brand,color,displacement</span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.brand = brand;</span><br><span class="line">    <span class="keyword">this</span>.color = color;</span><br><span class="line">    <span class="keyword">this</span>.displacement = displacement;</span><br><span class="line">    <span class="keyword">this</span>.info = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'排量为'</span>+ <span class="keyword">this</span>.displacement + <span class="string">'的'</span> + <span class="keyword">this</span>.color + <span class="keyword">this</span>.brand;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Preson</span>(<span class="params">opt</span>)</span>{</span><br><span class="line">    <span class="comment">// 借用 Car 的属性和方法</span></span><br><span class="line">    Car.apply(<span class="keyword">this</span>,[opt.brand,opt.color,opt.displacement]);</span><br><span class="line">    <span class="keyword">this</span>.name = opt.name;</span><br><span class="line">    <span class="keyword">this</span>.age  = opt.age;</span><br><span class="line">    <span class="keyword">this</span>.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(</span><br><span class="line">            <span class="string">'年龄'</span>+ <span class="keyword">this</span>.age + <span class="string">'岁姓名为'</span>+<span class="keyword">this</span>.name+<span class="string">'买了一辆'</span>+<span class="keyword">this</span>.info()</span><br><span class="line">        );</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> pt = <span class="keyword">new</span> Preson({</span><br><span class="line">    brand:<span class="string">'法拉利'</span>,</span><br><span class="line">    color:<span class="string">'红色'</span>,</span><br><span class="line">    displacement:<span class="string">'3.5'</span>,</span><br><span class="line">    name:<span class="string">'黄一蓝'</span>,</span><br><span class="line">    age:<span class="string">'20'</span></span><br><span class="line">});</span><br><span class="line">pt.say();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="//call-apply方法/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h4 id="call-和-apply-的使用场景"><a href="#call-和-apply-的使用场景" class="headerlink" title="call() 和 apply()的使用场景"></a>call() 和 apply()的使用场景</h4><ol>
-<li>以前写了一个功能不太完整，这时候可以写一个新的功能来补充完整，这个时候呢就可以使用 call() 和apply() 这两个方法去借用，以前功能相对应的方法和函数。</li>
-<li>在工作的过程中很多人一起写个大功能，这个时候可以分组来写，最终统一去调用,一起协同作战。</li>
-<li>分类：比如写一个东西，它有几种不同的类型，我们就可以分开写最后汇总。</li>
-</ol>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/call-apply/" class="post-more waves-button">
                 Continue reading...
             </a>
         </div>
