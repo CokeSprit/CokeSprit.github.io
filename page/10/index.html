@@ -192,6 +192,179 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-预编译"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/ab96ffb5/">预编译</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-25 15:37:53" datetime="2020-07-25T07:37:53.000Z"  itemprop="datePublished">2020-07-25</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p>JavaScript在执行之前有几个步骤:  </p>
+<ol>
+<li>检查通篇的语法错误</li>
+<li>预编译的过程</li>
+<li>解释一行,执行一行</li>
+</ol>
+<h4 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h4><p>代码演示</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">test(); <span class="comment">// 2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// undefined  如果不声明a然后直接打印的话就会报错</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>; </span><br><span class="line"></span><br><span class="line"><span class="comment">// var a = 10 ; // 是2个步骤 编译时找a并且赋值undefined -&gt; 执行时赋值 10</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/ab96ffb5/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p style=" text-indent: 2rem;">上面的演示中test();打印出来了2,而console.log(a);打印出来了undefined并没有报错,证明 js引擎在编译的时候,先去找函数声明,和变量声明,而变量赋值并不是在编译的时候做的,而是在编译完成后执行到那句时做的。</p>  
+
+<p><span class="s_red">总结</span>：函数声明是整体提示的(函数内部的东西),变量只有声明提升,变量赋值不提升。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/ab96ffb5/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE/" rel="tag">js作用域作用域链</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-callee和caller"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/callee-caller/">callee-caller</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-07-24 18:45:47" datetime="2020-07-24T10:45:47.000Z"  itemprop="datePublished">2020-07-24</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="callee"><a href="#callee" class="headerlink" title="callee"></a>callee</h4><p>callee是arguments的属性,<span class="s_red">代表当前函数的引用(名字)</span>,在函数内部使用，主要用来配合立即执行函数。<br>接下来让我们来认识 callee</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,b,c</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee); <span class="comment">//打印的是这个函数本身</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这两组是一样的</span></span><br><span class="line">    <span class="built_in">console</span>.log(test.length);<span class="comment">// 打印形参的长度</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.callee.length);<span class="comment">//打印形参的长度</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>.length);<span class="comment">// 打印实参的长度</span></span><br><span class="line">}</span><br><span class="line">test(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/callee-caller/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><span class="s_jacinth">callee 配合立即执行函数</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用递归求 n-1 的累加和 </span></span><br><span class="line"><span class="keyword">var</span> sum = (<span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">1</span>){</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> n + <span class="built_in">arguments</span>.callee(n<span class="number">-1</span>);</span><br><span class="line">}(<span class="number">10</span>));</span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/callee-caller/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="caller"><a href="#caller" class="headerlink" title="caller"></a>caller</h4><p><span class="s_jacinth">返回当前被调用的函数的引用</span><br>这听起来有点绕,让我们使用代码来更好的理解</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>)</span>{</span><br><span class="line">    test2();</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(test2.caller); </span><br><span class="line">    <span class="comment">//这里打印的是 test1,因为test1()调用了test2并且test1执行了。</span></span><br><span class="line">    <span class="comment">// 在被调用函数里面打印被调用函数的caller 它可以打印出谁在调用它。</span></span><br><span class="line">    <span class="comment">// 注意一定是要被真正执行才能打印出来！！！</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line">test1();</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/callee-caller/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>在严格模式下 callee 和 caller 会报错!!!</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/callee-caller/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95-%E7%AC%94%E8%AF%95/" rel="tag">面试/笔试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-call-apply方法"
   class="article-card article-type-post" itemprop="blogPost">
 

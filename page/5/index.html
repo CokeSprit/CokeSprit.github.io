@@ -192,6 +192,158 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-createDoumentFragment"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/caf761ec/">createDoumentFragment</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-09 17:25:36" datetime="2020-09-09T09:25:36.000Z"  itemprop="datePublished">2020-09-09</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_green">createdocumentfragment()</span>方法创建一虚拟的节点对象，节点对象包含所有属性和方法。<br>createdocumentfragment又叫<span class="s_jacinth">创建文档片段（碎片）</span></p>
+<hr>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>document.createdocumentfragment<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">     <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oList = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'ul'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> oFrag = <span class="built_in">document</span>.createDocumentFragment();  <span class="comment">// 创建虚拟DOM</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="number">1000</span>; i++){</span><br><span class="line">    <span class="keyword">var</span> oLi = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line"></span><br><span class="line">    oLi.innerHTML = i+<span class="string">'、这是我'</span> + + <span class="string">'个项目'</span>;</span><br><span class="line">    oLi.className = <span class="string">"list-item"</span>;</span><br><span class="line"></span><br><span class="line">    oFrag.appendChild(oLi); <span class="comment">//把创建的元素放进虚拟DOM里面</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 一次性渲染到oLlist里面大大的提升性能。</span></span><br><span class="line">oList.appendChild(oFrag);</span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_jacinth">总结</span>：只要列表都建议用这种方式。DocumentFragment 是存在内存中的并不是存在DOM树上的。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/caf761ec/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-data-属性"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/943046a0/">data-*属性</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-09-09 16:01:24" datetime="2020-09-09T08:01:24.000Z"  itemprop="datePublished">2020-09-09</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_green">data-*</span>属性是HTML5中的新属性。赋予我们在所有HTML元素上嵌入自定义的data属性的能力。</p>
+<p>可以通过<span class="s_green">dataset</span>来管理这些自定义属性。<br><span class="s_jacinth">注意：</span>dataset PC端兼容性不是特别好IE9及以下不支持，手机端都是兼容的。<br>自定义属性也可以使用<span class="s_red">setAttribute</span> 和 <span class="s_red">getAttribute</span>设置和获取</p>
+<hr>
+<h4 id="data-属性"><a href="#data-属性" class="headerlink" title="data-*属性"></a>data-*属性</h4><p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>data-*属性<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">data-name</span>=<span class="string">"王小明"</span> <span class="attr">data-age</span>=<span class="string">"21"</span>&gt;</span> </span><br><span class="line">        我叫王小明</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">     <span class="keyword">var</span> oP = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">     oP.dataset.name = <span class="string">"张三"</span>;</span></span><br><span class="line"><span class="actionscript">     oP.dataset.age = <span class="string">"21"</span>;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/943046a0/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h4 id="dataset练习"><a href="#dataset练习" class="headerlink" title="dataset练习"></a>dataset练习</h4><p>通过自定义属性来判断哪些电影是付费电影，当单击的时候付费电影就弹出提示框，免费电影就直接跳转链接。</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>data-*属性<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-uri</span>=<span class="string">"egts"</span> <span class="attr">data-sort</span>=<span class="string">"free"</span>&gt;</span></span><br><span class="line">    恶棍天使</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-uri</span>=<span class="string">"fczlm"</span> <span class="attr">data-sort</span>=<span class="string">"pay"</span>&gt;</span></span><br><span class="line">    复仇者联盟</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-uri</span>=<span class="string">"zl"</span> <span class="attr">data-sort</span>=<span class="string">"free"</span>&gt;</span></span><br><span class="line">    追龙</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-uri</span>=<span class="string">"plmxs"</span> <span class="attr">data-sort</span>=<span class="string">"pay"</span>&gt;</span></span><br><span class="line">    普罗米修斯</span><br><span class="line">    <span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="s_jacinth">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'a'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; links.length; i++){</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>{</span><br><span class="line">        links[j].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="keyword">var</span> sort = <span class="keyword">this</span>.dataset.data-sort;</span><br><span class="line">            <span class="keyword">var</span> uri = <span class="keyword">this</span>.dataset.data-uri;</span><br><span class="line">            <span class="keyword">if</span>(sort === <span class="string">"free"</span>){</span><br><span class="line">                <span class="built_in">window</span>.open(<span class="string">'http:baidu.com/'</span> + uri);</span><br><span class="line">            }<span class="keyword">else</span>{</span><br><span class="line">                alert(<span class="string">"这是付费影片"</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    })(i);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/943046a0/" class="post-more waves-button">
+                Continue reading...
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-元素属性设置获取"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1089,244 +1241,6 @@ js运行结结果：
     <div class="post-footer">
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-ES5严格模式"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/654e1570/">ES5严格模式</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-28 17:08:36" datetime="2020-08-28T09:08:36.000Z"  itemprop="datePublished">2020-08-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>ES5的严格模式,是ECMAScript要求对严格模式要强调，因为他们希望我们能够严格遵守ES5的语法和各种方法使用的规定，为ES6做铺垫。</p>
-<h4 id="ECMAScript发展历程"><a href="#ECMAScript发展历程" class="headerlink" title="ECMAScript发展历程"></a>ECMAScript发展历程</h4><p>97年  1.0<br>98年  2.0<br>99年  3.0  -&gt; JS通行标准<br>这三年发展非常快，这ES3.0几乎奠定了ES5的大部分内容,其实ES5几乎全是ES3.0的内容,ES3.0到现在为止都统治着JavaScript，实际上ES5.0并没有对ES3.0进行十分多的更新。4.0 去了哪呢?</p>
-<p>07年  4.0  -&gt; 太过激进 -&gt; 浏览器厂商不接受雅虎和微软都非常反对。</p>
-<p>08年  4.0 中止（中止并不等于废除）：<br>把一部分容易改善的部分放到了ES3.0,发布了3.1一些比较激进的部分给了一个版本代号 Harmony -&gt; 开了这个会后 ES3.1 -&gt; 更名为ECMAScript5.0，但是更改了之后ECMAScript5还是没有发布。</p>
-<p>09年  5.0发布  Harmony -&gt; 分成连部分：<br>1.一部分是激进当中不那么激进的部分 -&gt; 更名为 JS.NEXT<br>2.激进部分 -&gt; JS.next.next</p>
-<p>11年  5.1 ISO国际标准   -&gt; 而且这个5.1几乎还是基于3.0的标准</p>
-<p>13年  ES6 = js.next   js.next.next 放到es7里面</p>
-<p>13年  ES6 草案发布</p>
-<p>15年  ES6 正式发布  -&gt; ES6又名ECMAScrit2015</p>
-<h4 id="ES5的两个运行模式："><a href="#ES5的两个运行模式：" class="headerlink" title="ES5的两个运行模式："></a>ES5的两个运行模式：</h4><p>正常模式 严格模式<br><span class="s_red">IE9及以下</span>不支持严格模式</p>
-<h4 id="为什么要有严格模式？"><a href="#为什么要有严格模式？" class="headerlink" title="为什么要有严格模式？"></a>为什么要有严格模式？</h4><p>这是一个历史遗留问题,3.0太早了99年的,语法的严谨性和合理性有不足的地方,语法怪异安全性不足。</p>
-<h4 id="如何使用严格模式"><a href="#如何使用严格模式" class="headerlink" title="如何使用严格模式"></a>如何使用严格模式</h4><p>“use strict”</p>
-<p>如果是脚本启动就是写在最上面的一行</p>
-<p>还有一种就是写在函数里面,这很多大厂都这样写</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line"><span class="meta">    'use strict'</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h4 id="严格模式有那些影响"><a href="#严格模式有那些影响" class="headerlink" title="严格模式有那些影响"></a>严格模式有那些影响</h4><p>在严格模式下有一些属性是不能使用的例如：caller、callee、with、arguments下的大部分属性都是不可以用的,<span class="s_red">注意</span>arguments是可以用的。</p>
-<h5 id="严格模式下this指向"><a href="#严格模式下this指向" class="headerlink" title="严格模式下this指向"></a>严格模式下this指向</h5><p>非严格模式下函数内部的this指向window</p>
-<p>严格模式下如果函数没实例化this指向undefined,new 实例化之后this就指向<span class="s_red">该构造函数</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 没实例化之前严格模式下this指向</span></span><br><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line">test();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/654e1570/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例化之后</span></span><br><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> test1 = <span class="keyword">new</span> test();</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/654e1570/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="严格模式下call"><a href="#严格模式下call" class="headerlink" title="严格模式下call"></a>严格模式下call</h5><p>非严格模式下call()里面填的原始值的话它会经过包装类成为对象</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// "use strict"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">    concole.log(<span class="keyword">this</span>); <span class="comment">// </span></span><br><span class="line">}</span><br><span class="line">test.call(<span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/654e1570/3.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="函数的参数不能重复命名"><a href="#函数的参数不能重复命名" class="headerlink" title="函数的参数不能重复命名"></a>函数的参数不能重复命名</h5><p>非严格 -&gt; 不报错<br>严格模式 -&gt; 报错 -&gt; 严格模式下函数参数不能重复命名</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">a,a</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>,<span class="number">2</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/654e1570/4.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h5 id="笔试题"><a href="#笔试题" class="headerlink" title="笔试题"></a>笔试题</h5><p>严格模式 -&gt; 对象命名不允许重复但 -&gt; 不报错 </p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span></span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a: <span class="number">1</span>,</span><br><span class="line">    a: <span class="number">2</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/654e1570/5.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<p>严格模式下eval(); 作用域被改变</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这样在严格模式下 -&gt; 不报错</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'var a = 1; console.log(a)'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 但如果下面还打印a就报错</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/654e1570/6.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>在严格模式下eval是有自己独立的作用域的,已经不再是全局的作用域了。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/654e1570/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E7%AF%87/" rel="tag">js错误信息篇</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-try-catch"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/a86aeb16/">try...catch...</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-08-28 16:18:55" datetime="2020-08-28T08:18:55.000Z"  itemprop="datePublished">2020-08-28</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>当系统自动为我们抛出错误的时候程序就不会继续执行，为了解决这个问题我们在可能会报错的地方使用手动抛出错误的方法 -&gt; try…catch…finally…throw,后面两个可以不写但是try…catch是一定要的。</p>
-<p>try: 里面没有错误的时候它是不走catch<br>catch: 第一大要务就是捕获try里面的错误<br>finally: 不管catch里没有错误都执行<br>throw: 可以通过throw 扔出自定义错误</p>
-<h4 id="系统自动为我们抛出错误"><a href="#系统自动为我们抛出错误" class="headerlink" title="系统自动为我们抛出错误"></a>系统自动为我们抛出错误</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'正常执行1'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'正常执行2'</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/a86aeb16/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="手动抛出错误"><a href="#手动抛出错误" class="headerlink" title="手动抛出错误"></a>手动抛出错误</h4><p>try…catch…finally…throw</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'正常执行1'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'正常执行2'</span>);</span><br><span class="line">}<span class="keyword">catch</span>(e){</span><br><span class="line">    <span class="built_in">console</span>.log(e.name); <span class="comment">// 错误类型</span></span><br><span class="line">    <span class="built_in">console</span>.log(e.message); <span class="comment">//错误的具体信息</span></span><br><span class="line">}<span class="keyword">finally</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'正常执行3'</span>);</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'正常执行4'</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/a86aeb16/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonStr = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">try</span>{</span><br><span class="line">    <span class="keyword">if</span>(jsonStr == <span class="string">''</span>){</span><br><span class="line">        <span class="comment">// 抛出错误</span></span><br><span class="line">        <span class="keyword">throw</span> <span class="string">'JSON字符串为空'</span>;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 上面抛出错误了所以下面这里并没有执行</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"我要执行了!!!"</span>);</span><br><span class="line">    <span class="keyword">var</span> json = <span class="built_in">JSON</span>.parse(jsonStr);</span><br><span class="line">    <span class="built_in">console</span>.log(json);</span><br><span class="line">}<span class="keyword">catch</span>(e){</span><br><span class="line">    <span class="built_in">console</span>.log(e);  </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 换方案执行</span></span><br><span class="line">    <span class="keyword">var</span> errorTip = {</span><br><span class="line">        name:<span class="string">'数据传输失败'</span>,</span><br><span class="line">        errorCode:<span class="string">'10010'</span></span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">console</span>.log(errorTip);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>运行结果：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/a86aeb16/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<hr>
-<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>try … catch 一般用在比较大型的web程序插件里面比较多<br>，一般开发的时候用的比较少。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/a86aeb16/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E7%AF%87/" rel="tag">js错误信息篇</a></li></ul>
 
     </div>
     
