@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>前端面试知识点 | CokeSprit | 爱生活,爱编程</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="面试/笔试">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+	<script src="//hm.baidu.com/hm.js?fb0c91ff53575b161978475ac07850b8"></script>
+
+
+    
+    <meta name="description" content="前端面试知识记录javascriptjs实现继承的几种方式1234567891011121314151617181920212223242526272829303132333435363738394041424344451、原型链继承：将父类的实例作为子类的原型Son.prototype &#x3D; new Father();2、构造继承：复制父类的实例属性给子类function Son(name) {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试知识点">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/d57c31de/index.html">
+<meta property="og:site_name" content="CokeSprit">
+<meta property="og:description" content="前端面试知识记录javascriptjs实现继承的几种方式1234567891011121314151617181920212223242526272829303132333435363738394041424344451、原型链继承：将父类的实例作为子类的原型Son.prototype &#x3D; new Father();2、构造继承：复制父类的实例属性给子类function Son(name) {">
+<meta property="article:published_time" content="2021-07-09T09:51:07.000Z">
+<meta property="article:modified_time" content="2021-07-09T09:51:38.211Z">
+<meta property="article:author" content="CokeSprit">
+<meta property="article:tag" content="面试&#x2F;笔试">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">CokeSprit</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:2665281140@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/cokesprit" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6179399347" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+            
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端面试知识点</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前端面试知识记录"><span class="post-toc-number">1.</span> <span class="post-toc-text">前端面试知识记录</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#javascript"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">javascript</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#js实现继承的几种方式"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">js实现继承的几种方式</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#DOM的事件流"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">DOM的事件流</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#HTTP状态码"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">HTTP状态码</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#解决跨域的方法"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">解决跨域的方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#本地存储"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">本地存储</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#页面渲染时都做了什么-什么是回流"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">页面渲染时都做了什么?什么是回流?</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CSS-HTML"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">CSS\HTML</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#垂直水平居中"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">垂直水平居中</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#css选择器的优先级"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">css选择器的优先级</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VUE"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">VUE</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#vue的两种传参方式"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">vue的两种传参方式</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-前端面试知识点"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端面试知识点</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-07-09 17:51:07" datetime="2021-07-09T09:51:07.000Z"  itemprop="datePublished">2021-07-09</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">4</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="前端面试知识记录"><a href="#前端面试知识记录" class="headerlink" title="前端面试知识记录"></a>前端面试知识记录</h3><h4 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h4><h5 id="js实现继承的几种方式"><a href="#js实现继承的几种方式" class="headerlink" title="js实现继承的几种方式"></a>js实现继承的几种方式</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、原型链继承：将父类的实例作为子类的原型</span><br><span class="line">Son.prototype = <span class="keyword">new</span> Father();</span><br><span class="line"><span class="number">2</span>、构造继承：复制父类的实例属性给子类</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    Father.call(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line"><span class="number">3</span>、实例继承：为父类实例添加新特征，作为子类实例返回</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> f = <span class="keyword">new</span> Father();</span><br><span class="line">    f.name = name || <span class="string">'-&gt;son'</span></span><br><span class="line">    <span class="keyword">return</span> f;</span><br><span class="line">}</span><br><span class="line"><span class="number">4</span>、拷贝继承：对父类实例中的的方法与属性拷贝给子类的原型</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> f = <span class="keyword">new</span> Father();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> f) {</span><br><span class="line">        Son.prototype[k] = f[k];</span><br><span class="line">    }</span><br><span class="line">    Son.prototype.name = name || <span class="string">'-&gt;son'</span>;</span><br><span class="line">}</span><br><span class="line"><span class="number">5</span>、组合继承：通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    Father.call(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line">Son.prototype = <span class="keyword">new</span> Father();</span><br><span class="line">Son.prototype.constructor = Son;<span class="comment">// 修复构造函数指向</span></span><br><span class="line"><span class="number">6</span>、寄生组合继承：通过寄生方式，砍掉父类的实例属性，避免了组合继承生成两份实例的缺点</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Son</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    Father.call(<span class="keyword">this</span>);</span><br><span class="line">}</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">// 创建一个没有实例方法的类</span></span><br><span class="line">    <span class="keyword">var</span> None = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line">    None.prototype = Father.prototype;</span><br><span class="line">    <span class="comment">// 将实例作为子类的原型</span></span><br><span class="line">    Son.prototype = <span class="keyword">new</span> None();</span><br><span class="line">    <span class="comment">// 修复构造函数指向</span></span><br><span class="line">    Son.prototype.constructor = Son;</span><br><span class="line">})();</span><br><span class="line"><span class="number">7</span>、Class继承：使用extends表明继承自哪个父类，并且在子类构造函数中必须调用<span class="keyword">super</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span> </span>{</span><br><span class="line">    <span class="keyword">constructor</span>(name) {</span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="DOM的事件流"><a href="#DOM的事件流" class="headerlink" title="DOM的事件流"></a>DOM的事件流</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事件捕获------&gt;处于目标状态------&gt;事件冒泡</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>**【通知】</span><br><span class="line"><span class="number">2</span>**【成功】</span><br><span class="line"><span class="number">3</span>**【重定向】</span><br><span class="line">	<span class="number">301</span><span class="comment">//永久重定向</span></span><br><span class="line">	<span class="number">302</span><span class="comment">//临时重定向</span></span><br><span class="line">	<span class="number">303</span><span class="comment">//查看其它地址。与301类似。使用GET和POST请求查看</span></span><br><span class="line"><span class="number">4</span>**【客户端错误】</span><br><span class="line">	<span class="number">403</span><span class="comment">//服务器拒绝访问</span></span><br><span class="line">	<span class="number">404</span><span class="comment">//资源找不到</span></span><br><span class="line"><span class="number">5</span>**【服务端错误】</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="解决跨域的方法"><a href="#解决跨域的方法" class="headerlink" title="解决跨域的方法"></a>解决跨域的方法</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSONP<span class="comment">//原理：利用script的src剋访问第三方资源，通过javascript callback的形式实现跨域访问</span></span><br><span class="line">CORS<span class="comment">//跨域资源共享(Cross-origin resource sharing)</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cookie<span class="comment">//可设置失效时间，存储大小为4k左右</span></span><br><span class="line">sessionStorage<span class="comment">//浏览器关闭即失效</span></span><br><span class="line">localStorage<span class="comment">//永久有效，可手动删除，存储大小5MB</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>null和undefined的区别</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span>是一个表示<span class="string">"无"</span>的对象，转为数值时为<span class="number">0</span>；<span class="literal">undefined</span>是一个表示<span class="string">"无"</span>的原始值，转为数值时为<span class="literal">NaN</span>。</span><br><span class="line"><span class="literal">null</span>==<span class="literal">undefined</span><span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span>===<span class="literal">undefined</span><span class="comment">//false</span></span><br><span class="line"><span class="literal">null</span>转数值为<span class="number">0</span>，<span class="literal">undefined</span>转数值为<span class="literal">NaN</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="页面渲染时都做了什么-什么是回流"><a href="#页面渲染时都做了什么-什么是回流" class="headerlink" title="页面渲染时都做了什么?什么是回流?"></a>页面渲染时都做了什么?什么是回流?</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//页面渲染过程</span></span><br><span class="line"><span class="number">1.</span>解析html文件，创建DOM树</span><br><span class="line"><span class="number">2.</span>解析css，生成CSSOM，css对象模型</span><br><span class="line"><span class="number">3.</span>dom和css合并，构建渲染树（Render Tree）</span><br><span class="line"><span class="number">4.</span>布局（Layout）和绘制（Paint），重绘（repaint）和重排（reflow/回流）</span><br><span class="line"><span class="comment">//回流</span></span><br><span class="line">当我们对 DOM 的修改引发了 DOM 几何尺寸的变化（比如修改元素的宽、高或隐藏元素等）时，浏览器需要重新计算元素的几何属性（其他元素的几何属性和位置也会因此受到影响），然后再将计算的结果绘制出来。这个过程就是回流（也叫 重排 ）。</span><br><span class="line"><span class="comment">//触发回流的条件 :</span></span><br><span class="line">对 DOM 的修改引发了 DOM 几何尺寸的变化（比如修改元素的宽、高或隐藏元素等）时 :</span><br><span class="line">添加或删除可见的元素；</span><br><span class="line">元素位置改变；</span><br><span class="line">元素尺寸改变：边距，填充，边框，宽度和高度；</span><br><span class="line">内容改变：比如文本改变或者图片大小改变而引起的计算值宽度和高度改变；</span><br><span class="line">页面渲染初始化；</span><br><span class="line">浏览器窗口尺寸改变：resize 事件发生时。</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h4 id="CSS-HTML"><a href="#CSS-HTML" class="headerlink" title="CSS\HTML"></a>CSS\HTML</h4><h5 id="垂直水平居中"><a href="#垂直水平居中" class="headerlink" title="垂直水平居中"></a>垂直水平居中</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、transform<span class="comment">//设置定位，too、left各50%，translate(-50%,-50%)</span></span><br><span class="line">.ele{</span><br><span class="line">    position:absolute;</span><br><span class="line">    top: <span class="number">50</span>%;</span><br><span class="line">    left: <span class="number">50</span>%;</span><br><span class="line">    transform: translate(<span class="number">-50</span>%, <span class="number">-50</span>%);</span><br><span class="line">}</span><br><span class="line"><span class="number">2</span>、弹性布局</span><br><span class="line">father{</span><br><span class="line">    display:flex;</span><br><span class="line">	justify-content: center;   </span><br><span class="line">	align-items: center; </span><br><span class="line">}</span><br><span class="line"><span class="number">3</span>、display的table-cell</span><br><span class="line">father{</span><br><span class="line">    sidplay:table</span><br><span class="line">}</span><br><span class="line">son{</span><br><span class="line">    display:table-cell;</span><br><span class="line">    text-align:center; </span><br><span class="line">    vertical-align:middle;<span class="comment">//设置文本垂直居中 </span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="css选择器的优先级"><a href="#css选择器的优先级" class="headerlink" title="css选择器的优先级"></a>css选择器的优先级</h5><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">！important&gt;行内&gt;ID&gt;类&gt;标签&gt;*</span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h4><h5 id="vue的两种传参方式"><a href="#vue的两种传参方式" class="headerlink" title="vue的两种传参方式"></a>vue的两种传参方式</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qurey<span class="comment">//显示再url上，页面刷新也能拿到数据</span></span><br><span class="line">parmas<span class="comment">//不显示地址栏，页面刷新数据丢失，在路由中设置参数，会在url显示参数值，刷新不会丢失</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2021-07-09T09:51:38.211Z" itemprop="dateUpdated">2021-07-09 17:51:38</time>
+</span>
+
+
+        
+        原文链接：<a href="/posts/d57c31de/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/d57c31de/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://cokesprit.gitee.io'">
+            <img src="/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95-%E7%AC%94%E8%AF%95/" rel="tag">面试/笔试</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/d57c31de/&title=《前端面试知识点》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/d57c31de/&title=《前端面试知识点》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/d57c31de/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端面试知识点》 — CokeSprit&url=https://cokesprit.gitee.io/posts/d57c31de/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/d57c31de/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/ade61401/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：TCPIP协议
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/8c52019/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：javascript进阶">下一篇：javascript进阶</h4>
+      </a>
+    </div>
+  
+
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2020
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="https://cokesprit.gitee.io">CokeSprit.top</a>
+        </span>
+
+        <br/>
+        <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
+
+        
+
+        <!-- 访问人数
+        <span>
+            
+
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        <br/> -->
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/d57c31de/&title=《前端面试知识点》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/d57c31de/&title=《前端面试知识点》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/d57c31de/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端面试知识点》 — CokeSprit&url=https://cokesprit.gitee.io/posts/d57c31de/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/d57c31de/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3ay26DQAwF0P7/T6dStw302gaXSGdWUQgzhyws/Pj6itfrZ/3+5nwd3Xv+/QULFxd3zJ0fefQwyVm5ARcXd597HmgOb249zNH+0c64uLgP41bvqgYyXFzcT+QeHZC/uCS74eLiPoebJD9JaPsjdTnd7eJcDRcXd8CtFkzv+HxjfRcXF7fIfRVXNRhNznqzGy4u7gq3V/LIX02SEkk1HcLFxb2bm5c58vCUNFF6jVhcXNwdbnS5OKo1CXnRMAcuLu4Kt5qi5INZyfHJI40KJbi4uANur1nSG+CY/x24uLg73GqKkrdGJn/EqOeDi4vb4vaKm73S6nxPXFzcHW6e9vSKHQk93wEXF3eTW2VVE55eMRQXF/e/uM02ZzGxSUqrER0XF3eFm5Q18+JI/pukkHq4My4u7s3c3tDVKMcKwh8uLu4TuNWwNW+aVhs5uLi4+9x85cnM+cM0+8C4uLgr3MkQRhVRLYhUAysuLu613GoakzRQq6GwcBUXF3eRW01vclZeVI2iLC4u7sO4k+N74xdvruLi4n4Ut/daUx7/wsXFXeTmG81ZeXtmVBbBxcUdcK8tmPaGuqrFVlxc3Nu439BHbMN0ZrICAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 600){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "CokeSprit");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 尽人事,听天命 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+
+</body>
+</html>

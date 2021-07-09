@@ -157,7 +157,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -190,6 +190,650 @@
 
 <div class="container body-wrap">
     <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-babel搭建"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/d624f1ca/">babel搭建</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-17 20:56:58" datetime="2020-10-17T12:56:58.000Z"  itemprop="datePublished">2020-10-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <p><span class="s_jacinth">babel:</span>编译工具将ES6语法转化成ES5。<br>babel需要npm包管理器进行安装，npm只能在node环境实现，装了node就安装了npm。</p>
+<h4 id="babel安装步骤"><a href="#babel安装步骤" class="headerlink" title="babel安装步骤"></a>babel安装步骤</h4><p>1、安装node</p>
+<hr>
+<p>2、在项目的目录中生成package.json文件</p>
+<p><span class="s_jacinth">npm init –y</span></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><span class="s_jacinth">注意：</span>项目目录中不能含又中文名！！！ –y是默认值的package.js,不用的话，在生成过程中会有一大堆问题，我们依次填入就好。</p>
+<hr>
+<p>3、安装 babel-cli 用于命令行转码</p>
+<p><span class="s_jacinth">npm install -g babel-cli</span> 全局安装</p>
+<p><span class="s_jacinth">npm install –save-dev babel-cli</span> 局部安装<br>根据建议选用局部安装</p>
+<hr>
+<p>4、安装转码规则<br><span class="s_jacinth">npm install -save-dev babel-preset-es2015</span></p>
+<p>安装完成后想知道是否成功查看package.json中是否生成</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p>5、配置.babelrc<br>在更目录下建立 <span class="s_jacinth">.babelrc</span></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>prests是规则，plugins是插件支持，接下来就可以转码了</p>
+<hr>
+<p>6、开始开始转码<br>    建立app.js用es6的语法写</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><span class="s_jacinth">npm run build</span></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/d624f1ca/9.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/d624f1ca/" class="post-more waves-button">
+                続きを読む…
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-ES6版本过渡历史"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/4328cb48/">ES6版本过渡历史</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-17 20:50:21" datetime="2020-10-17T12:50:21.000Z"  itemprop="datePublished">2020-10-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <pre><code>HTML1,HTML2,HTML3 -&gt; 1991-1997  
+组织 -&gt; IETF(the Internet Enginering Task Force) 国际互联网工程任务组织
+
+HTML3.2 -&gt; 1997.1      W3C -&gt; 万维网联盟
+
+ECMA ECMA-262 ECMAscript 脚本语言规范：
+    1995 LiveScript  --&gt; JavaScript （蹭JAVA的热度）
+    1996 JavaScript 1.0 1.1；
+    1997 Jscript  -&gt; 网景公司 gg
+
+    1997.6 ECMAscript 1.0 发布当初发布的 JavaScript1.1为蓝本
+    1998.6 ECMAscript 2.0 
+    1999.12 ECMAscript 3.0  -&gt; es5 
+    2000 ECMAscript 4.0 草案并没有通过：
+        版本太过激进，基本是对3.0的摒弃
+        组织：TC39（technical committe 39)
+
+    2007 ECMAscript 4.0 准备发布，不发布：
+        除了JavaScript的一小部分的创造支持，其他都不支持
+
+    2008.7 ECMAscript 3.1 -&gt; ECMAscript5(改名) 大会(hamony)
+        实在没有办法迫于舆论发布只在3.0版本做了小幅度改动
+
+        版本代号：
+            JavaScript.next  
+            JavaScript.next.next
+
+    2009.12 
+
+        ECMAscript5 (正式发布)
+        JavaScript.next -&gt; 放入草案 ES6
+        JavaScript.next.next -&gt; 放入草案 ES7
+
+    2011.6 ECMAscript5.1
+
+    2013.3 JavaScript.next(草案冻结)
+
+    2013.6 JavaScript.next(草案冻结)
+
+    2015.6 ECMAScript6 正式发布：
+        2000年提出 2015年发布
+        从这里每年6月份出来新版本升级
+
+    ES6 -&gt; ECMAscript2016 ECMAscript2017 ECMAscript2018 
+        小版本改动  </code></pre><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/4328cb48/" class="post-more waves-button">
+                続きを読む…
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ES6/" rel="tag">ES6</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-AJAX"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/f3334fd0/">AJAX</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-17 15:42:22" datetime="2020-10-17T07:42:22.000Z"  itemprop="datePublished">2020-10-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="AJAX前奏"><a href="#AJAX前奏" class="headerlink" title="AJAX前奏"></a>AJAX前奏</h4><p><span class="s_jacinth">前言:</span><br>1、浏览器与服务器之间的通信基础是HTTP协议<br>2、用户通过网址或表单向服务器提交请求，服务器向浏览器发送相应的响应。</p>
+<p><span class="s_jacinth">混编模式：</span></p>
+<p>服务端的代码跟客服端的代码写在一起。例如前端和后端一起写在一个页面里面，文件后缀名必须是后端的那个语言，不能写html，因为html是解析不了服务端的代码的，而php为后缀的页面它是可以嵌入html的代码的。</p>
+<p><span class="s_red">混编模式的缺点：</span>不好维护、前后端分离比较难。<br>前端程序员：前端程序员是在有了AJAX和异步了以后才有了前后端之分的。</p>
+<hr>
+<h4 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h4><p><span class="s_jacinth">全称:</span> Asynchronous JavaScript and XML (异步的JavaScript 和 XML)。<br><span class="s_red">历史：</span><br>1999 IE5.0 允许JS脚本向服务器单独发起HTTP请求的新功能<br>2004 Gmail 退出异步邮件更新服务<br>2005 Google Map 异步更新地图服务<br>2005 AJAX被大厂公认命名<br>2005 W3C发布AJAX国际标准</p>
+<p>AJAX不是新的编程语言，而是一种使用现有标准的新方法。<br>AJAX是与服务器交互数据并更新部分网页的艺术，在不重新加载整个页面的情况下。</p>
+<p><span class="s_red">JavaScript异步通信：</span>请求服务器返回JSON/XML文档从前端JSON/XML文档中提取数据，在不刷新整个页面的基础上渲染到相应的位置。</p>
+<p><span class="s_red">同步请求：</span>点击跳转然后出数据这叫同步<br><span class="s_red">异步：</span>异步不刷新页面，不跳转，只请求数据</p>
+<p><span class="s_red">AJAX主要做</span>向服务器发送一个请求，这个请求是请求一段数据然后服务器就返回这样一段数据，返回来以后我拿到这个数据直接去整理这个数据然后把内容给更新。</p>
+<h5 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h5><p>原生AJAX：<span class="s_green">XMLHttpRequest</span> 对象与 <span class="s_green">Active</span>  对象</p>
+<p><span class="s_red">作用：</span>js脚本HTTP请求的发起必须通过XMLHttpRequest对象也是通过AJAX进行浏览器与服务器通信的接口不局限于XML，可以发送任何格式的数据。</p>
+<p><span class="s_red">XMLHttpRequest</span>本身是一个JS引擎内置的构造函数所有XMLHttpRequest对象都需要被实例化 var xhr = new XMLHttpRequest。</p>
+<p><span class="s_red">兼容性：</span>IE5/IE6 使用Active对象<br>var xhr = new ActiveXObject(‘Micrsoft.XMLHTTP’);</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 兼容性写法</span></span><br><span class="line"><span class="keyword">var</span> xhr ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest){</span><br><span class="line">    xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Mcisoft.XMLHTTP'</span>);</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(xhr);</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h5 id="AJAX发送HTTP请求"><a href="#AJAX发送HTTP请求" class="headerlink" title="AJAX发送HTTP请求"></a>AJAX发送HTTP请求</h5><p>实例化出来的xhr有两个方法：<br><span class="s_jacinth">open()</span> 发送设置：<br><span class="s_red">参数：</span>open(method,url,async)<br><span class="s_red">method:</span> 请求方式<br><span class="s_red">url:</span> 请求发送的地址<br><span class="s_red">async:</span> false同步 true异步，建议都用ture</p>
+<p><span class="s_jacinth">send()</span>发送请求：<br><span class="s_red">参数：</span><br>发送POST请求体用数据，GET请求不用填写。</p>
+<hr>
+<h5 id="AJAX-发送请求时的响应状态"><a href="#AJAX-发送请求时的响应状态" class="headerlink" title="AJAX-发送请求时的响应状态"></a>AJAX-发送请求时的响应状态</h5><p><span class="s_jacinth">onreadyStatechange事件：</span><br>挂载到XMLHttpRequest对象上的事件。每当readyState改变时，就会触发onreadystatechange事件</p>
+<p><span class="s_jacinth">readyState状态：</span><br>通过XMLHttpRequest对象发送HTTP请求的各阶段状态(0-4)<br>0：请求未初始化<br>1：服务器连接一建立<br>2：请求以接收<br>3：请求处理中<br>4：请求已完成，且响应已就绪</p>
+<p><span class="s_red">注释：</span>onreadystatechange 事件被触发5次(0-4),对应着readyState的每个变化。</p>
+<p><span class="s_jacinth">status状态：</span><br>服务器响应的状态码<br>200:”OK”<br>400:”未找到页面”</p>
+<p>当readyState等于4且状态为200时，表示响应以就绪。</p>
+<p><span class="s_jacinth">responseText 属性</span><br>获得字符串形式的响应数据<br><span class="s_red">语法：</span>xhr.responseText</p>
+<p><span class="s_jacinth">responseXML 属性</span><br>获得XML形式的响应数据<br><span class="s_red">语法：</span>xhr.responseXML</p>
+<p><span class="s_jacinth">AJAX-POST请求方式的主要事项</span></p>
+<p>POST请求方式下，send方法参数中的格式：a=1&amp;b=2&amp;c=3</p>
+<p>xhr.setRequestHeader(‘Content-Type’,’application/X-www-from-urlencoded’);<br>POST请求必须设置这个请求头信息，目的是请求体中的数据转化为键值对，这样后端a=1&amp;b=2&amp;c=3这样的数据才知道这是一个POST方式传来的数据</p>
+<p>还有一点xhr.open是在xhr.send前面设置才有用</p>
+<hr>
+<h5 id="ajax的三种方式"><a href="#ajax的三种方式" class="headerlink" title="ajax的三种方式"></a>ajax的三种方式</h5><p>这三种都基于jQuery在使用的时候要引入jQuery<br><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line">    $.ajax({</span><br><span class="line">        url:<span class="string">"http://localhost:8086/myItem/class/data/data.json"</span>, <span class="comment">// 请求地址</span></span><br><span class="line">        type:<span class="string">'POST'</span>, <span class="comment">// 请求方式</span></span><br><span class="line">        dataType: <span class="string">'JSON'</span>,</span><br><span class="line">        data: { <span class="comment">// 数据体</span></span><br><span class="line">            status: <span class="number">1</span> </span><br><span class="line">        },</span><br><span class="line">        <span class="comment">// 成功之后的回调函数</span></span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line">    $.post(<span class="string">"http://localhost:8086/myItem/class/data/data.json"</span>,</span><br><span class="line">    {<span class="attr">stadus</span>: <span class="number">1</span>},<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种</span></span><br><span class="line">    $.<span class="keyword">get</span>('http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1',</span><br><span class="line">        function(data){</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        });</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="原生AJAX请求数据"><a href="#原生AJAX请求数据" class="headerlink" title="原生AJAX请求数据"></a>原生AJAX请求数据</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr;</span><br><span class="line"><span class="comment">// 1、创建HttpRequest对象</span></span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest){</span><br><span class="line">    xhr = <span class="keyword">new</span> <span class="built_in">window</span>.XMLHttpRequest();</span><br><span class="line">}<span class="keyword">else</span>{</span><br><span class="line">    xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">'Mcisoft.XMLHTTP'</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(xhr.readyState); <span class="comment">// 输出各个阶段的状态码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、配置请求发送</span></span><br><span class="line">xhr.open(<span class="string">"GET"</span>,<span class="string">"http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1"</span>,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、发送</span></span><br><span class="line">xhr.send(); <span class="comment">// 发送HTTP请求</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(xhr.readyState);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4、监听请求的状态和响应的状态</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(xhr.readyState);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听请求的状态和响应的状态</span></span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>){</span><br><span class="line">        <span class="built_in">console</span>.log(xhr.responseText); <span class="comment">// 返回的是json字符串</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5、接到响应的数据</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.parse(xhr.responseText));</span><br><span class="line">        <span class="comment">// 使用JSON.parse 把json字符串解析成JSON对象</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/f3334fd0/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h5 id="AJAX封装"><a href="#AJAX封装" class="headerlink" title="AJAX封装"></a>AJAX封装</h5><p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">var</span> xhr = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> o = <span class="built_in">window</span>.XMLHttpRequest?</span><br><span class="line">            <span class="keyword">new</span> XMLHttpRequest:</span><br><span class="line">            <span class="keyword">new</span> ActiveXObject(<span class="string">'Microsoft.XMLHTTP'</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果浏览器的版本是IE5或者IE4时</span></span><br><span class="line">    <span class="keyword">if</span>(!o){</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'您的浏览器不支持异步发起HTTP请求'</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_doAjax</span>(<span class="params">opt</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> opt = opt || {},</span><br><span class="line">            type = (opt.type || <span class="string">'GET'</span>).toUpperCase(), <span class="comment">//获取方式都转化为大写</span></span><br><span class="line">            <span class="keyword">async</span> = opt.async || <span class="literal">true</span>,</span><br><span class="line">            url = opt.url,</span><br><span class="line">            data = opt.data || <span class="literal">null</span>, <span class="comment">// 如果是GET请求data就等于null</span></span><br><span class="line">            error = opt.error || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},</span><br><span class="line">            success = opt.success || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},</span><br><span class="line">            complete = opt.complete || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{}; <span class="comment">// 无论成功还是失败这个函数都执行</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果url没配置的话就抛出异常</span></span><br><span class="line">        <span class="keyword">if</span>(!url){</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Errow(<span class="string">'您没有填写URL'</span>);</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        o.open(type,url,<span class="keyword">async</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 如果是post才设置 </span></span><br><span class="line">        type === <span class="string">'POST'</span> &amp;&amp; o.setRequestHeader(<span class="string">'Content-type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</span><br><span class="line">        o.send(type === <span class="string">'GET'</span> ? <span class="literal">null</span> : formatDatas(data));</span><br><span class="line">        </span><br><span class="line">        o.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="keyword">if</span>(o.readyState === <span class="number">4</span> &amp;&amp; o.status === <span class="number">200</span>){</span><br><span class="line">                success(<span class="built_in">JSON</span>.parse(o.responseText));</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(o.status === <span class="number">400</span>){</span><br><span class="line">                error();</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            complete(); <span class="comment">// 无论成功还是失败这个函数都执行</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将对象转成成 status=1&amp;flag=2 这种格式</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">formatDatas</span>(<span class="params">obj</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj){</span><br><span class="line">            str += key + <span class="string">'='</span> + obj[key] + <span class="string">'&amp;'</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> str.replace(<span class="regexp">/&amp;$/</span>,<span class="string">''</span>); <span class="comment">// 写一个正则表达式判断最后面一个是不是&amp;</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        ajax:<span class="function"><span class="keyword">function</span>(<span class="params">opt</span>)</span>{</span><br><span class="line">            _doAjax(opt);</span><br><span class="line">        },</span><br><span class="line">        post:<span class="function"><span class="keyword">function</span>(<span class="params">url,data,callback</span>)</span>{</span><br><span class="line">            _doAjax({</span><br><span class="line">                type:<span class="string">'POST'</span>,</span><br><span class="line">                url: url,</span><br><span class="line">                data:data,</span><br><span class="line">                success: callback</span><br><span class="line">            });</span><br><span class="line">        },</span><br><span class="line">        <span class="keyword">get</span>:function(url,callback){</span><br><span class="line">            _doAjax({</span><br><span class="line">                type:<span class="string">'GET'</span>,</span><br><span class="line">                url:url,</span><br><span class="line">                success:callback</span><br><span class="line">            })</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<p><span class="s_js">使用ajax</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用xhr.ajax</span></span><br><span class="line">    xhr.ajax({</span><br><span class="line">        type:<span class="string">'POST'</span>,</span><br><span class="line">        url:<span class="string">'http://localhost:8086/myItem/class/server/get_courses.php'</span>,</span><br><span class="line">        data:{</span><br><span class="line">            status:<span class="number">1</span>,</span><br><span class="line">            flag:<span class="number">2</span></span><br><span class="line">        },</span><br><span class="line">        success:<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(data);</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用xhr.post</span></span><br><span class="line">    xhr.post(<span class="string">'http://localhost:8086/myItem/class/server/get_courses.php'</span>,{</span><br><span class="line">        status:<span class="number">1</span>,</span><br><span class="line">        flag:<span class="number">2</span></span><br><span class="line">    },<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(data);</span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用xhr.get</span></span><br><span class="line"></span><br><span class="line">xhr.get(<span class="string">'http://localhost:8086/myItem/class/server/get_coursesajax.php?status=1&amp;flag=2'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(data);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/f3334fd0/" class="post-more waves-button">
+                続きを読む…
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AJAX/" rel="tag">AJAX</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-JSON基础、方法"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/987b192d/">JSON基础、方法</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-17 10:35:55" datetime="2020-10-17T02:35:55.000Z"  itemprop="datePublished">2020-10-17</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="什么是JSON"><a href="#什么是JSON" class="headerlink" title="什么是JSON"></a>什么是JSON</h4><p>JSON全称是“JavaScript Object Notation”,是JavaScript对象的延伸;为了数据交互存在。<br>JSON特点：选用映射模式来形成比较轻量级的数据结构。<br>JSON一定是对象但是JavaScript的对象就不一定是JSON。</p>
+<hr>
+<h4 id="JSON的书写格式"><a href="#JSON的书写格式" class="headerlink" title="JSON的书写格式"></a>JSON的书写格式</h4><p>1.映射用冒号隔开<br>2.并列数据用逗号隔开<br>3.映射的集合用{}包裹<br>4.键名一定要有双引号<br>5.并列数据集合用[]包裹</p>
+<p>JavaScript</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、映射用冒号隔开</span></span><br><span class="line">  <span class="keyword">var</span>  str1 =  {</span><br><span class="line">        <span class="string">"name"</span>:<span class="string">"张三"</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、并列数据用逗号隔开</span></span><br><span class="line">   <span class="keyword">var</span>  str2 =  {</span><br><span class="line">        <span class="string">"name"</span>:<span class="string">"张三"</span>,</span><br><span class="line">        <span class="string">"age"</span>:<span class="number">18</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、映射的集合用</span></span><br><span class="line">   <span class="keyword">var</span>  str3 =  {</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"张三"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">22</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">//4、键名一定要用双引号</span></span><br><span class="line">  <span class="keyword">var</span>  str4 =   {</span><br><span class="line">        <span class="string">"name"</span>:<span class="string">"张三"</span>,</span><br><span class="line">        <span class="string">"age"</span>: <span class="number">22</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="comment">//5、 并列数据集合用[]包裹</span></span><br><span class="line">    <span class="keyword">var</span>  str5 =  [</span><br><span class="line">            {</span><br><span class="line">                <span class="string">"name"</span>: <span class="string">"张三"</span>,</span><br><span class="line">                <span class="string">"age"</span>: <span class="number">18</span></span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                <span class="string">"name"</span>: <span class="string">"李四"</span>,</span><br><span class="line">                <span class="string">"age"</span>: <span class="number">22</span></span><br><span class="line">            }</span><br><span class="line">        ];</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="JSON方法"><a href="#JSON方法" class="headerlink" title="JSON方法"></a>JSON方法</h4><p><span class="s_green">JSON.parse(text,reviver)</span>将JSON字符串转化成JSON对象<br><span class="s_red">text:</span>必需,一个有效的 JSON 字符串。<br><span class="s_red">reviver:</span>可选，一个转换结果的函数， 将为对象的每个成员调用此函数。</p>
+<p><span class="s_green">JSON.stringify()</span>将JavaScript对象转换成JSON字符串。可以将JavaScript数组转换成JSON,不能保存Date对象，JSON.stringify() 会将所有日期转换为字符串。</p>
+<p><span class="s_jacinth">例子</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JSON方法<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 注意键名一定要用双引号 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">data-info</span>=<span class="string">'{"name":"张三","age":25}'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">0</span>];</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> info = oDiv.getAttribute(<span class="string">'data-info'</span>);</span></span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">// 将数据转化为JavaScript对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> jsonData = <span class="built_in">JSON</span>.parse(info); </span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(jsonData);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oDivtwo = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>)[<span class="number">1</span>];</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> obj = {</span></span><br><span class="line"><span class="actionscript">            <span class="string">"name"</span>:<span class="string">"王五"</span>,</span></span><br><span class="line"><span class="actionscript">            <span class="string">"age"</span>:<span class="number">18</span></span></span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// 将JavaScript对象转换成JSON字符串</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> str = <span class="built_in">JSON</span>.stringify(obj);</span></span><br><span class="line"><span class="actionscript">        oDivtwo.setAttribute(<span class="string">'data-info'</span>,str);</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(str);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/987b192d/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/987b192d/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<hr>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>实际上最早期的时候不是用JSON，而是用XML来做数据交互的而是用自定义标签，不过 -&gt; 解析难度大，损耗性能。XML数据文档很大、不宜阅读、解析难度比较复杂。现在XML还是有在用的服务器端与服务器通信的时候，做数据交互的时候XML用的还比较多的。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/987b192d/" class="post-more waves-button">
+                続きを読む…
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JSON/" rel="tag">JSON</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-鼠标行为坐标系、pageXY封装、拖拽函数封装"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/ed50b3e1/">鼠标行为坐标系、pageXY封装、拖拽函数封装</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-14 23:03:06" datetime="2020-10-14T15:03:06.000Z"  itemprop="datePublished">2020-10-14</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="鼠标行为-gt-坐标系"><a href="#鼠标行为-gt-坐标系" class="headerlink" title="鼠标行为 -> 坐标系"></a>鼠标行为 -&gt; 坐标系</h4><p><span class="s_green">clientX/Y</span> 鼠标位置相对于当前可视区域的坐标（不包括滚动条的位置）</p>
+<p><span class="s_green">pageX/Y</span> 鼠标位置相对于当前文档的坐标（包含滚动条的距离 IE9以下不支持）</p>
+<p><span class="s_green">layerX/Y</span> 同pageX/Y相同但是 IE11以下同clientX/Y相同（不推荐使用）</p>
+<p><span class="s_green">screenX/Y</span> 鼠标位置相对于屏幕的坐标</p>
+<p><span class="s_green">offsetX/Y</span> 鼠标位置相对于有定位的父级元素的坐标（包含边框，但是safari不包括边框）</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"clientX:"</span>+e.clientX,</span><br><span class="line">        <span class="string">"layerX:"</span>+e.layerX,</span><br><span class="line">        <span class="string">"screenX:"</span>+e.screenX,</span><br><span class="line">        <span class="string">"offsetX:"</span>+e.offsetX,</span><br><span class="line">        <span class="string">"pageX:"</span>+e.pageX);</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="封装pageXY封装"><a href="#封装pageXY封装" class="headerlink" title="封装pageXY封装"></a>封装pageXY封装</h4><p>在使用pageX/Y获取鼠标相对于当前文档的坐标的时它会包含滚动条的距离且IE9以下不支持。为了解决这些问题我们对pageXY进行封装。</p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pagePos</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> sLeft = getScrollOffset().left, <span class="comment">//获取滚动条滚动的距离</span></span><br><span class="line">            sTop = getScrollOffset().top;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> cLeft = <span class="built_in">document</span>.documentElement.clientLeft || <span class="number">0</span>,</span><br><span class="line">        cTop = <span class="built_in">document</span>.documentElement.clientTop || <span class="number">0</span>;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">            通过document.documentElement.clientLeft/Top可以获得偏移量（既margin)</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            <span class="comment">// 鼠标相对于可视区的距离 + 滚动条滚动的距离 + 偏移量的距离(margin)</span></span><br><span class="line">            X: e.clientX + sLeft - cLeft,</span><br><span class="line">            Y: e.clientY + sTop - cTop</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取滚动条滚动距离</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getScrollOffset</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">window</span>.pageXOffset){</span><br><span class="line">            <span class="keyword">return</span> {</span><br><span class="line">                left: <span class="built_in">window</span>.pageXOffset,</span><br><span class="line">                top: <span class="built_in">window</span>.pageYOffset</span><br><span class="line">            }</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="keyword">return</span> {</span><br><span class="line">                left: <span class="built_in">document</span>.body.scrollLeft + <span class="built_in">document</span>.documentElement.scrollLeft,</span><br><span class="line">                top: <span class="built_in">document</span>.body.scrollTop + <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="拖拽函数封装"><a href="#拖拽函数封装" class="headerlink" title="拖拽函数封装"></a>拖拽函数封装</h4><p>/**</p>
+<ul>
+<li>真正的拖拽并非那么简单，首先得知道三个东西</li>
+<li>mousedown moueup mousemove</li>
+<li></li>
+<li>鼠标按下  鼠标抬起  鼠标移动</li>
+<li></li>
+<li>鼠标按下并且移动应该怎么写呢？</li>
+<li>是不是应该把鼠标移动的事件处理函数，</li>
+<li>写到鼠标按下的事件处理函数的内部才行。</li>
+<li></li>
+<li></li>
+<li>/</li>
+</ul>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'box'</span>)[<span class="number">0</span>];</span><br><span class="line">elemDrag(box);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">elemDrag</span>(<span class="params">elem</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> x ,</span><br><span class="line">        y;</span><br><span class="line"></span><br><span class="line">    addEvent(elem,<span class="string">"mousedown"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="comment">//  鼠标当前点击的X坐标   // 左外边距</span></span><br><span class="line">        x = pagePos(e).X - getStyles(elem,<span class="string">'left'</span>);</span><br><span class="line">        y = pagePos(e).Y - getStyles(elem,<span class="string">'top'</span>);</span><br><span class="line"></span><br><span class="line">        addEvent(<span class="built_in">document</span>,<span class="string">"mousemove"</span>,mouseMove);</span><br><span class="line">        addEvent(<span class="built_in">document</span>,<span class="string">"mouseup"</span>,mouseUp);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 阻止冒泡和 默认事件</span></span><br><span class="line">        cancelBubble(e);</span><br><span class="line">        preventDefaultEvent(e);</span><br><span class="line"></span><br><span class="line">    });</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mouseMove</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;</span><br><span class="line">        elem.style.top = pagePos(e).Y - y + <span class="string">'px'</span>;</span><br><span class="line">        elem.style.left = pagePos(e).X - x + <span class="string">'px'</span>;</span><br><span class="line">        </span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">mouseUp</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> e = e|| <span class="built_in">window</span>.event;</span><br><span class="line"></span><br><span class="line">        removeEvent(<span class="built_in">document</span>,<span class="string">"mousemove"</span>,mouseMove);</span><br><span class="line">        removeEvent(<span class="built_in">document</span>,<span class="string">"moseup"</span>,mouseUp);</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>以上就是拖拽函数的封装但是并不完整 -&gt; 还差判断边界</p>
+<p><span class="s_jacinth">注意</span>：addEvent()、pagePos()、getStyles()、cancelBubble()、preventDefaultEvent()需要自己封装，在下一篇章会补充。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/ed50b3e1/" class="post-more waves-button">
+                続きを読む…
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-冒泡捕获流、事件与事件源对象、事件委托"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a href="/posts/1513f4a4/">冒泡捕获流、事件与事件源对象、事件委托</a>
+    </h3>
+  
+
+
+
+
+     <div class="post-meta">
+        <time class="post-time" title="2020-10-05 19:49:12" datetime="2020-10-05T11:49:12.000Z"  itemprop="datePublished">2020-10-05</time>
+
+    </div>
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        <h4 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h4><p><span class="s_green">事件流</span>：描述页面中接收事件的顺序和冒泡捕获有关。</p>
+<p><span class="s_green">事件流分为两种</span>：<br>事件冒泡流：是IE提出来的时间冒泡流 Event Bubbing。<br>事件捕获流：网景公司 Netscape 提出来的事件捕获流 Event Capturing。</p>
+<p><span class="s_jacinth">事件流的三个阶段</span>：<br>事件捕获阶段 -&gt; 处于目标阶段 -&gt; 事件冒泡阶段</p>
+<p><span class="s_yellow">捕获</span>是处于：事件捕获阶段<br><span class="s_yellow">冒泡</span>是处于：事件冒泡阶段</p>
+<h4 id="事件与事件源对象"><a href="#事件与事件源对象" class="headerlink" title="事件与事件源对象"></a>事件与事件源对象</h4><p><span class="s_green">事件</span></p>
+<p>其他浏览器：Event对象 = new MouseEvent();</p>
+<p>IE浏览器：window.event</p>
+<p>IE浏览器不是传递到事件处理函数的参数里面的而是传到一个全局的window.event对象里面。</p>
+<p><span class="s_yellow">输出mouseEvent</span><br><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">     <span class="selector-class">.wrapper</span>{</span></span><br><span class="line"><span class="css">         <span class="selector-tag">width</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line">         height: 200px;</span><br><span class="line">         background-color: green;</span><br><span class="line">         font-size: 18px;</span><br><span class="line"><span class="css">         <span class="selector-tag">color</span>:<span class="selector-id">#fff</span>;</span></span><br><span class="line">     }</span><br><span class="line"><span class="css">     <span class="selector-class">.wrapper</span> <span class="selector-class">.outer</span>{</span></span><br><span class="line"><span class="css">         <span class="selector-tag">width</span><span class="selector-pseudo">:150px</span>;</span></span><br><span class="line">         height: 150px;</span><br><span class="line"><span class="css">         <span class="selector-tag">margin-left</span><span class="selector-pseudo">:200px</span>;</span></span><br><span class="line">         background-color: red;</span><br><span class="line"></span><br><span class="line">     }</span><br><span class="line"><span class="css">     <span class="selector-class">.wrapper</span> <span class="selector-class">.outer</span> <span class="selector-class">.inner</span>{</span></span><br><span class="line"><span class="css">         <span class="selector-tag">width</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line"><span class="css">         <span class="selector-tag">height</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line">         margin-left: 150px;</span><br><span class="line">         background-color: orange;</span><br><span class="line">     }</span><br><span class="line"> <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrapper"</span>&gt;</span></span><br><span class="line">     wrapper</span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"outer"</span>&gt;</span></span><br><span class="line">         outer</span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"inner"</span>&gt;</span>inner<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> wrapper = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'wrapper'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">warpper.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(e);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/1513f4a4/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p><span class="s_green">事件源对象</span><br>输出e的时候可以在MouseEvent查找到 <span class="s_jacinth">target</span> 和 <span class="s_jacinth">scrElement</span> 这两个事件源对象。</p>
+<p>火狐：只有target<br>IE：只有srcElements</p>
+<p><span class="s_yellow">使用上面的html结构分别点击这三个盒子输出事件源对象：</span></p>
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wrapper.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> e = e || e.window.event;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"点击了"</span>+e.target.className+<span class="string">"盒子"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(e.target);</span><br><span class="line">    <span class="built_in">console</span>.log(e.srcElement);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/posts/1513f4a4/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<p><span class="s_jacinth">事件源的兼容性写法</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wrapper.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> e = e||<span class="built_in">window</span>.event;</span><br><span class="line">    <span class="keyword">var</span> tar = e.target || e.srcElement;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(tar);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h4 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h4><p>事件委托也叫事件代理：意思是我不亲自绑定点击事件，我把事件委托给我的父级，让父级去触发，触发以后通过事件源对象来找到我点击的元素。好处不用循环添加事件，性能更加好。</p>
+<p><span class="s_yellow">例子</span>：写一个列表当点击”添加li”按钮时就会在列表末尾处新增一个li并且添加上序号,当点击相应的li时输出下标输出当前li的下标。</p>
+<p><span class="s_green">html</span></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span>&gt;</span>点击添加li<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_js">JavaScript</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> oList = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'list'</span>)[<span class="number">0</span>],</span><br><span class="line">        oLi = oList.getElementsByTagName(<span class="string">'li'</span>),</span><br><span class="line">        oBtn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>)[<span class="number">0</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 点击button添加li</span></span><br><span class="line">    oBtn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line">        li.innerHTML = oLi.length + <span class="number">1</span>;</span><br><span class="line">        oList.appendChild(li);</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 给ul添加点击事件</span></span><br><span class="line">    oList.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> e = e || <span class="built_in">window</span>.event;</span><br><span class="line">        <span class="keyword">var</span> tar = e.target || e.srcElement;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> index = <span class="built_in">Array</span>.prototype.indexOf.call(oLi,tar);</span><br><span class="line">        <span class="built_in">console</span>.log(index);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">     <span class="comment">// Array.prototype.indexOf.call(DOM对象集合,当前事件源);</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="s_jacinth">原理解析：</span><br>当点击li的时候，冒泡到ul,ul正好触发点击事件因为ul绑定了点击事件，然后触发了就可以找到事件对象，找到事件对象之后就能找到事件源，找到事件源之后再使用Array.prototype.indexOf和oLi就能找到当前点击的li的下标了。这就是使用<span class="s_red">事件委托拿下标</span>。</p>
+<p><span class="s_yellow">Array.prototype.indexOf.call(DOM对象集合,当前事件源);</span></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    
+        <div class="post-more-div">
+            <a href="/posts/1513f4a4/" class="post-more waves-button">
+                続きを読む…
+            </a>
+        </div>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/" rel="tag">DOM</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
     
         <li class="post-list-item fade">
             <article id="post-事件处理处理函数、冒泡捕获、阻止冒泡默认事件"
@@ -314,7 +958,7 @@
     
         <div class="post-more-div">
             <a href="/posts/e57a545c/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -413,7 +1057,7 @@
     
         <div class="post-more-div">
             <a href="/posts/4e2086c7/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -495,7 +1139,7 @@
     
         <div class="post-more-div">
             <a href="/posts/a2c7835c/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -567,7 +1211,7 @@
     
         <div class="post-more-div">
             <a href="/posts/b7620653/" class="post-more waves-button">
-                Continue reading...
+                続きを読む…
             </a>
         </div>
     </div>
@@ -576,452 +1220,6 @@
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
 
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-获取整个html文档的宽高"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/20ad7b61/">获取整个html文档的宽高</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-22 15:21:47" datetime="2020-09-22T07:21:47.000Z"  itemprop="datePublished">2020-09-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p><span class="s_green">获取整个html文档的宽高:</span><br>document.body.scrollHeight/scrollWidth<br>document.documentElement.scrollHeight/scrollWidth</p>
-<p><span class="s_green">scrollHeight/scrollWidth 到底是什么？</span><br>    scrollWidth === window.innerWidth + window.pageXOffset;</p>
-<hr>
-<h4 id="获取整个html文档宽高"><a href="#获取整个html文档宽高" class="headerlink" title="获取整个html文档宽高"></a>获取整个html文档宽高</h4><p>由于某些浏览器是不支持document.body.scrollWidth/scrollHeight的所以要封装起来。</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollSize</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">// 如果document.body.scrollWidth存在</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">document</span>.body.scrollWidth){</span><br><span class="line">        <span class="keyword">return</span>{</span><br><span class="line">            width: <span class="built_in">document</span>.body.scrollWidth,</span><br><span class="line">            height: <span class="built_in">document</span>.body.scrollHeight</span><br><span class="line">        }</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span>{</span><br><span class="line">            width:<span class="built_in">document</span>.documentElement.scrollWidth,</span><br><span class="line">            height: <span class="built_in">document</span>.documentElement.scrollHeight</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/20ad7b61/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-获取浏览器可视区域的尺寸"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/abb398ff/">获取浏览器可视区域的尺寸</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-22 14:37:27" datetime="2020-09-22T06:37:27.000Z"  itemprop="datePublished">2020-09-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>获取浏览器可视区域既窗口的宽高<br><span class="s_green">常规的写法</span>：window.innerWidth/innerHeight</p>
-<p><span class="s_green">ie9/ie8及以下的写法</span>：<br><span class="s_red">标准模式：</span>document.documentElement.clienWidth/clienHeigth<br><span class="s_red">怪异模式：</span>document.body.clienWidth/clientHeight</p>
-<p><span>其他写法</span>：outerWidth/outerHeight 它们会包括一些浏览器的工具栏，了解即可。</p>
-<h4 id="获取可视区域封装"><a href="#获取可视区域封装" class="headerlink" title="获取可视区域封装"></a>获取可视区域封装</h4><p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getViewportSize</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.innerWidth){</span><br><span class="line">        <span class="keyword">return</span>{</span><br><span class="line">            width: <span class="built_in">window</span>.innerWidth,</span><br><span class="line">            height: <span class="built_in">window</span>.innerHeight</span><br><span class="line">        }</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="comment">// 如果是怪异模式</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">document</span>.compatMode === <span class="string">"BackCompat"</span>){</span><br><span class="line">            <span class="keyword">return</span>{</span><br><span class="line">                width:<span class="built_in">document</span>.body.clientWidth,</span><br><span class="line">                heigth: <span class="built_in">document</span>.body.clientHeight</span><br><span class="line">            }</span><br><span class="line">        }<span class="keyword">else</span>{</span><br><span class="line">            <span class="keyword">return</span> {</span><br><span class="line">                        <span class="comment">// 这两个不包括滚动条，以上都包括</span></span><br><span class="line">                width: <span class="built_in">document</span>.documentElement.clientWidth,</span><br><span class="line">                height: <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/abb398ff/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-浏览器的兼容性模式"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/cbc93df7/">浏览器的兼容性模式</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-22 11:26:21" datetime="2020-09-22T03:26:21.000Z"  itemprop="datePublished">2020-09-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>浏览器的兼容性模式分为标准模式和怪异模式<br><span class="s_green">标准模式</span>:在顶部加上<span class="s_red">&lt;!DOCTYPE html&gt;</span>就变成标准模式。<br><span class="s_green">怪异模式</span>:把<span class="s_red">&lt;!DOCTYPE html&gt;</span>注释掉就会切换到怪异模式,怪异模式 -&gt; 向后兼容五个版本。</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/cbc93df7/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-查看滚动条距离与高度"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/6ad09b7c/">查看滚动条距离与高度</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-22 09:57:43" datetime="2020-09-22T01:57:43.000Z"  itemprop="datePublished">2020-09-22</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>查看滚动条的方式有分为两种一种是比较常见的，另一种是不常见的。</p>
-<p><span class="s_jacinth">比较常见</span>:<br><span class="s_red">window.pageXOffset/window.pageYOffset</span>ie9某一些版本及ie8以下不支持。<br><span class="s_green">ie9/ie8及以以下的写法：</span><br><span class="s_red">document.body.scrollLeft/scrollTop</span><br><span class="s_red">document.documentElement.scrollLeft/scrollTop</span></p>
-<p><span class="s_jacinth">不常见</span>:<br><span class="s_red">window.scrollX/scrollY</span></p>
-<hr>
-<p><span class="s_yellow">浏览器兼容情况</span><br>下面分别为<span class="s_js">标准模式（s）</span> 和 <span class="s_js">怪异模式（b）</span>，在下一篇详细的讲什么是标准模式和怪异模式。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/6ad09b7c/怪异模式和标准模式.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<p><span class="s_jacinth">结论:</span>从图中很清楚的看到document.body可以使用,那么document..documentElement就不可以使用，反之也是如此。</p>
-<hr>
-<h4 id="滚动条兼容性封装"><a href="#滚动条兼容性封装" class="headerlink" title="滚动条兼容性封装"></a>滚动条兼容性封装</h4><p>为了解决上述所出现的兼容性问题，我们将这些方法封装成一个功能模块，来解决这个问题。</p>
-<p><span class="s_red">获取滚动条滚动距离</span><br><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getScrollOffset</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">// 如果window.pageXOffset不为空</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.pageXOffset){</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            left: <span class="built_in">window</span>.pageXOffset,</span><br><span class="line">            top: <span class="built_in">window</span>.pageYOffset</span><br><span class="line">        }</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="keyword">return</span>{</span><br><span class="line">            <span class="comment">/* 因为document.body或document.documentElement</span></span><br><span class="line"><span class="comment">                不可用时就会是空，所以这样写可以。*/</span></span><br><span class="line">            left: <span class="built_in">document</span>.body.scrollLeft + <span class="built_in">document</span>.documentElement.scrollLeft,</span><br><span class="line">            top: <span class="built_in">document</span>.body.scrollTop + <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/6ad09b7c/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BOM/" rel="tag">BOM</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-日期对象"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/64d914d6/">日期对象</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-20 19:44:54" datetime="2020-09-20T11:44:54.000Z"  itemprop="datePublished">2020-09-20</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <p>JavaScript <span class="s_green">Date对象</span>用于处理日期和时间，Date对象会自动把当前日期和时间保存为其初始化值。</p>
-<hr>
-<h4 id="Date对象的常用方法"><a href="#Date对象的常用方法" class="headerlink" title="Date对象的常用方法"></a>Date对象的常用方法</h4><h5 id="getDate"><a href="#getDate" class="headerlink" title="getDate()"></a>getDate()</h5><p><span class="s_green">getDate() </span>放回当前是以一个月的第几天 1-31 返回几号</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> getDate = date.getDate();</span><br><span class="line"><span class="built_in">console</span>.log(getDate);</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h5 id="getDay"><a href="#getDay" class="headerlink" title="getDay()"></a>getDay()</h5><p><span class="s_green">getDay()</span>返回当前是一周中的第几天 0 - 6，星期天是第一天 ，返回 0 是星期天。</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.prototype.getWeekDay = <span class="function"><span class="keyword">function</span>(<span class="params">lang</span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> day = <span class="keyword">this</span>.getDay();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(day){</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期天'</span> : <span class="string">'Sunday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期一'</span> : <span class="string">'Monday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期二'</span> : <span class="string">'Tuesday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期三'</span> : <span class="string">'Wednesday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期四'</span> : <span class="string">'Thursday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期五'</span> : <span class="string">'Friday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">             <span class="keyword">return</span> lang === <span class="string">'chs'</span> ? <span class="string">'星期六'</span> : <span class="string">'saturday'</span>;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date.getWeekDay(<span class="string">'chs'</span>));</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h5 id="getMonth"><a href="#getMonth" class="headerlink" title="getMonth()"></a>getMonth()</h5><p><span class="s_green">getMonth()</span>返回当前为第几个月 0 -11</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">console</span>.log(date.getMonth()+<span class="number">1</span>);</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h5 id="getYear-和-getFullYear"><a href="#getYear-和-getFullYear" class="headerlink" title="getYear() 和 getFullYear()"></a>getYear() 和 getFullYear()</h5><p><span calss="s_jacinth">getYear()是不用了的，官方说使用<span class="s_green">getFullYear() 替换掉。getFullYear()从 Date 对象以四位数字返回年份。</span></span></p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="comment">// 千年虫 2000年问题 千禧年问题 千年危机</span></span><br><span class="line"><span class="built_in">console</span>.log(date.getYear());</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(date.getFullYear());</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h5 id="获取时分秒毫秒"><a href="#获取时分秒毫秒" class="headerlink" title="获取时分秒毫秒"></a>获取时分秒毫秒</h5><p><span class="s_green">getHours()</span>返回Date对象的小时 0-23<br><span class="s_green">getMinutes()</span>返回Date对象的分钟 0-59<br><span class="s_green">getSeconds()</span>返回Date对象的秒数 0-59<br><span class="s_green">getMilliseconds()</span>返回 Date 对象的毫秒(0 ~ 999)</p>
-<hr>
-<h4 id="getTime"><a href="#getTime" class="headerlink" title="getTime()"></a>getTime()</h4><p><span class="s_jacinth">getTime()</span> 返回距1970年1月1日之间的毫秒数。很重要！！需要了解时间戳 timeStamp</p>
-<p><span class="s_red">计算机纪元时间</span>：1970年1月0点0分0秒，过了多少毫秒 -&gt; 毫秒就是当前这个时间的时间戳</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++){</span><br><span class="line">    <span class="built_in">document</span>.write(i + <span class="string">' '</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> end = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(start,end);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把时间戳放进Date()里面可以返回具体时间</span></span><br><span class="line"><span class="keyword">var</span> dateTime = <span class="keyword">new</span> <span class="built_in">Date</span>(end);</span><br><span class="line"><span class="built_in">console</span>.log(dateTime);</span><br><span class="line"></span><br><span class="line"><span class="comment">// setTime 设置时间戳 -&gt; 设置成 2020年6月2日 </span></span><br><span class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">                        <span class="comment">//2020年6月2日的时间戳</span></span><br><span class="line"><span class="keyword">var</span> dateTime2 = date.setTime(<span class="number">1591027200000</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date);</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h5 id="设置时间"><a href="#设置时间" class="headerlink" title="设置时间"></a>设置时间</h5><p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date  = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">20</span>,<span class="number">23</span>,<span class="number">50</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> date2 = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'2020-05-21 23:05:50'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(date2);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面的和下面没有任何区别 推荐使用上面的</span></span><br><span class="line">    <span class="comment">// date.setFullYear(2020);</span></span><br><span class="line">    <span class="comment">// date.setMonth(5);</span></span><br><span class="line">    <span class="comment">// date.setDate(7);</span></span><br><span class="line">    <span class="comment">// date.setHours(20);</span></span><br><span class="line">    <span class="comment">// date.setMinutes(24);</span></span><br><span class="line">    <span class="comment">// date.setSeconds(23);</span></span><br><span class="line">    <span class="comment">// date.setMilliseconds(53);</span></span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="计时器-gt-setInterval"><a href="#计时器-gt-setInterval" class="headerlink" title="计时器 -> setInterval"></a>计时器 -&gt; setInterval</h4><p><span class="s_green">setInterval</span>每隔特定的毫秒数时间执行一次内部函数，window下的方法。</p>
-<p><span class="s_js">JavaScript</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line">    setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">    },<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line">    setInterval(test,<span class="number">1000</span>); <span class="comment">//注意是没有括号的</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法三</span></span><br><span class="line">    setInterval(<span class="string">'test2()'</span>,<span class="number">1000</span>); <span class="comment">// 注意这样就要写括号了</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line">    <span class="keyword">var</span> time = <span class="number">1000</span>;</span><br><span class="line">    setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line"></span><br><span class="line">    },time);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注意这是更改不了的 setInterval在运行的时候只会取一次值</span></span><br><span class="line">    time = <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p><span class="s_red">返回值 -&gt; 唯一标识</span> 每一个计时器系统都会分配它一个唯一标识。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer1 = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer2 = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{},<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(timer,timer1,timer2);</span><br></pre></td></tr></tbody></table></figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/posts/64d914d6/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-
-<hr>
-<h4 id="清除计时器-gt-clearInterval"><a href="#清除计时器-gt-clearInterval" class="headerlink" title="清除计时器 -> clearInterval"></a>清除计时器 -&gt; clearInterval</h4><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    a++;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(a &gt; <span class="number">5</span>){</span><br><span class="line">        clearInterval(timer);</span><br><span class="line">    }</span><br><span class="line">},<span class="number">1000</span>);</span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="延时器-gt-setTimeout"><a href="#延时器-gt-setTimeout" class="headerlink" title="延时器 -> setTimeout"></a>延时器 -&gt; setTimeout</h4><p><span class="s_red">setTimeout</span> 延迟特定毫秒数执行一次函数</p>
-<p><span class="s_green">html</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>setTimeout案例<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>获取更多数据<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oBtn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>)[<span class="number">0</span>];</span></span><br><span class="line"><span class="actionscript">        oBtn.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</span></span><br><span class="line"><span class="actionscript">            <span class="keyword">this</span>.innerHTML = <span class="string">"加载中...."</span>;</span></span><br><span class="line">            </span><br><span class="line"><span class="actionscript">            <span class="comment">// 加下划线是这个函数私有的变量</span></span></span><br><span class="line"><span class="actionscript">            <span class="keyword">var</span> _self = <span class="keyword">this</span>;</span></span><br><span class="line"><span class="actionscript">            setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(_self);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">                _self.innerHTML = <span class="string">'获取更多数据'</span>;</span></span><br><span class="line">            },2000);</span><br><span class="line">        }</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="clearTimeout"><a href="#clearTimeout" class="headerlink" title="clearTimeout"></a>clearTimeout</h4><p><span class="s_red">clearTimeout</span> 清除延时器</p>
-<p><span class="s_green">html</span></p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>clearTimeout案例<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>5秒跳转百度<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oPara = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="javascript">            oBtn = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'button'</span>)[<span class="number">0</span>],</span></span><br><span class="line">            </span><br><span class="line"><span class="actionscript">            t = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</span></span><br><span class="line"><span class="actionscript">                location.href = <span class="string">'http://www.baidu.com'</span>;</span></span><br><span class="line">            },5000);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">            oBtn.onclick = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</span></span><br><span class="line">                clearTimeout(t);</span><br><span class="line"><span class="actionscript">                oPara.innerHTML = <span class="string">'已取消跳转'</span>;</span></span><br><span class="line">            }</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<hr>
-<h4 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h4><p>1、原型上编程，写一个数字时钟<br>2、原型上编程，写一个倒计时，如果位数不足两位的加个零</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/64d914d6/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Date/" rel="tag">Date</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-DOM作业"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/b02f6fe6/">DOM作业</a>
-    </h3>
-  
-
-
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2020-09-17 16:01:50" datetime="2020-09-17T08:01:50.000Z"  itemprop="datePublished">2020-09-17</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-    
-        <div class="post-more-div">
-            <a href="/posts/b02f6fe6/" class="post-more waves-button">
-                Continue reading...
-            </a>
-        </div>
     </div>
     
 </article>
@@ -1033,7 +1231,7 @@
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
     </div>
 </nav>
 

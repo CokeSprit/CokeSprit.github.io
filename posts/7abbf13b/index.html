@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Vue知识点 | CokeSprit | 爱生活,爱编程</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Vue">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+	<script src="//hm.baidu.com/hm.js?fb0c91ff53575b161978475ac07850b8"></script>
+
+
+    
+    <meta name="description" content="Vue知识点基础知识Vue指令12345678v-on或@&#x2F;&#x2F;绑定事件v-text&#x2F;&#x2F;渲染文本v-html&#x2F;&#x2F;渲染html标签v-show&#x2F;&#x2F;操控样式隐藏显示v-if&#x2F;&#x2F;操作dom隐藏显示,高切换频率用v-show，反之用v-ifv-bind:class或:class&#x2F;&#x2F;设置属性v-for((item,index) in data)&#x2F;&#x2F;遍历data,item为值，index为下标v-model&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue知识点">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/7abbf13b/index.html">
+<meta property="og:site_name" content="CokeSprit">
+<meta property="og:description" content="Vue知识点基础知识Vue指令12345678v-on或@&#x2F;&#x2F;绑定事件v-text&#x2F;&#x2F;渲染文本v-html&#x2F;&#x2F;渲染html标签v-show&#x2F;&#x2F;操控样式隐藏显示v-if&#x2F;&#x2F;操作dom隐藏显示,高切换频率用v-show，反之用v-ifv-bind:class或:class&#x2F;&#x2F;设置属性v-for((item,index) in data)&#x2F;&#x2F;遍历data,item为值，index为下标v-model&#x2F;&#x2F;">
+<meta property="article:published_time" content="2021-07-09T09:46:34.000Z">
+<meta property="article:modified_time" content="2021-07-09T09:46:49.306Z">
+<meta property="article:author" content="CokeSprit">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">CokeSprit</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:2665281140@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/cokesprit" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6179399347" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+            
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Vue知识点</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Vue知识点"><span class="post-toc-number">1.</span> <span class="post-toc-text">Vue知识点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#基础知识"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基础知识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Vue指令"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Vue指令</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#生命周期"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">生命周期</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#鼠标事件"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">鼠标事件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#键盘事件"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">键盘事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进阶"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">进阶</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#组件使用"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">组件使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#路由的使用"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">路由的使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#计算属性和监听更新"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">计算属性和监听更新</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#keep-alive的使用"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">keep-alive的使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#vuex的使用"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">vuex的使用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#axios的使用"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">axios的使用</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Vue知识点"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Vue知识点</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-07-09 17:46:34" datetime="2021-07-09T09:46:34.000Z"  itemprop="datePublished">2021-07-09</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">6</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="Vue知识点"><a href="#Vue知识点" class="headerlink" title="Vue知识点"></a>Vue知识点</h3><h4 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h4><h5 id="Vue指令"><a href="#Vue指令" class="headerlink" title="Vue指令"></a>Vue指令</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">v-on或@<span class="comment">//绑定事件</span></span><br><span class="line">v-text<span class="comment">//渲染文本</span></span><br><span class="line">v-html<span class="comment">//渲染html标签</span></span><br><span class="line">v-show<span class="comment">//操控样式隐藏显示</span></span><br><span class="line">v-<span class="keyword">if</span><span class="comment">//操作dom隐藏显示,高切换频率用v-show，反之用v-if</span></span><br><span class="line">v-bind:class或:class//设置属性</span><br><span class="line">v-<span class="keyword">for</span>((item,index) <span class="keyword">in</span> data)<span class="comment">//遍历data,item为值，index为下标</span></span><br><span class="line">v-model<span class="comment">//双向绑定，Vue是采用数据劫持结合发布/订阅模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>beforeCreate<span class="comment">//创建前		el和data未初始化，无法访问methods,data,computed等上的方法和数据,可拦截进入页面</span></span><br><span class="line"><span class="number">2.</span>created<span class="comment">//创建后			data初始化，el没有，无法操作DOM，对实例进行预处理、依赖引入,【服务端渲染】</span></span><br><span class="line"><span class="number">3.</span>beforeMount<span class="comment">//挂载前		data数据、模板生成html，el和data初始化，注意此时还没有挂在html到页面上</span></span><br><span class="line"><span class="number">4.</span>mounted<span class="comment">//挂载后			真实dom替换虚拟dom，一般操作ajax</span></span><br><span class="line"><span class="number">5.</span>beforeUpdate<span class="comment">//更新前		虚拟DOM重新渲染之前，不会触发多次渲染过程</span></span><br><span class="line"><span class="number">6.</span>Updated<span class="comment">//更新后			可以执行依赖于DOM的操作</span></span><br><span class="line"><span class="number">7.</span>beforeDestroy<span class="comment">//销毁前	在实例销毁之前调用，执行重置的操作，如清除定时器、监听的dom事件</span></span><br><span class="line"><span class="number">8.</span>Destroyed<span class="comment">//销毁后		所以的事件监听器会被移出，所有的子实例也会被销毁</span></span><br><span class="line"><span class="comment">//页面跳转旧页面的Destroyed会在新页面的created之后执行</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h4><h5 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@click<span class="comment">//单击</span></span><br><span class="line">@mousedown<span class="comment">//按下</span></span><br><span class="line">@mouseup<span class="comment">//抬起</span></span><br><span class="line">@dblclick<span class="comment">//双击</span></span><br><span class="line">@mousemove<span class="comment">//移动</span></span><br><span class="line">@mouseleave<span class="comment">//离开【移出子级不触发】</span></span><br><span class="line">@mouseout <span class="comment">//移出【移出子级触发】</span></span><br><span class="line">@mouseenter<span class="comment">//进入</span></span><br><span class="line">@mouseover<span class="comment">//在</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@onkeydown<span class="comment">//键盘按下</span></span><br><span class="line">@keyup<span class="comment">//键盘松开【enter或13(回车)、left(左)、right(右)、up(上)、down(下)、.delete(删除键)】</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>vue阻止事件、冒泡、捕获：</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.stop<span class="comment">//加载子事件@click.stop</span></span><br><span class="line">.prevent<span class="comment">//阻止默认事件</span></span><br><span class="line">.self<span class="comment">//点自身触发，点击子元素不触发</span></span><br><span class="line">.capture<span class="comment">//事件捕获，执行父级再执行子级</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h4 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h4><h5 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父级</span></span><br><span class="line">&lt;Test /&gt;<span class="comment">//使用	:data="值"【父传子】	@emit="emits"</span></span><br><span class="line"><span class="keyword">import</span> Test <span class="keyword">from</span> <span class="string">'@/components/text.vue'</span>;<span class="comment">//导入</span></span><br><span class="line">components: {<span class="comment">//注册</span></span><br><span class="line">    Test,</span><br><span class="line">},</span><br><span class="line">emits(val){}<span class="comment">//val为子传回来的值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//子组件</span></span><br><span class="line">props:{<span class="comment">//子组件接手父组件的值</span></span><br><span class="line">    data: {</span><br><span class="line">        type: [<span class="built_in">String</span>],</span><br><span class="line">        <span class="keyword">default</span>: <span class="string">'值'</span></span><br><span class="line">    },</span><br><span class="line">}</span><br><span class="line"><span class="keyword">this</span>.$emit(<span class="string">'emit'</span>,val)<span class="comment">//子传父</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="路由的使用"><a href="#路由的使用" class="headerlink" title="路由的使用"></a>路由的使用</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//template中跳转</span></span><br><span class="line">&lt;router-link to=<span class="string">"/test"</span>&gt;Test&lt;<span class="regexp">/router-link&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/script中跳转</span></span><br><span class="line"><span class="regexp">this.$router.push('/</span>test<span class="string">')</span></span><br><span class="line"><span class="string">//传参操作</span></span><br><span class="line"><span class="string">//params类比post【参数不会显示在页面中】,query类比get【参数在?后面，且用&amp;连接】</span></span><br><span class="line"><span class="string">//router中设置props:true,可在子组件通过props接收参数</span></span><br><span class="line"><span class="string">//query传参</span></span><br><span class="line"><span class="string">this.$router.push({</span></span><br><span class="line"><span class="string">    path: '</span>/test<span class="string">',</span></span><br><span class="line"><span class="string">    query: {</span></span><br><span class="line"><span class="string">        id: 1</span></span><br><span class="line"><span class="string">    }</span></span><br><span class="line"><span class="string">})</span></span><br><span class="line"><span class="string">//接收</span></span><br><span class="line"><span class="string">this.$route.query.id</span></span><br><span class="line"><span class="string">//params传参</span></span><br><span class="line"><span class="string">{path: '</span>/d/:name/:id<span class="string">', name: D,}//路由配置	name和id两个参数</span></span><br><span class="line"><span class="string">this.$router.push({</span></span><br><span class="line"><span class="string">    name: `D`,//name与router的name一致才能传参</span></span><br><span class="line"><span class="string">    params:{</span></span><br><span class="line"><span class="string">        name:'</span>lzy<span class="string">',</span></span><br><span class="line"><span class="string">        id:'</span><span class="number">1</span><span class="string">'</span></span><br><span class="line"><span class="string">    }</span></span><br><span class="line"><span class="string">});</span></span><br><span class="line"><span class="string"> //接收</span></span><br><span class="line"><span class="string"> this.$route.params.name</span></span><br><span class="line"><span class="string"> this.$route.params.id</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">// 路由的两种模式</span></span><br><span class="line"><span class="string"> hash、history</span></span><br><span class="line"><span class="string"> //hash是在浏览器URL上有#符号，hash虽然出现在URL中，但不会被包括在HTTP请求中，对后端完全没有影响，因此改变hash不会重新加载页面。</span></span><br><span class="line"><span class="string"> //history 前端的URL必须和实际向后端发起请求的URL一致。如果后端缺少对参数的路由处理，将返回404错误</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="计算属性和监听更新"><a href="#计算属性和监听更新" class="headerlink" title="计算属性和监听更新"></a>计算属性和监听更新</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//computed计算属性 常用于计算复杂的表达式</span></span><br><span class="line">computed:{</span><br><span class="line">    num:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="comment">//this.num可以读到</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.num1+<span class="keyword">this</span>.num2;<span class="comment">//num1和num2不发生变化会读取缓存不会造成多次计算</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">//watch监听数据变化</span></span><br><span class="line">watch:{</span><br><span class="line">    data(val){<span class="comment">//监听data的变化,val是data改变后的值</span></span><br><span class="line">        </span><br><span class="line">    },</span><br><span class="line">    data:{<span class="comment">//监听data的变化</span></span><br><span class="line">        handler(newVal,oldVal){<span class="comment">//newVal新的数据，oldVal老的数据【监听深度属性】</span></span><br><span class="line">        	</span><br><span class="line">        },</span><br><span class="line">        deep:<span class="literal">true</span>,<span class="comment">//深度监听，可监听对象属性的变化</span></span><br><span class="line">        immediate:<span class="literal">false</span>,<span class="comment">//第一次绑定不执行，数据变化才执行，true第一次就执行</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="comment">//newVal,oldVal要配合computed用</span></span><br><span class="line">computed:{</span><br><span class="line">    data(){</span><br><span class="line">         <span class="comment">// 对 data 进行一层数据深拷贝</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.data));</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="keep-alive的使用"><a href="#keep-alive的使用" class="headerlink" title="keep-alive的使用"></a>keep-alive的使用</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//作用：缓存被包裹的组建的状态不会被销毁</span></span><br><span class="line">include=<span class="string">"a,b"</span><span class="comment">//缓存指定组件</span></span><br><span class="line">exclude=<span class="string">'a'</span><span class="comment">//不缓存指定组件</span></span><br><span class="line">activated： <span class="comment">//页面第一次进入的时候，钩子触发的顺序是created-&gt;mounted-&gt;activated</span></span><br><span class="line">deactivated:  <span class="comment">//页面退出的时候会触发deactivated，当再次前进或者后退的时候只触发activated</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h5 id="vuex的使用"><a href="#vuex的使用" class="headerlink" title="vuex的使用"></a>vuex的使用</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//公共状态管理</span></span><br><span class="line"><span class="keyword">import</span> vuex <span class="keyword">from</span> <span class="string">'vuex'</span>;<span class="comment">//导入</span></span><br><span class="line">  state: {<span class="comment">//基本数据</span></span><br><span class="line">    num: <span class="number">0</span></span><br><span class="line">  },</span><br><span class="line">  getters: {<span class="comment">//从基本数据派生的数据</span></span><br><span class="line">    GetNum(state) {</span><br><span class="line">      <span class="keyword">return</span> state.num;</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  mutations: {<span class="comment">//提交更改数据的方法，同步！</span></span><br><span class="line">    increase(state,numbers) {</span><br><span class="line">      state.num+= numbers ? numbers : <span class="number">1</span>;</span><br><span class="line">    },</span><br><span class="line">  },</span><br><span class="line">  actions: {<span class="comment">//像一个装饰器，包裹mutations，使之可以异步。</span></span><br><span class="line">    reduceAsync(context){</span><br><span class="line">      context.commit(<span class="string">'increase'</span>)</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  modules: {<span class="comment">//模块化Vuex</span></span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line"><span class="keyword">import</span> {mapMutations,mapActions} <span class="keyword">from</span> <span class="string">'vuex'</span><span class="comment">//导入</span></span><br><span class="line"><span class="comment">//methods中使用</span></span><br><span class="line"><span class="keyword">this</span>.$store.getters.GetNum<span class="comment">//使用getters的方法</span></span><br><span class="line">...mapMutations([<span class="string">'increase'</span>]),<span class="comment">//使用mutations中的方法</span></span><br><span class="line">...mapActions([<span class="string">'reduceAsync'</span>]),<span class="comment">//使用actions中的方法</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h5 id="axios的使用"><a href="#axios的使用" class="headerlink" title="axios的使用"></a>axios的使用</h5><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span>;<span class="comment">//导入</span></span><br><span class="line"><span class="keyword">const</span> service = axios.create({</span><br><span class="line">  baseURL: url, <span class="comment">// url = base url + 请求url</span></span><br><span class="line">  timeout: <span class="number">50000</span> <span class="comment">// 请求超时时间</span></span><br><span class="line">})</span><br><span class="line"><span class="comment">//请求拦截</span></span><br><span class="line">service.interceptors.request.use(</span><br><span class="line">  config =&gt; {<span class="comment">//请求前</span></span><br><span class="line">   <span class="keyword">if</span>(localStorage.getItem(<span class="string">'token'</span>)){</span><br><span class="line">       config.headers.token = localStorage.getItem(<span class="string">'token'</span>)<span class="comment">//请求前把</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  },</span><br><span class="line">  error =&gt; {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)<span class="comment">//返回错误</span></span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"><span class="comment">//相应拦截</span></span><br><span class="line">requests.interceptors.response.use(<span class="function">(<span class="params">response</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">const</span> res = response.data</span><br><span class="line">  <span class="keyword">if</span> (res.code==<span class="number">200</span>) { </span><br><span class="line">    <span class="keyword">return</span> res<span class="comment">//返回then</span></span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="string">'error'</span>)<span class="comment">//返回catch</span></span><br><span class="line">  }</span><br><span class="line">}, error =&gt; {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)<span class="comment">//返回catch</span></span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> service.request<span class="comment">//导出事件</span></span><br><span class="line"><span class="comment">//使用 main.js</span></span><br><span class="line"><span class="keyword">import</span> request <span class="keyword">from</span> <span class="string">'@/utils/request'</span></span><br><span class="line">Vue.prototype.req = request;</span><br><span class="line"><span class="comment">//template中使用</span></span><br><span class="line"><span class="keyword">this</span>.req({</span><br><span class="line">    url: <span class="string">'Index/index'</span>,<span class="attr">data</span>: {},<span class="attr">method</span>: <span class="string">"POST"</span></span><br><span class="line">}).then(<span class="function"><span class="params">res</span> =&gt;</span> {<span class="comment">//成功</span></span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">}.catch(error)=&gt;{<span class="comment">//失败</span></span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2021-07-09T09:46:49.306Z" itemprop="dateUpdated">2021-07-09 17:46:49</time>
+</span>
+
+
+        
+        原文链接：<a href="/posts/7abbf13b/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/7abbf13b/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://cokesprit.gitee.io'">
+            <img src="/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/7abbf13b/&title=《Vue知识点》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/7abbf13b/&title=《Vue知识点》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/7abbf13b/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue知识点》 — CokeSprit&url=https://cokesprit.gitee.io/posts/7abbf13b/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/7abbf13b/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/737c58a6/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：javascript知识点
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/1b8b0a5d/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Vue+ts时的@Model">下一篇：Vue+ts时的@Model</h4>
+      </a>
+    </div>
+  
+
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2020
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="https://cokesprit.gitee.io">CokeSprit.top</a>
+        </span>
+
+        <br/>
+        <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
+
+        
+
+        <!-- 访问人数
+        <span>
+            
+
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        <br/> -->
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/7abbf13b/&title=《Vue知识点》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/7abbf13b/&title=《Vue知识点》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/7abbf13b/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Vue知识点》 — CokeSprit&url=https://cokesprit.gitee.io/posts/7abbf13b/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/7abbf13b/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3ay67CMAyE4b7/S5ctUqmZ8cShSH9WR1DSL2dh+ZLjkNd5We+f689c9zwmFly4cGPuWa7rM8kB3Cc/HAkuXLgbuXWgqYPOaS59f7hw4f4XV0lQ7n4VpUFw4cJ9JFdBuIeBCxfuM7l6OnJXDvW6GYO1Gly4cAOu/rK5v0f6u3Dhwm1xk3aG3jztNUk/7AkXLtwtXLfBoaQgCq73Xrhw4e7hTgxRknZqvSdcuHB3cntBSglVvZFMlJHBhQs35uoFic51ixx70AIXLtxhbq84cYNdcoDb4gcuXLjDXDegKANXd2e7+IELF+4w191OL3Xc5424Cxcu3GGu3ZgwxyR1UDOuhcGFC3cL1x2HuE0N/R+hJ09w4cLdw1XKmN5VqqT4kYa1cOHCHeMq45BVDVM3GZKGrHDhwh3mJiOQJKgZyRZcuHB/xFXCTZK4KGjja7hw4S7lJmGoDjp1+HObLHDhwt3J1Vde8PS6Nc3DwIULN+baY87WK5VSyh6fwIULd5ibBxr9msXiWg0uXLgP4CYXJvKmKly4cJ/JVYaj0R2QWggXLtyNXKX4SS5buMnNlyErXLhwh7luKFlF6V3VggsX7jD3BagZ4jErLOhPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 600){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "CokeSprit");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 尽人事,听天命 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+
+</body>
+</html>

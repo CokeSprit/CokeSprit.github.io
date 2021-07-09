@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>javascript知识点 | CokeSprit | 爱生活,爱编程</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="js笔记">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+	<script src="//hm.baidu.com/hm.js?fb0c91ff53575b161978475ac07850b8"></script>
+
+
+    
+    <meta name="description" content="javascriptECMAScritp组成ECMAScript(语法)+DOM（页面文档对象模型）+BOM（浏览器对象模型） 弹窗prompt()【输入框】、alert【警示框】、confirm【确认框】 基本数据类型字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol【ES6】 引用数据类型(复杂数据类型)：对象(Ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript知识点">
+<meta property="og:url" content="https://cokesprit.gitee.io/posts/737c58a6/index.html">
+<meta property="og:site_name" content="CokeSprit">
+<meta property="og:description" content="javascriptECMAScritp组成ECMAScript(语法)+DOM（页面文档对象模型）+BOM（浏览器对象模型） 弹窗prompt()【输入框】、alert【警示框】、confirm【确认框】 基本数据类型字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol【ES6】 引用数据类型(复杂数据类型)：对象(Ob">
+<meta property="article:published_time" content="2021-07-09T09:48:01.000Z">
+<meta property="article:modified_time" content="2021-07-09T09:48:40.799Z">
+<meta property="article:author" content="CokeSprit">
+<meta property="article:tag" content="js笔记">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="CokeSprit" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu"  class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" >
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">CokeSprit</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/"  >
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives"  >
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories"  >
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags"  >
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about"  >
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:2665281140@qq.com" target="_parent"title="Email" >
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/cokesprit" target="_blank"title="Github" >
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/6179399347" target="_blank"title="微博" >
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+            
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">javascript知识点</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>目录</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#javascript"><span class="post-toc-number">1.</span> <span class="post-toc-text">javascript</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ECMAScritp"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">ECMAScritp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#组成"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">组成</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#弹窗"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">弹窗</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#基本数据类型"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">基本数据类型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#引用数据类型-复杂数据类型-："><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">引用数据类型(复杂数据类型)：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#类型转变"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">类型转变</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#检查数据类型"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">检查数据类型</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据类型转换"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">数据类型转换</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#循环"><span class="post-toc-number">1.1.8.</span> <span class="post-toc-text">循环</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#获取函数所有实参"><span class="post-toc-number">1.1.9.</span> <span class="post-toc-text">获取函数所有实参</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#let和const区别"><span class="post-toc-number">1.1.10.</span> <span class="post-toc-text">let和const区别</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#内置对象"><span class="post-toc-number">1.1.11.</span> <span class="post-toc-text">内置对象</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Math"><span class="post-toc-number">1.1.12.</span> <span class="post-toc-text">Math</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Date【new-Date-】"><span class="post-toc-number">1.1.13.</span> <span class="post-toc-text">Date【new Date()】</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Array"><span class="post-toc-number">1.1.14.</span> <span class="post-toc-text">Array</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#有返回值改变原数组"><span class="post-toc-number">1.1.14.1.</span> <span class="post-toc-text">有返回值改变原数组</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#有返回值不改变原数组"><span class="post-toc-number">1.1.14.2.</span> <span class="post-toc-text">有返回值不改变原数组</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#String"><span class="post-toc-number">1.1.15.</span> <span class="post-toc-text">String</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DOM"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">DOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#document"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">document</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#事件冒泡与委托"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">事件冒泡与委托</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#鼠标事件"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">鼠标事件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#移动端事件"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">移动端事件</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#键盘事件"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">键盘事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BOM"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">BOM</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#可视化区域宽"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">可视化区域宽</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#元素偏移"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">元素偏移</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#scroll"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">scroll</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#定时器"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">定时器</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#history"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">history</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#location"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">location</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#sessionStorage-关闭浏览器窗口即失效"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">sessionStorage(关闭浏览器窗口即失效)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#localStorage-永久生效，可手动删除"><span class="post-toc-number">1.3.8.</span> <span class="post-toc-text">localStorage(永久生效，可手动删除)</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Cookie-可设置失效时间"><span class="post-toc-number">1.3.9.</span> <span class="post-toc-text">Cookie(可设置失效时间)</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-javascript知识点"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">javascript知识点</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2021-07-09 17:48:01" datetime="2021-07-09T09:48:01.000Z"  itemprop="datePublished">2021-07-09</time>
+
+            <br id="mybreak"/>
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="javascript"><a href="#javascript" class="headerlink" title="javascript"></a>javascript</h3><h4 id="ECMAScritp"><a href="#ECMAScritp" class="headerlink" title="ECMAScritp"></a>ECMAScritp</h4><h5 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h5><p><code>ECMAScript(语法)+DOM（页面文档对象模型）+BOM（浏览器对象模型）</code></p>
+<h5 id="弹窗"><a href="#弹窗" class="headerlink" title="弹窗"></a>弹窗</h5><p><code>prompt()【输入框】、alert【警示框】、confirm【确认框】</code></p>
+<h5 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h5><p><code>字符串（String）、数字(Number)、布尔(Boolean)、空（Null）、未定义（Undefined）、Symbol【ES6】</code></p>
+<h5 id="引用数据类型-复杂数据类型-："><a href="#引用数据类型-复杂数据类型-：" class="headerlink" title="引用数据类型(复杂数据类型)："></a>引用数据类型(复杂数据类型)：</h5><p><code>对象(Object)、数组(Array)、函数(Function)。</code></p>
+<h5 id="类型转变"><a href="#类型转变" class="headerlink" title="类型转变"></a>类型转变</h5><p><code>【Undefined+1=NaN】、【Undefined+“1”=“Undefined1”】【“str”+1=“str1”】、【true+1=2、flase+1=1】、【null==undefined=&gt;true】、【null+1=1、null+"1"=“null1”】</code></p>
+<h5 id="检查数据类型"><a href="#检查数据类型" class="headerlink" title="检查数据类型"></a>检查数据类型</h5><p><code>typeof、instanceof 【判断对象的具体类型】、constructor【undefined和null没有contructor属性】、Object.prototype.toString.call(变量)</code></p>
+<h5 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h5><p><code>toString()【转换字符串】、String(12)【强制转换字符串】、praseInt(string)【转数值】、Number(string)【字符串强制转化成数值】、praseFloat(string)【字符串转浮点型数值】、【- * /隐式转换数值型】、Boolean()【转布尔值【非空字符串、数字为true】】；</code></p>
+<h5 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h5><p><code>for(let i=0;&lt;arr.length;i++){}【遍历数组】</code></p>
+<p><code>for(var k in Object){}【遍历对象，K是key值】</code></p>
+<p><code>for(var val of Array){}【遍历数组，val是值】</code></p>
+<p><code>arr.filter(item =&gt; item)【item为值】</code></p>
+<p><code>while(){}、do{}while();</code></p>
+<p><code>continue【跳出本次循环】、break【结束循环】;</code></p>
+<h5 id="获取函数所有实参"><a href="#获取函数所有实参" class="headerlink" title="获取函数所有实参"></a>获取函数所有实参</h5><p><code>arguements</code></p>
+<h5 id="let和const区别"><a href="#let和const区别" class="headerlink" title="let和const区别"></a>let和const区别</h5><p><code>都只在块级作用域起作用，let可以改变，const声明的基本变量不可改变【对象可通过对属性进行改变】</code></p>
+<h5 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h5><h5 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h5><p><code>ceil(x)【向上取整】、floor(x)【向下取整】、max(x)【取最大值】、min【取最小值】、random【取随机数】、round(x)【四舍五入】、sqrt(x)【开方】、abs(x)【绝对值】</code></p>
+<h5 id="Date【new-Date-】"><a href="#Date【new-Date-】" class="headerlink" title="Date【new Date()】"></a>Date【new Date()】</h5><p><code>【get、set】、FullYear()【年】、Month()【月0-11】、Date()【日1-31】、Day【星期0-6】、Hours()【小时】、Minutes()【分】、Seconds()【秒】、Time()【返回距 1970 年 1 月 1 日之间的毫秒数】</code></p>
+<h5 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h5><h6 id="有返回值改变原数组"><a href="#有返回值改变原数组" class="headerlink" title="有返回值改变原数组"></a>有返回值改变原数组</h6><p><code>push()【后追，返回长度】、pop()【后删，返回删除的值】、unshift()【前追，返回长度】、shift()【前删，返回第一个元素的值】、splice(起,个,内容)【删除，返回删除的值数组】、reverse()【颠倒数组，返回颠倒后的数组】、sort()【排序，返回排序后的数组】</code></p>
+<h6 id="有返回值不改变原数组"><a href="#有返回值不改变原数组" class="headerlink" title="有返回值不改变原数组"></a>有返回值不改变原数组</h6><p><code>join('-')【转字符串】、slice(头，尾)【返回选定的元素】、indexOf(str,num)【查找数组是否存在str，有返回下标，无返回-1,从第num开始查找【选填】】</code></p>
+<p><code>arr.concat()【连接多个】、Array.isArray(arr)【判断是否为数组】</code></p>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><p><code>charAt(index)【返回指定位置字符】、charCodeAt【返回指定位置字符ASCII值】、reblac(a,b)【a替换成b】、split('-')【字符转数组】</code></p>
+<h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><h5 id="document"><a href="#document" class="headerlink" title="document"></a>document</h5><p><code>getElementById【返回指定 id 的第一个对象的引用】、getElementByClassName【获取所有指定类名的元素】、getElementByName【返回带有指定名称的对象集合】、getElementTagName【返回带有指定标签名的对象集合】、querySelector【返回指定选择器的第一个元素】、querySelectorAll【返回指定选择器的所有元素】、parentNode【获取父节点】、children【获取所有子节点】、removeChild【删除节点】；</code></p>
+<p><code>【.getAttribute()【返回指定的属性值【.dataset.index【H5】】】、.setAttribute()【把指定属性设置或修改为指定的值】】、【.innerHTML【返回当前元素对象的所有内容，包括HTML标签】、innerText【返回当前元素对象的文本内容，不包括HTML标签】、.style.样式="样式"【清除样式】、.style.样式=""【清除样式】、.classList.add("className")【添加类】、.classList.remove("className")【删除类】】；</code></p>
+<h5 id="事件冒泡与委托"><a href="#事件冒泡与委托" class="headerlink" title="事件冒泡与委托"></a>事件冒泡与委托</h5><p><code>【function(even){e.target;【获取触发事件的对象、可用于事件委托【将事件绑定在父级，通过e.target绑定子事件】】e.stopPropagation;【阻止事件冒泡】}】</code></p>
+<h5 id="鼠标事件"><a href="#鼠标事件" class="headerlink" title="鼠标事件"></a>鼠标事件</h5><p><code>onclick【点击】、onfocus【聚焦】、onblur【失去焦点】、onmouseover【经过子元素再次触发】【onmouseenter【经过子元素不触发】】、onmouseout【离开】【onmouseleave【不会冒泡】】、onmousemove【移动】、onmouseup【弹起】、onmousedown【按下】；</code></p>
+<h5 id="移动端事件"><a href="#移动端事件" class="headerlink" title="移动端事件"></a>移动端事件</h5><p><code>touchstart【手指触摸时】、touchmove【手指滑动时】、touchend【手指离开时】</code></p>
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><p><code>onkeyup【松开】、onkeydown【按下不区分大小写】、onkeypress【按下且区分大小写】</code></p>
+<h4 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h4><p><strong>windows:</strong>=====&gt;&gt;&gt;&gt;&gt;&gt;</p>
+<p><code>windows.onload=function(){}【窗口加载完毕再执行里面代码】</code></p>
+<h5 id="可视化区域宽"><a href="#可视化区域宽" class="headerlink" title="可视化区域宽"></a>可视化区域宽</h5><p><code>innerHeight【可视化区域高度，包含滚动条】、document.documentElement.clientHeight【可视化区域高度，不包含滚动条】、innerWidth【窗口文档显示区的宽度】</code></p>
+<h5 id="元素偏移"><a href="#元素偏移" class="headerlink" title="元素偏移"></a>元素偏移</h5><p><code>offsetTop【元素与顶部距离【父级无定位】】、offsetWidth【返回可视化元素宽度包含边框】、clientWidth【返回可视化元素宽度不包含边框】</code></p>
+<h5 id="scroll"><a href="#scroll" class="headerlink" title="scroll"></a>scroll</h5><p><code>scrollTop【滚动条距离顶部高度】、scrollWidth【实际宽度不包含边框】</code></p>
+<h5 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h5><p><code>setTimeout(()=&gt;{},1000)【设置定时器】、clearTimeout()【清除定时器】、setInterval()【重复定时】、clearInterval()【清除重复定时】</code></p>
+<h5 id="history"><a href="#history" class="headerlink" title="history"></a>history</h5><p><code>back()【加载 history 列表中的前一个 URL】、forward()【加载 history 列表中的下一个 URL】、go()【加载 history 列表中的某个具体页面】</code></p>
+<h5 id="location"><a href="#location" class="headerlink" title="location"></a>location</h5><p><code>href【返回完整地址或跳转】、hash【设置或返回从 (#) 开始的 URL】、host【设置或返回主机名和端口号】、hostname    【设置或返回主机名】、pathname【设置或返回路径部分】、port【设置或返回端口号】、search【设置或返回从 (?) 开始的 URL】、query【获取参数】、【reload()【刷新页面，true为强制刷新】】</code></p>
+<h5 id="sessionStorage-关闭浏览器窗口即失效"><a href="#sessionStorage-关闭浏览器窗口即失效" class="headerlink" title="sessionStorage(关闭浏览器窗口即失效)"></a>sessionStorage(关闭浏览器窗口即失效)</h5><p><code>setItem(key,val)【设置session】、getItem(key)【获取指定Key的session】、removeItem(key)【删除指定Key的session】、clear()【删除所有session】</code></p>
+<h5 id="localStorage-永久生效，可手动删除"><a href="#localStorage-永久生效，可手动删除" class="headerlink" title="localStorage(永久生效，可手动删除)"></a>localStorage(永久生效，可手动删除)</h5><p><code>使用方法与sessuionStoragr一致</code>，存放数据大小为5MB左右 。</p>
+<h5 id="Cookie-可设置失效时间"><a href="#Cookie-可设置失效时间" class="headerlink" title="Cookie(可设置失效时间)"></a>Cookie(可设置失效时间)</h5><p><code>窗口或浏览器关闭仍存在。 存放数据大小为4K左右 。</code></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2021-07-09T09:48:40.799Z" itemprop="dateUpdated">2021-07-09 17:48:40</time>
+</span>
+
+
+        
+        原文链接：<a href="/posts/737c58a6/" target="_blank" rel="external">https://cokesprit.gitee.io/posts/737c58a6/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='https://cokesprit.gitee.io'">
+            <img src="/img/avatar.jpg" alt="CokeSprit">
+            <a>CokeSprit</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E7%AC%94%E8%AE%B0/" rel="tag">js笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/737c58a6/&title=《javascript知识点》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/737c58a6/&title=《javascript知识点》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/737c58a6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript知识点》 — CokeSprit&url=https://cokesprit.gitee.io/posts/737c58a6/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/737c58a6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/8c52019/" id="post-prev" class="post-nav-link">
+        <h4 class="title" >
+          上一篇：javascript进阶
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/7abbf13b/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：Vue知识点">下一篇：Vue知识点</h4>
+      </a>
+    </div>
+  
+
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+    </script>
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2020
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="https://cokesprit.gitee.io">CokeSprit.top</a>
+        </span>
+
+        <br/>
+        <br/>
+        <!-- <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br/> -->
+
+        
+
+        <!-- 访问人数
+        <span>
+            
+
+        </span>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>
+          </span>
+        <br/> -->
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://cokesprit.gitee.io/posts/737c58a6/&title=《javascript知识点》 — CokeSprit&pic=https://cokesprit.gitee.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://cokesprit.gitee.io/posts/737c58a6/&title=《javascript知识点》 — CokeSprit&source=web端开发" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://cokesprit.gitee.io/posts/737c58a6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《javascript知识点》 — CokeSprit&url=https://cokesprit.gitee.io/posts/737c58a6/&via=https://cokesprit.gitee.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://cokesprit.gitee.io/posts/737c58a6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3aQY4CMQwEQP7/afa6EmzoTiYZVqqc0DAiFQ6W7fjxiNfz13p9/vrO6/O/fvOxY+Hi4i5zn8OVUMa45BiJARcX9zx3HGjad9oAVwQ7XFzcf8VNEpcL0iBcXNyv5LbBa0zHxcX9Zm5S/MwFo/EuG2s1XFzcBW7epdz3eUt/FxcXd4r7LNdKA7Rtkr75BVxc3CPcPKDkycf4eRvIcHFx7+K2hVBb6iRpU9JUxcXFPcMdU/JGan6w5NhRRoaLi7uZm5Qr6wNYbTP0zV64uLgHueMN8kZq23LNgyAuLu557lVDGCuhqih+cHFxj3DzgmSu+Mn3KuIuLi7uZm6eiKyHubkWLS4u7r3c9eCVFzNLxQ8uLu42bhuA5tBzxc+f7+Di4h7njqHtEEZ+0VLsi4uLe5w7l5Tka/1IuLi4J7lRY6Jsp65fx0ZnwsXFvZS7EobysmeugYKLi3sXN19FQ7P8Nh/FwMXFPcltU5y5a9T8EvfDP4qLi3uQOzda0Q5q5M2R+mtcXNxbuVclPXNNVVxc3O/krkDb5umHmx9cXNzN3HzQqh2kmEtuLrhkxcXFXeC2oSRvlyRtlHZUCxcXdzP3B0hnuWhUfHAWAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0" ></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0" ></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 600){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "CokeSprit");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 尽人事,听天命 %c  © Simon Ma  http://tomotoes.com \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+
+
+<!-- 不蒜子 -->
+
+
+</body>
+</html>
