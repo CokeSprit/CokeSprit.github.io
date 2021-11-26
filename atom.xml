@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://cokesprit.gitee.io/"/>
-  <updated>2021-07-09T09:53:05.833Z</updated>
+  <updated>2021-11-26T13:04:56.196Z</updated>
   <id>https://cokesprit.gitee.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随机生成n个不重复的数字</title>
+    <link href="https://cokesprit.gitee.io/posts/caa05966/"/>
+    <id>https://cokesprit.gitee.io/posts/caa05966/</id>
+    <published>2021-11-26T13:01:41.000Z</published>
+    <updated>2021-11-26T13:04:56.196Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sjsz</span>(<span class="params">num</span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> ary = []; <span class="comment">//创建一个空数组用来保存随机数组</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; num; i++) {</span><br><span class="line">    <span class="comment">//按照正常排序填充数组</span></span><br><span class="line">    ary[i] = i + <span class="number">1</span>;</span><br><span class="line">  }</span><br><span class="line">  ary.sort(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> - <span class="built_in">Math</span>.random(); <span class="comment">//返回随机正负值</span></span><br><span class="line">  });</span><br><span class="line">  <span class="built_in">console</span>.log(ary, <span class="string">"未排序"</span>);</span><br><span class="line">  <span class="keyword">return</span> ary; <span class="comment">//返回数组</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> sortedArry = sjsz(<span class="number">30</span>).sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br
+      
+    
+    </summary>
+    
+    
+    
+      <category term="js笔记" scheme="https://cokesprit.gitee.io/tags/js%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>TCPIP协议</title>
